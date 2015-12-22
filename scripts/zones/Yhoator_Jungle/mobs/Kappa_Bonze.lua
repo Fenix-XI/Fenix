@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Yhoator Jungle
---  MOB: Kappa Bonze
+-- NPC:  Kappa Bonze
 -- Involved in Quest: True will
 -----------------------------------
 
@@ -17,10 +17,10 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    if (ally:getQuestStatus(OUTLANDS,TRUE_WILL) == QUEST_ACCEPTED) then
-        ally:setVar("trueWillKilledNM",ally:getVar("trueWillKilledNM") + 1);
-    end
+	if (killer:getQuestStatus(OUTLANDS,TRUE_WILL) == QUEST_ACCEPTED) then
+		killer:setVar("trueWillKilledNM",killer:getVar("trueWillKilledNM") + 1);
+	end
 
 end;

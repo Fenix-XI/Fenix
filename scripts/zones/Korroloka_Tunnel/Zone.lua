@@ -20,9 +20,9 @@ function onInitialize(zone)
     SetGroundsTome(tomes);
     
     -- Waterfalls (RegionID, X, Radius, Z)
-    zone:registerRegion(1,   -87, 4, -105, 0,0,0); -- Left pool
-    zone:registerRegion(2,     -101, 7, -114, 0,0,0); -- Center Pool
-    zone:registerRegion(3,     -112, 3, -103, 0,0,0); -- Right Pool
+	zone:registerRegion(1,   -87, 4, -105, 0,0,0); -- Left pool
+	zone:registerRegion(2, 	-101, 7, -114, 0,0,0); -- Center Pool
+	zone:registerRegion(3, 	-112, 3, -103, 0,0,0); -- Right Pool
     
 end;
 
@@ -62,15 +62,15 @@ function onRegionEnter(player,region)
         {
             [1] = function (x)  -- Left Pool
                 player:messageSpecial(ENTERED_SPRING);
-                player:setLocalVar("POOL_TIME", os.time());
+                player:setVar("POOL_TIME", os.time());
             end,
             [2] = function (x)  -- Center Pool
                 player:messageSpecial(ENTERED_SPRING);
-                player:setLocalVar("POOL_TIME", os.time());
+                player:setVar("POOL_TIME", os.time());
             end,
             [3] = function (x)  -- Right pool
                 player:messageSpecial(ENTERED_SPRING);
-                player:setLocalVar("POOL_TIME", os.time());
+                player:setVar("POOL_TIME", os.time());
             end,
         }
     end
@@ -78,23 +78,30 @@ end;
     
 
 
------------------------------------        
--- OnRegionLeave        
------------------------------------        
+-----------------------------------		
+-- OnRegionLeave		
+-----------------------------------		
 
 function onRegionLeave(player,region)
 
-    local RegionID = region:GetRegionID();
-    local pooltime = (os.time() - player:getLocalVar("POOL_TIME"));
+	local RegionID = region:GetRegionID();
+	local pooltime = (os.time() - player:getVar("POOL_TIME"));
     
-    if(RegionID <= 3 and player:getVar("BathedInScent") == 1) then
+	if(RegionID <= 3 and player:getVar("BathedInScent") == 1) then
         if pooltime >= 300 then
-            player:messageSpecial(LEFT_SPRING_CLEAN);
-            player:setLocalVar("POOL_TIME", 0);
-            player:setVar("BathedInScent", 0);
+            if (player:getQuestStatus(OUTLANDS, PERSONAL_HYGIENE) == QUEST_ACCEPTED) then
+                player:messageSpecial(LEFT_SPRING_CLEAN);
+                player:setVar("POOL_TIME", 0);
+                player:setVar("BathedInScent", 0);
+                player:setVar("PERSONAL_HYGIENE_PROGRESS", 1);
+            else
+                player:messageSpecial(LEFT_SPRING_CLEAN);
+                player:setVar("POOL_TIME", 0);
+                player:setVar("BathedInScent", 0);
+            end
         else
             player:messageSpecial(LEFT_SPRING_EARLY);
-            player:setLocalVar("POOL_TIME", 0);
+            player:setVar("POOL_TIME", 0);
         end
     end
 end;

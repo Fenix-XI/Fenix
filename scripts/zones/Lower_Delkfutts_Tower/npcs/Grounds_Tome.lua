@@ -28,6 +28,49 @@ end;
 function onEventUpdate(player,csid,option)
     -- printf("CSID: %u",csid);
     -- printf("RESULT: %u",option);
+    updateGov(player,csid,option,777,778,779,780,781,781,781,781,781,781);
+end;
+
+-----------------------------------
+-- onEventFinish Action
+-----------------------------------
+
+function onEventFinish(player,csid,option)
+    -- printf("CSID: %u",csid);
+    -- printf("RESULT: %u",option);
+    finishGov(player,csid,option,777,778,779,780,781,781,781,781,781,781,GOV_MSG_LOWER_DELKFUTTS_TOWER);
+end;
+
+-----------------------------------
+-- Area: Lower Delkfutt's Tower
+-- NPC:  Grounds Tome
+-----------------------------------
+
+require("scripts/globals/settings");
+require("scripts/globals/groundsofvalor");
+
+-----------------------------------
+-- onTrade Action
+-----------------------------------
+
+function onTrade(player,npc,trade)
+end;
+
+-----------------------------------
+-- onTrigger Action
+-----------------------------------
+
+function onTrigger(player,npc)
+    startGov(GOV_EVENT_LOWER_DELKFUTTS_TOWER,player);
+end;
+
+-----------------------------------
+-- onEventSelection
+-----------------------------------
+
+function onEventUpdate(player,csid,option)
+    -- printf("CSID: %u",csid);
+    -- printf("RESULT: %u",option);
     updateGov(player,csid,option,777,778,779,780,781,0,0,0,0,0);
 end;
 

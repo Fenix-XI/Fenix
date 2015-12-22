@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: East Ronfaure [S]
---  MOB: Krabkatoa
+-- NPC:  Krabkatoa
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -16,6 +16,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    ally:addTitle(KRABKATOA_STEAMER);
+function onMobDeath(mob, killer)
+	killer:addTitle(KRABKATOA_STEAMER);
 end;

@@ -1,12 +1,12 @@
 -----------------------------------
 -- Area: Dynamis Xarcabard
 --  NM:  Dynamis_Lord
---
+-- 
 -- In OLD Dynamis, he is spawned by killing 15 Kindred NMs..
 -- ..NOT by killing Ying and Yang.
 --
 -- In Neo Dynamis, he is spawned by trading
--- a Shrouded Bijou to the ??? in front of Castle Zvahl.
+-- a Shrouded Bijou to the ??? in front of Castle Zvahl. 
 --
 -- Suggested method for old school Dyna: mask bits
 -- Duke Berith        bit 0
@@ -66,9 +66,13 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
+killer:addCurrency("bayld",7000);
+killer:PrintToPlayer( "You earned 7000 Bayld!");
     local npc = GetNPCByID(17330778); -- ID of the '???' target.
-    ally:addTitle(LIFTER_OF_SHADOWS);
+    killer:addTitle(LIFTER_OF_SHADOWS);
+			killer:addCurrency("bayld",10);
+		killer:PrintToPlayer( "You earned 10 Bayld!");
     npc:setPos(mob:getXPos(),mob:getYPos(),mob:getZPos());
     npc:setStatus(0); -- Spawn the '???'
 end;

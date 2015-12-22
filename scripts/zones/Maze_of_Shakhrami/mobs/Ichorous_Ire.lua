@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Maze of Shakhrami
---  MOB: Ichorous_Ire
+-- NPC:  Ichorous_Ire
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -16,6 +16,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    ally:addTitle(JELLYBANE);
+function onMobDeath(mob, killer)
+	killer:addTitle(JELLYBANE);
 end;

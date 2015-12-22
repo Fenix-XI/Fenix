@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Ghelsba outpost
---  MOB: Colo-colo
+-- NPC:  Colo-colo
 -- BCNM20
 -----------------------------------
 
@@ -17,8 +17,9 @@ end;
 -----------------------------------
 
 function onMobEngaged(mob,target)
-    GetMobByID(17350930):updateEnmity(target);
-    GetMobByID(17350931):updateEnmity(target);
+
+	GetMobByID(17350930):updateEnmity(target);
+	GetMobByID(17350931):updateEnmity(target);
 end;
 
 
@@ -26,5 +27,5 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 end;

@@ -1,19 +1,14 @@
 -----------------------------------
 -- Area: Waughroon Shrine
---  MOB: Da'Shu Knightslayer
+-- Mob:  Da'Shu Knightslayer
 -- BCNM mob in Bastok mission 7-2.
 -----------------------------------
 
 -----------------------------------
 -- onMobSpawn Action
 -----------------------------------
-
 function onMobSpawn(mob)
 end;
 
------------------------------------
--- onMobDeath Action
------------------------------------
-
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 end;

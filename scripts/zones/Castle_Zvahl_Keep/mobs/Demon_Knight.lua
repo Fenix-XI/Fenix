@@ -1,7 +1,6 @@
 -----------------------------------
--- Area: Castle Zvahl Keep (162)
---  MOB: Demon_Knight
--- Notes: PH for Count lolBifrons
+--  Area: Castle Zvahl Keep (162)
+--   Mob: Demon_Knight
 -----------------------------------
 
 require("scripts/zones/Castle_Zvahl_Keep/MobIDs");
@@ -10,18 +9,18 @@ require("scripts/zones/Castle_Zvahl_Keep/MobIDs");
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)	
 
-    local mobID = mob:getID();
+    mob = mob:getID();
     if (Count_Bifrons_PH[mob] ~= nil) then
 
-        local ToD = GetServerVariable("[POP]Count_Bifrons");
+        ToD = GetServerVariable("[POP]Count_Bifrons");
         if (ToD <= os.time(t) and GetMobAction(Count_Bifrons) == 0) then
-            if (math.random(1,10) == 5) then
+            if (math.random((1),(10)) == 5) then
                 UpdateNMSpawnPoint(Count_Bifrons);
-                GetMobByID(Count_Bifrons):setRespawnTime(GetMobRespawnTime(mobID));
-                SetServerVariable("[PH]Count_Bifrons", mobID);
-                DeterMob(mobID, true);
+                GetMobByID(Count_Bifrons):setRespawnTime(GetMobRespawnTime(mob));
+                SetServerVariable("[PH]Count_Bifrons", mob);
+                DeterMob(mob, true);
             end
         end
     end

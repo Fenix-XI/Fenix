@@ -1,6 +1,6 @@
 -----------------------------------
--- Area: Misareaux_Coast
---  MOB: Fomor Black mage
+-- mob : Fomor Black mage
+-- zone : Misareaux_Coast
 -----------------------------------
 
 -----------------------------------
@@ -11,13 +11,13 @@ function onMobSpawn(mob)
 end;
 
 -----------------------------------
--- onMobDeath Action
+-- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    local kills = ally:getVar("FOMOR_HATE");
+function onMobDeath(mob, killer)
 
-    if (kills < 60) then
-        ally:setVar("FOMOR_HATE",kills + 2);
-    end
+	local kills = killer:getVar("FOMOR_HATE");
+	if (kills < 60) then
+		killer:setVar("FOMOR_HATE",kills + 2);
+	end
 end;

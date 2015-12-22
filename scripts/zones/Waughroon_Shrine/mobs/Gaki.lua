@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Waughroon Shrine
---  MOB: Gaki
+-- NPC:  Gaki
 -- a Thief in Norg BCNM Fight
 -----------------------------------
 
@@ -15,5 +15,5 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 end;

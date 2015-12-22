@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Ghelsba outpost
---  MOB: Kilioa
+-- NPC:  Kilioa
 -- BCNM30
 -----------------------------------
 
@@ -17,7 +17,8 @@ end;
 -----------------------------------
 
 function onMobEngaged(mob,target)
-    GetMobByID(17350933):updateEnmity(target);
+
+	GetMobByID(17350933):updateEnmity(target);
 end;
 
 
@@ -25,5 +26,5 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 end;

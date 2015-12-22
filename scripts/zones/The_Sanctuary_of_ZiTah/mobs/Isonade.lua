@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: The Sanctuary of Zi'Tah
---  MOB: Isonade
+-- NPC:  Isonade
 -- Involved in Quest: The Sacred Katana
 -----------------------------------
 
@@ -17,10 +17,10 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 
-    if (ally:getQuestStatus(OUTLANDS,THE_SACRED_KATANA) == QUEST_ACCEPTED) then
-        ally:setVar("IsonadeKilled",1);
-    end
+	if (killer:getQuestStatus(OUTLANDS,THE_SACRED_KATANA) == QUEST_ACCEPTED) then
+		killer:setVar("IsonadeKilled",1);
+	end
 
 end;

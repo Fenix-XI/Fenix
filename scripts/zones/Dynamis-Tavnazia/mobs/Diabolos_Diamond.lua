@@ -1,11 +1,11 @@
 -----------------------------------
 -- Area:
---  MOB: Diabolos_Diamond
+-- NPC:  Diabolos_Diamond
+-----------------------------------
 -----------------------------------
 
 require("scripts/globals/titles");
 require("scripts/globals/keyitems");
-
 -----------------------------------
 -- onMobSpawn Action
 -----------------------------------
@@ -17,10 +17,12 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    if (ally:hasKeyItem(DYNAMIS_TAVNAZIA_SLIVER ) == false) then
-        ally:addKeyItem(DYNAMIS_TAVNAZIA_SLIVER);
-        ally:messageSpecial(KEYITEM_OBTAINED,DYNAMIS_TAVNAZIA_SLIVER);
-    end
-    ally:addTitle(NIGHTMARE_AWAKENER);
+function onMobDeath(mob, killer)
+     	if (killer:hasKeyItem(DYNAMIS_TAVNAZIA_SLIVER ) == false) then
+	    	killer:addKeyItem(DYNAMIS_TAVNAZIA_SLIVER);
+		    killer:messageSpecial(KEYITEM_OBTAINED,DYNAMIS_TAVNAZIA_SLIVER);
+		end
+	killer:addTitle(NIGHTMARE_AWAKENER);
+	killer:addCurrency("mweya_plasm",250);
+	killer:PrintToPlayer( "You earned 250 Mweya_Plasm!");
 end;

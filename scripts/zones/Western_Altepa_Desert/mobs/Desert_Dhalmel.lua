@@ -1,20 +1,20 @@
------------------------------------
--- Area: Western Altepa Desert
---  MOB: Desert Dhalmel
+-----------------------------------	
+-- Area: Western Altepa Desert	
+-- MOB:  Desert Dhalmel	
 -- Note: Place holder for Celphie
------------------------------------
-
-require("scripts/globals/fieldsofvalor");
+-----------------------------------	
+	
+require("scripts/globals/fieldsofvalor");	
 require("scripts/zones/Western_Altepa_Desert/MobIDs");
+	
+-----------------------------------	
+-- onMobDeath	
+-----------------------------------	
+	
+function onMobDeath(mob,killer)	
 
------------------------------------
--- onMobDeath
------------------------------------
-
-function onMobDeath(mob,killer,ally)
-
-    checkRegime(ally,mob,135,1);
-
+	checkRegime(killer,mob,135,1);
+  
     mob = mob:getID();
     if (Celphie_PH[mob] ~= nil) then
         ToD = GetServerVariable("[POP]Celphie");
@@ -27,5 +27,5 @@ function onMobDeath(mob,killer,ally)
             end
         end
     end
-
-end;
+  
+end;	

@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area:
---  MOB: Ouryu
+-- NPC:  Ouryu
+-----------------------------------
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -10,13 +11,7 @@ require("scripts/globals/titles");
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:SetMobSkillAttack(false); -- resetting so it doesn't respawn in flight mode.
-    mob:AnimationSub(0); -- subanim 0 is only used when it spawns until first flight.
 end;
-
------------------------------------
--- onMobFight Action
------------------------------------
 
 function onMobFight(mob,target)
 
@@ -51,15 +46,15 @@ function onMobFight(mob,target)
             mob:SetMobSkillAttack(true);
             mob:setLocalVar("changeTime", mob:getBattleTime());
         end
-    end
+	end
 end;
 
 -----------------------------------
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 
-    ally:addTitle(MIST_MELTER);
+	killer:addTitle(MIST_MELTER);
 
 end;

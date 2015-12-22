@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Sauromuge Champaign
---  MOB: Old Sabertooth
+-- NPC:  Old Sabertooth
 -- Involved in Quest: The Fanged One
 -- @pos 676 -10 -366 120
 -----------------------------------
@@ -19,6 +19,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    ally:setVar("TheFangedOne_Died",0);
+function onMobDeath(mob, killer)
+	killer:setVar("TheFangedOne_Died",0);
 end;

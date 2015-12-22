@@ -1,12 +1,13 @@
 -----------------------------------
 -- Area: Beadeaux
---  MOB: Copper Quadav
+-- NPC: Copper Quadav
 -- Involved in Mission 3-1 (Bastok)
 -----------------------------------
 package.loaded["scripts/zones/Beadeaux/TextIDs"] = nil;
 -----------------------------------
-require("scripts/zones/Beadeaux/TextIDs");
+
 require("scripts/globals/missions");
+require("scripts/zones/Beadeaux/TextIDs");
 
 -----------------------------------
 -- onMobSpawn Action
@@ -19,14 +20,14 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 
-    if (ally:getCurrentMission(BASTOK) == THE_FOUR_MUSKETEERS) then
-        local missionStatus = ally:getVar("MissionStatus");
+	if (killer:getCurrentMission(BASTOK) == THE_FOUR_MUSKETEERS) then
+		local missionStatus = killer:getVar("MissionStatus");
 
-        if (missionStatus > 1 and missionStatus < 22) then
-            ally:setVar("MissionStatus", missionStatus + 1)
-        end
-    end
+		if (missionStatus > 1 and missionStatus < 22) then
+			killer:setVar("MissionStatus", missionStatus + 1)
+		end
+	end
 
 end;

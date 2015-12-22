@@ -14,6 +14,7 @@ require("scripts/globals/missions");
 -----------------------------------
 
 function onTrigger(player,npc)
+
     local missionProgress = player:getVar("COP_Tenzen_s_Path")
     if (player:getCurrentMission(COP) == THREE_PATHS and missionProgress == 5) then    
         player:startEvent(0x0000);
@@ -22,7 +23,12 @@ function onTrigger(player,npc)
         player:messageSpecial(KEYITEM_OBTAINED,DELKFUTT_RECOGNITION_DEVICE);
     end
 
-end;
+ 
+ end;
+
+
+--end;
+
 
 -----------------------------------
 -- onTrade

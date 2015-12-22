@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Kuftal Tunnel
---  MOB: Goblin Mercenary
+-- MOB:  Goblin Mercenary
 -- Note: Place Holder for Bloodthirster Madkix
 -----------------------------------
 
@@ -10,9 +10,9 @@ require("scripts/zones/Kuftal_Tunnel/MobIDs");
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    checkGoVregime(ally,mob,740,2);
+    checkGoVregime(killer,mob,740,2);
 
     local mob = mob:getID();
     if (Bloodthirster_Madkix_PH[mob] ~= nil) then

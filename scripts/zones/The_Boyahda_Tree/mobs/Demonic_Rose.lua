@@ -1,23 +1,23 @@
 -----------------------------------
 -- Area: The Boyahda Tree
---  MOB: Demonic Rose
+-- Mob:  Demonic Rose
 -- Note: Placeholder V. Vivian
 -----------------------------------
 
 require("scripts/zones/The_Boyahda_Tree/MobIDs");
-
------------------------------------
--- onMobDeath
------------------------------------
-
-function onMobDeath(mob,killer,ally)
+	
+-----------------------------------	
+-- onMobDeath	
+-----------------------------------	
+	
+function onMobDeath(mob,killer)	
 
     -- Get Demonic Rose ID and check if it is a PH of Orctrap
-    local mobID = mob:getID();
+    local mob = mob:getID();
 
     -- Check if Demonic Rose is within the Voluptuous_Vivian_PH table
-    if (Voluptuous_Vivian_PH[mobID] ~= nil) then
-        -- printf("%u is a PH",mobID);
+    if (Voluptuous_Vivian_PH[mob] ~= nil) then
+        -- printf("%u is a PH",mob);
         -- Get Demonic Rose previous ToD
         local Voluptuous_Vivian_ToD = GetServerVariable("[POP]Voluptuous_Vivian");
 
@@ -29,11 +29,11 @@ function onMobDeath(mob,killer,ally)
             if (math.random(1,10) == 5) then
                 -- printf("Voluptuous Vivian will pop");
                 UpdateNMSpawnPoint(Voluptuous_Vivian);
-                GetMobByID(Voluptuous_Vivian):setRespawnTime(GetMobRespawnTime(mobID));
-                SetServerVariable("[PH]Voluptuous_Vivian", mobID);
-                DeterMob(mobID, true);
+                GetMobByID(Voluptuous_Vivian):setRespawnTime(GetMobRespawnTime(mob));
+                SetServerVariable("[PH]Voluptuous_Vivian", mob);
+                DeterMob(mob, true);
             end
         end
     end
 
-end;
+end;	

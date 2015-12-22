@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Waughroon Shrine
---  MOB: Titanis_Xax
+-- NPC:  Titanis_Xax
 -----------------------------------
 
 -----------------------------------
@@ -14,5 +14,5 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 end;

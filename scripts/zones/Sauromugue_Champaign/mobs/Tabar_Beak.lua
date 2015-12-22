@@ -1,18 +1,18 @@
------------------------------------
--- Area: Sauromugue Champaign
---  MOB: Tabar Beak
------------------------------------
-
-require("scripts/globals/fieldsofvalor");
+-----------------------------------	
+-- Area: Sauromugue Champaign	
+-- MOB:  Tabar Beak	
+-----------------------------------	
+	
+require("scripts/globals/fieldsofvalor");	
 require("scripts/zones/Sauromugue_Champaign/MobIDs");
+	
+-----------------------------------	
+-- onMobDeath	
+-----------------------------------	
+	
+function onMobDeath(mob,killer)	
 
------------------------------------
--- onMobDeath
------------------------------------
-
-function onMobDeath(mob,killer,ally)
-
-    checkRegime(ally,mob,100,1);
+    checkRegime(killer,mob,100,1);
 
     mob = mob:getID();
     if (Deadly_Dodo_PH[mob] ~= nil) then
@@ -27,5 +27,5 @@ function onMobDeath(mob,killer,ally)
             end
         end
     end
-
-end;
+  
+end;	

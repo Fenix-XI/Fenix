@@ -1,6 +1,6 @@
 -----------------------------------
--- Area: Korroloka Tunnel (173)
---  Mob: Clipper
+--  Area: Korroloka Tunnel (173)
+--   Mob: Clipper
 -----------------------------------
 
 -- require("scripts/zones/Korroloka_Tunnel/MobIDs");
@@ -9,9 +9,9 @@
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    checkGoVregime(ally,mob,731,1);
+    checkGoVregime(killer,mob,731,1);
 
     mob = mob:getID();
     if (Cargo_Crab_Colin_PH[mob] ~= nil) then

@@ -14,11 +14,12 @@ require("scripts/zones/Lufaise_Meadows/TextIDs");
 
 function onTrade(player,npc,trade)
 
-    if (trade:hasItemQty(5210,1) and trade:getItemCount() == 1) then -- Adamantoise Soup 
-        player:tradeComplete();
-        SpawnMob(16875778,120):updateClaim(player); -- Kurrea
-        npc:setStatus(STATUS_DISAPPEAR);
-    end
+	if (trade:hasItemQty(5210,1) and trade:getItemCount() == 1) then -- Adamantoise Soup 
+		player:tradeComplete();
+		SpawnMob(16875778,120):updateClaim(player); -- Kurrea
+	end
+
+
 end; 
 
 -----------------------------------
@@ -26,5 +27,5 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-    player:messageSpecial(NOTHING_OUT_OF_THE_ORDINARY);
+	player:messageSpecial(NOTHING_OUT_OF_THE_ORDINARY);
 end;

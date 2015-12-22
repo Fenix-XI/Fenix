@@ -28,7 +28,7 @@ end;
 function onEventUpdate(player,csid,option)
     -- printf("CSID: %u",csid);
     -- printf("RESULT: %u",option);
-    updateGov(player,csid,option,631,632,633,634,635,636,637,638,0,0);
+    updateGov(player,csid,option,631,632,633,634,635,636,637,638,638,638);
 end;
 
 -----------------------------------
@@ -38,5 +38,5 @@ end;
 function onEventFinish(player,csid,option)
     -- printf("CSID: %u",csid);
     -- printf("RESULT: %u",option);
-    finishGov(player,csid,option,631,632,633,634,635,636,637,638,0,0,GOV_MSG_KING_RANPERRES_TOMB);
+    finishGov(player,csid,option,631,632,633,634,635,636,637,638,638,638,GOV_MSG_KING_RANPERRES_TOMB);
 end;

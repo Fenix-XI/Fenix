@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Ifrit's Cauldron
---  MOB: Magma
+-- NPC:  Magma
 -----------------------------------
 
 -----------------------------------
@@ -14,13 +14,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-end;
-
------------------------------------
--- onMobDespawn
------------------------------------
-
-function onMobDespawn(mob)
-    GetNPCByID(17617214):updateNPCHideTime(FORCE_SPAWN_QM_RESET_TIME);
+function onMobDeath(mob, killer)
+	GetNPCByID(17617214):hideNPC(900); -- 15min, qm4 in npc_list
 end;

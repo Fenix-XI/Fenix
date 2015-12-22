@@ -7,11 +7,11 @@
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    checkGoVregime(ally,mob,771,2);
-    checkGoVregime(ally,mob,772,2);
-    checkGoVregime(ally,mob,774,2);
+    checkGoVregime(killer,mob,771,2);
+    checkGoVregime(killer,mob,772,2);
+    checkGoVregime(killer,mob,774,2);
 
     -- Set Soulstealer_Skullnix's Window Open Time
     local wait = math.random((7200),(10800))

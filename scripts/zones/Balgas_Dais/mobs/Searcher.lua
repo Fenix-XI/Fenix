@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Balga's Dais
---  MOB: Searcher
+-- NPC:  Searcher
 -- Mission 2-3 BCNM Fight
 -----------------------------------
 
@@ -15,5 +15,5 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 end;

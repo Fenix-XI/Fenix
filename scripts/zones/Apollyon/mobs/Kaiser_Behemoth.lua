@@ -6,7 +6,6 @@
 package.loaded["scripts/zones/Apollyon/TextIDs"] = nil;
 -----------------------------------
 
-require("scripts/globals/status");
 require("scripts/zones/Apollyon/TextIDs");
 
 -----------------------------------
@@ -49,10 +48,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
-      local mobX = mob:getXPos();
-    local mobY = mob:getYPos();
-    local mobZ = mob:getZPos();
+function onMobDeath(mob,killer)
+  	local mobX = mob:getXPos();
+	local mobY = mob:getYPos();
+	local mobZ = mob:getZPos();
     GetNPCByID(16932864+111):setPos(mobX,mobY,mobZ);
-    GetNPCByID(16932864+111):setStatus(STATUS_NORMAL);
+	GetNPCByID(16932864+111):setStatus(STATUS_NORMAL);
 end;

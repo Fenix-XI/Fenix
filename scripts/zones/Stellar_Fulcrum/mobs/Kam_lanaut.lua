@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Stellar Fulcrum
---  MOB: Kam'lanaut
+-- NPC:  Kam'lanaut
 -- Zilart Mission 8 BCNM Fight
 -----------------------------------
 
@@ -16,10 +16,6 @@ local blades = {567, 570, 572, 569, 568, 571};
 
 function onMobSpawn(mob)
 end;
-
------------------------------------
--- onMobFight Action
------------------------------------
 
 function onMobFight(mob, target)
 
@@ -49,6 +45,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
-    ally:addTitle(DESTROYER_OF_ANTIQUITY);
+function onMobDeath(mob,killer)
+	killer:addTitle(DESTROYER_OF_ANTIQUITY);
 end;

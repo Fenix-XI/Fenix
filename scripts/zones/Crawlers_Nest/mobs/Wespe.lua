@@ -9,9 +9,9 @@ require("scripts/zones/Crawlers_Nest/MobIDs");
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    checkGoVregime(ally,mob,691,2);
+    checkGoVregime(killer,mob,691,2);
 
     local mob = mob:getID();
     if (Demonic_Tiphia_PH[mob] ~= nil) then

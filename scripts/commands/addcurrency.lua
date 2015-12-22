@@ -5,7 +5,7 @@
 
 cmdprops =
 {
-    permission = 1,
+    permission = 1, -- this is the GM level that has access to this @command... so we can go through and cull 
     parameters = "sis"
 };
 

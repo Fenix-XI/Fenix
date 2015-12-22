@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Kuftal Tunnel
---  MOB: Sabotender Sediendo
+-- MOB:  Sabotender Sediendo
 -- Note: Place Holder for Sabotender Mariachi
 -----------------------------------
 
@@ -10,9 +10,9 @@ require("scripts/zones/Kuftal_Tunnel/MobIDs");
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    checkGoVregime(ally,mob,738,2);
+    checkGoVregime(killer,mob,738,2);
 
     local mob = mob:getID();
     if (Sabotender_Mariachi_PH[mob] ~= nil) then

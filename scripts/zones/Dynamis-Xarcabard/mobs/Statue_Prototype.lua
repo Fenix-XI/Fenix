@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Dynamis Xarcabard
---  MOB: Statue Prototype
+-- NPC:  Statue Prototype
 -----------------------------------
 package.loaded["scripts/zones/Dynamis-Xarcabard/TextIDs"] = nil;
 -----------------------------------
@@ -34,17 +34,19 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
-    
-    local mobID = mob:getID();
-    
-    -- Time Bonus: 143 150
-    if (mobID == 17330912 and mob:isInBattlefieldList() == false) then
-        ally:addTimeToDynamis(30);
-        mob:addInBattlefieldList();
-    elseif (mobID == 17330919 and mob:isInBattlefieldList() == false) then
-        ally:addTimeToDynamis(30);
-        mob:addInBattlefieldList();
-    end
-    
+function onMobDeath(mob,killer)
+killer:addCurrency("bayld",10);
+killer:PrintToPlayer( "You earned 10 Bayld!");
+	
+	local mobID = mob:getID();
+	
+	-- Time Bonus: 143 150
+	if (mobID == 17330912 and mob:isInBattlefieldList() == false) then
+		killer:addTimeToDynamis(30);
+		mob:addInBattlefieldList();
+	elseif (mobID == 17330919 and mob:isInBattlefieldList() == false) then
+		killer:addTimeToDynamis(30);
+		mob:addInBattlefieldList();
+	end
+	
 end;

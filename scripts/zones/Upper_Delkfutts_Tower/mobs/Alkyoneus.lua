@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Upper Delkfutt's Tower
---  MOB: Alkyoneus
+-- NPC:  Alkyoneus
 -----------------------------------
 
 -----------------------------------
@@ -14,13 +14,6 @@ end;
 -- OnMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
-end;
-
------------------------------------
--- onMobDespawn
------------------------------------
-
-function onMobDespawn(mob)
-    GetNPCByID(17424518):updateNPCHideTime(FORCE_SPAWN_QM_RESET_TIME);
+function onMobDeath(mob,killer)
+	GetNPCByID(17424518):hideNPC(900); -- qm1 in npc_list
 end;

@@ -1,19 +1,14 @@
 -----------------------------------
 -- Area: Waughroon Shrine
---  MOB: Go'Bha Slaughterer
+-- NPC:  Go'Bha Slaughterer
 -----------------------------------
 
 -----------------------------------
 -- onMobSpawn Action
 -----------------------------------
-
 function onMobSpawn(mob)
-    --print(mob:getName());
+	--print(mob:getName());
 end;
 
------------------------------------
--- onMobDeath Action
------------------------------------
-
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 end;

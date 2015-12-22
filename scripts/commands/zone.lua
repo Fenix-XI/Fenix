@@ -5,7 +5,7 @@
 
 cmdprops =
 {
-    permission = 1,
+    permission = 2,
     parameters = "s"
 };
 
@@ -272,7 +272,6 @@ local zone_list =
     { 0x27, 0x5A, 280 }, -- Mog Garden
     { 0x27, 0x59, 284 }, -- Celennia Memorial Library
     { 0x27, 0x5B, 285 }, -- Feretory
-    { 0x14, 0x09, 288 }, -- Escha - Zi'Tah
 };
 
 ---------------------------------------------------------------------------------------------------

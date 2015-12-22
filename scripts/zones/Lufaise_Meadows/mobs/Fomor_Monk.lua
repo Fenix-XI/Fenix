@@ -1,7 +1,10 @@
+
 -----------------------------------
--- Area: Lufaise_Meadows
---  MOB: Fomor Monk
+-- mob : Fomor Monk
+-- zone : Lufaise_Meadows
 -----------------------------------
+
+
 
 
 -----------------------------------
@@ -15,10 +18,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    local ills = ally:getVar("FOMOR_HATE");
+function onMobDeath(mob, killer)
 
-    if (kills < 60) then
-        ally:setVar("FOMOR_HATE",kills + 2);
-    end
+	local ills = killer:getVar("FOMOR_HATE");
+	if (kills < 60) then
+		killer:setVar("FOMOR_HATE",kills + 2);
+	end
 end;

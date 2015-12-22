@@ -1,9 +1,8 @@
 -----------------------------------
 -- Area: Ru'Aun Gardens
---  NM:  Suzaku
+--  NPC: Suzaku
 -----------------------------------
-package.loaded["scripts/zones/RuAun_Gardens/TextIDs"] = nil;
------------------------------------
+
 require("scripts/zones/RuAun_Gardens/TextIDs");
 require("scripts/globals/status");
 
@@ -23,8 +22,15 @@ function onMobSpawn(mob)
 end;
 
 -----------------------------------
--- onMonsterMagicPrepare Action
+-- onMobDeath
 -----------------------------------
+
+function onMobDeath(mob, killer)
+killer:addCurrency("bayld",500);
+killer:PrintToPlayer( "You earned 500 Bayld!");
+    killer:showText(mob,SKY_GOD_OFFSET + 8);
+    GetNPCByID(17310050):hideNPC(120);
+end;
 
 -- Return the selected spell ID.
 function onMonsterMagicPrepare(mob, target)
@@ -48,31 +54,18 @@ end;
 -----------------------------------
 
 function onAdditionalEffect(mob, target, damage)
-    local dmg = math.random(110,130)
+    local LV_diff = target:getMainLvl() - mob:getMainLvl();
+    local INT_diff = mob:getStat(MOD_INT) - target:getStat(MOD_INT);
+    local ranDmgMod = math.random(0,15)
+    local dmg = INT_diff+LV_diff+ranDmgMod;
     local params = {};
     params.bonusmab = 0;
     params.includemab = false;
-
+    
     dmg = addBonusesAbility(mob, ELE_FIRE, target, dmg, params);
     dmg = dmg * applyResistanceAddEffect(mob,target,ELE_FIRE,0);
     dmg = adjustForTarget(target,dmg,ELE_FIRE);
     dmg = finalMagicNonSpellAdjustments(mob,target,ELE_FIRE,dmg);
 
     return SUBEFFECT_FIRE_DAMAGE, MSGBASIC_ADD_EFFECT_DMG, dmg;
-end;
-
------------------------------------
--- onMobDeath
------------------------------------
-
-function onMobDeath(mob, killer, ally)
-    ally:showText(mob,SKY_GOD_OFFSET + 8);
-end;
-
------------------------------------
--- onMobDespawn
------------------------------------
-
-function onMobDespawn(mob)
-    GetNPCByID(17310051):updateNPCHideTime(FORCE_SPAWN_QM_RESET_TIME);
 end;

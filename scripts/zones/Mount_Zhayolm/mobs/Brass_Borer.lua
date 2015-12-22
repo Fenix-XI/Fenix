@@ -11,7 +11,7 @@ require("scripts/globals/status");
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setLocalVar("formTime", os.time() + math.random(43,47));
+	mob:setLocalVar("formTime", os.time() + math.random(43,47));
 end;
 
 -----------------------------------
@@ -46,4 +46,10 @@ function onMobFight(mob,target)
 end;
 
 function onMobDeath(mob)
+	killer:addCurrency("dominion_note",50);
+	killer:PrintToPlayer( "You earned 50 Dominion Notes!");
+
+
+
 end;
+

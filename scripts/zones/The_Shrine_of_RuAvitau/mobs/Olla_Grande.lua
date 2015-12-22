@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: The Shrine of Ru'Avitau
---  MOB: Olla Grande
+-- NPC:  Olla Grande
 -----------------------------------
 
 -----------------------------------
@@ -14,13 +14,8 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-end;
-
------------------------------------
--- onMobDespawn
------------------------------------
-
-function onMobDespawn(mob)
-    GetNPCByID(17506692):updateNPCHideTime(FORCE_SPAWN_QM_RESET_TIME);
+function onMobDeath(mob, killer)
+	GetNPCByID(17506692):hideNPC(300);
+			killer:addCurrency("bayld",100);
+	killer:PrintToPlayer( "You earned 100 Bayld!");
 end;

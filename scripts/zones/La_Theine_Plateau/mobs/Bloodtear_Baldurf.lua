@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: La Theine Plateau
---  MOB: Bloodtear_Baldurf
+-- NPC:  Bloodtear_Baldurf
 -----------------------------------
 
 require("scripts/globals/fieldsofvalor");
@@ -17,6 +17,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    ally:addTitle(THE_HORNSPLITTER);
+function onMobDeath(mob, killer)
+	killer:addTitle(THE_HORNSPLITTER);
 end;

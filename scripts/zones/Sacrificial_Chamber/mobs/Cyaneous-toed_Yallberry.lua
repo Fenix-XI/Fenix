@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Sacrificial Chamber
---  MOB: Cyaneous-toed_Yallberry
+-- NPC:  Cyaneous-toed_Yallberry
 -- BCNM: Jungle Boogymen
 -----------------------------------
 
@@ -22,12 +22,12 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    local kills = ally:getVar("EVERYONES_GRUDGE_KILLS");
+	local kills = killer:getVar("EVERYONES_GRUDGE_KILLS");
 
-    if (kills < 480) then
-        ally:setVar("EVERYONES_GRUDGE_KILLS",kills + 1);
-    end
+	if (kills < 480) then
+		killer:setVar("EVERYONES_GRUDGE_KILLS",kills + 1);
+	end
 
 end;

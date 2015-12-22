@@ -1,12 +1,11 @@
 -----------------------------------
 -- Area: Empyreal Paradox
---  MOB: Promathia (phase 2)
+-- NPC:  Promathia (phase 2)
 -----------------------------------
-package.loaded["scripts/zones/Empyreal_Paradox/TextIDs"] = nil;
------------------------------------
-require("scripts/zones/Empyreal_Paradox/TextIDs");
-require("scripts/globals/status");
+
 require("scripts/globals/titles");
+require("scripts/globals/status");
+require("scripts/zones/Empyreal_Paradox/TextIDs");
 
 -----------------------------------
 -- onMobInitialize Action
@@ -16,6 +15,18 @@ function onMobInitialize(mob)
     mob:addMod(MOD_REGAIN, 50);
     mob:addMod(MOD_UFASTCAST,50);
 end;
+
+------------------------------------
+-- onMagicCastingCheck 
+------------------------------------
+function onMagicCastingCheck(mob, target, spell)
+    if math.random() > 0.75 then
+        return 219;
+    else
+        return 218;
+    end
+end;
+
 
 -----------------------------------
 -- onMobEngaged Action
@@ -40,7 +51,7 @@ end;
 -- onMobFight Action
 -----------------------------------
 
-function onMobFight(mob,target)
+function onMobFight(mob,target) 
     if (mob:AnimationSub() == 3 and not mob:hasStatusEffect(EFFECT_STUN)) then
         mob:AnimationSub(0);
         mob:stun(1500);
@@ -49,7 +60,7 @@ function onMobFight(mob,target)
     elseif (mob:AnimationSub() == 1 and not mob:hasStatusEffect(EFFECT_PHYSICAL_SHIELD)) then
         mob:AnimationSub(0);
     end
-
+    
     local bcnmAllies = mob:getBattlefield():getAllies();
     for i,v in pairs(bcnmAllies) do
         if not v:getTarget() then
@@ -58,9 +69,12 @@ function onMobFight(mob,target)
     end
 end;
 
-------------------------------------
--- onSpellPrecast
-------------------------------------
+-----------------------------------
+-- onMobDeath
+-----------------------------------
+
+function onMobDeath(mob, killer)
+end;
 
 function onSpellPrecast(mob, spell)
     if (spell:getID() == 218) then
@@ -74,21 +88,3 @@ function onSpellPrecast(mob, spell)
     end
 end;
 
-------------------------------------
--- onMagicCastingCheck
-------------------------------------
-
-function onMagicCastingCheck(mob, target, spell)
-    if math.random() > 0.75 then
-        return 219;
-    else
-        return 218;
-    end
-end;
-
------------------------------------
--- onMobDeath
------------------------------------
-
-function onMobDeath(mob, killer, ally)
-end;

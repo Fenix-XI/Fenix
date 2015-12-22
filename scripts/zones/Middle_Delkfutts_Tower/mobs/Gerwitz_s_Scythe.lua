@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Middle Delfutt's Tower
---  MOB: Gerwitz's Scythe
+-- NPC:  Gerwitz's Scythe
 -- Involved In Quest: Blade of Evil
 -----------------------------------
 
@@ -17,10 +17,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    if (ally:getQuestStatus(BASTOK,BLADE_OF_EVIL) == QUEST_ACCEPTED) then
-        ally:setVar("bladeOfEvilCS",1);
-    end
+	if (killer:getQuestStatus(BASTOK,BLADE_OF_EVIL) == QUEST_ACCEPTED) then
+		killer:setVar("bladeOfEvilCS",1);
+	end
 
 end;

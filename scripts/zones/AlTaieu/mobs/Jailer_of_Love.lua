@@ -5,6 +5,10 @@
 
 require("scripts/globals/status");
 require("scripts/globals/magic");
+require("scripts/globals/settings");
+require("scripts/globals/shop");
+require("scripts/globals/quests");
+require("scripts/zones/Altaieu/TextIDs");
 
 -----------------------------------
 -- onMobSpawn Action
@@ -127,7 +131,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
+killer:addCurrency("mweya_plasm",350);
+killer:PrintToPlayer( "You earned 350 Mweya_Plasm!");
+--player:PrintToPlayer( "You earned 350 Mweya_Plasm!");
     local AV_CHANCE = 25;
     if (AV_CHANCE > math.random(0,99)) then
         SpawnMob(16912876, 180);

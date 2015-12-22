@@ -11,9 +11,9 @@ cmdprops =
 };
 
 function onTrigger(player)
-    local targ = player:getCursorTarget();
+    local targ = player:getTargetID();
     if (targ ~= nil) then
-        player:PrintToPlayer(string.format("Selected Target's ID is: %u ", targ:getID()));
+        player:PrintToPlayer(string.format("Selected Target's ID is: %u ", targ));
     else
         player:PrintToPlayer("Must select a target using in game cursor first.");
     end

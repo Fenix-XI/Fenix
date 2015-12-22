@@ -1,16 +1,16 @@
------------------------------------
--- Area: Bhaflau Thickets
---  MOB: Marid
+-----------------------------------	
+-- Area: Bhaflau Thickets	
+-- MOB:  Marid
 -- Note: Place holder Mahishasura
------------------------------------
+-----------------------------------	
 
 require("scripts/zones/Bhaflau_Thickets/MobIDs");
-
------------------------------------
--- onMobDeath
------------------------------------
-
-function onMobDeath(mob,killer,ally)
+	
+-----------------------------------	
+-- onMobDeath	
+-----------------------------------	
+	
+function onMobDeath(mob,killer)	
 
     -- Get Marid ID and check if it is a PH of Mahishasura
     mob = mob:getID();
@@ -36,4 +36,4 @@ function onMobDeath(mob,killer,ally)
         end
     end
 
-end;
+end;	

@@ -14,13 +14,12 @@ require("scripts/zones/Promyvion-Vahzl/TextIDs");
 -----------------------------------
 
 function onTrade(player,npc,trade)
-    
-    if (trade:hasItemQty(1757,1) and trade:getItemCount() == 1) then -- Coveter Remnant
-        player:tradeComplete();
-        player:messageSpecial(ON_NM_SPAWN);
-        SpawnMob(16867544,180):updateClaim(player); -- Spawn Wailer
-        npc:setStatus(STATUS_DISAPPEAR);
-    end
+	
+	if (trade:hasItemQty(1757,1) and trade:getItemCount() == 1) then -- Coveter Remnant
+		player:tradeComplete();
+		player:messageSpecial(ON_NM_SPAWN);
+		SpawnMob(16867544,180):updateClaim(player); -- Spawn Wailer
+	end
 
 end;
 
@@ -29,5 +28,5 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-    player:messageSpecial(POPPED_NM_OFFSET+1);
+	player:messageSpecial(POPPED_NM_OFFSET+1);
 end;

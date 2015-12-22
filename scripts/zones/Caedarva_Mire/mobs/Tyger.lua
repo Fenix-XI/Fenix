@@ -1,26 +1,35 @@
 -----------------------------------
--- Area: Caedarva Mire
---  MOB: Tyger
--- @pos -766 -12 632
--- Spawn with Singed Buffalo: @additem 2593
+-- Area: Wajaom Woodlands
+-- NPC:  Iriz Irma
+
+-- @pos 
 -----------------------------------
 
-require("scripts/globals/status");
+require("scripts/globals/titles");
 
 -----------------------------------
 -- onMobSpawn Action
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(MOD_SLEEPRES,30);
-    mob:addMod(MOD_BINDRES,30);
-    mob:addMod(MOD_GRAVITYRES,30);
-    mob:addMod(MOD_ATT, 200);
 end;
+
+function onMobFight(mob, target)
+
+	
+
+end;
+
+
 
 -----------------------------------
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
+
+	
+	killer:addCurrency("dominion_note",200);
+	killer:PrintToPlayer( "You earned 200 Dominion Notes!");
+
 end;

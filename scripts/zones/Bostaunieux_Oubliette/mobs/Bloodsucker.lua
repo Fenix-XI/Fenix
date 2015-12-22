@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Bostaunieux Oubliette (167)
---  MOB: Bloodsucker (NM)
+-- Mob:  Bloodsucker (NM)
 -- @pos -21.776 16.983 -231.477 167
 -----------------------------------
 
@@ -10,9 +10,9 @@ require("scripts/globals/groundsofvalor");
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    checkGoVregime(ally,mob,613,1);
+   checkGoVregime(killer,mob,613,1);
 
    local mobID = mob:getID();
 

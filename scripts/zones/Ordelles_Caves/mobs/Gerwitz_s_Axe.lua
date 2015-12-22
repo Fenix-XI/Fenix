@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Ordelles Caves
---  MOB: Gerwitz's Axe
+-- NPC:  Gerwitz's Axe
 -- Involved In Quest: Dark Puppet
 -- @pos -51 0.1 3 193
 -----------------------------------
@@ -18,10 +18,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    if (ally:getVar("darkPuppetCS") >= 2) then
-        ally:setVar("darkPuppetCS",3);
-    end
+	if (killer:getVar("darkPuppetCS") >= 2) then
+		killer:setVar("darkPuppetCS",3);
+	end
 
 end;

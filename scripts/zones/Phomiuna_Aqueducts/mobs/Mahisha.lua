@@ -1,6 +1,6 @@
 -----------------------------------
--- Area: Phomiuna_Aqueducts
---  MOB: Fomor Mahisha
+-- mob : Fomor Mahisha
+-- zone : Phomiuna_Aqueducts
 -----------------------------------
 
 -----------------------------------
@@ -14,10 +14,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    local kills = ally:getVar("FOMOR_HATE");
+function onMobDeath(mob, killer)
 
-    if (kills > 0) then
-        ally:setVar("FOMOR_HATE",kills -1);
-    end
+	local kills = killer:getVar("FOMOR_HATE");
+	if (kills > 1) then
+		killer:setVar("FOMOR_HATE",kills -2);
+	end
 end;

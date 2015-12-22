@@ -5,11 +5,12 @@
 -----------------------------------
 package.loaded["scripts/zones/Windurst_Waters/TextIDs"] = nil;
 -----------------------------------
-require("scripts/zones/Windurst_Waters/TextIDs");
+
 require("scripts/globals/events/harvest_festivals");
-require("scripts/globals/missions");
-require("scripts/globals/settings");
 require("scripts/globals/zone");
+require("scripts/globals/settings");
+require("scripts/globals/missions");
+require("scripts/zones/Windurst_Waters/TextIDs");
 
 -----------------------------------
 -- onInitialize
@@ -28,29 +29,27 @@ end;
 
 function onZoneIn(player,prevZone)
     local cs = -1;
-
     -- FIRST LOGIN (START CS)
     if (player:getPlaytime(false) == 0) then
         if (OPENING_CUTSCENE_ENABLE == 1) then
-            cs = 531;
+            cs = 0x213;
         end
         player:setPos(-40,-5,80,64);
         player:setHomePoint();
     end
-
     -- MOG HOUSE EXIT
     if (player:getXPos() == 0 and player:getYPos() == 0 and player:getZPos() == 0) then
         position = math.random(1,5) + 157;
         player:setPos(position,-5,-62,192);
         if (player:getMainJob() ~= player:getVar("PlayerMainJob")) then
-            cs = 30004;
+            cs = 0x7534;
         end
         player:setVar("PlayerMainJob",0);
     end
 
     if (player:getCurrentMission(COP) == THE_ROAD_FORKS and player:getVar("MEMORIES_OF_A_MAIDEN_Status") == 1) then -- COP MEMORIES_OF_A_MAIDEN--3-3B: Windurst Route
         player:setVar("MEMORIES_OF_A_MAIDEN_Status",2);
-        cs = 871;
+        cs = 0x0367;
     end
 
     return cs;
@@ -102,14 +101,14 @@ end;
 function onEventFinish(player,csid,option)
     -- printf("CSID: %u",csid);
     -- printf("RESULT: %u",option);
-    if (csid == 531) then
-        player:messageSpecial(ITEM_OBTAINED, 536);
-    elseif (csid == 30004 and option == 0) then
+    if (csid == 0x213) then
+        player:messageSpecial(ITEM_OBTAINED,0x218);
+    elseif (csid == 0x7534 and option == 0) then
         player:setHomePoint();
         player:messageSpecial(HOMEPOINT_SET);
-    elseif (csid == 146) then -- Returned from Giddeus, Windurst 1-3
-        player:setVar("MissionStatus", 3);
-        player:setVar("ghoo_talk", 0);
-        player:setVar("laa_talk", 0);
+    elseif (csid == 0x0092) then -- Returned from Giddeus, Windurst 1-3
+        player:setVar("MissionStatus",3);
+        player:setVar("ghoo_talk",0);
+        player:setVar("laa_talk",0);
     end
 end;

@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Garlaige Citadel (200)
---  NM:  Serket
+-- NPC:  Serket
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -16,12 +16,12 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 
-    ally:addTitle(SERKET_BREAKER);
+    killer:addTitle(SERKET_BREAKER);
 
     -- Set Serket's spawnpoint and respawn time (21-24 hours)
     UpdateNMSpawnPoint(mob:getID());
-    mob:setRespawnTime(math.random(75600,86400));
+    mob:setRespawnTime(math.random((75600),(86400)));
 
 end;

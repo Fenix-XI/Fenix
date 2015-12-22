@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Balga's Dais
---  MOB: Wyrm
+-- NPC:  Wyrm
 -- KSNM99
 -----------------------------------
 
@@ -15,5 +15,5 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 end;

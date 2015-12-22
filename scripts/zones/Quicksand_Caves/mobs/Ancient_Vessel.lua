@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Quicksand Caves
---  MOB: Ancient Vessel
+-- NPC:  Ancient Vessel
 -- Mithra and the Crystal (Zilart 12) Fight
 -----------------------------------
 
@@ -17,11 +17,14 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    if (ally:getCurrentMission(ZILART) == THE_MITHRA_AND_THE_CRYSTAL and ally:getVar("ZilartStatus") == 1) then
-        ally:needToZone(true);
-        ally:setVar("AncientVesselKilled",1);
-    end
+	killer:addCurrency("bayld",50);
+		killer:PrintToPlayer( "You earned 50 Bayld!");
+		
+	if (killer:getCurrentMission(ZILART) == THE_MITHRA_AND_THE_CRYSTAL and killer:getVar("ZilartStatus") == 1) then
+		killer:needToZone(true);
+		killer:setVar("AncientVesselKilled",1);
+	end
 
 end;

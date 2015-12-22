@@ -20,9 +20,9 @@ function onInitialize(zone)
     SetFieldManual(manuals);
 end;
 
------------------------------------
--- onConquestUpdate
------------------------------------
+-----------------------------------		
+-- onConquestUpdate		
+-----------------------------------		
 
 function onConquestUpdate(zone, updatetype)
     local players = zone:getPlayers();
@@ -32,79 +32,59 @@ function onConquestUpdate(zone, updatetype)
     end
 end;
 
------------------------------------
--- onZoneIn
------------------------------------
+-----------------------------------		
+-- onZoneIn		
+-----------------------------------		
 
-function onZoneIn(player,prevZone)
-    local cs = -1;
-    if ((player:getXPos() == 0) and (player:getYPos() == 0) and (player:getZPos() == 0)) then
-        player:setPos(-0.008,-33.595,123.478,62);
-    end
+function onZoneIn(player,prevZone)		
+	local cs = -1;	
+	if ((player:getXPos() == 0) and (player:getYPos() == 0) and (player:getZPos() == 0)) then	
+		player:setPos(-0.008,-33.595,123.478,62);
+	end	
     if (player:getCurrentMission(WINDURST) == VAIN and player:getVar("MissionStatus") ==1) then
         cs = 0x0003; -- doll telling "you're in the right area"
     end
-    return cs;
-end;
+	return cs;	
+end;		
 
------------------------------------
--- onRegionEnter
------------------------------------        
+-----------------------------------		
+-- onRegionEnter		
+-----------------------------------		
 
-function onRegionEnter(player,region)
-end;    
+function onRegionEnter(player,region)	
+end;	
 
------------------------------------
--- onGameDay
------------------------------------
+-----------------------------------		
+-- onGameDay		
+-----------------------------------		
 
 function onGameDay()
-
-    -- Full moon + "clear" weather stuff (actually "sunshine" weather, widespread misconception since Ro'Maeve does not have "clear" weather ever)
-    local Moongate_Offset = 17277195; -- _3e0 in npc_list
-    local hour = VanadielHour();
-    
-    if (IsMoonFull() == true and GetNPCByID(Moongate_Offset):getWeather() == WEATHER_SUNSHINE) then
-        GetNPCByID(Moongate_Offset):openDoor(432); -- 3 game hours worth of seconds
-        GetNPCByID(Moongate_Offset+1):openDoor(432);
-        GetNPCByID(Moongate_Offset+7):openDoor(432); -- visual part of Qu'Hau Spring
-    end
+	
+	-- Moongates
+	local Moongate_Offset = 17277195; -- _3e0 in npc_list
+	local direction = VanadielMoonDirection();
+	local phase = VanadielMoonPhase();
+	
+	if (((direction == 2 and phase >= 90) or (direction == 1 and phase >= 95)) and GetNPCByID(Moongate_Offset):getWeather() == 0) then
+		GetNPCByID(Moongate_Offset):openDoor(432);
+		GetNPCByID(Moongate_Offset+1):openDoor(432);
+	end
 end;
 
------------------------------------
--- onZoneWeatherChange
------------------------------------
+-----------------------------------	
+-- onEventUpdate	
+-----------------------------------	
 
-function onZoneWeatherChange(weather)
+function onEventUpdate(player,csid,option)	
+	--printf("CSID: %u",csid);
+	--printf("RESULT: %u",option);
+end;	
 
-    local Moongate_Offset = 17277195;
+-----------------------------------	
+-- onEventFinish	
+-----------------------------------	
 
-    if (weather ~= WEATHER_SUNSHINE and GetNPCByID(Moongate_Offset):getAnimation() ~= 9) then -- return to inactive state
-        GetNPCByID(Moongate_Offset):setAnimation(9);
-        GetNPCByID(Moongate_Offset+1):setAnimation(9);
-        GetNPCByID(Moongate_Offset+7):setAnimation(9);
-    elseif (weather == WEATHER_SUNSHINE and IsMoonFull() == true and VanadielHour() < 3) then -- reactivate things for the remainder of the time until 3AM
-        local moonMinRemaining = math.floor(432 * (180 - VanadielHour() * 60 + VanadielMinute())/180) -- 180 minutes (ie 3AM) subtract the time that has passed since midnight
-        GetNPCByID(Moongate_Offset):openDoor(moonMinRemaining);
-        GetNPCByID(Moongate_Offset+1):openDoor(moonMinRemaining);
-        GetNPCByID(Moongate_Offset+7):openDoor(moonMinRemaining);
-    end
-end;
-
------------------------------------
--- onEventUpdate
------------------------------------
-
-function onEventUpdate(player,csid,option)
-    --printf("CSID: %u",csid);
-    --printf("RESULT: %u",option);
-end;
-
------------------------------------
--- onEventFinish
------------------------------------
-
-function onEventFinish(player,csid,option)
-    --printf("CSID: %u",csid);
-    --printf("RESULT: %u",option);
-end;
+function onEventFinish(player,csid,option)	
+	--printf("CSID: %u",csid);
+	--printf("RESULT: %u",option);
+end;	

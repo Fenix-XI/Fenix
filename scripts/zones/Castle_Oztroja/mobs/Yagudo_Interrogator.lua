@@ -1,6 +1,6 @@
 -----------------------------------
--- Area: Castle Oztroja (151)
---  MOB: Yagudo_Interrogator
+--  Area: Castle Oztroja (151)
+--   Mob: Yagudo_Interrogator
 -----------------------------------
 
 require("scripts/zones/Castle_Oztroja/MobIDs");
@@ -9,20 +9,21 @@ require("scripts/zones/Castle_Oztroja/MobIDs");
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)	
 
-    local mobID = mob:getID();
-    if (Mee_Deggi_the_Punisher_PH[mobID] ~= nil) then
+    mob = mob:getID();
+    if (Mee_Deggi_the_Punisher_PH[mob] ~= nil) then
 
-        local ToD = GetServerVariable("[POP]Mee_Deggi_the_Punisher");
+        ToD = GetServerVariable("[POP]Mee_Deggi_the_Punisher");
         if (ToD <= os.time(t) and GetMobAction(Mee_Deggi_the_Punisher) == 0) then
-            if (math.random(1,20) == 5) then
+            if (math.random((1),(20)) == 5) then
                 UpdateNMSpawnPoint(Mee_Deggi_the_Punisher);
-                GetMobByID(Mee_Deggi_the_Punisher):setRespawnTime(GetMobRespawnTime(mobID));
-                SetServerVariable("[PH]Mee_Deggi_the_Punisher", mobID);
-                DeterMob(mobID, true);
+                GetMobByID(Mee_Deggi_the_Punisher):setRespawnTime(GetMobRespawnTime(mob));
+                SetServerVariable("[PH]Mee_Deggi_the_Punisher", mob);
+                DeterMob(mob, true);
             end
         end
     end
 
 end;
+

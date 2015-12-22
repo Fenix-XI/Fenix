@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Lebros Cavern (Wamoura Farm Raid)
---  MOB: Ranch Wamouracampa
+-- NPC:  Ranch Wamouracampa
 -----------------------------------
 
 -----------------------------------
@@ -22,7 +22,7 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 end;
 
 -----------------------------------
@@ -30,6 +30,6 @@ end;
 -----------------------------------
 
 function onMobDespawn(mob)
-    local instance = mob:getInstance();
+	local instance = mob:getInstance();
     instance:setProgress(instance:getProgress() + 1);
 end;

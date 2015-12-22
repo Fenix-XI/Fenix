@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: The Shrine of Ru'Avitau
---  MOB: Defender
+-- MOB:  Defender
 -----------------------------------
 
 -----------------------------------
@@ -73,9 +73,9 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 
-    checkGoVregime(ally,mob,749,1);
+    checkGoVregime(killer,mob,749,1);
 
     local Defender = mob:getID();
     local AuraGear = mob:getID() + 1;

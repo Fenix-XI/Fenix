@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Al'Taieu
---  MOB: Ul'Phuabo
+-- NPC:  Ul'Phuabo
 -----------------------------------
 
 require("scripts/globals/missions");
@@ -36,5 +36,5 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 end;

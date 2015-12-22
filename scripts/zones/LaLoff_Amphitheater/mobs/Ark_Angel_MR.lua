@@ -1,11 +1,9 @@
 -----------------------------------
 -- Area: LaLoff Amphitheater
---  MOB: Ark Angel MR
+-- NPC:  Ark Angel MR
 -----------------------------------
-package.loaded["scripts/zones/LaLoff_Amphitheater/TextIDs"] = nil;
------------------------------------
+
 require("scripts/zones/LaLoff_Amphitheater/TextIDs");
-require("scripts/globals/status");
 
 -----------------------------------
 
@@ -53,5 +51,5 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 end;

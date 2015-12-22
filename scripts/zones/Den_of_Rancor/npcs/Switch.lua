@@ -16,7 +16,5 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-    if (player:getZPos() > 35) then
-        GetNPCByID(17433051):openDoor(); -- drop gate to Sacrificial Chamber
-    end
+	GetNPCByID(17433051):openDoor(); -- drop gate to Sacrificial Chamber   
 end;

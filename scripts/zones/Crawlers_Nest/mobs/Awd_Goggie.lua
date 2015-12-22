@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Crawler's Nest
---  MOB: Awd Goggie
+-- NPC:  Awd Goggie
 -- @pos -253.026 -1.867 253.055 197
 -----------------------------------
 
@@ -25,6 +25,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
-    ally:addTitle(BOGEYDOWNER);
+function onMobDeath(mob,killer)
+    killer:addTitle(BOGEYDOWNER);
 end;

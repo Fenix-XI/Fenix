@@ -1,20 +1,20 @@
------------------------------------
--- Area: West Sarutabaruta
---  MOB: Mandragora
+-----------------------------------	
+-- Area: West Sarutabaruta	
+-- MOB:  Mandragora	
 -- Note: PH for Tom Tit Tat
------------------------------------
-
-require("scripts/globals/fieldsofvalor");
+-----------------------------------	
+	
+require("scripts/globals/fieldsofvalor");	
 require("scripts/zones/West_Sarutabaruta/MobIDs");
+	
+-----------------------------------	
+-- onMobDeath	
+-----------------------------------	
+	
+function onMobDeath(mob,killer)	
 
------------------------------------
--- onMobDeath
------------------------------------
-
-function onMobDeath(mob,killer,ally)
-
-    checkRegime(ally,mob,26,1);
-
+	checkRegime(killer,mob,26,1);
+    
     mob = mob:getID();
     if (Tom_Tit_Tat_PH[mob] ~= nil) then
 
@@ -28,5 +28,5 @@ function onMobDeath(mob,killer,ally)
             end
         end
     end
-
-end;
+    
+end;	

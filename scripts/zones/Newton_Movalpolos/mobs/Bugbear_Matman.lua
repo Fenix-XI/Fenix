@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Newton Movalpolos
---  MOB: Moblin Showman
+-- NPC:   Moblin Showman
 -----------------------------------
 
 -----------------------------------
@@ -14,13 +14,6 @@ end;
 -- OnMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
-end;
-
------------------------------------
--- onMobDespawn
------------------------------------
-
-function onMobDespawn(mob)
-    GetNPCByID(16826573):updateNPCHideTime(FORCE_SPAWN_QM_RESET_TIME);
+function onMobDeath(mob,killer)
+	GetNPCByID(16826573):hideNPC(900); -- Moblin Showman in NPC_List
 end;

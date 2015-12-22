@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: Attohwa Chasm
---  MOB: Executioner Antlion
+-- NPC:  Executioner Antlion
+-----------------------------------
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -21,20 +22,19 @@ end;
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setTP(100);
+	mob:setTP(100);
 end;
 
 -----------------------------------
 -- onMobEngaged
 -----------------------------------
-
 function onMobEngaged(mob, killer)
-    mob:useMobAbility(22); -- Pit Ambush
+	mob:useMobAbility(22); -- Pit Ambush
 end;
 
 -----------------------------------
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 end;

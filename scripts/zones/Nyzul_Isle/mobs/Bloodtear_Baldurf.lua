@@ -1,6 +1,6 @@
 -----------------------------------
--- Area: Nyzul Isle
---  NM:  Bloodtear_Baldurf
+-- Area:
+-- NPC:  Bloodtear_Baldurf
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -16,6 +16,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    ally:addTitle(THE_HORNSPLITTER);
+function onMobDeath(mob, killer)
+	killer:addTitle(THE_HORNSPLITTER);
 end;

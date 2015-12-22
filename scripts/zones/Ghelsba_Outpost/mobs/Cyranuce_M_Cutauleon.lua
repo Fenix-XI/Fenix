@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Ghelsba Outpost
---  MOB: Hut Door
+-- NPC: Hut Door
 -- Involved in Quest: The Holy Crest
 -----------------------------------
 
@@ -14,5 +14,5 @@ end;
 -----------------------------------
 -- onMobDeath Action
 -----------------------------------
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 end;

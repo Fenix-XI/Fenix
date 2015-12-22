@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area:
---  MOB: Armored_Chariot
+-- NPC:  Armored_Chariot
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -16,6 +16,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    ally:addTitle(SUN_CHARIOTEER);
+function onMobDeath(mob, killer)
+	killer:addTitle(SUN_CHARIOTEER);
 end;

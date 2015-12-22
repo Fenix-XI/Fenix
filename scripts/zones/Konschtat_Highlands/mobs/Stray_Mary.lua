@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Konschtat Highlands
---  MOB: Stray_Mary
+-- NPC:  Stray_Mary
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -16,6 +16,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    ally:addTitle(MARYS_GUIDE);
+function onMobDeath(mob, killer)
+	killer:addTitle(MARYS_GUIDE);
 end;

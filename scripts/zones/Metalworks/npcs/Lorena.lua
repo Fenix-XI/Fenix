@@ -96,7 +96,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-    unionRepresentativeTrigger(player, 2, 0x320, "guild_smithing", keyitems);
+	unionRepresentativeTrigger(player, 2, 0x320, "guild_smithing", keyitems);
 end;
 
 -----------------------------------
@@ -104,17 +104,17 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+	-- printf("CSID: %u",csid);
+	-- printf("RESULT: %u",option);
 end;
 
 -----------------------------------
 -- onEventFinish
 -----------------------------------
 
-function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+function onEventFinish(player,csid,option,target)
+	-- printf("CSID: %u",csid);
+	-- printf("RESULT: %u",option);
     if (csid == 0x320) then
         unionRepresentativeTriggerFinish(player, option, target, 2, "guild_smithing", keyitems, items);
     elseif (csid == 0x321) then

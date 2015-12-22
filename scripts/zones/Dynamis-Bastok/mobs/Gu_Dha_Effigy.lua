@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Dynamis Bastok
---  MOB: Gu'Dha Effigy
+-- NPC:  Gu'Dha Effigy
 -- Mega Boss
 -----------------------------------
 require("scripts/globals/status");
@@ -25,20 +25,22 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
+killer:addCurrency("bayld",10);
+killer:PrintToPlayer( "You earned 10 Bayld!");
 
-    if (mob:isInBattlefieldList() == false) then
-        mob:addInBattlefieldList();
+	if (mob:isInBattlefieldList() == false) then
+		mob:addInBattlefieldList();
 
-        ally:addTimeToDynamis(30); -- Add + 30min
+		killer:addTimeToDynamis(30); -- Add + 30min
 
-        ally:addTitle(DYNAMISBASTOK_INTERLOPER); -- Add title
+		killer:addTitle(DYNAMISBASTOK_INTERLOPER); -- Add title
 
-        local npc = GetNPCByID(17539323); -- Spawn ???
-        npc:setPos(mob:getXPos(),mob:getYPos(),mob:getZPos());
-        npc:setStatus(0);
+		local npc = GetNPCByID(17539323); -- Spawn ???
+		npc:setPos(mob:getXPos(),mob:getYPos(),mob:getZPos());
+		npc:setStatus(0);
 
-        ally:launchDynamisSecondPart(); -- Spawn dynamis second part
-    end
+		killer:launchDynamisSecondPart(); -- Spawn dynamis second part
+	end
 
 end;

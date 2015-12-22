@@ -1,16 +1,16 @@
 -----------------------------------
--- Area: Crawlers' Nest (197)
---  MOB: Demonic_Tiphia
+--  Area: Crawlers' Nest (197)
+--   Mob: Demonic_Tiphia
 -----------------------------------
 
 -----------------------------------
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)    
+function onMobDeath(mob,killer)	
 
     -- Set Demonic_Tiphia's Window Open Time
-    local wait = math.random(7200,28800);
+    local wait = math.random((7200),(28800));
     SetServerVariable("[POP]Demonic_Tiphia", os.time(t) + wait); -- 2-8 hours
     DeterMob(mob:getID(), true);
     
@@ -21,3 +21,4 @@ function onMobDeath(mob,killer,ally)
     GetMobByID(PH):setRespawnTime(GetMobRespawnTime(PH));
 
 end;
+

@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Valkurm Dunes
---  MOB: Marchelute
+-- NPC:  Marchelute
 -- Involved In Quest: Messenger from Beyond
 -- @pos -716 -10 66 103
 -----------------------------------
@@ -16,5 +16,5 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 end;

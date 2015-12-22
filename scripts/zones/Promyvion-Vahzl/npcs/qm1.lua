@@ -14,13 +14,12 @@ require("scripts/zones/Promyvion-Vahzl/TextIDs");
 -----------------------------------
 
 function onTrade(player,npc,trade)
-    
-    if (trade:hasItemQty(1756,1) and trade:getItemCount() == 1) then -- Cerebrator Remnant
-        player:tradeComplete();
-        player:messageSpecial(ON_NM_SPAWN);
-        SpawnMob(16867455,180):updateClaim(player); -- Spawn Deviator
-        npc:setStatus(STATUS_DISAPPEAR);
-    end
+	
+	if (trade:hasItemQty(1756,1) and trade:getItemCount() == 1) then -- Cerebrator Remnant
+		player:tradeComplete();
+		player:messageSpecial(ON_NM_SPAWN);
+		SpawnMob(16867455,180):updateClaim(player); -- Spawn Deviator
+	end
 
 end;
 
@@ -29,5 +28,5 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-    player:messageSpecial(POPPED_NM_OFFSET);
+	player:messageSpecial(POPPED_NM_OFFSET);
 end;

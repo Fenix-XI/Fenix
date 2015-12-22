@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Balga Dais
---  MOB: Enagakure
+-- NPC:  Enagakure
 -- Involved in Quest: I'll Take the Big Box
 -----------------------------------
 
@@ -17,10 +17,10 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    if (ally:hasKeyItem(SEANCE_STAFF) and ally:getVar("Enagakure_Killed") == 0) then
-        ally:setVar("Enagakure_Killed",1);
-    end
+	if (killer:hasKeyItem(SEANCE_STAFF) and killer:getVar("Enagakure_Killed") == 0) then
+		killer:setVar("Enagakure_Killed",1);
+	end
 
 end;

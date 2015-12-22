@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: The Shrine of Ru'Avitau
---  MOB: Olla Media
+-- NPC:  Olla Media
 -----------------------------------
 
 -----------------------------------
@@ -14,16 +14,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    SpawnMob(mob:getID() + 1,180):updateEnmity(killer);
-end;
-
------------------------------------
--- onMobDespawn
------------------------------------
-
-function onMobDespawn(mob)
-    if (GetMobAction(mob:getID() + 1) == 0) then -- if this Media despawns and Grande is not alive, it would be because it despawned outside of being killed.
-        GetNPCByID(17506692):updateNPCHideTime(FORCE_SPAWN_QM_RESET_TIME);
-    end
+function onMobDeath(mob, killer)
+	SpawnMob(17506669,180):updateEnmity(killer);
 end;

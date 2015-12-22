@@ -13,16 +13,18 @@ require("scripts/zones/The_Shrine_of_RuAvitau/TextIDs");
 -----------------------------------
 
 function onTrade(player,npc,trade)
-    -- Validate traded items are all needed seals and ensure Kirin is not alive
-    if (GetMobAction(17506670) == 0 and trade:hasItemQty(1404, 1) and trade:hasItemQty(1405, 1) and trade:hasItemQty(1406, 1) and trade:hasItemQty(1407, 1) and trade:getItemCount() == 4) then
-        -- Complete the trade..
-        player:tradeComplete();
+    -- Ensure Kirin is not alive..
+    if (GetMobAction( 17506670 ) == 0) then
+        -- Validate traded items are all needed seals..
+        if (trade:hasItemQty( 1404, 1 ) and trade:hasItemQty( 1405, 1 ) and trade:hasItemQty( 1406, 1 ) and trade:hasItemQty( 1407, 1 ) and trade:getItemCount() == 4) then
+            -- Complete the trade..
+            player:tradeComplete();
             
-        -- Spawn Kirin..
-        local mob = SpawnMob(17506670, 180);
-        player:showText(npc, KIRIN_OFFSET);
-        mob:updateClaim(player);
-        npc:setStatus(STATUS_DISAPPEAR);
+            -- Spawn Kirin..
+            local mob = SpawnMob( 17506670, 180 );
+            player:showText( npc, KIRIN_OFFSET );
+            mob:updateClaim( player );
+        end    
     end
 end;
 
@@ -31,7 +33,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-    player:startEvent(0x0064);
+	player:startEvent(0x0064);
 end;
 
 -----------------------------------

@@ -1,11 +1,10 @@
 -----------------------------------
 -- Area: Monastic Cavern
---  MOB: Overlord Bakgodek
+-- NPC:  Overlord Bakgodek
 -----------------------------------
-package.loaded["scripts/zones/Monastic_Cavern/TextIDs"] = nil;
------------------------------------
-require("scripts/zones/Monastic_Cavern/TextIDs");
+
 require("scripts/globals/titles");
+require("scripts/zones/Monastic_Cavern/TextIDs");
 
 -----------------------------------
 -- onMobSpawn Action
@@ -19,16 +18,17 @@ end;
 -----------------------------------
 
 function onMobEngaged(mob,target)
-    -- Needs to be zone wide message
-    -- mob:messagePublic(mob,ORC_KING_ENGAGE);
+-- mob:messagePublic(mob,ORC_KING_ENGAGE);
 end;
 
 -----------------------------------
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
-    ally:addTitle(OVERLORD_OVERTHROWER);
-    -- Needs to be zone wide message
-    -- mob:messagePublic(mob,ORC_KING_DEATH);
+function onMobDeath(mob,killer)
+		killer:addTitle(OVERLORD_OVERTHROWER);
+-- mob:messagePublic(mob,ORC_KING_DEATH);
+killer:addCurrency("bayld",200);
+killer:PrintToPlayer( "You earned 200 Bayld!");
+
 end;

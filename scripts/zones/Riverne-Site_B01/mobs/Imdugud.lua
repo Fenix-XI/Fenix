@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Riverne - Site B01
---  MOB: Imdugud
+-- NPC:  Imdugud
 -- @pos 655.263 20.664 651.320 29
 -----------------------------------
 
@@ -15,7 +15,7 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
     -- Set Imduguds ToD
     SetServerVariable("[POP]Imdugud", os.time(t) + 75600); -- 21 hour

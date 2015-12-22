@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Dynamis Bastok
---  MOB: Vanguard Constable
+-- NPC:  Vanguard Constable
 -----------------------------------
 
 require("scripts/globals/dynamis");
@@ -23,11 +23,11 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    if (mob:getID() == 17539304 and alreadyReceived(killer,5) == false) then
-        ally:addTimeToDynamis(10);
-        addDynamisList(killer,16);
-    end
+	if (mob:getID() == 17539304 and alreadyReceived(killer,5) == false) then
+		killer:addTimeToDynamis(10);
+		addDynamisList(killer,16);
+	end
 
 end;

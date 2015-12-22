@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: The Garden of Ru'Hmet
---  MOB: Aw_aern PH (Ix'Aern DRK and DRG)
+-- NPC:  Aw_aern PH (Ix'Aern DRK and DRG)
 -----------------------------------
 
 package.loaded["scripts/zones/The_Garden_of_RuHmet/TextIDs"] = nil;
@@ -28,9 +28,18 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, death)
     local currentMobID = mob:getID();
 
+	if(currentMobID == 16920646 or 16920647 or 16920648) then 
+	if (math.random(0,2) >= 2) then -- random do select which item do drop. Will select one item 100% of the time.
+				SetServerVariable("[PH]Ix_aern_drk",GetServerVariable("[PH]Ix_aern_drk") + 1 );
+				else
+				SetServerVariable("[PH]Ix_aern_drk",GetServerVariable("[PH]Ix_aern_drk") + 0 );
+			end
+	
+	end;
+ 
     -- Ix'Aern (DRG) Placeholder mobs
     local IxAernDRG_PH = GetServerVariable("[SEA]IxAernDRG_PH"); -- Should be be the ID of the mob that spawns the actual PH.
 
@@ -44,7 +53,7 @@ function onMobDeath(mob, killer, ally)
         elseif (currentMobID >= 16920785 and currentMobID < 16920789) then
             GetMobByID(IxAernDRG):setSpawn(-319, 5, -359, 95); -- Top Right
         elseif (currentMobID >= 16920789 and currentMobID < 16920783) then
-            GetMobByID(IxAernDRG):setSpawn(-319, 5, -520, 156); -- Bottom Right
+            GetMobByID(IxAernDRG):setSpawn(-319, 5, -520, 156); -- Bottom Right    
         end;
         SpawnMob(IxAernDRG);
         SetServerVariable("[SEA]IxAernDRG_PH", 0); -- Clear the variable because it is spawned!

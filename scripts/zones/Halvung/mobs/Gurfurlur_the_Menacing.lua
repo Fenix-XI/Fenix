@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Halvung
---  MOB: Gurfurlur the Menacing
+-- NPC:  Gurfurlur the Menacing
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -57,6 +57,8 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    ally:addTitle(TROLL_SUBJUGATOR);
+function onMobDeath(mob, killer)
+    killer:addTitle(TROLL_SUBJUGATOR);
+	killer:addCurrency("dominion_note",450);
+	killer:PrintToPlayer( "You earned 150 Dominion Notes!");
 end;

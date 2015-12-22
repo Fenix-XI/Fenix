@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: North Gusberg
---  MOB: Gambilox Wanderling
+-- NPC:  Gambilox Wanderling
 -- Quest NM - "As Thick as Thieves"
 -----------------------------------
 
@@ -9,17 +9,17 @@
 -----------------------------------
 
 function onMobSpawn(mob)
-end;
+end; 
 
 -----------------------------------
 -- OnMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 
-    local thickAsThievesGamblingCS = ally:getVar("thickAsThievesGamblingCS");
-
-    if (thickAsThievesGamblingCS == 5) then
-        ally:setVar("thickAsThievesGamblingCS",6)
-    end
+	thickAsThievesGamblingCS = killer:getVar("thickAsThievesGamblingCS");
+	
+	if (thickAsThievesGamblingCS == 5) then
+		killer:setVar("thickAsThievesGamblingCS",6)
+	end
 end;

@@ -1,16 +1,12 @@
 -----------------------------------
 -- Area: The Celestial Nexus
---  MOB: Exoplates
+-- NPC:  Exoplates
 -- Zilart Mission 16 BCNM Fight
 -----------------------------------
 
 require("scripts/globals/titles");
 require("scripts/globals/status");
 require("scripts/globals/magic");
-
------------------------------------
--- onMobInitialize Action
------------------------------------
 
 function onMobInitialize(mob)
     mob:addMod(MOD_REGAIN, 50);
@@ -26,14 +22,10 @@ function onMobSpawn(mob)
     mob:setUnkillable(true);
 end;
 
------------------------------------
--- onMobFight Action
------------------------------------
-
 function onMobFight(mob, target)
     local shifts = mob:getLocalVar("shifts");
     local shiftTime = mob:getLocalVar("shiftTime");
-
+    
     if (mob:AnimationSub() == 0 and shifts == 0 and mob:getHPP() <= 67) then
         mob:useMobAbility(737);
         mob:setLocalVar("shifts", shifts+1);
@@ -57,7 +49,7 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
     local eald_narche = GetMobByID(mob:getID() - 1);
     eald_narche:delStatusEffect(EFFECT_PHYSICAL_SHIELD, 0, 1, 0, 0);
     eald_narche:delStatusEffect(EFFECT_ARROW_SHIELD, 0, 1, 0, 0);
@@ -69,8 +61,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("updateCSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("updateCSID: %u",csid);
+--printf("RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -78,19 +70,19 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option,target)
-    -- printf("finishCSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("finishCSID: %u",csid);
+--printf("RESULT: %u",option);
 
-    if (csid == 0x7d04) then
+	if (csid == 0x7d04) then
         DespawnMob(target:getID());
         DespawnMob(target:getID()-1);
         DespawnMob(target:getID()+2);
         DespawnMob(target:getID()+3);
-        mob = SpawnMob(target:getID()+1);
-        mob:updateEnmity(player);
-        -- the "30 seconds of rest" you get before he attacks you, and making sure he teleports first in range
+		mob = SpawnMob(target:getID()+1);
+		mob:updateEnmity(player);
+        --the "30 seconds of rest" you get before he attacks you, and making sure he teleports first in range
         mob:addStatusEffectEx(EFFECT_BIND, 0, 1, 0, 30);
         mob:addStatusEffectEx(EFFECT_SILENCE, 0, 1, 0, 40);
-    end
+	end
 
 end;

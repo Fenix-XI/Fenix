@@ -1,6 +1,6 @@
- -----------------------------------
+-----------------------------------
 -- Area: Crawler's Nest
---  MOB: Matron Crawler
+-- NPC:  Matron Crawler
 -- @pos -141.158 -33.689 20.944 197
 -----------------------------------
 
@@ -24,5 +24,5 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 end;

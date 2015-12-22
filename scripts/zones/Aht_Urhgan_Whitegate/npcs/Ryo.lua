@@ -1,13 +1,14 @@
 -----------------------------------
 -- Area: Aht Urhgan Whitegate
---  NPC: Ryo
--- Type: ZNM assistant
+-- NPC:  Ryo
+-- Type: ZNM
 -- @pos -127.086 0.999 22.693 50
 -----------------------------------
 package.loaded["scripts/zones/Aht_Urhgan_Whitegate/TextIDs"] = nil;
 -----------------------------------
-require("scripts/zones/Aht_Urhgan_Whitegate/TextIDs");
+
 require("scripts/globals/besieged");
+require("scripts/zones/Aht_Urhgan_Whitegate/TextIDs");
 
 -----------------------------------
 -- onTrade Action
@@ -21,7 +22,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-    player:startEvent(0x0391);
+	player:startEvent(0x0391);
 end;
 
 -----------------------------------
@@ -29,13 +30,15 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("updateCSID: %u",csid);
-    -- printf("updateRESULT: %u",option);
-    if (option == 300) then
-        player:updateEvent(player:getCurrency("zeni_point"),0);
-    else
-        player:updateEvent(0,0);
-    end
+--printf("updateCSID: %u",csid);
+--printf("updateRESULT: %u",option);
+	
+	if (option == 300) then
+		player:updateEvent(player:getCurrency("zeni_point"),0);
+	else
+		player:updateEvent(0,0);
+	end
+	
 end;
 
 -----------------------------------
@@ -43,6 +46,6 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
-    -- printf("finishCSID: %u",csid);
-    -- printf("finishRESULT: %u",option);
+	-- printf("finishCSID: %u",csid);
+	-- printf("finishRESULT: %u",option);
 end;

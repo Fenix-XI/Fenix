@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Chamber of Oracles
---  MOB: Centurio V-III
+-- NPC:  Centurio V-III
 -- Zilart 6 Fight
 -----------------------------------
 
@@ -15,5 +15,5 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob,killer,ally)
+function onMobDeath(mob,killer)
 end;

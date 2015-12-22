@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area:
---  MOB: Lord Ruthven
+-- NPC:  Lord Ruthven
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -16,6 +16,6 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
-    ally:addTitle(RUTHVEN_ENTOMBER);
+function onMobDeath(mob, killer)
+	killer:addTitle(RUTHVEN_ENTOMBER);
 end;

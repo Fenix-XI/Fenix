@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Eastern Altepa Desert
---  MOB: Tsuchigumo
+-- NPC:  Tsuchigumo
 -- Involved in Quest: 20 in Pirate Years
 -----------------------------------
 
@@ -17,10 +17,10 @@ end;
 -- onMobDeath Action
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer)
 
-    if (ally:getVar("twentyInPirateYearsCS") == 3) then
-        ally:setVar("TsuchigumoKilled",ally:getVar("TsuchigumoKilled") + 1);
-    end
+	if (killer:getVar("twentyInPirateYearsCS") == 3) then
+		killer:setVar("TsuchigumoKilled",killer:getVar("TsuchigumoKilled") + 1);
+	end
 
 end;
