@@ -1,8 +1,8 @@
 -----------------------------------
--- Area: Wajaom Woodlands
--- NPC:  Iriz Irma
-
--- @pos 
+-- Area: Alzadaal Undersea Ruins
+-- NPC: Wulgaru
+-- ZNM Path: Lamia
+-- @pos http://ffxiclopedia.wikia.com/wiki/Opalus_Gem traded to ??? at (H-6)
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -26,10 +26,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, killer, ally)
 
 	
-	killer:addCurrency("dominion_note",150);
-	killer:PrintToPlayer( "You earned 150 Dominion Notes!");
+	ally:addCurrency("dominion_note",150);
+	ally:PrintToPlayer( "You earned 150 Dominion Notes!");
 
 end;

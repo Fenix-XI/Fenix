@@ -1,8 +1,8 @@
 -----------------------------------
--- Area: Wajaom Woodlands
--- NPC:  Iriz Irma
-
--- @pos 
+-- Area: Mamook
+-- NPC: Iriri Samariri
+-- ZNM Path: Mamool
+-- @pos http://ffxiclopedia.wikia.com/wiki/Samariri_Corpsehair traded to ??? at (F-7)
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -26,10 +26,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, killer,ally)
 
 	
-	killer:addCurrency("dominion_note",150);
-	killer:PrintToPlayer( "You earned 150 Dominion Notes!");
+	ally:addCurrency("dominion_note",150);
+	ally:PrintToPlayer( "You earned 150 Dominion Notes!");
 
 end;

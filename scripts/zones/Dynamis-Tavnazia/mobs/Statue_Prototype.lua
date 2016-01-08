@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Dynamis tavnazia
--- NPC:  Statue_Prototype
+--  MOB: Statue_Prototype
 -----------------------------------
 require("scripts/globals/status");
 require("scripts/globals/dynamis");
@@ -16,14 +16,13 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer)
-killer:addCurrency("mweya_plasm",10);
-killer:PrintToPlayer( "You earned 10 Mweya Plasm!");
-
+function onMobDeath(mob,killer,ally)
+	ally:addCurrency("mweya_plasm",10);
+	ally:PrintToPlayer( "You earned 10 Mweya Plasm!");
 local mobID = mob:getID();
-	if (mobID == 16949325 and mob:isInBattlefieldList() == false) then
-		killer:addTimeToDynamis(10);
-		mob:addInBattlefieldList();
-		--print("addtime 10min");
-	end
+    if (mobID == 16949325 and mob:isInBattlefieldList() == false) then
+        ally:addTimeToDynamis(10);
+        mob:addInBattlefieldList();
+        --print("addtime 10min");
+    end
 end;

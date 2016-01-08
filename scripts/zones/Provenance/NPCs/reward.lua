@@ -14,6 +14,7 @@ function onTrade(player,npc,trade)
 balance_bayld = 0;
 balance_mweya_plasm = 0;
 balance_dominion_note = 0;
+balance_kenetic_unit = 0;
 
 -------------DECLARING VALUES FOR EACH ITEM-------------------------------------------------------------------------------------
 defending_ring = 18000; Martial_Abjuration_Body	= 6500;Martial_Abjuration_Head = 2500;Martial_Abjuration_Hands	= 2500;
@@ -71,7 +72,7 @@ Ariesian_Grip =1000; Iron_Ram_Greaves =1000; Iron_Ram_Sallet =1000; Iron_Ram_Das
 Nocturnus_Mail=5000; Nocturnus_Helm=5000; Nightfall=3000; Roundel_Earring=2500; Brave_Grip=1500; Wise_Strap=1500; Cuchulains_Belt=2000;
 Karasutengu_Kogake=1500; Cuchulains_Mantle=2000; Balestarius=2000; Airy_Buckler=1500; Crapaud_Earring=2000; Hecates_Cape=2500;
 Tiercel_Necklace=2000; Reign_Grip=1500; Pipers_Torque=1500; Deae_Gratia=1200; Sangoma_Lappa=1000; Spurrer_Beret=1500; Ecphoria_Ring=1000;
-Papilio_Kirpan=1500; Cradle_Horn=800; Poison_Tasters_Cape=800; Aoides_Pumps=800; Creve_coeur=800;M_Kris=750; M_Sword = 750; Xs_Knife = 1800;
+Papilio_Kirpan=1500; Cradle_Horn=800; Poison_Tasters_Cape=800; Aoides_Pumps=800; Creve_coeur=800;M_Kris=750; M_Sword = 750;
 
 -----------END OF DECLARE----------------------------------------------------------------------------------------------------------
 
@@ -266,7 +267,7 @@ if (trade:getItemCount() == 1) then
    player:addItem(1343,1);
    player:messageSpecial(ITEM_OBTAINED,1343,1);
    
-   		elseif (trade:hasItemQty(12014,1)) and (bayld >= Wyrmal_Abjuration_Body)
+   		elseif (trade:hasItemQty(12018,1)) and (bayld >= Wyrmal_Abjuration_Body)
 			 then    --This is a check to see if the player has enough bayld
               player:delCurrency("bayld", 6500);
    player:tradeComplete();
@@ -549,7 +550,7 @@ if (trade:getItemCount() == 1) then
    player:addItem(15458,1);
    player:messageSpecial(ITEM_OBTAINED,15458,1);
 
-   		elseif (trade:hasItemQty(19620,1)) and (mweya_plasm >= Aureole)
+   		elseif (trade:hasItemQty(19260,1)) and (mweya_plasm >= Aureole)
 			 then    --This is a check to see if the player has enough plasm
               player:delCurrency("mweya_plasm", 10000);
    player:tradeComplete();
@@ -669,7 +670,7 @@ if (trade:getItemCount() == 1) then
    player:addItem(18015,1);
    player:messageSpecial(ITEM_OBTAINED,18015,1);
    
-      	elseif (trade:hasItemQty(19143,1)) and (mweya_plasm >= Xs_Knife) --Base item = Lux Pugio
+      	elseif (trade:hasItemQty(19143,1)) and (mweya_plasm >= Blau_dolch) --Base item = Lux Pugio
 			 then    --This is a check to see if the player has enough plasm
               player:delCurrency("mweya_plasm", 1800);
    player:tradeComplete();
@@ -1635,7 +1636,7 @@ if (trade:getItemCount() == 1) then
    -----------------------BEGIN TIER 4 ITEMS--------------------------------------------------------------  
 				
 				
-				elseif (trade:hasItemQty(11608,1)) and (kinetic_unit >= ancient_torque) --Base item = Barcarolle Medal
+				elseif (trade:hasItemQty(11608,1)) and (kinetic_unit >= Ancient_Torque) --Base item = Barcarolle Medal
 			 then    --This is a check to see if the player has enough units
               player:delCurrency("kinetic_unit", 2000);
    player:tradeComplete();
@@ -1908,7 +1909,7 @@ if (trade:getItemCount() == 1) then
    player:addItem(15967,1);
    player:messageSpecial(ITEM_OBTAINED,15967,1); 
 
-   				elseif (trade:hasItemQty(10674,1)) and (kinetic_unit >= Cobra_Unit_Robe)
+   				elseif (trade:hasItemQty(10672,1)) and (kinetic_unit >= Cobra_Unit_Robe)
 			 then    --This is a check to see if the player has enough units
               player:delCurrency("kinetic_unit", 1000);
    player:tradeComplete();
@@ -2038,8 +2039,8 @@ if (trade:getItemCount() == 1) then
 			 then    --This is a check to see if the player has enough units
               player:delCurrency("kinetic_unit", 1000);
    player:tradeComplete();
-   player:addItem(15638,1);
-   player:messageSpecial(ITEM_OBTAINED,15638,1);
+   player:addItem(15935,1);
+   player:messageSpecial(ITEM_OBTAINED,15935,1);
 
    				elseif (trade:hasItemQty(10651,1)) and (kinetic_unit >= Cobra_Unit_Cap)
 			 then    --This is a check to see if the player has enough units
@@ -2104,7 +2105,7 @@ if (trade:getItemCount() == 1) then
    player:addItem(18734,1);
    player:messageSpecial(ITEM_OBTAINED,18734,1);
 
-   				elseif (trade:hasItemQty(10676,1)) and (kinetic_unit >= Iron_Ram_Sallet)
+   				elseif (trade:hasItemQty(10656,1)) and (kinetic_unit >= Iron_Ram_Sallet)
 			 then    --This is a check to see if the player has enough units
               player:delCurrency("kinetic_unit", 1000);
    player:tradeComplete();
@@ -2151,7 +2152,7 @@ if (trade:getItemCount() == 1) then
               player:delCurrency("kinetic_unit", 5000);
    player:tradeComplete();
    player:addItem(11051,1);
-   player:messageSpecial(ITEM_OBTAINED,11051,1);      
+   player:messageSpecial(ITEM_OBTAINED,11501,1);      
    
        				elseif (trade:hasItemQty(16582,1)) and (kinetic_unit >= Nightfall) -- Base item = Vetala Sword
 			 then    --This is a check to see if the player has enough units
@@ -2171,8 +2172,8 @@ if (trade:getItemCount() == 1) then
 			 then    --This is a check to see if the player has enough units
               player:delCurrency("kinetic_unit", 1500);
    player:tradeComplete();
-   player:addItem(18811,1);
-   player:messageSpecial(ITEM_OBTAINED,18811,1);    
+   player:addItem(19029,1);
+   player:messageSpecial(ITEM_OBTAINED,19029,1);    
    
        				elseif (trade:hasItemQty(18803,1)) and (kinetic_unit >= Wise_Strap) -- Base item = Pax Grip
 			 then    --This is a check to see if the player has enough units

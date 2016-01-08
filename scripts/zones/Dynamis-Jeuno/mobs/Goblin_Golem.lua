@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Dynamis Jeuno
--- NPC:  Goblin Golem
+--  MOB: Goblin Golem
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -17,16 +17,16 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer)
+function onMobDeath(mob,killer,ally)
+	ally:addCurrency("bayld",100);
+	ally:PrintToPlayer( "You earned 100 Bayld!");
 
-	killer:addTitle(DYNAMISJEUNO_INTERLOPER); -- Add title
-	killer:addCurrency("bayld",10);
-	killer:PrintToPlayer( "You earned 10 Bayld!");
+    ally:addTitle(DYNAMISJEUNO_INTERLOPER); -- Add title
 
-	local npc = GetNPCByID(17547510); -- Spawn ???
-	npc:setPos(mob:getXPos(),mob:getYPos(),mob:getZPos());
-	npc:setStatus(0);
+    local npc = GetNPCByID(17547510); -- Spawn ???
+    npc:setPos(mob:getXPos(),mob:getYPos(),mob:getZPos());
+    npc:setStatus(0);
 
-	killer:launchDynamisSecondPart(); -- Spawn dynamis second part
+    ally:launchDynamisSecondPart(); -- Spawn dynamis second part
 
 end;

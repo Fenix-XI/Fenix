@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Al'Taieu
--- NPC:  Ru_aern
+--  MOB: Ru_aern
 -----------------------------------
 
 require("scripts/globals/missions");
@@ -36,7 +36,7 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
-killer:addCurrency("mweya_plasm",50);
-killer:PrintToPlayer( "You earned 50 Mweya_Plasm!");
+function onMobDeath(mob, killer, ally)
+	ally:addCurrency("mweya_plasm",50);
+	ally:PrintToPlayer( "You earned 50 Mweya Plasm!");
 end;

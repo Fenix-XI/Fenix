@@ -15,42 +15,42 @@ require("scripts/globals/missions");
 -- After registering the BCNM via bcnmRegister(bcnmid)
 function onBcnmRegister(player,instance)
 
-	local inst = player:getBattlefieldID();
+    local inst = player:getBattlefieldID();
 
-	if (inst == 1) then
-	
-		local TileOffset = 16818258;
-		
-		for i = TileOffset, TileOffset+7 do 
-			local TileOffsetA = GetNPCByID(i):getAnimation();				
-			if (TileOffsetA == 8) then
-				GetNPCByID(i):setAnimation(9);
-			end
-		end
+    if (inst == 1) then
+    
+        local TileOffset = 16818258;
+        
+        for i = TileOffset, TileOffset+7 do 
+            local TileOffsetA = GetNPCByID(i):getAnimation();                
+            if (TileOffsetA == 8) then
+                GetNPCByID(i):setAnimation(9);
+            end
+        end
 
-	elseif (inst == 2) then
-	
-		local TileOffset = 16818266;
-		
-		for i = TileOffset, TileOffset+7 do 
-			local TileOffsetA = GetNPCByID(i):getAnimation();				
-			if (TileOffsetA == 8) then
-				GetNPCByID(i):setAnimation(9);
-			end
-		end
-		
-	elseif (inst == 3) then
-	
-		local TileOffset = 16818274;
-		
-		for i = TileOffset, TileOffset+7 do 
-			local TileOffsetA = GetNPCByID(i):getAnimation();				
-			if (TileOffsetA == 8) then
-				GetNPCByID(i):setAnimation(9);
-			end
-		end
-		
-	end
+    elseif (inst == 2) then
+    
+        local TileOffset = 16818266;
+        
+        for i = TileOffset, TileOffset+7 do 
+            local TileOffsetA = GetNPCByID(i):getAnimation();                
+            if (TileOffsetA == 8) then
+                GetNPCByID(i):setAnimation(9);
+            end
+        end
+        
+    elseif (inst == 3) then
+    
+        local TileOffset = 16818274;
+        
+        for i = TileOffset, TileOffset+7 do 
+            local TileOffsetA = GetNPCByID(i):getAnimation();                
+            if (TileOffsetA == 8) then
+                GetNPCByID(i):setAnimation(9);
+            end
+        end
+        
+    end
 end;
 
 -- Physically entering the BCNM via bcnmEnter(bcnmid)
@@ -67,22 +67,22 @@ end;
 
 function onBcnmLeave(player,instance,leavecode)
 -- print("leave code "..leavecode);
-	
-	if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
+    
+    if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
+        player:addExp(1000);
 		player:addCurrency("mweya_plasm",250);
-		player:PrintToPlayer( "You earned 250 Mweya Plasm!");
-		player:addExp(1000);
-		if (player:getCurrentMission(COP) == DARKNESS_NAMED  and  player:getVar("PromathiaStatus") == 2) then
-			player:addTitle(TRANSIENT_DREAMER);
-			player:setVar("PromathiaStatus",3);
-			player:startEvent(0x7d01,1,1,1,instance:getTimeInside(),1,0,0);
-		else
-		    player:startEvent(0x7d01,1,1,1,instance:getTimeInside(),1,1,0); 
-		end
-	elseif (leavecode == 4) then
-		player:startEvent(0x7d02);
-	end
-	
+		player:PrintToPlayer( "You earned 250 Mweya Plasm!");		
+        if (player:getCurrentMission(COP) == DARKNESS_NAMED  and  player:getVar("PromathiaStatus") == 2) then
+            player:addTitle(TRANSIENT_DREAMER);
+            player:setVar("PromathiaStatus",3);
+            player:startEvent(0x7d01,1,1,1,instance:getTimeInside(),1,0,0);
+        else
+            player:startEvent(0x7d01,1,1,1,instance:getTimeInside(),1,1,0); 
+        end
+    elseif (leavecode == 4) then
+        player:startEvent(0x7d02);
+    end
+    
 end;
 
 function onEventUpdate(player,csid,option)
@@ -91,4 +91,4 @@ end;
         
 function onEventFinish(player,csid,option)
 -- print("bc finish csid "..csid.." and option "..option);
-end;	
+end;    

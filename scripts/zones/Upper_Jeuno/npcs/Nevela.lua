@@ -19,8 +19,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
---player:startEvent(0x0045);
-player:PrintToPlayer("Trade the base item to me to have points deducted and Reward item given!!");
+player:startEvent(0x0045);
 end; 
 
 -----------------------------------

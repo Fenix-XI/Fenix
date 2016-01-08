@@ -1,8 +1,8 @@
 -----------------------------------
 -- Area: Wajaom Woodlands
--- NPC:  Iriz Irma
-
--- @pos 
+-- NPC: Gotoh Zha the Redolent
+-- ZNM Path: Mamool
+-- @pos http://ffxiclopedia.wikia.com/wiki/Sheep_Botfly traded to ??? at (F-5)
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -26,10 +26,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, killer,ally)
 
 	
-	killer:addCurrency("dominion_note",300);
-	killer:PrintToPlayer( "You earned 300 Dominion Notes!");
+	ally:addCurrency("dominion_note",300);
+	ally:PrintToPlayer( "You earned 300 Dominion Notes!");
 
 end;

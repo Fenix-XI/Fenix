@@ -1,8 +1,8 @@
 -----------------------------------
--- Area: Wajaom Woodlands
--- NPC:  Iriz Irma
-
--- @pos 
+-- Area: Mamook
+-- NPC: Chamrosh
+-- ZNM Path: Mamool
+-- @pos http://ffxiclopedia.wikia.com/wiki/Floral_Nectar traded to ??? at (J-10) 
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -26,10 +26,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, killer,ally)
 
 	
-	killer:addCurrency("dominion_note",50);
-	killer:PrintToPlayer( "You earned 50 Dominion Notes!");
+	ally:addCurrency("dominion_note",50);
+	ally:PrintToPlayer( "You earned 50 Dominion Notes!");
 
 end;

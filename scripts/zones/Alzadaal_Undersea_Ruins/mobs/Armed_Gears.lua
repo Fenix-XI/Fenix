@@ -1,4 +1,9 @@
 -----------------------------------
+-- Area: Alzadaal Undersea Ruins
+-- NPC:  Armed Gears
+-- ZNM Path: Mamool Ja
+-- @pos http://ffxiclopedia.wikia.com/wiki/Ferrite traded to ??? at (G/H-11)
+-----------------------------------
 
 require("scripts/globals/titles");
 
@@ -21,10 +26,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, killer,ally)
 
 	
-	killer:addCurrency("dominion_note",300);
-	killer:PrintToPlayer( "You earned 300 Dominion Notes!");
+	ally:addCurrency("dominion_note",300);
+	ally:PrintToPlayer( "You earned 300 Dominion Notes!");
 
 end;

@@ -40,7 +40,7 @@ CREATE TABLE `linkshells` (
 
 LOCK TABLES `linkshells` WRITE;
 /*!40000 ALTER TABLE `linkshells` DISABLE KEYS */;
-INSERT INTO `linkshells` VALUES (4,'GMchat',65376,'Fluxion','We\'re getting close to the end. Good work, everyone.',1449697024,0),(3,'Serverwide',61997,'Emrod','DO NOT UPDATE FFXI, Rollback restoration Cutoff date = December 31st',1450600026,0),(5,'HookersAndBlow',65535,'',NULL,0,0);
+INSERT INTO `linkshells` VALUES (4,'GMchat',65376,'Fluxion','...',1450761533,0),(3,'Serverwide',61997,'Hookstar','Server Update DEC 22nd 1500 EST - 1800 EST ',1450813254,0),(5,'HookersAndBlow',65535,'',NULL,0,0);
 /*!40000 ALTER TABLE `linkshells` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-20 14:47:52
+-- Dump completed on 2015-12-22 14:21:12

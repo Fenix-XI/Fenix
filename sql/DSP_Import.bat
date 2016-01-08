@@ -29,13 +29,13 @@ REM ============================================================================
 REM =============================================================================
 
 ECHO Creating Database dspdb
-mysqladmin -h localhost -u root -pmakaveli84 DROP dspdb
+mysqladmin -h localhost -u root -pbmw320is DROP dspdb
 
 ECHO Creating Database dspdb
-mysqladmin -h localhost -u root -pmakaveli84 DROP dspdb
+mysqladmin -h localhost -u root -pbmw320is DROP dspdb
 
 ECHO Loading dspdb tables into the database
-cd C:\darkstar_exodus\sql
-FOR %%X IN (*.sql) DO ECHO Importing %%X & "C:\Program Files\MySQL\mysql server 5.6\bin\mysql" dspdb -h localhost -u root -pmakaveli84 < %%X
+cd C:\Exodus_Live\sql
+FOR %%X IN (*.sql) DO ECHO Importing %%X & "C:\Program Files\MySQL\mysql server 5.6\bin\mysql" dspdb -h localhost -u root -pbmw320is < %%X
 
 ECHO Finished!

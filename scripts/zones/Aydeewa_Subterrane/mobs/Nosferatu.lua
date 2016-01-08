@@ -1,8 +1,8 @@
 -----------------------------------
--- Area: Wajaom Woodlands
--- NPC:  Iriz Irma
-
--- @pos 
+-- Area: Aydeewa Subterrane
+-- NPC: Nosferatu
+-- ZNM Path: Troll
+-- @pos http://ffxiclopedia.wikia.com/wiki/Pure_Blood traded to ??? at  (F-9) on map 2. 
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -26,10 +26,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, killer,ally)
 
 	
-	killer:addCurrency("dominion_note",100);
-	killer:PrintToPlayer( "You earned 100 Dominion Notes!");
+	ally:addCurrency("dominion_note",300);
+	ally:PrintToPlayer( "You earned 300 Dominion Notes!");
 
 end;

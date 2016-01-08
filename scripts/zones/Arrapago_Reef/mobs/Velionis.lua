@@ -1,8 +1,8 @@
 -----------------------------------
--- Area: Wajaom Woodlands
--- NPC:  Iriz Irma
-
--- @pos 
+-- Area: Arrapago Reef
+-- NPC: Velionis
+-- ZNM Path: Lamia
+-- @pos http://ffxiclopedia.wikia.com/wiki/Golden_Teeth traded to ??? at (F-11) in Arrapago Reef on the 1st map. 
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -26,10 +26,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, killer, ally)
 
 	
-	killer:addCurrency("dominion_note",50);
-	killer:PrintToPlayer( "You earned 50 Dominion Notes!");
+	ally:addCurrency("dominion_note",50);
+	ally:PrintToPlayer( "You earned 50 Dominion Notes!");
 
 end;

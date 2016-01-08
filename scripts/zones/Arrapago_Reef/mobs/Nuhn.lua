@@ -1,10 +1,9 @@
 -----------------------------------
--- Area: Wajaom Woodlands
--- NPC:  Iriz Irma
-
--- @pos 
+-- Area: Arrapago Reef
+-- NPC: Nuhn
+-- ZNM Path: Lamia
+-- @pos http://ffxiclopedia.wikia.com/wiki/Rose_Scampi traded to ??? at (G-6) in Arrapago Reef Map 3.
 -----------------------------------
-
 require("scripts/globals/titles");
 
 -----------------------------------
@@ -26,10 +25,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, killer,ally)
 
 	
-	killer:addCurrency("dominion_note",100);
-	killer:PrintToPlayer( "You earned 100 Dominion Notes!");
+	ally:addCurrency("dominion_note",300);
+	ally:PrintToPlayer( "You earned 300 Dominion Notes!");
 
 end;

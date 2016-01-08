@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Grand Palace of HuXzoi
--- NPC:  Ix_aern_mnk
+--  MOB: Ix_aern_mnk
 -- ID: 16916815
 -----------------------------------
 
@@ -28,6 +28,7 @@ function onMobSpawn(mob)
         SetDropRate(4398,1901,chance*10); -- Vice of Antipathy
     end
     GetNPCByID(QuestionMark):setLocalVar("[SEA]IxAern_DropRate", 0); -- Clears the var from the ???.
+    mob:AnimationSub(1); -- Reset the subanim - otherwise it will respawn with bracers on. Note that Aerns are never actually supposed to be in subanim 0.
 end;
 
 -----------------------------------
@@ -67,12 +68,12 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, killer, ally)
+	ally:addCurrency("mweya_plasm",75);
+	ally:PrintToPlayer( "You earned 75 Mweya_Plasm!");
     -- Despawn his minions if they are alive (Qn'aern)
     DespawnMob(mob:getID()+1);
     DespawnMob(mob:getID()+2);
-	killer:addCurrency("mweya_plasm",75);
-	killer:PrintToPlayer( "You earned 75 Mweya_Plasm!");
 end;
 
 -----------------------------------
@@ -83,4 +84,6 @@ function onMobDespawn(mob)
     -- Despawn his minions if they are alive (Qn'aern)
     DespawnMob(mob:getID()+1);
     DespawnMob(mob:getID()+2);
+    local QuestionMark = 16916819; -- The ??? that spawned this mob.
+    QuestionMark:updateNPCHideTime(FORCE_SPAWN_QM_RESET_TIME);
 end;

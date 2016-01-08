@@ -92,26 +92,26 @@ function onMobSpawn(mob)
 end;
 
 function onMobSpawn(mob)
-	onMobRoam(mob);
+    onMobRoam(mob);
 end;
 
 function onPath(mob)
-	pathfind.patrol(mob, path, PATHFLAG_RUN);
+    pathfind.patrol(mob, path, PATHFLAG_RUN);
 end;
 
 function onMobRoam(mob)
-	-- move to start position if not moving
-	if (mob:isFollowingPath() == false) then
-		mob:pathThrough(pathfind.first(path), PATHFLAG_RUN);
-	end
+    -- move to start position if not moving
+    if (mob:isFollowingPath() == false) then
+        mob:pathThrough(pathfind.first(path), PATHFLAG_RUN);
+    end
 end;
 
 -----------------------------------
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
-	mob:setRespawnTime(math.random((10800),(14400))); -- respawn 3-4 hrs
-			killer:addCurrency("bayld",100);
-	killer:PrintToPlayer( "You earned 100 Bayld!");
+function onMobDeath(mob, killer, ally)
+			ally:addCurrency("bayld",100);
+	ally:PrintToPlayer( "You earned 100 Bayld!");
+    mob:setRespawnTime(math.random((10800),(14400))); -- respawn 3-4 hrs
 end;

@@ -1,6 +1,8 @@
 -----------------------------------
 -- Area: Aydeewa Subterrane
---  ZNM: Pandemonium_Warden
+-- NPC: Pandemonium Warden
+-- ZNM Path: Penultimate
+-- @pos http://ffxiclopedia.wikia.com/wiki/Pandemonium_Key traded to ??? at (K-7) of Map #7
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -311,10 +313,11 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer)
+function onMobDeath(mob,killer,ally)
     -- TODO: Death speech.
-    killer:addTitle(PANDEMONIUM_QUELLER);
-	killer:addCurrency("dominion_note",500);
-	killer:PrintToPlayer( "You earned 500 Dominion Notes!");
+    ally:addTitle(PANDEMONIUM_QUELLER);
 	
+	ally:addCurrency("dominion_note",10000);
+	ally:PrintToPlayer( "You earned 10000 Dominion Notes!");
+
 end;

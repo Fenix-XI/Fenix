@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: The Shrine of Ru'Avitau
--- NPC:  Faust
+--  MOB: Faust
 -----------------------------------
 
 -- TODO: Faust should WS ~3 times in a row each time.
@@ -16,8 +16,8 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
-	mob:setRespawnTime(math.random((10800),(21600))); -- respawn 3-6 hrs
-		killer:addCurrency("bayld",100);
-	killer:PrintToPlayer( "You earned 100 Bayld!");
+function onMobDeath(mob, killer, ally)
+		ally:addCurrency("bayld",100);
+	ally:PrintToPlayer( "You earned 100 Bayld!");
+    mob:setRespawnTime(math.random(10800,21600)); -- respawn 3-6 hrs
 end;

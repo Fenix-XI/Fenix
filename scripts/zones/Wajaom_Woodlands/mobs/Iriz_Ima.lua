@@ -1,8 +1,8 @@
 -----------------------------------
--- Area: Wajaom Woodlands
--- NPC:  Iriz Irma
-
--- @pos 
+-- Area: Mount Zhayolm
+-- NPC: Anantaboga
+-- ZNM Path: Troll
+-- @pos http://ffxiclopedia.wikia.com/wiki/Raw_Buffalo traded to ??? at (E-6)
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -26,10 +26,10 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, killer,ally)
 
 	
-	killer:addCurrency("dominion_note",150);
-	killer:PrintToPlayer( "You earned 150 Dominion Notes!");
+	ally:addCurrency("dominion_note",150);
+	ally:PrintToPlayer( "You earned 150 Dominion Notes!");
 
 end;

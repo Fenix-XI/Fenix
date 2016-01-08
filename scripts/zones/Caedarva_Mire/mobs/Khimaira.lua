@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Caedarva Mire
--- NPC:  Khimaira
+--  MOB: Khimaira
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -16,8 +16,8 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
-	killer:addTitle(KHIMAIRA_CARVER);
-	killer:addCurrency("dominion_note",350);
-	killer:PrintToPlayer( "You earned 350 Dominion Notes!");
+function onMobDeath(mob, killer, ally)
+    ally:addTitle(KHIMAIRA_CARVER);
+	ally:addCurrency("dominion_note",350);
+	ally:PrintToPlayer( "You earned 350 Dominion Notes!");
 end;

@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: The Garden of Ru'Hmet
--- NPC:  Ix'aern (drk)
+--  MOB: Ix'aern (drk)
 -----------------------------------
 
 -----------------------------------
@@ -15,9 +15,9 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
-	SetServerVariable("[PH]Ix_aern_drk", 0);
-	killer:addCurrency("mweya_plasm",75);
-	killer:PrintToPlayer( "You earned 75 Mweya Plasm!");
+function onMobDeath(mob, killer, ally)
+	ally:addCurrency("mweya_plasm",75);
+	ally:PrintToPlayer( "You earned 75 Mweya Plasm!");
+    --SetServerVariable("[PH]Ix_aern_drk", 0);
 
 end;

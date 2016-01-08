@@ -23,26 +23,26 @@ require("scripts/globals/weaponskills");
 function onUseWeaponSkill(player, target, wsID)
 
 	local params = {};
-	params.numHits = 1;
-	params.ftp100 = 2.75; params.ftp200 = 2.75; params.ftp300 = 2.75;
+	params.numHits = 2;
+	params.ftp100 = 2.25; params.ftp200 = 2.50; params.ftp300 = 2.75;
 	params.str_wsc = 0.4; params.dex_wsc = 0.0; params.vit_wsc = 0.0; params.agi_wsc = 0.0; params.int_wsc = 0.0; params.mnd_wsc = 0.4; params.chr_wsc = 0.0;
-	params.crit100 = 0.0; params.crit200 = 0.0; params.crit300 = 0.0;
-	params.canCrit = false;
+	params.crit100 = 0.2; params.crit200 = 0.4; params.crit300 = 0.6;
+	params.canCrit = true;
 	params.acc100 = 0.0; params.acc200= 0.0; params.acc300= 0.0;
-	params.atkmulti = 1;
+	params.atkmulti = 1.3;
 	local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params);
 
 	if damage > 0 and (target:hasStatusEffect(EFFECT_WEIGHT) == false) then
 		target:addStatusEffect(EFFECT_WEIGHT, 50, 0, 60);
 	end
-		if ((player:getEquipID(SLOT_MAIN) == 18324) and (player:getMainJob() == JOB_WHM)) then
+		if ((player:getEquipID(SLOT_MAIN) == 18324) and (player:getMainJob() == JOB_WHM or JOB_PLD)) then
 		if (damage > 0) then
 			if (player:getTP() >= 100 and player:getTP() < 200) then
-				player:addStatusEffect(EFFECT_AFTERMATH, 20, 0, 20, 0, 9);
+				player:addStatusEffect(EFFECT_AFTERMATH, -15, 0, 40, 0, 5);
 			elseif (player:getTP() >= 200 and player:getTP() < 300) then
-				player:addStatusEffect(EFFECT_AFTERMATH, 20, 0, 40, 0, 9);
+				player:addStatusEffect(EFFECT_AFTERMATH, -15, 0, 120, 0, 5);
 			elseif (player:getTP() == 300) then
-				player:addStatusEffect(EFFECT_AFTERMATH, 20, 0, 60, 0, 9);
+				player:addStatusEffect(EFFECT_AFTERMATH, -15, 0, 180, 0, 5);
 			end
 		end
 	end
