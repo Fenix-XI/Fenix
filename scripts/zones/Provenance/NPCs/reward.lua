@@ -3,6 +3,16 @@
 -- @pos -640 -19 -509 222
 -----------------------------------
 
+package.loaded["scripts/zones/Provenance/TextIDs"] = nil;
+-----------------------------------
+
+require("scripts/globals/settings");
+require("scripts/globals/titles");
+require("scripts/globals/keyitems");
+require("scripts/globals/missions");
+require("scripts/globals/quests");
+require("scripts/zones/Provenance/TextIDs");
+
 function onTrigger(player,npc)
 
 player:PrintToPlayer("Trade the base item to me to have points deducted and Reward item given!");
@@ -92,7 +102,7 @@ if (trade:getItemCount() == 1) then
    player:addItem(13566,1);
    player:messageSpecial(ITEM_OBTAINED,11651,1);
         
-		elseif (trade:hasItemQty(12034,1)) and (bayld >= Martial_Abjuration_Body)
+		elseif (trade:hasItemQty(12034,1)) and (bayld >= Martial_Abjuration_Body) and player:hasKeyItem(CERULEAN_CRYSTAL) == true
 			 then    --This is a check to see if the player has enough bayld
               player:delCurrency("bayld", 6500);
    player:tradeComplete();
