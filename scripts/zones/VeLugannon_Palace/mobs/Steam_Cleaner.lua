@@ -3,13 +3,27 @@
 -- MOB:  Steam_Cleaner
 -----------------------------------
 
-require("scripts/globals/groundsofvalor");
+require("scripts/globals/status");
+
+-----------------------------------
+-- onMobInitialize
+-----------------------------------
+
+function onMobInitialize(mob)
+end;
+
+-----------------------------------
+-- onMobSpawn Action
+-----------------------------------
+
+function onMobSpawn(mob)
+end;
 
 -----------------------------------
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob,killer)
-			killer:addCurrency("bayld",100);
-	killer:PrintToPlayer( "You earned 100 Bayld!");
+function onMobDeath(mob, killer,ally)
+    ally:addCurrency("bayld",100);
+    ally:PrintToPlayer( "You earned 100 Bayld!");
 end;
