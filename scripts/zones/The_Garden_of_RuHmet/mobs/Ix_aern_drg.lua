@@ -52,8 +52,8 @@ end
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
-	ally:addCurrency("mweya_plasm",75);
-	ally:PrintToPlayer( "You earned 75 Mweya Plasm!");
+	ally:addCurrency("mweya_plasm",150);
+	ally:PrintToPlayer( "You earned 150 Mweya Plasm!");
     -- Despawn pets..
     DespawnMob(wynavA);
     DespawnMob(wynavB);

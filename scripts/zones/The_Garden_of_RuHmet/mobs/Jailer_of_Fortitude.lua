@@ -67,8 +67,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, npc)
-ally:addCurrency("mweya_plasm",100);
-ally:PrintToPlayer( "You earned 100 Mweya Plasm!");
+ally:addCurrency("mweya_plasm",200);
+ally:PrintToPlayer( "You earned 200 Mweya Plasm!");
     -- Despawn the pets if alive
     DespawnMob(Kf_Ghrah_WHM);
     DespawnMob(Kf_Ghrah_BLM);
