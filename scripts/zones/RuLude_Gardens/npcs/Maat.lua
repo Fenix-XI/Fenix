@@ -191,7 +191,7 @@ function onEventFinish(player,csid,option)
     elseif (csid == 0x005d) then
         player:addTitle(STAR_BREAKER);
         player:levelCap(75);
-		player:addCurrency("bayle",75);
+		player:addCurrency("bayld",75);
         player:setVar("maatDefeated",0);
         player:messageSpecial(YOUR_LEVEL_LIMIT_IS_NOW_75);
         player:completeQuest(JEUNO,SHATTERING_STARS);
