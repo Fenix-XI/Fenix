@@ -40,8 +40,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob)
-ally:addCurrency("mweya_plasm",200);
-ally:PrintToPlayer( "You earned 200 Mweya Plasm!");
+ally:addCurrency("mweya_plasm",500);
+ally:PrintToPlayer( "You earned 500 Mweya Plasm!");
 end;
 
 -----------------------------------

@@ -84,4 +84,6 @@ end;
 
 function onMobDeath(mob, killer, ally)
     ally:addTitle(VIRTUOUS_SAINT);
+	ally:addCurrency("mweya_plasm",5000);
+	ally:PrintToPlayer( "You earned 5000 Mweya Plasm!");
 end;

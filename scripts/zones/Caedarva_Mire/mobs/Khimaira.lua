@@ -18,6 +18,6 @@ end;
 
 function onMobDeath(mob, killer, ally)
     ally:addTitle(KHIMAIRA_CARVER);
-	ally:addCurrency("dominion_note",400);
-	ally:PrintToPlayer( "You earned 400 Dominion Notes!");
+	ally:addCurrency("dominion_note",700);
+	ally:PrintToPlayer( "You earned 700 Dominion Notes!");
 end;

@@ -19,4 +19,6 @@ end;
 
 function onMobDeath(mob, killer, ally)
     ally:addTitle(SANDWORM_WRANGLER);
+	ally:addCurrency("kinetic_unit",300);
+	ally:PrintToPlayer( "You earned 300 Kinetic Units! Doomvoid - Do you need it?");
 end;

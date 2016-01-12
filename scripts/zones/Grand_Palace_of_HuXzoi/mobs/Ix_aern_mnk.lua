@@ -69,8 +69,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
-	ally:addCurrency("mweya_plasm",75);
-	ally:PrintToPlayer( "You earned 75 Mweya_Plasm!");
+	ally:addCurrency("mweya_plasm",300);
+	ally:PrintToPlayer( "You earned 300 Mweya_Plasm!");
     -- Despawn his minions if they are alive (Qn'aern)
     DespawnMob(mob:getID()+1);
     DespawnMob(mob:getID()+2);

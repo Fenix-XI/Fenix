@@ -75,7 +75,8 @@ end
 
 function onMobDeath(mob, killer, ally)
     ally:addTitle(VRTRA_VANQUISHER);
-    
+    ally:addCurrency("mweya_plasm",1000);
+	ally:PrintToPlayer( "You earned 1000 Mweya Plasm!");
     -- Set Vrtra's spawnpoint and respawn time (3-5 days)
     UpdateNMSpawnPoint(mob:getID());
     mob:setRespawnTime(math.random(259200,432000));
