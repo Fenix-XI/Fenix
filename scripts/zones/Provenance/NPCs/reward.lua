@@ -102,7 +102,7 @@ if (trade:getItemCount() == 1) then
    player:addItem(13566,1);
    player:messageSpecial(ITEM_OBTAINED,11651,1);
         
-		elseif (trade:hasItemQty(12034,1)) and (bayld >= Martial_Abjuration_Body) and player:hasKeyItem(CERULEAN_CRYSTAL) == true
+		elseif (trade:hasItemQty(12034,1)) and (bayld >= Martial_Abjuration_Body)
 			 then    --This is a check to see if the player has enough bayld
               player:delCurrency("bayld", 6500);
    player:tradeComplete();
