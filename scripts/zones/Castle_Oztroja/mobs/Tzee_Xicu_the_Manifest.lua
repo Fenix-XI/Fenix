@@ -33,7 +33,7 @@ function onMobDeath(mob, killer, ally)
     -- mob:messagePublic(mob,YAGUDO_KING_DEATH);
 				ally:addCurrency("bayld",200);
 ally:PrintToPlayer( "You earned 200 Bayld!");
-end;
+
 
     -- Set Tzee_Xicu_the_Manifest's Window Open Time
     SetServerVariable("[POP]Tzee_Xicu_the_Manifest", os.time(t) + 72 * 3600); -- 3 days
