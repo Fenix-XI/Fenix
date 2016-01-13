@@ -21,35 +21,22 @@ This file is part of DarkStar-server source code.
 ===========================================================================
 */
 
-#ifndef _CAICHARCHARM_H
-#define _CAICHARCHARM_H
+#ifndef _CTRIGGER_STATE_H
+#define _CTRIGGER_STATE_H
 
-#include "../../common/cbasetypes.h"
-#include "ai_char_normal.h"
+#include "state.h"
 
-class CCharEntity;
-
-class CAICharCharm : public CAICharNormal
+class CTriggerState : public CState
 {
 public:
-    virtual void CheckCurrentAction(uint32 tick);
-
-    CAICharCharm(CCharEntity* PChar);
-    virtual ~CAICharCharm();
-
+    CTriggerState(CBaseEntity* PEntity, uint16 targid);
+    virtual bool Update(time_point tick) override;
+    virtual void Cleanup(time_point tick) override {}
+    virtual bool CanChangeState() override;
+    virtual bool CanFollowPath() override;
+    virtual bool CanInterrupt() override { return false; }
 private:
-    uint8 m_previousallegiance;
-
-protected:
-
-    void ActionRoaming();
-    void ActionEngage();
-    void ActionDisengage();
-    void ActionFall();
-    void ActionAttack();
-
-    virtual void TransitionBack(bool skipWait = false) override;
-
+    bool close {false};
 };
 
 #endif

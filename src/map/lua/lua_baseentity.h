@@ -26,9 +26,9 @@
 
 #include "../../common/cbasetypes.h"
 #include "../../common/lua/lunar.h"
-#include "../entities/charentity.h"
 
 class CBaseEntity;
+class CCharEntity;
 
 class CLuaBaseEntity
 {
@@ -313,6 +313,7 @@ public:
     int32 hasBustEffect(lua_State*);          // Checks to see if a character has a specified busted corsair roll
     int32 canGainStatusEffect(lua_State*);    // Returns true if the effect can be added
     int32 getStatusEffect(lua_State*);        //
+    int32 getStatusEffects(lua_State*);
     int32 delStatusEffect(lua_State*);        // Removes Status Effect
     int32 delStatusEffectsByFlag(lua_State*); // Removes Status Effects by Flag
     int32 delStatusEffectSilent(lua_State*);  // Removes Status Effect, suppresses message
@@ -410,6 +411,8 @@ public:
     int32 showNPC(lua_State*);              // Show an NPC
     int32 hideNPC(lua_State*);              // hide an NPC
     int32 updateNPCHideTime(lua_State*);    // Updates the length of time a NPC remains hidden, if shorter than the original hide time.
+
+    int32 addRecast(lua_State*);
     int32 resetRecasts(lua_State*);         // Reset recasts for the caller
     int32 resetRecast(lua_State*);          // Reset one recast ID
 
@@ -469,10 +472,10 @@ public:
     int32 resetLocalVars(lua_State*);
 
     int32 setSpellList(lua_State*);
+    int32 hasSpellList(lua_State*);
 
     int32 hasValidJugPetItem(lua_State*);
     int32 getTarget(lua_State*);
-    int32 setBattleSubTarget(lua_State*);
     int32 hasTPMoves(lua_State*);
     int32 getMaster(lua_State*);
 
@@ -564,6 +567,15 @@ public:
 
     int32 getConfrontationEffect(lua_State* L);
     int32 copyConfrontationEffect(lua_State* L);    // copy confrontation effect, param = targetEntity:getShortID()
+
+    int32 queue(lua_State* L);
+    int32 timer(lua_State* L); //execute lua closure after some time
+
+    int32 addListener(lua_State* L);
+    int32 removeListener(lua_State* L);
+    int32 triggerListener(lua_State* L);
+
+    int32 removeAmmo(lua_State* L);
 };
 
 #endif
