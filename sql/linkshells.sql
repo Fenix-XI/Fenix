@@ -40,7 +40,7 @@ CREATE TABLE `linkshells` (
 
 LOCK TABLES `linkshells` WRITE;
 /*!40000 ALTER TABLE `linkshells` DISABLE KEYS */;
-INSERT INTO `linkshells` VALUES (4,'GMchat',65376,'Fluxion','...',1450761533,0),(3,'Serverwide',61997,'Hookstar','Server Update DEC 22nd 1500 EST - 1800 EST ',1450813254,0),(5,'HookersAndBlow',65535,'',NULL,0,0);
+INSERT INTO `linkshells` VALUES (4,'GMchat',65376,'Fluxion','Update Tuesday',1452559645,0),(3,'Serverwide',61997,'Fluxion','Retail is trigger happy with updates, so we will be updating the server on Tuesday, 1/12, at 3:30pmPST/6:30pmEST.',1452487523,0),(5,'HookersAndBlow',65535,'',NULL,0,0);
 /*!40000 ALTER TABLE `linkshells` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-22 14:21:12
+-- Dump completed on 2016-01-12 17:35:09
