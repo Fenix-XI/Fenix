@@ -155,6 +155,56 @@ CLuaBaseEntity::CLuaBaseEntity(CBaseEntity* PEntity)
 
 //======================================================//
 
+inline int32 CLuaBaseEntity::addLS(lua_State* L)
+{
+	DSP_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
+
+	const int8* linkshellName = lua_tostring(L, 1);
+	const int8* Query = "SELECT name FROM linkshells WHERE name='%s'";
+	int32 ret = Sql_Query(SqlHandle, Query, linkshellName);
+
+	if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
+	{
+		CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+
+		std::string qStr = ("UPDATE char_inventory SET signature='");
+		qStr += linkshellName;
+		qStr += "' WHERE charid = " + std::to_string(PChar->id);
+		qStr += " AND itemId = 515 AND signature = ''";
+		Sql_Query(SqlHandle, qStr.c_str());
+
+		Query = "SELECT linkshellid,color FROM linkshells WHERE name='%s'";
+		ret = Sql_Query(SqlHandle, Query, linkshellName);
+		if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
+		{
+			CItem* PItem = itemutils::GetItem(515);
+
+			// Update item with name & color //
+			int8 EncodedString[16];
+			EncodeStringLinkshell((int8*)linkshellName, EncodedString);
+			PItem->setSignature(EncodedString);
+			((CItemLinkshell*)PItem)->SetLSID(Sql_GetUIntData(SqlHandle, 0));
+			((CItemLinkshell*)PItem)->SetLSColor(Sql_GetIntData(SqlHandle, 1));
+			uint8 invSlotID = charutils::AddItem(PChar, LOC_INVENTORY, PItem, 1);
+
+			// auto-equip it //
+			/* if (invSlotID != ERROR_SLOTID)
+			{
+			PItem->setSubType(ITEM_LOCKED);
+			PChar->equip[SLOT_LINK] = invSlotID;
+			PChar->equipLoc[SLOT_LINK] = LOC_INVENTORY;
+			linkshell::AddOnlineMember(PChar, (CItemLinkshell*)PItem);
+			} */
+		}
+	}
+
+	return 1;
+}
+
+//======================================================//
+
+
+
 inline int32 CLuaBaseEntity::leavegame(lua_State *L)
 {
     DSP_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
@@ -6816,30 +6866,6 @@ inline int32 CLuaBaseEntity::resetRecast(lua_State *L)
     return 0;
 }
 
-inline int32 CLuaBaseEntity::addRecast(lua_State* L)
-{
-    DSP_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    DSP_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
-    DSP_DEBUG_BREAK_IF(lua_isnil(L, 2) || !lua_isnumber(L, 2));
-    DSP_DEBUG_BREAK_IF(lua_isnil(L, 2) || !lua_isnumber(L, 2));
-
-    if (m_PBaseEntity->objtype == TYPE_PC)
-    {
-        CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
-
-        RECASTTYPE recastContainer = (RECASTTYPE)lua_tointeger(L, 1);
-        uint16 recastID = lua_tointeger(L, 2);
-        uint32 duration = lua_tointeger(L, 3);
-
-        PChar->PRecastContainer->Add(recastContainer, recastID, duration);
-
-        PChar->pushPacket(new CCharSkillsPacket(PChar));
-        PChar->pushPacket(new CCharRecastPacket(PChar));
-    }
-    return 0;
-}
-
-
 /***************************************************************
   Attempts to register a BCNM or Dynamis battlefield.
   INPUT: The BCNM ID to register.
@@ -9026,7 +9052,7 @@ inline int32 CLuaBaseEntity::wait(lua_State* L)
     {
         waitTime = lua_tonumber(L, 1);
     }
-    PBattle->PAI->Inactive(std::chrono::milliseconds(waitTime), true);
+    PBattle->PAI->Inactive(std::chrono::milliseconds(waitTime),true);
 
     return 0;
 }
@@ -9731,7 +9757,7 @@ inline int32 CLuaBaseEntity::stun(lua_State* L)
     DSP_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
     DSP_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    m_PBaseEntity->PAI->Inactive(std::chrono::milliseconds(lua_tointeger(L, 1)), false);
+    m_PBaseEntity->PAI->Inactive(std::chrono::milliseconds(lua_tointeger(L, 1)),false);
 
     return 0;
 }
@@ -10022,7 +10048,7 @@ inline int32 CLuaBaseEntity::storeWithPorterMoogle(lua_State *L)
                 //auto item = PChar->getStorage(LOC_INVENTORY)->GetItem(slotId);
                 //if (item->isType(ITEM_ARMOR) && ((CItemArmor*)item)->getTrialNumber() != 0)
                 charutils::UpdateItem(PChar, LOC_INVENTORY, slotId, -1);
-                //else
+                //else 
                 //{
                 //lua_pushinteger(L, 2);
                 //return 1;
@@ -10214,21 +10240,13 @@ int32 CLuaBaseEntity::triggerListener(lua_State* L)
 
     return 0;
 }
-
-int32 CLuaBaseEntity::removeAmmo(lua_State* L)
-{
-    DSP_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    DSP_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
-
-    battleutils::RemoveAmmo(static_cast<CCharEntity*>(m_PBaseEntity));
-    return 0;
-}
 //==========================================================//
 
 const int8 CLuaBaseEntity::className[] = "CBaseEntity";
 
 Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
 {
+	LUNAR_DECLARE_METHOD(CLuaBaseEntity,addLS),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,ChangeMusic),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,warp),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,leavegame),
@@ -10495,7 +10513,6 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMeleeHitDamage),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,resetRecasts),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,resetRecast),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity,addRecast),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,bcnmRegister),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,bcnmEnter),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,bcnmLeave),
@@ -10669,6 +10686,5 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addListener),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,removeListener),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,triggerListener),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity,removeAmmo),
     {nullptr,nullptr}
 };
