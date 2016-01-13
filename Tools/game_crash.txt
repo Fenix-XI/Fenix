@@ -1,0 +1,36 @@
+1/12/2016 6:57:26 PM	 [INFORMATION] 	############################################ MONITORING SESSION START ############################################
+1/12/2016 6:57:26 PM	 [INFORMATION] 	INITIATING A NEW MONITORING SESSION
+1/12/2016 6:57:26 PM	 [INFORMATION] 	SYSTEM INFORMATION: 
+	 - OS INFORMATION: Microsoft Windows NT 6.1.7601 Service Pack 1
+	 - CLR VERSION: 2.0.50727.5485
+	 - RESTARTER VERSION: 2.0.0.0
+	 - RESTARTER EXECUTABLE PATH: C:\Windows\system32
+
+1/12/2016 6:57:26 PM	 [INFORMATION] 	MONITORING SESSION PARAMETERS: 
+	 - PROCESS = C:\Exodus\DSGame-server.exe
+	 - PID = 6136
+	 - Monitor Interval = 10 Seconds
+	 - Kill if Unresponsive = False
+	 - Unresponsive Intervals = 5
+	 - Enable Restart = True
+	 - Log to File = True
+	 - Logfile = C:\Exodus\Tools\game_crash.txt
+	 - Warning Sound = False
+	 - Soundfile = 
+	 - Execute External Script = True
+	 - External Script File = C:\Exodus\Tools\game_crash.bat
+	 - Keep Restarter Minimized = True
+	 - Startup Parameters = 
+	 - Working Directory = C:\Exodus\DSGame-server.exe
+	 - Window Style = Normal
+	 - Force Window Focus = False
+
+1/12/2016 6:57:27 PM	 [WARNING] 	MONITOR INTERVAL SET TO LESS THAN 60 SECONDS! THIS IS NOT A RECOMMENDED CONFIGURATION!
+1/12/2016 6:57:27 PM	 [INFORMATION] 	MONITORING STARTED
+1/12/2016 6:59:57 PM	 [WARNING] 	POLLCOUNT: 15 - FAILED TO COLLECT ALL DATA. WILL TRY AGAIN AT NEXT POLL INTERVAL
+1/12/2016 6:59:57 PM	 [ERROR] 	ERROR MESSAGE: Not found 
+1/12/2016 6:59:57 PM	 [WARNING] 	POLLCOUNT: 15 - FAILED TO COLLECT ALL DATA. WILL TRY AGAIN AT NEXT POLL INTERVAL
+1/12/2016 6:59:57 PM	 [ERROR] 	ERROR MESSAGE: Not found 
+1/12/2016 6:59:57 PM	 [WARNING] 	POLLCOUNT: 15 - FAILED TO COLLECT ALL DATA. WILL TRY AGAIN AT NEXT POLL INTERVAL
+1/12/2016 6:59:57 PM	 [ERROR] 	ERROR MESSAGE: Not found 
+1/12/2016 7:00:08 PM	 [INFORMATION] 	SUCCESS: at PollCount 16 - CORRECTED, ALL REQUIRED DATA COLLECTED
