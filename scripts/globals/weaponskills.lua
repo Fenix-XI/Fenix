@@ -16,7 +16,7 @@ local elementalGorget = { 15495, 15498, 15500, 15497, 15496, 15499, 15501, 15502
 local elementalBelt =   { 11755, 11758, 11760, 11757, 11756, 11759, 11761, 11762 };
 
 --params contains: ftp100, ftp200, ftp300, str_wsc, dex_wsc, vit_wsc, int_wsc, mnd_wsc, canCrit, crit100, crit200, crit300, acc100, acc200, acc300, ignoresDef, ignore100, ignore200, ignore300, atkmulti
-function doPhysicalWeaponskill(attacker, target, wsID, params)
+function doPhysicalWeaponskill(attacker, target, params)
 
     local criticalHit = false;
     local bonusacc = 0;
@@ -235,9 +235,6 @@ function doPhysicalWeaponskill(attacker, target, wsID, params)
         finaldmg = finaldmg * target:getMod(MOD_SLASHRES) / 1000;
     end
     
-    if (attacker:getMod(MOD_WEAPONSKILL_DAMAGE_BASE + wsID) > 0) then
-        finaldmg = finaldmg * (100 + attacker:getMod(MOD_WEAPONSKILL_DAMAGE_BASE + wsID))/100
-    end
 
     attacker:delStatusEffectSilent(EFFECT_BUILDING_FLOURISH);
     return finaldmg, criticalHit, tpHitsLanded, extraHitsLanded;
@@ -246,7 +243,7 @@ end;
 -- params: ftp100, ftp200, ftp300, wsc_str, wsc_dex, wsc_vit, wsc_agi, wsc_int, wsc_mnd, wsc_chr,
 --         ele (ELE_FIRE), skill (SKILL_STF), includemab = true
 
-function doMagicWeaponskill(attacker, target, wsID, params)
+function doMagicWeaponskill(attacker, target, params)
 
     local bonusacc = 0;
     local bonusfTP = 0;
@@ -298,9 +295,6 @@ function doMagicWeaponskill(attacker, target, wsID, params)
     dmg = target:magicDmgTaken(dmg);
     dmg = adjustForTarget(target,dmg,params.ele);
     
-    if (attacker:getMod(MOD_WEAPONSKILL_DAMAGE_BASE + wsID) > 0) then
-        dmg = dmg * (100 + attacker:getMod(MOD_WEAPONSKILL_DAMAGE_BASE + wsID))/100
-    end
     return dmg, false, 1, 0;
 end
 
@@ -448,7 +442,6 @@ function calculatedIgnoredDef(tp, def, ignore1, ignore2, ignore3)
     end
     return 1; --no def ignore mod
 end
-
 --Given the raw ratio value (atk/def) and levels, returns the cRatio (min then max)
 function cMeleeRatio(attacker, defender, params, ignoredDef)
 
@@ -682,7 +675,7 @@ function getAlpha(level)
 end;
 
  --params contains: ftp100, ftp200, ftp300, str_wsc, dex_wsc, vit_wsc, int_wsc, mnd_wsc, canCrit, crit100, crit200, crit300, acc100, acc200, acc300, ignoresDef, ignore100, ignore200, ignore300, atkmulti
- function doRangedWeaponskill(attacker, target, wsID, params)
+ function doRangedWeaponskill(attacker, target, params)
 
     local bonusacc = 0;
     local bonusfTP = 0;
@@ -817,10 +810,6 @@ end;
 
     finaldmg = target:rangedDmgTaken(finaldmg);
     finaldmg = finaldmg * target:getMod(MOD_PIERCERES) / 1000;
-
-    if (attacker:getMod(MOD_WEAPONSKILL_DAMAGE_BASE + wsID) > 0) then
-        finaldmg = finaldmg * (100 + attacker:getMod(MOD_WEAPONSKILL_DAMAGE_BASE + wsID))/100
-    end
 
     return finaldmg, tpHitsLanded, extraHitsLanded;
 end;

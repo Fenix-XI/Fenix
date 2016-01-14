@@ -19,36 +19,29 @@ require("scripts/globals/settings");
 require("scripts/globals/weaponskills");
 -----------------------------------
 function onUseWeaponSkill(player, target, wsID)
-	local params = {};
-	params.numHits = 4;
-	params.ftp100 = 1.5; params.ftp200 = 2.25; params.ftp300 = 3;
-	params.str_wsc = 0.15; params.dex_wsc = 0.65; params.vit_wsc = 0.0; params.agi_wsc = 0.0; params.int_wsc = 0.0; params.mnd_wsc = 0.0; params.chr_wsc = 0.0;
-	params.crit100 = 0.0; params.crit200 = 0.0; params.crit300 = 0.0;
-	params.canCrit = false;
-	params.acc100 = 0.0; params.acc200= 0.0; params.acc300= 0.0;
-	params.atkmulti = 0.8;
+    local params = {};
+    params.numHits = 1;
+    params.ftp100 = 3; params.ftp200 = 3; params.ftp300 = 3;
+    params.str_wsc = 0.0; params.dex_wsc = 0.6; params.vit_wsc = 0.0; params.agi_wsc = 0.0; params.int_wsc = 0.0; params.mnd_wsc = 0.0; params.chr_wsc = 0.0;
+    params.crit100 = 0.0; params.crit200 = 0.0; params.crit300 = 0.0;
+    params.canCrit = false;
+    params.acc100 = 0.0; params.acc200= 0.0; params.acc300= 0.0;
+    params.atkmulti = 1;
 
 
-	if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
-		params.dex_wsc = 0.8;
-	end
+    if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
+        params.dex_wsc = 0.8;
+    end
 
 
-	local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params);
-	if damage > 0 and (target:hasStatusEffect(EFFECT_PARALYSIS) == false) then
-		target:addStatusEffect(EFFECT_PARALYSIS, 25, 0, 60);
-	end
-		if ((player:getEquipID(SLOT_MAIN) or (SLOT_SUB) == 18312) and (player:getMainJob() == JOB_NIN)) then
-		if (damage > 0) then
-			if (player:getTP() >= 100 and player:getTP() <200) then
-				player:addStatusEffect(EFFECT_AFTERMATH, 15, 0, 40, 0, 1);
-			elseif (player:getTP() >= 200 and player:getTP() <300) then
-				player:addStatusEffect(EFFECT_AFTERMATH, 15, 0, 120, 0, 1);
-			elseif (player:getTP() == 300) then
-				player:addStatusEffect(EFFECT_AFTERMATH, 15, 0, 180, 0, 1);
-			end
-		end
-	end
-	damage = damage * WEAPON_SKILL_POWER
-	return tpHits, extraHits, criticalHit, damage;
+    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params);
+    -- TODO: Whoever codes those level 85 weapons with the latent that grants this WS needs to code a check to not give the aftermath effect.
+    if (damage > 0) then
+        local amDuration = 20 * math.floor(player:getTP()/100);
+        player:addStatusEffect(EFFECT_AFTERMATH, 10, 0, amDuration, 0, 1);
+        target:addStatusEffect(EFFECT_PARALYSIS, 10, 0, 60);
+    end
+
+    damage = damage * WEAPON_SKILL_POWER
+    return tpHits, extraHits, criticalHit, damage;
 end

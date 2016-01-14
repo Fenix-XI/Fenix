@@ -31,7 +31,7 @@ function onUseWeaponSkill(player, target, wsID)
         params.mnd_wsc = 0.8;
     end
 
-    local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params);
+    local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, params);
 
     if damage > 0 then
         local tp = player:getTP();

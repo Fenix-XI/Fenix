@@ -36,7 +36,7 @@ function onUseWeaponSkill(player, target, wsID)
         params.atkmulti = 1.65
     end
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params);
+    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params);
 
     if damage > 0 and (target:hasStatusEffect(EFFECT_PARALYSIS) == false) then
         target:addStatusEffect(EFFECT_PARALYSIS, 25, 0, 60);

@@ -31,7 +31,7 @@ function onUseWeaponSkill(player, target, wsID)
         params.str_wsc = 0.6; params.mnd_wsc = 0.6;
     end
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params);
+    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params);
 
     if damage > 0 then
         local tp = player:getTP();
