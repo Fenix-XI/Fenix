@@ -203,7 +203,7 @@ function onEventFinish(player,csid,option)
             player:setVar("maatsCap",0);
             player:addItem(15194);
 			player:addCurrency("bayld, 500")
-			player:PrintToPlayer( "You earned 500 Bayld! ");
+			player:PrintToPlayer( "You earned 500 Bayld!");
             player:messageSpecial(ITEM_OBTAINED,15194);
         end
     end
