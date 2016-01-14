@@ -202,6 +202,8 @@ function onEventFinish(player,csid,option)
             player:addTitle(ULTIMATE_CHAMPION_OF_THE_WORLD);
             player:setVar("maatsCap",0);
             player:addItem(15194);
+			player:addCurrency("bayld, 500")
+			player:PrintToPlayer( "You earned 500 Bayld!");
             player:messageSpecial(ITEM_OBTAINED,15194);
         end
     end
