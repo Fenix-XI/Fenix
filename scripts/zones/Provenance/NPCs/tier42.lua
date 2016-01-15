@@ -22,7 +22,7 @@ end;
 
 function onTrigger(player,npc)
 	
-player:PrintToPlayer("Welcome to the Tier 4 Rewards Shop. Please purchase your base item");
+player:PrintToPlayer("Welcome to the Tier 4 Rewards Shop #2. Please purchase your base item!");
 
 stock = {0x5348,1,
 0x5358,1,
