@@ -32,7 +32,7 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
-	killer:addCurrency("kinetic_units",95);
+function onMobDeath(mob, killer,ally)
+	killer:addCurrency("kinetic_unit",95);
 	killer:PrintToPlayer( "You earned 95 Kinetic Units!");
 end;
