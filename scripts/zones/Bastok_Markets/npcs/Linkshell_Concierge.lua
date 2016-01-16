@@ -80,7 +80,7 @@ stock = {0xB65,	1,	--	Bloodshot Hecteye	Trades to	Legionnaire's Scythe
 0xC16,	1,	--	HQ Rock Salt	Trades to	    Senior Gold Musketeer's Axe
 0xC14,	1,	--	Mocking Beak	Trades to	    Senior Gold Musketeer's Scythe
 0xC13,	1,	--	Hardened Raptor Skin	Trades to	    Senior Gold Musketeer's Rod
-0xC17,	1,	--	Gnarled Taurus Horn	Trades to	    Republic Aketon
+--0xC1a,	1,	--	Gnarled Taurus Horn	Trades to	    Republic Aketon
 0xC19,	1,	--	Dented Skull	Trades to	    Republic Signet Staff
 0xC1A,	1,	--	Stiffened Tentacle	Trades to	Chocobo Whistle
 
@@ -592,7 +592,7 @@ if (trade:getItemCount() == 1) then
    player:addItem(17457,1);
    player:messageSpecial(ITEM_OBTAINED,17457,1);
 
- 		elseif (trade:hasItemQty(3095,1)) and (balance >= Republic_Aketon)
+ 		elseif (trade:hasItemQty(3098,1)) and (balance >= Republic_Aketon)
 			 then    
             player:delCurrency("bastok_cp", 60000);
 			player:delCurrency("sandoria_cp", 60000);
@@ -610,7 +610,7 @@ if (trade:getItemCount() == 1) then
    player:addItem(17584,1);
    player:messageSpecial(ITEM_OBTAINED,17584,1);
 
- 		elseif (trade:hasItemQty(3098,1)) and (balance >= Chocobo_Whistle)
+ 		elseif (trade:hasItemQty(3102,1)) and (balance >= Chocobo_Whistle)
 			 then    
             player:delCurrency("bastok_cp", 5000);
 			player:delCurrency("sandoria_cp", 5000);
