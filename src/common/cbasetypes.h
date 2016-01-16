@@ -330,11 +330,4 @@ typedef char bool;
 	#endif
 #endif
 
-#include <chrono>
-
-using namespace std::chrono_literals;
-using server_clock = std::chrono::steady_clock;
-using time_point = server_clock::time_point;
-using duration = server_clock::duration;
-
 #endif /* _CBASETYPES_H_ */

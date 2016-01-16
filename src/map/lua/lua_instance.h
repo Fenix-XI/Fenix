@@ -27,7 +27,9 @@ This file is part of DarkStar-server source code.
 #include "../../common/cbasetypes.h"
 #include "../../common/lua/lunar.h"
 
-class CInstance;
+#include "../instance.h"
+
+
 class CLuaInstance
 {
     CInstance* m_PLuaInstance;

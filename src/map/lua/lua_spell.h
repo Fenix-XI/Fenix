@@ -27,7 +27,9 @@
 #include "../../common/cbasetypes.h"
 #include "../../common/lua/lunar.h"
 
-class CSpell;
+#include "../spell.h"
+
+
 class CLuaSpell
 {
     CSpell *m_PLuaSpell;

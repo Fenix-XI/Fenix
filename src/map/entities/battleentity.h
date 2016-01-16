@@ -27,11 +27,16 @@
 #include <vector>
 #include <unordered_map>
 
+#include "../items/item_weapon.h"
+
 #include "baseentity.h"
-#include "../map.h"
-#include "../trait.h"
-#include "../party.h"
 #include "../alliance.h"
+#include "../trait.h"
+#include "../modifier.h"
+#include "../party.h"
+#include "../status_effect_container.h"
+#include "../map.h"
+
 
 enum ECOSYSTEM
 {
@@ -236,7 +241,9 @@ enum DAMAGETYPE
     DAMAGE_PIERCING = 1,
     DAMAGE_SLASHING = 2,
     DAMAGE_IMPACT = 3,
-    DAMAGE_HTH = 4
+    DAMAGE_HTH = 4,
+    DAMAGE_CROSSBOW = 5,
+    DAMAGE_GUN = 6
 };
 
 enum REACTION
@@ -433,22 +440,18 @@ struct health_t
 };
 
 typedef std::vector<apAction_t> ActionList_t;
-class CModifier;
-class CParty;
-class CStatusEffectContainer;
 class CPetEntity;
-class CSpell;
-class CItemWeapon;
-class CAttackState;
-class CWeaponSkillState;
-class CMagicState;
-struct action_t;
-
 class CBattleEntity : public CBaseEntity
 {
 public:
-    CBattleEntity();						// конструктор
-    virtual ~CBattleEntity();						// деструктор
+
+    health_t	    health;						// hp,mp,tp
+    stats_t		    stats;						// атрибуты STR,DEX,VIT,AGI,INT,MND,CHR
+    skills_t	    WorkingSkills;				// структура всех доступных сущности умений, ограниченных уровнем
+    uint16		    m_Immunity;					// Mob immunity
+    uint16			m_magicEvasion;		        // store this so it can be removed easily
+    uint8			m_enmityRange;              // only get enmity from entities this close
+    bool            m_unkillable;               //entity is not able to die (probably until some action removes this flag)
 
     uint16          STR();
     uint16          DEX();
@@ -466,11 +469,15 @@ public:
 
     uint8           GetSpeed();
 
+    uint32			charmTime;					// to hold the time entity is charmed
+    bool			isCharmed;					// is the battle entity charmed?
+
     bool		    isDead();					// проверяем, мертва ли сущность
     bool		    isAlive();
     bool			isInDynamis();
     bool			hasImmunity(uint32 imID);
     bool			isAsleep();
+
 
     JOBTYPE		    GetMJob();					// главная профессия
     JOBTYPE		    GetSJob();					// дополнительная профессия
@@ -490,7 +497,7 @@ public:
 
     int16			GetWeaponDelay(bool tp);		//returns delay of combined weapons
     int16			GetRangedWeaponDelay(bool tp);	//returns delay of ranged weapon + ammo where applicable
-    int16			GetAmmoDelay();			        //returns delay of ammo (for cooldown between shots)
+    int16			GetAmmoDelay(bool tp);			//returns delay of ammo (for cooldown between shots)
     uint16			GetMainWeaponDmg();				//returns total main hand DMG
     uint16			GetSubWeaponDmg();				//returns total sub weapon DMG
     uint16			GetRangedWeaponDmg();			//returns total ranged weapon DMG
@@ -565,55 +572,11 @@ public:
     virtual void    addTrait(CTrait*);
     virtual void    delTrait(CTrait*);
 
-    virtual bool    ValidTarget(CBattleEntity* PInitiator, uint8 targetFlags);
-    virtual bool    CanUseSpell(CSpell*);
-
-    virtual void    Spawn() override;
-    virtual void    Die();
-    uint16 GetBattleTargetID();
-    void SetBattleTargetID(uint16 id) { m_battleTarget = id; }
-    CBattleEntity* GetBattleTarget();
-
-    /* State callbacks */
-    /* Auto attack */
-    virtual bool OnAttack(CAttackState&, action_t&);
-    virtual bool OnAttackError(CAttackState&) { return false; }
-    /* Returns whether to call Attack or not (which includes error messages) */
-    virtual bool CanAttack(CBattleEntity* PTarget, std::unique_ptr<CMessageBasicPacket>& errMsg);
-    virtual CBattleEntity* IsValidTarget(uint16 targid, uint8 validTargetFlags, std::unique_ptr<CMessageBasicPacket>& errMsg);
-    virtual void OnDisengage(CAttackState&);
-    /* Casting */
-    virtual void OnCastFinished(CMagicState&, action_t&);
-    virtual void OnCastInterrupted(CMagicState&, action_t&, MSGBASIC_ID msg);
-    /* Weaponskill */
-    virtual void OnWeaponSkillFinished(CWeaponSkillState& state, action_t& action);
-    virtual void OnChangeTarget(CBattleEntity* PTarget);
-
-    virtual void OnDeathTimer();
-    virtual void OnRaise() {}
-    virtual void TryHitInterrupt(CBattleEntity* PAttacker);
-
-    void SetBattleStartTime(time_point);
-    duration GetBattleTime();
-
-    virtual void Tick(time_point) override;
-
-    health_t	    health;						// hp,mp,tp
-    stats_t		    stats;						// атрибуты STR,DEX,VIT,AGI,INT,MND,CHR
-    skills_t	    WorkingSkills;				// структура всех доступных сущности умений, ограниченных уровнем
-    uint16		    m_Immunity;					// Mob immunity
-    uint16			m_magicEvasion;		        // store this so it can be removed easily
-    uint8			m_enmityRange;              // only get enmity from entities this close
-    bool            m_unkillable;               // entity is not able to die (probably until some action removes this flag)
-
-    time_point  	charmTime;					// to hold the time entity is charmed
-    bool			isCharmed;					// is the battle entity charmed?
-
     uint8			m_ModelSize;			    // размер модели сущности, для расчета дальности физической атаки
     ECOSYSTEM		m_EcoSystem;			    // эко-система сущности
     CItemWeapon*	m_Weapons[4];			    // четыре основных ячейки, используемыж для хранения оружия (только оружия)
 
-    TraitList_t     TraitList;                  // список постянно активных способностей в виде указателей
+    TraitList_t       TraitList;                    // список постянно активных способностей в виде указателей
 
     EntityID_t	    m_OwnerID;				    // ID атакующей сущности (после смерти будет хранить ID сущности, нанесщей последний удар)
 
@@ -625,6 +588,8 @@ public:
 
     CStatusEffectContainer* StatusEffectContainer;
 
+    CBattleEntity();						// конструктор
+    virtual ~CBattleEntity();						// деструктор
 
 private:
 
@@ -632,8 +597,6 @@ private:
     JOBTYPE		m_sjob;						// дополнительная профессия
     uint8		m_mlvl;						// ТЕКУЩИЙ уровень главной профессии
     uint8		m_slvl;						// ТЕКУЩИЙ уровень дополнительной профессии
-    uint16      m_battleTarget {0};
-    time_point  m_battleStartTime;
 
     std::unordered_map<uint16, int16>		m_modStat;	// массив модификаторов
     std::unordered_map<uint16, int16>		m_modStatSave;	// saved state

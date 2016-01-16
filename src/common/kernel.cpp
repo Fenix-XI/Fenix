@@ -244,11 +244,11 @@ int main (int argc, char **argv)
 	do_init(argc,argv);
 	fd_set rfd;
 	{// Main runtime cycle
-		duration next;
+		int next;
 
 		while (runflag) 
 		{
-            next = CTaskMgr::getInstance()->DoTimer(server_clock::now());
+			next = CTaskMgr::getInstance()->DoTimer(gettick_nocache());
 			do_sockets(&rfd,next);
 		}
 	}

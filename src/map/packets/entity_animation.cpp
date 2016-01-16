@@ -27,7 +27,7 @@
 
 #include "../entities/baseentity.h"
 
-const char* CEntityAnimationPacket::Fade_Out = "kesu";
+const char* CEntityAnimationPacket::FADE_OUT = "kesu";
 
 CEntityAnimationPacket::CEntityAnimationPacket(CBaseEntity * PEntity, const char type[4])
 {

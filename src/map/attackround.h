@@ -44,7 +44,7 @@ class CAttack;
 class CAttackRound
 {
 public:
-	CAttackRound(CBattleEntity* attacker, CBattleEntity* defender);
+	CAttackRound(CBattleEntity* attacker);
 	~CAttackRound();
 
 	void						AddAttackSwing(PHYSICAL_ATTACK_TYPE type, PHYSICAL_ATTACK_DIRECTION direction, uint8 count); // Adds an attack swing.
@@ -62,7 +62,6 @@ public:
 
 private:
 	CBattleEntity*				m_attacker;					// The attacker.
-	CBattleEntity*				m_defender;					// The defender.
 	CBattleEntity*				m_taEntity;					// The trick attack entity.
 	std::vector<CAttack>		m_attackSwings;				// The list of attacks for this round.
 	bool						m_sataOccured;				// Flag: Did SATA occur during the round?

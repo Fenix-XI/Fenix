@@ -23,8 +23,6 @@
 
 #include "mob_spell_container.h"
 #include "utils/battleutils.h"
-#include "status_effect_container.h"
-#include "mob_modifier.h"
 
 CMobSpellContainer::CMobSpellContainer(CMobEntity* PMob)
 {

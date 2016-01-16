@@ -28,8 +28,7 @@
 #include "char_job_extra.h"
 #include "../utils/puppetutils.h"
 
-#include "../entities/charentity.h"	
-#include "../entities/automatonentity.h"	
+#include "../entities/charentity.h"
 
 CCharJobExtraPacket::CCharJobExtraPacket(CCharEntity* PChar, bool mjob)
 {

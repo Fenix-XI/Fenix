@@ -25,9 +25,9 @@
 #define _CMAGIC_STATE_H
 
 #include "state.h"
-#include "../../spell.h"
 
-struct action_t;
+class CSpell;
+struct apAction_t;
 
 enum MAGICFLAGS {
   MAGICFLAGS_NONE = 0,
@@ -37,34 +37,59 @@ enum MAGICFLAGS {
 
 class CMagicState : public CState
 {
-public:
-    CMagicState(CBattleEntity* PEntity, uint16 targid, uint16 spellid, uint8 flags = 0);
-    virtual bool Update(time_point tick) override;
-    virtual void Cleanup(time_point tick) override;
-    virtual bool CanChangeState() override;
-    virtual bool CanFollowPath() override { return false; }
-    virtual bool CanInterrupt() override { return true; }
+  public:
+    CMagicState(CBattleEntity* PEntity, CTargetFind* PTargetFind, float maxStartDistance = 26.8f, float maxFinishDistance = 28.5f);
 
+    // can cast any magic
+    // TODO:
+    bool CanCast();
+
+    bool CanCastSpell(CSpell* PSpell, CBattleEntity* PTarget, uint8 flags = MAGICFLAGS_NONE);
+
+    STATESTATUS CastSpell(CSpell* PSpell, CBattleEntity* PTarget, uint8 flags = MAGICFLAGS_NONE);
+
+    void InterruptSpell();
+    void FinishSpell();
+
+    virtual STATESTATUS Update(uint32 tick);
+    virtual void Clear();
+
+    // force spell interrupt
+    void ForceInterrupt();
+    bool IsInterrupted();
     CSpell* GetSpell();
-    virtual void TryInterrupt(CBattleEntity* PAttacker) override;
 
-    void SpendCost();
-    uint32 GetRecast();
-    void ApplyEnmity(CBattleEntity* PTarget, int ce, int ve);
+    bool TryHitInterrupt(CBattleEntity* PAttacker);
+    bool IsCasting();
 
-protected:
-    bool CanCastSpell(CBattleEntity* PTarget);
+    uint32 CalculateCastTime(CSpell* PSpell);
+    int16 CalculateMPCost(CSpell* PSpell);
+    uint32 CalculateRecastTime(CSpell* PSpell);
 
-    bool HasCost();
+    bool m_enableCasting;
+    float m_maxStartDistance;
+    float m_maxFinishDistance;
 
-    bool HasMoved();
+    void SpendCost(CSpell* PSpell);
+    void SetRecast(CSpell* PSpell);
+    int16 ConserveMP(int16 cost);
 
-    CBattleEntity* const m_PEntity;
-    std::unique_ptr<CSpell> m_PSpell;
-    duration m_castTime;
-    position_t m_startPos;
-    bool m_interrupted;
-    uint8 m_flags;
+  private:
+    CSpell* m_PSpell;
+    uint32 m_startTime;
+    uint32 m_castTime;
+
+    void ErrorMessage(MSGBASIC_ID msgID);
+
+    bool m_interruptSpell;
+
+    // handle char stuff after casting magic
+    void CharOnTarget(apAction_t* action, int16 ce, int16 ve);
+    void CharAfterFinish();
+
+    bool CheckInterrupt();
+    bool ValidCast(CSpell* PSpell, CBattleEntity* PTarget);
+    bool ValidCharCast(CSpell* PSpell);
 };
 
 #endif

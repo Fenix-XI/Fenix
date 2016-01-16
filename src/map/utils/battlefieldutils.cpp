@@ -25,17 +25,14 @@
 #include "../entities/charentity.h"
 #include "../entities/mobentity.h"
 #include "../party.h"
-#include "../treasure_pool.h"
 #include "charutils.h"
 #include "../alliance.h"
 #include "zoneutils.h"
 #include "itemutils.h"
 #include "battlefieldutils.h"
-#include "mobutils.h"
 #include "../battlefield.h"
 #include "../battlefield_handler.h"
 #include "../packets/entity_update.h"
-#include "../ai/ai_container.h"
 
 namespace battlefieldutils{
 	/***************************************************************
@@ -61,7 +58,7 @@ namespace battlefieldutils{
 				int8* tmpName;
 				Sql_GetData(SqlHandle,0,&tmpName,nullptr);
 				PBattlefield->setBcnmName(tmpName);
-				PBattlefield->setTimeLimit(std::chrono::seconds(Sql_GetUIntData(SqlHandle,4)));
+				PBattlefield->setTimeLimit(Sql_GetUIntData(SqlHandle,4));
 				PBattlefield->setLevelCap(Sql_GetUIntData(SqlHandle,5));
 				PBattlefield->setLootId(Sql_GetUIntData(SqlHandle,6));
 				PBattlefield->setMaxParticipants(Sql_GetUIntData(SqlHandle,8));
@@ -107,9 +104,16 @@ namespace battlefieldutils{
 
 					if (condition & CONDITION_SPAWNED_AT_START)
 					{
-						if (!PMob->PAI->IsSpawned())
+						// This condition is needed for some mob at dynamis, else he don't pop
+						if(PMob->PBattleAI->GetCurrentAction() == ACTION_FADE_OUT){
+							PMob->PBattleAI->SetLastActionTime(0);
+							PMob->PBattleAI->SetCurrentAction(ACTION_NONE);
+						}
+						if (PMob->PBattleAI->GetCurrentAction() == ACTION_NONE ||
+							PMob->PBattleAI->GetCurrentAction() == ACTION_SPAWN)
 						{
-                            PMob->Spawn();
+							PMob->PBattleAI->SetLastActionTime(0);
+							PMob->PBattleAI->SetCurrentAction(ACTION_SPAWN);
 
 							if(strcmp(PMob->GetName(),"Maat")==0){
 								mobutils::InitializeMaat(PMob, (JOBTYPE)battlefield->getPlayerMainJob());
@@ -188,7 +192,7 @@ namespace battlefieldutils{
 	is usually when all the monsters are defeated but can be other things
 	(e.g. mob below X% HP, successful Steal, etc)
 	***************************************************************/
-	bool meetsWinningConditions(CBattlefield* battlefield, time_point tick){
+	bool meetsWinningConditions(CBattlefield* battlefield, uint32 tick){
 
 		if (battlefield->won()) return true;
 
@@ -198,7 +202,7 @@ namespace battlefieldutils{
 		if(battlefield->locked && (battlefield->m_RuleMask & RULES_MAAT))
 		{
 			// survive for 5 mins
-			if(battlefield->getPlayerMainJob() == JOB_WHM && (tick - battlefield->fightTick) > 5min)
+			if(battlefield->getPlayerMainJob() == JOB_WHM && (tick - battlefield->fightTick) > 5 * 60 * 1000)
 				return true;
 
 			if(battlefield->isEnemyBelowHPP(10))
@@ -237,11 +241,11 @@ namespace battlefieldutils{
 	will be when everyone is dead and the death timer is >3min (usually)
 	or when everyone has left, etc.
 	****************************************************************/
-	bool meetsLosingConditions(CBattlefield* battlefield, time_point tick){
+	bool meetsLosingConditions(CBattlefield* battlefield, uint32 tick){
 		if (battlefield->lost()) return true;
 		//check for expired duration e.g. >30min. Need the tick>start check as the start can be assigned
 		//after the tick initially due to threading
-		if(tick>battlefield->getStartTime() && (tick - battlefield->getStartTime()) > battlefield->getTimeLimit()){
+		if(tick>battlefield->getStartTime() && (tick - battlefield->getStartTime()) > battlefield->getTimeLimit()*1000){
 			ShowDebug("BCNM %i inst:%i - You have exceeded your time limit!\n",battlefield->getID(),
 				battlefield->getBattlefieldNumber(),tick,battlefield->getStartTime(),battlefield->getTimeLimit());
 			return true;
@@ -250,12 +254,12 @@ namespace battlefieldutils{
 		battlefield->lastTick = tick;
 
 		//check for all dead for 3min (or whatever the rule mask says)
-		if(battlefield->getDeadTime()!=time_point::min()){
+		if(battlefield->getDeadTime()!=0){
 			if(battlefield->m_RuleMask & RULES_REMOVE_3MIN){
 			//	if(((tick - battlefield->getDeadTime())/1000) % 20 == 0){
 			//		battlefield->pushMessageToAllInBcnm(200,180 - (tick - battlefield->getDeadTime())/1000);
 			//	}
-				if(tick - battlefield->getDeadTime() > 3min){
+				if(tick - battlefield->getDeadTime() > 180000){
 					ShowDebug("All players from the battlefield %i inst:%i have fallen for 3mins. Removing.\n",
 						battlefield->getID(),battlefield->getBattlefieldNumber());
 					return true;
@@ -430,9 +434,11 @@ namespace battlefieldutils{
 				CMobEntity* PMob = (CMobEntity*)zoneutils::GetEntity(mobid, TYPE_MOB);
 				if (PMob != nullptr)
 				{
-				    if (!PMob->PAI->IsSpawned())
+				    if (PMob->PBattleAI->GetCurrentAction() == ACTION_NONE ||
+				        PMob->PBattleAI->GetCurrentAction() == ACTION_SPAWN)
 				    {
-                        PMob->Spawn();
+				        PMob->PBattleAI->SetLastActionTime(0);
+				        PMob->PBattleAI->SetCurrentAction(ACTION_SPAWN);
 
 						PMob->m_battlefieldID = battlefield->getBattlefieldNumber();
 

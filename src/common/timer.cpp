@@ -20,7 +20,7 @@
 
 
 // server startup time
-time_point start_time;
+time_t start_time;
 
 /*----------------------------
  * 	Get tick time
@@ -118,9 +118,9 @@ uint32 gettick(void)
 #endif
 /////////////////////////////////////////////////////////////////////////
 
-duration get_uptime(void)
+uint32 get_uptime(void)
 {
-    return server_clock::now() - start_time;
+	return (uint32)difftime(time(NULL), start_time);
 }
 
 void timer_init(void)
@@ -128,14 +128,10 @@ void timer_init(void)
 #if defined(ENABLE_RDTSC)
 	rdtsc_calibrate();
 #endif
-    start_time = server_clock::now();
+
+	time(&start_time);
 }
 
 void timer_final(void)
 {
-}
-
-time_point get_server_start_time(void)
-{
-    return start_time;
 }

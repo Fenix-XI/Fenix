@@ -27,7 +27,9 @@
 #include "../../common/cbasetypes.h"
 #include "../../common/lua/lunar.h"
 
-class CZone;
+#include "../zone.h"
+
+
 class CLuaZone
 {
     CZone* m_pLuaZone;

@@ -22,16 +22,13 @@
 */
 
 #include <string.h>
-#include <array>
 
 #include "lua/luautils.h"
 
 #include "map.h"
 #include "spell.h"
 #include "blue_spell.h"
-#include "status_effect_container.h"
 #include "utils/blueutils.h"
-#include "items/item_weapon.h"
 
 
 CSpell::CSpell(uint16 id)
@@ -56,12 +53,6 @@ CSpell::CSpell(uint16 id)
 
     memset(m_job, 0, sizeof(m_job));
 }
-
-  std::unique_ptr<CSpell> CSpell::clone()
-  {
-      //no make_unique because it requires the copy constructor to be public
-      return std::unique_ptr<CSpell>(new CSpell(*this));
-  }
 
 void CSpell::setTotalTargets(uint16 total)
 {
@@ -187,11 +178,6 @@ bool CSpell::dealsDamage()
 {
     //damage or drain hp
     return m_message == 2 || m_message == 227 || m_message == 252 || m_message == 274;
-}
-
-float CSpell::getMaxRange()
-{
-    return 0;//TODO
 }
 
 float CSpell::getRadius()
@@ -570,17 +556,11 @@ namespace spell
         return PSpellList[SpellID];
     }
 
+    //Check If user can cast spell
     bool CanUseSpell(CBattleEntity* PCaster, uint16 SpellID)
     {
-        CSpell* spell = GetSpell(SpellID);
-        return CanUseSpell(PCaster, spell);
-    }
-
-    //Check If user can cast spell
-    bool CanUseSpell(CBattleEntity* PCaster, CSpell* spell)
-    {
         bool usable = false;
-
+        CSpell* spell = GetSpell(SpellID);
         if (spell != nullptr)
         {
             uint8 JobMLVL = spell->getJob(PCaster->GetMJob());

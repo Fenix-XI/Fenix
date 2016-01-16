@@ -56,15 +56,6 @@ This file is part of DarkStar-server source code.
 #include "zone.h"
 #include "utils/zoneutils.h"
 #include "message.h"
-#include "status_effect_container.h"
-#include "latent_effect_container.h"
-#include "treasure_pool.h"
-#include "item_container.h"
-#include "universal_container.h"
-#include "recast_container.h"
-
-#include "ai/ai_container.h"
-#include "ai/states/death_state.h"
 
 #include "items/item_shop.h"
 
@@ -283,8 +274,6 @@ void SmallPacket0x00A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         {
             PChar->m_DeathCounter = (uint32)Sql_GetUIntData(SqlHandle, 0);
             PChar->m_DeathTimestamp = (uint32)time(nullptr);
-            if (PChar->health.hp == 0)
-                PChar->Die(std::chrono::seconds(PChar->m_DeathCounter));
         }
 
         fmtQuery = "SELECT pos_prevzone FROM chars WHERE charid = %u";
@@ -316,7 +305,7 @@ void SmallPacket0x00A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     if (!PChar->loc.zoning)
         PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ON_ZONE, true);
 
-    CTaskMgr::getInstance()->AddTask(new CTaskMgr::CTask("afterZoneIn", server_clock::now() + 500ms, (void*)PChar->id, CTaskMgr::TASK_ONCE, luautils::AfterZoneIn));
+    CTaskMgr::getInstance()->AddTask(new CTaskMgr::CTask("afterZoneIn", gettick() + 500, (void*)PChar->id, CTaskMgr::TASK_ONCE, luautils::AfterZoneIn));
     return;
 }
 
@@ -441,6 +430,7 @@ void SmallPacket0x00D(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     charutils::SaveCharPoints(PChar);
 
     PChar->status = STATUS_DISAPPEAR;
+    PChar->PBattleAI->Reset();
     return;
 }
 
@@ -613,6 +603,7 @@ void SmallPacket0x01A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     uint16 TargID = RBUFW(data, (0x08));
     uint8  action = RBUFB(data, (0x0A));
 
+
     switch (action)
     {
     case 0x00: // trigger
@@ -631,7 +622,12 @@ void SmallPacket0x01A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 
         if (PNpc != nullptr && distance(PNpc->loc.p, PChar->loc.p) <= 10)
         {
-            PNpc->PAI->Trigger(PChar->targid);
+            if (luautils::OnTrigger(PChar, PNpc) == -1 && PNpc->animation == ANIMATION_CLOSE_DOOR)
+            {
+                PNpc->animation = ANIMATION_OPEN_DOOR;
+                PChar->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
+                CTaskMgr::getInstance()->AddTask(new CTaskMgr::CTask("close_door", gettick() + 7000, PNpc, CTaskMgr::TASK_ONCE, close_door));
+            }
         }
         if (PChar->m_event.EventID == -1)
         {
@@ -642,18 +638,38 @@ void SmallPacket0x01A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     break;
     case 0x02: // attack
     {
-        PChar->PAI->Engage(TargID);
+        if(PChar->StatusEffectContainer->HasPreventActionEffect())
+            return;
+
+        if (PChar->isDead() == false)
+        {
+            PChar->PBattleAI->SetCurrentAction(ACTION_ENGAGE, TargID);
+
+            if (PChar->PBattleAI->GetCurrentAction() == ACTION_ENGAGE)
+            {
+                if (PChar->animation == ANIMATION_CHOCOBO)
+                {
+                    PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_CHOCOBO);
+                }
+            }
+        }
     }
     break;
     case 0x03: // spellcast
     {
         uint16 SpellID = RBUFW(data, (0x0C));
-        PChar->PAI->Cast(TargID, SpellID);
+        if (!charutils::hasSpell(PChar, SpellID))
+            return;
+        if(PChar->StatusEffectContainer->HasPreventActionEffect())
+            return;
+
+        PChar->PBattleAI->SetCurrentSpell(SpellID);
+        PChar->PBattleAI->SetCurrentAction(ACTION_MAGIC_START, TargID);
     }
     break;
     case 0x04: // disengage
     {
-        PChar->PAI->Disengage();
+        PChar->PBattleAI->SetCurrentAction(ACTION_DISENGAGE);
     }
     break;
     case 0x05: // call for help
@@ -666,7 +682,7 @@ void SmallPacket0x01A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             CMobEntity* MOB = (CMobEntity*)it->second;
 
             if (MOB->animation == ANIMATION_ATTACK &&
-                MOB->GetBattleTargetID() == PChar->id)
+                MOB->PBattleAI->GetBattleTarget() == PChar)
             {
                 MOB->CallForHelp(true);
                 PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CMessageBasicPacket(PChar, PChar, 0, 0, 19));
@@ -680,15 +696,25 @@ void SmallPacket0x01A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     case 0x07: // weaponskill
     {
         uint16 WSkillID = RBUFW(data, (0x0C));
-        PChar->PAI->WeaponSkill(TargID, WSkillID);
+        if (!charutils::hasWeaponSkill(PChar, WSkillID))
+            return;
+        if(PChar->StatusEffectContainer->HasPreventActionEffect())
+            return;
+
+        PChar->PBattleAI->SetCurrentWeaponSkill(WSkillID);
+        PChar->PBattleAI->SetCurrentAction(ACTION_WEAPONSKILL_START, TargID);
     }
     break;
     case 0x09: // jobability
     {
         uint16 JobAbilityID = RBUFW(data, (0x0C));
-        //if ((JobAbilityID < 496 && !charutils::hasAbility(PChar, JobAbilityID - 16)) || JobAbilityID >= 496 && !charutils::hasPetAbility(PChar, JobAbilityID - 512))
-        //    return;
-        PChar->PAI->Ability(TargID, JobAbilityID - 16);
+        if ((JobAbilityID < 496 && !charutils::hasAbility(PChar, JobAbilityID - 16)) || JobAbilityID >= 496 && !charutils::hasPetAbility(PChar, JobAbilityID - 512))
+            return;
+        if(PChar->StatusEffectContainer->HasPreventActionEffect())
+            return;
+
+        PChar->PBattleAI->SetCurrentJobAbility(JobAbilityID - 16);
+        PChar->PBattleAI->SetCurrentAction(ACTION_JOBABILITY_START, TargID);
     }
     break;
     case 0x0B: // homepoint
@@ -726,7 +752,7 @@ void SmallPacket0x01A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             return;
         if (RBUFB(data, (0x0C)) == 0) //ACCEPTED RAISE
         {
-            PChar->Raise();
+            PChar->PBattleAI->SetCurrentAction(ACTION_RAISE_MENU_SELECTION);
         }
     }
     break;
@@ -740,12 +766,15 @@ void SmallPacket0x01A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     break;
     case 0x0F: // change target
     {
-        PChar->PAI->ChangeTarget(TargID);
+        PChar->PBattleAI->SetCurrentAction(ACTION_CHANGE_TARGET, TargID);
     }
     break;
     case 0x10: // rangedattack
     {
-        PChar->PAI->RangedAttack(TargID);
+        if(PChar->StatusEffectContainer->HasPreventActionEffect())
+            return;
+
+        PChar->PBattleAI->SetCurrentAction(ACTION_RANGED_START, TargID);
     }
     break;
     case 0x11: // chocobo digging
@@ -1241,11 +1270,33 @@ void SmallPacket0x037(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     uint8  SlotID = RBUFB(data, (0x0E));
     uint8  StorageID = RBUFB(data, (0x10));
 
-    if (PChar->UContainer->GetType() != UCONTAINER_USEITEM)
-        PChar->PAI->UseItem(TargetID, StorageID, SlotID);
-    else
-        PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, 56));
+    CItemUsable* PItem = (CItemUsable*)PChar->getStorage(StorageID)->GetItem(SlotID);
 
+    if ((PItem != nullptr) && PItem->isType(ITEM_USABLE))
+    {
+        if (PItem->isType(ITEM_ARMOR))
+        {
+            //TODO: If item is locked, we need to check if its equipped..
+        }
+        else if (PItem->isSubType(ITEM_LOCKED))
+        {
+            return;
+        }
+        if (PChar->UContainer->GetType() == UCONTAINER_EMPTY)
+        {
+            PChar->UContainer->SetType(UCONTAINER_USEITEM);
+            PChar->UContainer->SetItem(0, PItem);
+
+            PChar->PBattleAI->SetCurrentAction(ACTION_ITEM_START, TargetID);
+
+            if (PChar->PBattleAI->GetCurrentAction() != ACTION_ITEM_START)
+            {
+                PChar->UContainer->Clean();
+                return;
+            }
+            PChar->PBattleAI->CheckCurrentAction(gettick());
+        }
+    }
     return;
 }
 
@@ -4573,15 +4624,19 @@ void SmallPacket0x0E8(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     {
         if (PChar->PPet == nullptr ||
             (PChar->PPet->m_EcoSystem != SYSTEM_AVATAR &&
-            PChar->PPet->m_EcoSystem != SYSTEM_ELEMENTAL ) &&
-            !PChar->PAI->IsEngaged())
+            PChar->PPet->m_EcoSystem != SYSTEM_ELEMENTAL))
         {
-            PChar->PAI->ClearStateStack();
+            switch (PChar->PBattleAI->GetCurrentAction())
+            {
+            case ACTION_ITEM_USING:        PChar->PBattleAI->SetCurrentAction(ACTION_ITEM_INTERRUPT);    break;
+            case ACTION_MAGIC_CASTING:    PChar->PBattleAI->SetCurrentAction(ACTION_MAGIC_INTERRUPT);    break;
+            }
             if (PChar->PPet && PChar->PPet->objtype == TYPE_PET &&
                 ((CPetEntity*)PChar->PPet)->getPetType() == PETTYPE_AUTOMATON)
             {
-                PChar->PPet->PAI->Disengage();
+                PChar->PPet->PBattleAI->SetCurrentAction(ACTION_ROAMING);
             }
+            PChar->PBattleAI->CheckCurrentAction(gettick());
             PChar->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_HEALING, 0, 0, 10, 0));
             return;
         }

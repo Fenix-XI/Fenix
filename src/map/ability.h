@@ -26,7 +26,6 @@
 
 #include "../common/cbasetypes.h"
 #include "../common/mmo.h"
-#include "packets/action.h"
 
 #include "entities/battleentity.h"
 
@@ -653,11 +652,9 @@ public:
     bool        isConal();
 
     uint16      getID();
-    uint16      getMobSkillID();
     JOBTYPE     getJob();
     uint8       getLevel();
     uint16      getAnimationID();
-    duration    getAnimationTime();
     float       getRange();
     uint8       getAOE();
     uint8       getValidTarget();
@@ -669,14 +666,11 @@ public:
     uint16      getCE();
     uint16      getVE();
     uint16      getMeritModID();
-    ACTIONTYPE  getActionType();
 
     void        setID(uint16 id);
-    void        setMobSkillID(uint16 id);
     void        setJob(JOBTYPE Job);
     void        setLevel(uint8 level);
     void        setAnimationID(uint16 animationID);
-    void        setAnimationTime(duration time);
     void        setRange(float range);
     void        setAOE(uint8 aoe);
     void        setValidTarget(uint8 validTarget);
@@ -687,7 +681,6 @@ public:
     void        setCE(uint16 CE);
     void        setVE(uint16 VE);
     void        setMeritModID(uint16 value);
-    void        setActionType(ACTIONTYPE type);
 
     const int8* getName();
     void        setName(int8* name);
@@ -698,7 +691,6 @@ private:
     JOBTYPE     m_Job;
     uint8       m_level;
     uint16      m_animationID;
-    duration    m_animationTime;
     uint8       m_range;
     uint8       m_aoe;
     uint8       m_validTarget;
@@ -710,8 +702,6 @@ private:
     uint16      m_VE;
     uint16      m_meritModID;
     string_t    m_name;
-    uint16      m_mobskillId;
-    ACTIONTYPE  m_actionType;
 };
 
 /************************************************************************

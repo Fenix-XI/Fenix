@@ -26,8 +26,8 @@
 #include "../entities/charentity.h"
 #include "../conquest_system.h"
 
-#include "../ai/ai_container.h"
-#include "../ai/controllers/player_controller.h"
+#include "../ai/ai_char_normal.h"
+#include "../ai/ai_char_prisoner.h"
 
 /************************************************************************
 *                                                                       *
@@ -60,7 +60,8 @@ namespace jailutils
 
     void Add(CCharEntity* PChar)
     {
-        PChar->PAI->SetController(nullptr);
+        delete PChar->PBattleAI;
+        PChar->PBattleAI = new CAICharPrisoner(PChar);
 
         // TODO:
     }
@@ -73,7 +74,8 @@ namespace jailutils
 
     void Del(CCharEntity* PChar)
     {
-        PChar->PAI->SetController(std::make_unique<CPlayerController>(PChar));
+        delete PChar->PBattleAI;
+        PChar->PBattleAI = new CAICharNormal(PChar);
 
         // TODO:
     }

@@ -10,8 +10,6 @@
 uint32 gettick(void);
 uint32 gettick_nocache(void);
 
-time_point get_server_start_time(void);
-
 void timer_init(void);
 void timer_final(void);
 

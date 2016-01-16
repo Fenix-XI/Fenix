@@ -43,8 +43,3 @@ CMessageBasicPacket::CMessageBasicPacket(CBaseEntity* PSender, CBaseEntity* PTar
 	WBUFL(data,(0x10)) = value;
 	WBUFW(data,(0x18)) = messageID;
 }
-
-uint16 CMessageBasicPacket::getMessageID()
-{
-    return ref<uint16>(0x18);
-}

@@ -32,10 +32,9 @@
 #include "conquest_system.h"
 #include "lua/luautils.h"
 #include "entities/charentity.h"
-#include "latent_effect_container.h"
 
 
-int32 time_server(time_point tick,CTaskMgr::CTask* PTask)
+int32 time_server(uint32 tick,CTaskMgr::CTask* PTask)
 {
     TIMETYPE VanadielTOTD = CVanaTime::getInstance()->SyncTime();
     uint8 WeekDay = (uint8)CVanaTime::getInstance()->getWeekday();
@@ -43,7 +42,7 @@ int32 time_server(time_point tick,CTaskMgr::CTask* PTask)
     // weekly update for conquest (sunday at midnight)
     if (CVanaTime::getInstance()->getSysWeekDay() == 0  && CVanaTime::getInstance()->getSysHour() == 0 && CVanaTime::getInstance()->getSysMinute() == 0)
     {
-        if (tick > (CVanaTime::getInstance()->lastConquestTally + 1h))
+        if (tick > (CVanaTime::getInstance()->lastConquestTally + 60000))
         {
             conquest::UpdateWeekConquest();
             CVanaTime::getInstance()->lastConquestTally = tick;
@@ -52,7 +51,7 @@ int32 time_server(time_point tick,CTaskMgr::CTask* PTask)
     // hourly conquest update
     else if (CVanaTime::getInstance()->getSysMinute() == 0)
     {
-        if (tick > (CVanaTime::getInstance()->lastConquestUpdate + 1h))
+        if (tick > (CVanaTime::getInstance()->lastConquestUpdate + 60000))
         {
             conquest::UpdateConquestSystem();
             CVanaTime::getInstance()->lastConquestUpdate = tick;
@@ -61,7 +60,7 @@ int32 time_server(time_point tick,CTaskMgr::CTask* PTask)
 
     if (CVanaTime::getInstance()->getMinute() == 0)
     {
-        if (tick > (CVanaTime::getInstance()->lastVHourlyUpdate + 4800ms))
+        if (tick > (CVanaTime::getInstance()->lastVHourlyUpdate + 4800))
         {
 			zoneutils::ForEachZone([](CZone* PZone)
             {
@@ -81,7 +80,7 @@ int32 time_server(time_point tick,CTaskMgr::CTask* PTask)
     //Midnight
     if (CVanaTime::getInstance()->getSysHour() == 0 && CVanaTime::getInstance()->getSysMinute() == 0)
     {
-        if (tick > (CVanaTime::getInstance()->lastMidnight + 1h))
+        if (tick > (CVanaTime::getInstance()->lastMidnight + 60000))
         {
             guildutils::UpdateGuildPointsPattern();
             CVanaTime::getInstance()->lastMidnight = tick;
@@ -90,7 +89,7 @@ int32 time_server(time_point tick,CTaskMgr::CTask* PTask)
 
     if (CVanaTime::getInstance()->getHour() == 0 && CVanaTime::getInstance()->getMinute() == 0)
     {
-        if (tick > (CVanaTime::getInstance()->lastVDailyUpdate + 4800ms))
+        if (tick > (CVanaTime::getInstance()->lastVDailyUpdate + 4800))
         {
 			zoneutils::ForEachZone([](CZone* PZone)
 			{

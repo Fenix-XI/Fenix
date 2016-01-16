@@ -27,7 +27,9 @@
 #include "../../common/cbasetypes.h"
 #include "../../common/lua/lunar.h"
 
-class CRegion;
+#include "../region.h"
+
+
 class CLuaRegion
 {
     CRegion* m_PLuaRegion;

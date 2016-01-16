@@ -27,8 +27,7 @@
 
 #include "lua_zone.h"
 #include "lua_baseentity.h"
-#include "../zone.h"
-#include "../entities/charentity.h"
+
 
 /************************************************************************
 *																		*

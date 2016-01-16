@@ -36,7 +36,6 @@
 #include "charutils.h"
 #include "../grades.h"
 #include "blueutils.h"
-#include "../party.h"
 #include "../merit.h"
 #include "../modifier.h"
 #include "../spell.h"

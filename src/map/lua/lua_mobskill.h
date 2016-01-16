@@ -27,7 +27,8 @@
 #include "../../common/cbasetypes.h"
 #include "../../common/lua/lunar.h"
 
-class CMobSkill;
+#include "../mobskill.h"
+
 
 class CLuaMobSkill
 {

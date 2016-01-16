@@ -26,11 +26,7 @@
 #include "petutils.h"
 #include "battleutils.h"
 #include "charutils.h"
-#include "itemutils.h"
-#include "../status_effect_container.h"
-#include "../entities/automatonentity.h"
 #include "../packets/char_job_extra.h"
-#include "../packets/message_basic.h"
 
 namespace puppetutils
 {

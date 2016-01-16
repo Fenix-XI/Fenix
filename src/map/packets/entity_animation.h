@@ -40,7 +40,7 @@ class CBaseEntity;
 class CEntityAnimationPacket : public CBasicPacket
 {
 public:
-	static const char* Fade_Out;
+	static const char* FADE_OUT;
 	CEntityAnimationPacket(CBaseEntity* PEntity, const char type[4]);
 };
 

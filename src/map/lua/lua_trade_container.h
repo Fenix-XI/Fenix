@@ -27,7 +27,9 @@
 #include "../../common/cbasetypes.h"
 #include "../../common/lua/lunar.h"
 
-class CTradeContainer;
+#include "../trade_container.h"
+
+
 class CLuaTradeContainer
 {
     CTradeContainer *m_pMyTradeContainer;

@@ -23,19 +23,16 @@
 
 #include "attackround.h"
 #include "packets/inventory_finish.h"
-#include "items/item_weapon.h"
-#include "status_effect_container.h"
-#include "ai/ai_container.h"
+
 
 /************************************************************************
 *																		*
 *  Constructor.															*
 *																		*
 ************************************************************************/
-CAttackRound::CAttackRound(CBattleEntity* attacker, CBattleEntity* defender)
+CAttackRound::CAttackRound(CBattleEntity* attacker)
 {
     m_attacker = attacker;
-    m_defender = defender;
     m_kickAttackOccured = false;
     m_sataOccured = false;
     m_subWeaponType = 0;
@@ -46,7 +43,7 @@ CAttackRound::CAttackRound(CBattleEntity* attacker, CBattleEntity* defender)
     }
 
     // Grab a trick attack assistant.
-    m_taEntity = battleutils::getAvailableTrickAttackChar(attacker, attacker->GetBattleTarget());
+    m_taEntity = battleutils::getAvailableTrickAttackChar(attacker, attacker->PBattleAI->GetBattleTarget());
 
     // Build main weapon attacks.
     CreateAttacks(attacker->m_Weapons[SLOT_MAIN], RIGHTATTACK);
@@ -167,7 +164,7 @@ void CAttackRound::AddAttackSwing(PHYSICAL_ATTACK_TYPE type, PHYSICAL_ATTACK_DIR
     {
         for (uint8 i = 0; i < count; ++i)
         {
-            CAttack attack(m_attacker, m_defender, type, direction, this);
+            CAttack attack(m_attacker, type, direction, this);
             m_attackSwings.push_back(attack);
 
             if (m_attackSwings.size() == MAX_ATTACKS)

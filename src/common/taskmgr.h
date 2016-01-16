@@ -51,7 +51,7 @@ public:
 		TASK_REMOVE,
 		TASK_INVALID
 	};
-	typedef int32 (*TaskFunc_t)(time_point tick,CTask*);
+	typedef int32 (*TaskFunc_t)(uint32 tick,CTask*);
 	typedef std::priority_queue<CTask*,std::deque<CTask*>,greater_equal<CTask*> > TaskList_t;
 		
 	TaskList_t& getTaskList(){ return m_TaskList; };
@@ -59,13 +59,13 @@ public:
 	CTask* AddTask(CTask*);
 	CTask* AddTask(
 		std::string InitName,
-		time_point InitTick,
+		size_t InitTick,
 		void *InitData,
 		TASKTYPE InitType,
 		TaskFunc_t InitFunc,
-		duration InitInterval=1s);
+		size_t InitInterval=1000);
 
-	duration	DoTimer(time_point tick);
+	uint32	DoTimer(uint32 tick);
 	void	RemoveTask(std::string TaskName);
 
 	static CTaskMgr * getInstance();
@@ -86,11 +86,11 @@ class CTaskMgr::CTask
 public:
 
 	CTask(std::string InitName,
-		time_point InitTick,
+		size_t InitTick,
 		void * InitData,
 		TASKTYPE InitType,
 		TaskFunc_t InitFunc,
-		duration InitInterval=1s
+		size_t InitInterval=1000
 		):	m_name(InitName),
 			m_tick(InitTick),
 			m_data(InitData),
@@ -100,8 +100,8 @@ public:
 
 	std::string m_name;
 	TASKTYPE	m_type;
-	time_point	m_tick;
-	duration	m_interval;
+	size_t 		m_tick;
+	size_t		m_interval;
 	void*		m_data;
 	TaskFunc_t	m_func;
 };
