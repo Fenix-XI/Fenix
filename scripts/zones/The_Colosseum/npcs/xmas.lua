@@ -16,7 +16,7 @@ require("scripts/zones/The_Colosseum/TextIDs");
 -- onTrigger Action
 -----------------------------------
 
-function onTrigger(player,npc)
+  --[[function onTrigger(player,npc)
 	
 player:PrintToPlayer("Purchase the XMAS items and a XMAS quest may be available...");
 
@@ -33,4 +33,5 @@ stock = {
 
 showShop(player, STATIC, stock);
 
-end;
+end;--]]
+
