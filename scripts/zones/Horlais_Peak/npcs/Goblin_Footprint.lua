@@ -6,3 +6,4 @@ function onTrigger(player,npc)
             player:messageSpecial(KEYITEM_OBTAINED,KINDRED_CREST);
             player:setVar("MissionStatus",10);
     end
+	end

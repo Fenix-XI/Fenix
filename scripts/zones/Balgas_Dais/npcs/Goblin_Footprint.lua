@@ -6,3 +6,4 @@ function onTrigger(player,npc)
             player:setVar("MissionStatus",9);
             player:delKeyItem(DARK_KEY);
     end
+	end
