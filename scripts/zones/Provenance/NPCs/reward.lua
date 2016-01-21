@@ -2161,7 +2161,7 @@ if (trade:getItemCount() == 1) then
 			 then    --This is a check to see if the player has enough units
               player:delCurrency("kinetic_unit", 5000);
    player:tradeComplete();
-   player:addItem(11051,1);
+   player:addItem(11501,1);
    player:messageSpecial(ITEM_OBTAINED,11501,1);      
    
        				elseif (trade:hasItemQty(16582,1)) and (kinetic_unit >= Nightfall) -- Base item = Vetala Sword
