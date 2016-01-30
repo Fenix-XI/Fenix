@@ -22,15 +22,14 @@ end;
 -- onTrigger Action
 -----------------------------------
 function onTrigger(player,npc)
-	 if (player:getQuestStatus(BASTOK, BLADE_OF_DARKNESS) == QUEST_ACCEPTED) --and player:getVar("ChaosbringerKills") >= 100) 
-	 then
-	  
-	  player:unlockJob(8);
-      player:addTitle(DARK_SIDER);
-      player:setVar("ZeruhnMines_Zeid_CS", 0);
-      player:messageSpecial(YOU_CAN_NOW_BECOME_A_DARK_KNIGHT);
-      player:completeQuest(BASTOK, BLADE_OF_DARKNESS);
-	 end 
+--	 if (player:getQuestStatus(BASTOK, BLADE_OF_DARKNESS) == QUEST_ACCEPTED) --and player:getVar("ChaosbringerKills") >= 100) 
+--	 then  
+--	  player:unlockJob(8);
+--      player:addTitle(DARK_SIDER);
+--      player:setVar("ZeruhnMines_Zeid_CS", 0);
+--      player:messageSpecial(YOU_CAN_NOW_BECOME_A_DARK_KNIGHT);
+--      player:completeQuest(BASTOK, BLADE_OF_DARKNESS);
+--	 end 
 end;
 -----------------------------------
 -- onEventUpdate

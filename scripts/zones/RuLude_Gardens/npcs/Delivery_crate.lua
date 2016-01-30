@@ -20,7 +20,7 @@ require("scripts/zones/RuLude_Gardens/TextIDs");
 function onTrigger(player,npc)
 player:PrintToPlayer("This is not the Crate you are looking for!");
 --player:addTitle(STAR_BREAKER);--
-		player:levelCap(75);
+--		player:levelCap(75);
 --						player:addCurrency("bayld",100);
 --		player:PrintToPlayer( "You earned 100 Bayld!");
 --		player:setVar("maatDefeated",0);
