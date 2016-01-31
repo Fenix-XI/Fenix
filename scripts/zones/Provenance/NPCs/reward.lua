@@ -534,7 +534,7 @@ if (trade:getItemCount() == 1) then
 
    		elseif (trade:hasItemQty(16259,1)) and (mweya_plasm >= Altruistic_Cape)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 3000);
+              player:delCurrency("mweya_plasm", 1500);
    player:tradeComplete();
    player:addItem(15472,1);
    player:messageSpecial(ITEM_OBTAINED,15472,1);
