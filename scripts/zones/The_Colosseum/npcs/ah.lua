@@ -16,6 +16,9 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
+
+player:PrintToPlayer("Stocked AH for your convenience! Please be considerate to other players when buying, as the stock is limited.");
+player:PrintToPlayer("It is refilled once a month. If something runs out, don't forget the real world, or the 8 NPCs behind you!");
 	player:sendMenu(3);
 end; 
 
