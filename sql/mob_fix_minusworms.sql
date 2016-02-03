@@ -101,7 +101,6 @@ UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLe
 
 -- Zeruhn_Mines
  UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLevel = "2", maxLevel = "4" WHERE g.zoneid = 172 AND s.mobname = "Colliery_Bat";
- UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLevel = "3", maxLevel = "5" WHERE g.zoneid = 172 AND s.mobname = "Soot_Crab";
  UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLevel = "3", maxLevel = "6" WHERE g.zoneid = 172 AND s.mobname = "Veindigger_Leech";
 
 -- Korroloka_Tunnel
