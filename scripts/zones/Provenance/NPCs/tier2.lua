@@ -14,8 +14,43 @@ require("scripts/zones/Provenance/TextIDs");
 
 
 function onTrade(player,npc,trade)
-end; 
-
+    local payOut = 0;
+    local HQeuvhi = trade:getItemQty(1899);
+	local HQaern = trade:getItemQty(1900);
+	local HQhpemde = trade:getItemQty(1871);
+	local HQxzomit = trade:getItemQty(1855);
+	local HQphuabo = trade:getItemQty(1852);
+if (HQeuvhi > 0 and HQeuvhi == trade:getItemCount()) then
+payOut = (HQeuvhi * 50);
+player:addCurrency("mweya_plasm", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." of Plasm");
+player:tradeComplete();
+end
+if (HQaern > 0 and HQaern == trade:getItemCount()) then
+payOut = (HQaern * 50);
+player:addCurrency("mweya_plasm", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." of Plasm");
+player:tradeComplete();
+end
+if (HQhpemde > 0 and HQhpemde == trade:getItemCount()) then
+payOut = (HQhpemde * 50);
+player:addCurrency("mweya_plasm", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." of Plasm");
+player:tradeComplete();
+end
+if (HQxzomit > 0 and HQxzomit == trade:getItemCount()) then
+payOut = (HQxzomit * 50);
+player:addCurrency("mweya_plasm", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." of Plasm");
+player:tradeComplete();
+end
+if (HQphuabo > 0 and HQphuabo == trade:getItemCount()) then
+payOut = (HQphuabo * 50);
+player:addCurrency("mweya_plasm", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." of Plasm");
+player:tradeComplete();
+end
+end;
 -----------------------------------
 -- onTrigger Action
 -----------------------------------
@@ -23,7 +58,7 @@ end;
 function onTrigger(player,npc)
 	
 player:PrintToPlayer("Welcome to the Tier 2 Rewards Shop. Please purchase your base item!");
-
+player:PrintToPlayer("Trading me HQ Sea organs will net you 50 Plasm per. I only accept the same type at a time!");
 stock = {0x2D76,1,
 0x4868,1,
 0x3F84,1,
