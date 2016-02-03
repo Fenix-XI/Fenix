@@ -25,7 +25,7 @@ local balance = player:getCurrency("guild_weaving");
 	
 player:PrintToPlayer("All the Clothcraft materials you need for your adventure!");
 player:PrintToPlayer("Trade me a single Terra Crystal to receive Synth Support.");
-player:PrintToPlayer("You have "..balance.." of GP points!");
+player:PrintToPlayer("You have "..balance.." Clothcraft GP!");
 stock = {0x0331,1,	--Grass Thread
 0x332,1,	--Cotton Thread
 0x724,1,	--Red Grass Thread
@@ -66,7 +66,13 @@ end;
 -----------------------------------
   
   function onTrade(player,npc,trade)
-  
+      local payOut = 0;
+    local heko = trade:getItemQty(13204);
+	local HQheko = trade:getItemQty(13190);
+	local wool = trade:getItemQty(12723);
+	local HQwool = trade:getItemQty(12783);
+	local silk = trade:getItemQty(12612);
+	local HQsilk = trade:getItemQty(13777);
 
  
    if (trade:getItemCount() == 1 and trade:hasItemQty(4241,1)) 
@@ -82,56 +88,48 @@ player:PrintToPlayer( "You are not eligible to earn GP for this guild!");
 --if (daily_points <=10000)
 --then 
 		--player:setVar("[Guild]daily_points", os.date("%j")); -- %M for next minute, %j for next day
-		--player:setVar("Wait1DayForYomiOkuri",VanadielDayOfTheYear());
-else
-		if (trade:hasItemQty(13204,1)) --heko obi
-			 then    
-              player:addCurrency("guild_weaving", 300);
-			  player:PrintToPlayer( "You have gained 300 GP !");
-			  --daily_points, +300;
-			 player:tradeComplete();
+		--player:setVar("Wait1DayForYomiOkuri",VanadielDayOfTheYear()); 
+else		
+if (heko > 0 and heko == trade:getItemCount()) then
+payOut = (heko * 300);
+player:addCurrency("guild_clothcraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
+player:tradeComplete();
+elseif
+ (HQheko > 0 and HQheko == trade:getItemCount()) then
+payOut = (HQheko * 400);
+player:addCurrency("guild_clothcraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
+player:tradeComplete();
+elseif
+ (wool > 0 and wool == trade:getItemCount()) then
+payOut = (wool * 500);
+player:addCurrency("guild_clothcraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
+player:tradeComplete();
+elseif
+ (HQwool > 0 and HQwool == trade:getItemCount()) then
+payOut = (HQwool * 600);
+player:addCurrency("guild_clothcraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
+player:tradeComplete();
+elseif
+ (silk > 0 and silk == trade:getItemCount()) then
+payOut = (silk * 700);
+player:addCurrency("guild_clothcraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
+player:tradeComplete();
+elseif
+ (HQsilk > 0 and HQsilk == trade:getItemCount()) then
+payOut = (HQsilk * 800);
+player:addCurrency("guild_clothcraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
+player:tradeComplete();
 
-		elseif 
-			(trade:hasItemQty(13190,1)) --heko obi +1
-			 then    
-              player:addCurrency("guild_weaving", 400);
-			  player:PrintToPlayer( "You have gained 400 GP !");
-			 player:tradeComplete();	
-			 
-		elseif 
-			(trade:hasItemQty(12723,1)) --wool bracers
-			 then    
-              player:addCurrency("guild_weaving", 500);
-			  player:PrintToPlayer( "You have gained 500 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(12783,1)) --wool bracers +1
-			 then    
-              player:addCurrency("guild_weaving", 600);
-			  player:PrintToPlayer( "You have gained 600 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(12612,1)) --silk cloak
-			 then    
-              player:addCurrency("guild_weaving", 700);
-			  player:PrintToPlayer( "You have gained 700 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(13777,1)) --silk cloak +1
-			 then    
-              player:addCurrency("guild_weaving", 800);
-			  --player:messageSpecial(GP_OBTAINED, option);
-			  player:PrintToPlayer( "You have gained 800 GP !");
-			 player:tradeComplete();			 
-			 
-end 
 end
 end
-
-end; 
+end
+end;
 -----------------------------------
 -- onEventUpdate
 -----------------------------------

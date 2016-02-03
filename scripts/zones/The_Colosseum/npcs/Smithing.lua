@@ -46,9 +46,13 @@ end;   -----------------------------------
 -----------------------------------
   
   function onTrade(player,npc,trade)
-local balance = player:getCurrency("guild_smithing");
-local current_points = player:getCurrency("guild_smithing");
-local daily_points = current_points - balance; 
+    local payOut = 0;
+    local bilbo = trade:getItemQty(16512);
+	local HQbilbo = trade:getItemQty(16632);
+	local mythril = trade:getItemQty(16651);
+	local HQmythril = trade:getItemQty(16670);
+	local bastard = trade:getItemQty(16577);
+	local HQbastard = trade:getItemQty(16828);
    if (trade:getItemCount() == 1 and trade:hasItemQty(4241,1)) 
         		then
 	
@@ -63,55 +67,47 @@ player:PrintToPlayer( "You are not eligible to earn GP for this guild!");
 --then 
 		--player:setVar("[Guild]daily_points", os.date("%j")); -- %M for next minute, %j for next day
 		--player:setVar("Wait1DayForYomiOkuri",VanadielDayOfTheYear());
-else
-		if (trade:hasItemQty(16512,1)) 
-			 then    
-              player:addCurrency("guild_smithing", 300);--bilbo
-			  player:PrintToPlayer( "You have gained 300 GP !");
-			  --daily_points, +300;
-			 player:tradeComplete();
+else		
+if (bilbo > 0 and bilbo == trade:getItemCount()) then
+payOut = (bilbo * 300);
+player:addCurrency("guild_smithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Smithing GP!");
+player:tradeComplete();
+elseif
+ (HQbilbo > 0 and HQbilbo == trade:getItemCount()) then
+payOut = (HQbilbo * 400);
+player:addCurrency("guild_smithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Smithing GP!");
+player:tradeComplete();
+elseif
+ (mythril > 0 and mythril == trade:getItemCount()) then
+payOut = (mythril * 500);
+player:addCurrency("guild_smithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Smithing GP!");
+player:tradeComplete();
+elseif
+ (HQmythril > 0 and HQmythril == trade:getItemCount()) then
+payOut = (HQmythril * 600);
+player:addCurrency("guild_smithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Smithing GP!");
+player:tradeComplete();
+elseif
+ (bastard > 0 and bastard == trade:getItemCount()) then
+payOut = (bastard * 700);
+player:addCurrency("guild_smithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Smithing GP!");
+player:tradeComplete();
+elseif
+ (HQbastard > 0 and HQbastard == trade:getItemCount()) then
+payOut = (HQbastard * 800);
+player:addCurrency("guild_smithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Smithing GP!");
+player:tradeComplete();
 
-		elseif 
-			(trade:hasItemQty(16632,1)) 
-			 then    
-              player:addCurrency("guild_smithing", 400);--bilbo +1
-			  player:PrintToPlayer( "You have gained 400 GP !");
-			 player:tradeComplete();	
-			 
-		elseif 
-			(trade:hasItemQty(16651,1)) 
-			 then    
-              player:addCurrency("guild_smithing", 500);--mythril Pick 
-			  player:PrintToPlayer( "You have gained 500 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(16670,1)) 
-			 then    
-              player:addCurrency("guild_smithing", 600); -- mythril pick +1
-			  player:PrintToPlayer( "You have gained 600 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(16577,1)) 
-			 then    
-              player:addCurrency("guild_smithing", 700);--bastard sword
-			  player:PrintToPlayer( "You have gained 700 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(16828,1)) 
-			 then    
-              player:addCurrency("guild_smithing", 800);--bastard sword +1
-			  --player:messageSpecial(GP_OBTAINED);
-			  player:PrintToPlayer( "You have gained 800 GP !");
-			 player:tradeComplete();			 
-			 
-end 
 end
 end
-
-end; 
+end
+end;  
 -----------------------------------
 -- onEventUpdate
 -----------------------------------

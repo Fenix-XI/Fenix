@@ -25,7 +25,7 @@ local balance = player:getCurrency("guild_bonecraft");
 	
 player:PrintToPlayer("All the Bonecraft materials you need for your adventure!");
 player:PrintToPlayer("Trade me a single Terra Crystal to receive Synth Support.");
-player:PrintToPlayer("You have "..balance.." of GP points!");
+player:PrintToPlayer("You have "..balance.." Bonecraft GP!");
 
 stock = {0x0370,1,	--Bone Chip
 0x37B,1,	--Bat Wing
@@ -60,6 +60,13 @@ end;
 -----------------------------------
   
   function onTrade(player,npc,trade)
+    local payOut = 0;
+    local beetle = trade:getItemQty(13323);
+	local HQbeetle = trade:getItemQty(13326);
+	local carapace = trade:getItemQty(13091);
+	local HQcarapaceblue = trade:getItemQty(13063);
+	local coral = trade:getItemQty(12508);
+	local HQcoral = trade:getItemQty(13850);
 
  
    if (trade:getItemCount() == 1 and trade:hasItemQty(4241,1)) 
@@ -76,55 +83,48 @@ player:PrintToPlayer( "You are not eligible to earn GP for this guild!");
 --then 
 		--player:setVar("[Guild]daily_points", os.date("%j")); -- %M for next minute, %j for next day
 		--player:setVar("Wait1DayForYomiOkuri",VanadielDayOfTheYear());
-else
-		if (trade:hasItemQty(13323,1)) --beetle earring
-			 then    
-              player:addCurrency("guild_bonecraft", 300);
-			  player:PrintToPlayer( "You have gained 300 GP !");
-			  --daily_points, +300;
-			 player:tradeComplete();
 
-		elseif 
-			(trade:hasItemQty(13326,1)) --beetle earring
-			 then    
-              player:addCurrency("guild_bonecraft", 400);
-			  player:PrintToPlayer( "You have gained 400 GP !");
-			 player:tradeComplete();	
-			 
-		elseif 
-			(trade:hasItemQty(13091,1)) --carapace gorget
-			 then    
-              player:addCurrency("guild_bonecraft", 500);
-			  player:PrintToPlayer( "You have gained 500 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(13063,1)) -- blue gorget
-			 then    
-              player:addCurrency("guild_bonecraft", 600);
-			  player:PrintToPlayer( "You have gained 600 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(12508,1)) --coral hairpin
-			 then    
-              player:addCurrency("guild_bonecraft", 700);
-			  player:PrintToPlayer( "You have gained 700 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(13850,1)) --coral hairpin +1
-			 then    
-              player:addCurrency("guild_bonecraft", 800);
-			  --player:messageSpecial(GP_OBTAINED, option);
-			  player:PrintToPlayer( "You have gained 800 GP !");
-			 player:tradeComplete();			 
-			 
-end 
+else		
+if (beetle > 0 and beetle == trade:getItemCount()) then
+payOut = (beetle * 300);
+player:addCurrency("guild_bonecraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Bonecraft GP!");
+player:tradeComplete();
+elseif
+ (HQbeetle > 0 and HQbeetle == trade:getItemCount()) then
+payOut = (HQbeetle * 400);
+player:addCurrency("guild_bonecraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Bonecraft GP!");
+player:tradeComplete();
+elseif
+ (carapace > 0 and carapace == trade:getItemCount()) then
+payOut = (carapace * 500);
+player:addCurrency("guild_bonecraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Bonecraft GP!");
+player:tradeComplete();
+elseif
+ (HQcarapaceblue > 0 and HQcarapaceblue == trade:getItemCount()) then
+payOut = (HQcarapaceblue * 600);
+player:addCurrency("guild_bonecraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Bonecraft GP!");
+player:tradeComplete();
+elseif
+ (coral > 0 and coral == trade:getItemCount()) then
+payOut = (coral * 700);
+player:addCurrency("guild_bonecraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Bonecraft GP!");
+player:tradeComplete();
+elseif
+ (HQcoral > 0 and HQcoral == trade:getItemCount()) then
+payOut = (HQcoral * 800);
+player:addCurrency("guild_bonecraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Bonecraft GP!");
+player:tradeComplete();
+
 end
 end
-
-end; 
+end
+end;  
 -----------------------------------
 -- onEventUpdate
 -----------------------------------

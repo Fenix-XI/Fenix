@@ -1,7 +1,7 @@
 -----------------------------------
 -- Area: The Colosseum
--- NPC: Wood
--- Guild Merchant NPC: Woodworking Guild 
+-- NPC: Alchemy
+-- Guild Merchant NPC: Alchemy
 -- @pos 0 0 0 0 zone 71
 -----------------------------------
 package.loaded["scripts/zones/The_Colosseum/TextIDs"] = nil;
@@ -25,7 +25,7 @@ local balance = player:getCurrency("guild_alchemy");
 	
 player:PrintToPlayer("All the Alchemy crap you need for your adventure!");
 player:PrintToPlayer("Trade me a single Terra Crystal to recieve Synth Support");
-player:PrintToPlayer("You have "..balance.." of GP points!");
+player:PrintToPlayer("You have "..balance.." Alchemy GP!");
 
 stock = {0x119D,1,	--Distilled Water
 0x027E,1,	--Sage
@@ -68,7 +68,13 @@ end;
 -----------------------------------
   
   function onTrade(player,npc,trade)
-
+    local payOut = 0;
+    local poisonKukuri = trade:getItemQty(16478);
+	local HQkukuri = trade:getItemQty(16489);
+	local fire = trade:getItemQty(16543);
+	local FlameSword = trade:getItemQty(16621);
+	local holyWand = trade:getItemQty(17085);
+	local HQholyWand = trade:getItemQty(17434);
  
    if (trade:getItemCount() == 1 and trade:hasItemQty(4241,1)) 
         		then
@@ -85,51 +91,44 @@ player:PrintToPlayer( "You are not eligible to earn GP for this guild!");
 --then 
 		--player:setVar("[Guild]daily_points", os.date("%j")); -- %M for next minute, %j for next day
 		--player:setVar("Wait1DayForYomiOkuri",VanadielDayOfTheYear());
-else
-		if (trade:hasItemQty(16478,1)) --poison kukuri
-			 then    
-              player:addCurrency("guild_alchemy", 300);
-			  player:PrintToPlayer( "You have gained 300 GP !");
-			  --daily_points, +300;
-			 player:tradeComplete();
+else		
+if (poisonKukuri > 0 and poisonKukuri == trade:getItemCount()) then
+payOut = (poisonKukuri * 300);
+player:addCurrency("guild_alchemy", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Alchemy GP!");
+player:tradeComplete();
+elseif
+ (HQkukuri > 0 and HQkukuri == trade:getItemCount()) then
+payOut = (HQkukuri * 400);
+player:addCurrency("guild_alchemy", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Alchemy GP!");
+player:tradeComplete();
+elseif
+ (fire > 0 and fire == trade:getItemCount()) then
+payOut = (fire * 500);
+player:addCurrency("guild_alchemy", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Alchemy GP!");
+player:tradeComplete();
+elseif
+ (FlameSword > 0 and FlameSword == trade:getItemCount()) then
+payOut = (FlameSword * 600);
+player:addCurrency("guild_alchemy", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Alchemy GP!");
+player:tradeComplete();
+elseif
+ (holyWand > 0 and holyWand == trade:getItemCount()) then
+payOut = (holyWand * 700);
+player:addCurrency("guild_alchemy", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Alchemy GP!");
+player:tradeComplete();
+elseif
+ (HQholyWand > 0 and HQholyWand == trade:getItemCount()) then
+payOut = (HQholyWand * 800);
+player:addCurrency("guild_alchemy", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Alchemy GP!");
+player:tradeComplete();
 
-		elseif 
-			(trade:hasItemQty(16489,1)) --poison kukuri+1
-			 then    
-              player:addCurrency("guild_alchemy", 400);
-			  player:PrintToPlayer( "You have gained 400 GP !");
-			 player:tradeComplete();	
-			 
-		elseif 
-			(trade:hasItemQty(16543,1))--fire sword 
-			 then    
-              player:addCurrency("guild_alchemy", 500);
-			  player:PrintToPlayer( "You have gained 500 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(16621,1))-- flame sword
-			 then    
-              player:addCurrency("guild_alchemy", 600);
-			  player:PrintToPlayer( "You have gained 600 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(17085,1))-- holy wand 
-			 then    
-              player:addCurrency("guild_alchemy", 700);
-			  player:PrintToPlayer( "You have gained 700 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(17434,1)) -- holy wand +1
-			 then    
-              player:addCurrency("guild_alchemy", 800);
-			  --player:messageSpecial(GP_OBTAINED, option);
-			  player:PrintToPlayer( "You have gained 800 GP !");
-			 player:tradeComplete();			 
-			 
-end 
+end
 end
 end
 end; 

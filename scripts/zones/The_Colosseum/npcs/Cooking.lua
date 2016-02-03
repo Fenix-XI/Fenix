@@ -25,7 +25,7 @@ local balance = player:getCurrency("guild_cooking");
 	
 player:PrintToPlayer("All the Cooking materials you need for your adventure!");
 player:PrintToPlayer("Trade me a single Terra Crystal to receive Synth Support.");
-player:PrintToPlayer("You have "..balance.." of GP points!");
+player:PrintToPlayer("You have "..balance.." Cooking points!");
 
 stock = {0x11DA,1, --Bird Egg
 0x1128,1,	--Saruta Orange
@@ -77,7 +77,13 @@ end;
 -----------------------------------
   
   function onTrade(player,npc,trade)
-
+      local payOut = 0;
+    local vegetable = trade:getItemQty(4489);
+	local HQVegetable = trade:getItemQty(4534);
+	local apple = trade:getItemQty(4413);
+	local HQapple = trade:getItemQty(4320);
+	local chamomile = trade:getItemQty(4603);
+	local healing = trade:getItemQty(4286);
  
    if (trade:getItemCount() == 1 and trade:hasItemQty(4241,1)) 
         		then
@@ -95,54 +101,47 @@ player:PrintToPlayer( "You are not eligible to earn GP for this guild!");
 --then 
 		--player:setVar("[Guild]daily_points", os.date("%j")); -- %M for next minute, %j for next day
 		--player:setVar("Wait1DayForYomiOkuri",VanadielDayOfTheYear());
-else
-		if (trade:hasItemQty(4489,1)) --vegetable gruel
-			 then    
-              player:addCurrency("guild_cooking", 300);
-			  player:PrintToPlayer( "You have gained 300 GP !");
-			  --daily_points, +300;
-			 player:tradeComplete();
+else		
+if (vegetable > 0 and vegetable == trade:getItemCount()) then
+payOut = (vegetable * 300);
+player:addCurrency("guild_cooking", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Cooking GP!");
+player:tradeComplete();
+elseif
+ (HQVegetable > 0 and HQVegetable == trade:getItemCount()) then
+payOut = (HQVegetable * 400);
+player:addCurrency("guild_cooking", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Cooking GP!");
+player:tradeComplete();
+elseif
+ (apple > 0 and apple == trade:getItemCount()) then
+payOut = (apple * 500);
+player:addCurrency("guild_cooking", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Cooking GP!");
+player:tradeComplete();
+elseif
+ (HQapple > 0 and HQapple == trade:getItemCount()) then
+payOut = (HQapple * 600);
+player:addCurrency("guild_cooking", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Cooking GP!");
+player:tradeComplete();
+elseif
+ (chamomile > 0 and chamomile == trade:getItemCount()) then
+payOut = (chamomile * 700);
+player:addCurrency("guild_cooking", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Cooking GP!");
+player:tradeComplete();
+elseif
+ (healing > 0 and healing == trade:getItemCount()) then
+payOut = (healing * 800);
+player:addCurrency("guild_cooking", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Cooking GP!");
+player:tradeComplete();
 
-		elseif 
-			(trade:hasItemQty(4534,1)) --vegetable gruel +1
-			 then    
-              player:addCurrency("guild_cooking", 400);
-			  player:PrintToPlayer( "You have gained 400 GP !");
-			 player:tradeComplete();	
-			 
-		elseif 
-			(trade:hasItemQty(4413,1))--apple pie 
-			 then    
-              player:addCurrency("guild_cooking", 500);
-			  player:PrintToPlayer( "You have gained 500 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(4320,1))-- apple pie +1
-			 then    
-              player:addCurrency("guild_cooking", 600);
-			  player:PrintToPlayer( "You have gained 600 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(4603,1))-- chamomile tea
-			 then    
-              player:addCurrency("guild_cooking", 700);
-			  player:PrintToPlayer( "You have gained 700 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(4286,1)) -- healing tea
-			 then    
-              player:addCurrency("guild_cooking", 800);
-			  --player:messageSpecial(GP_OBTAINED, option);
-			  player:PrintToPlayer( "You have gained 800 GP !");
-			 player:tradeComplete();			 
-			 
-end 
 end
 end
-end; 
+end
+end;
 -----------------------------------
 -- onEventUpdate
 -----------------------------------

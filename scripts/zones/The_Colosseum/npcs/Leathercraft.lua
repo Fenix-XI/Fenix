@@ -57,7 +57,13 @@ end;
 -----------------------------------
   
   function onTrade(player,npc,trade)
-
+      local payOut = 0;
+    local dhalmel = trade:getItemQty(13588);
+	local HQdhalmel = trade:getItemQty(13600);
+	local cuir = trade:getItemQty(12571);
+	local HQcuir = trade:getItemQty(13709);
+	local marid = trade:getItemQty(15890);
+	local HQmarid = trade:getItemQty(15893);
  
    if (trade:getItemCount() == 1 and trade:hasItemQty(4241,1)) 
         		then
@@ -75,56 +81,47 @@ player:PrintToPlayer( "You are not eligible to earn GP for this guild!");
 --then 
 		--player:setVar("[Guild]daily_points", os.date("%j")); -- %M for next minute, %j for next day
 		--player:setVar("Wait1DayForYomiOkuri",VanadielDayOfTheYear());
-else
-		if (trade:hasItemQty(13588,1)) --dhalmel mantle
-			 then    
-              player:addCurrency("guild_leathercraft", 300);
-			  player:PrintToPlayer( "You have gained 300 GP !");
-			  --daily_points, +300;
-			 player:tradeComplete();
+else		
+if (dhalmel > 0 and dhalmel == trade:getItemCount()) then
+payOut = (dhalmel * 300);
+player:addCurrency("guild_leathercraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
+player:tradeComplete();
+elseif
+ (HQsilver > 0 and HQsilver == trade:getItemCount()) then
+payOut = (HQsilver * 400);
+player:addCurrency("guild_leathercraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
+player:tradeComplete();
+elseif
+ (mythril > 0 and mythril == trade:getItemCount()) then
+payOut = (mythril * 500);
+player:addCurrency("guild_leathercraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
+player:tradeComplete();
+elseif
+ (HQmythril > 0 and HQmythril == trade:getItemCount()) then
+payOut = (HQmythril * 600);
+player:addCurrency("guild_leathercraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
+player:tradeComplete();
+elseif
+ (torque > 0 and torque == trade:getItemCount()) then
+payOut = (torque * 700);
+player:addCurrency("guild_leathercraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
+player:tradeComplete();
+elseif
+ (HQtorque > 0 and HQtorque == trade:getItemCount()) then
+payOut = (HQtorque * 800);
+player:addCurrency("guild_leathercraft", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
+player:tradeComplete();
 
-		elseif 
-			(trade:hasItemQty(13600,1)) --dhalmel mantle +1
-			 then    
-              player:addCurrency("guild_leathercraft", 400);
-			  player:PrintToPlayer( "You have gained 400 GP !");
-			 player:tradeComplete();	
-			 
-		elseif 
-			(trade:hasItemQty(12571,1)) --cuir bouilli
-			 then    
-              player:addCurrency("guild_leathercraft", 500);
-			  player:PrintToPlayer( "You have gained 500 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(13709,1)) -- cuir bouilli +1
-			 then    
-              player:addCurrency("guild_leathercraft", 600);
-			  player:PrintToPlayer( "You have gained 600 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(15890,1)) --marid belt
-			 then    
-              player:addCurrency("guild_leathercraft", 700);
-			  player:PrintToPlayer( "You have gained 700 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(15893,1)) --marid belt +1
-			 then    
-              player:addCurrency("guild_leathercraft", 800);
-			  player:messageSpecial(GP_OBTAINED, option);
-			  player:PrintToPlayer( "You have gained 800 GP !");
-			 player:tradeComplete();			 
-			 
-end 
 end
 end
-
-
-end; 
+end
+end;
 
 
 -----------------------------------

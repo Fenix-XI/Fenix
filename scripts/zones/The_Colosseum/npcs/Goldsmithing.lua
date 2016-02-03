@@ -64,6 +64,15 @@ end;
 -----------------------------------
   
   function onTrade(player,npc,trade)
+      local payOut = 0;
+    local silver = trade:getItemQty(12495);
+	local HQsilver = trade:getItemQty(12531);
+	local mythril = trade:getItemQty(13446);
+	local HQmythril = trade:getItemQty(13519);
+	local torque = trade:getItemQty(13125);
+	local HQtorque = trade:getItemQty(13126);
+  
+  
    if (trade:getItemCount() == 1 and trade:hasItemQty(4241,1)) then	
  player:addStatusEffect(EFFECT_GOLDSMITHING_IMAGERY,3,0,480);
 else
@@ -76,54 +85,47 @@ player:PrintToPlayer( "You are not eligible to earn GP for this guild!");
 --then 
 		--player:setVar("[Guild]daily_points", os.date("%j")); -- %M for next minute, %j for next day
 		--player:setVar("Wait1DayForYomiOkuri",VanadielDayOfTheYear());
-else
-		if (trade:hasItemQty(12495,1)) --silver hairpin
-			 then    
-              player:addCurrency("guild_goldsmithing", 300);
-			  player:PrintToPlayer( "You have gained 300 GP !");
-			  --daily_points, +300;
-			 player:tradeComplete();
+else		
+if (silver > 0 and silver == trade:getItemCount()) then
+payOut = (silver * 300);
+player:addCurrency("guild_goldsmithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Goldsmithing GP!");
+player:tradeComplete();
+elseif
+ (HQsilver > 0 and HQsilver == trade:getItemCount()) then
+payOut = (HQsilver * 400);
+player:addCurrency("guild_goldsmithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Goldsmithing GP!");
+player:tradeComplete();
+elseif
+ (mythril > 0 and mythril == trade:getItemCount()) then
+payOut = (mythril * 500);
+player:addCurrency("guild_goldsmithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Goldsmithing GP!");
+player:tradeComplete();
+elseif
+ (HQmythril > 0 and HQmythril == trade:getItemCount()) then
+payOut = (HQmythril * 600);
+player:addCurrency("guild_goldsmithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Goldsmithing GP!");
+player:tradeComplete();
+elseif
+ (torque > 0 and torque == trade:getItemCount()) then
+payOut = (torque * 700);
+player:addCurrency("guild_goldsmithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Goldsmithing GP!");
+player:tradeComplete();
+elseif
+ (HQtorque > 0 and HQtorque == trade:getItemCount()) then
+payOut = (HQtorque * 800);
+player:addCurrency("guild_goldsmithing", payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Goldsmithing GP!");
+player:tradeComplete();
 
-		elseif 
-			(trade:hasItemQty(12531,1)) --silver hairpin +1
-			 then    
-              player:addCurrency("guild_goldsmithing", 400);
-			  player:PrintToPlayer( "You have gained 400 GP !");
-			 player:tradeComplete();	
-			 
-		elseif 
-			(trade:hasItemQty(13446,1))--mythril ring  
-			 then    
-              player:addCurrency("guild_goldsmithing", 500);
-			  player:PrintToPlayer( "You have gained 500 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(13519,1))-- mythril hairpin +1
-			 then    
-              player:addCurrency("guild_goldsmithing", 600);
-			  player:PrintToPlayer( "You have gained 600 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(13125,1))-- Torque
-			 then    
-              player:addCurrency("guild_goldsmithing", 700);
-			  player:PrintToPlayer( "You have gained 700 GP !");
-			 player:tradeComplete();			 
-			 
-		elseif 
-			(trade:hasItemQty(13126,1)) -- Torque +1
-			 then    
-              player:addCurrency("guild_goldsmithing", 800);
-			  --player:messageSpecial(GP_OBTAINED, option);
-			  player:PrintToPlayer( "You have gained 800 GP !");
-			 player:tradeComplete();			 
-			 
-end 
 end
 end
-end; 
+end
+end;
 
 -----------------------------------
 -- onEventUpdate
