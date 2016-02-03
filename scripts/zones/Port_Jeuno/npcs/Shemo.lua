@@ -15,20 +15,27 @@ require("scripts/zones/Port_Jeuno/TextIDs");
 -- onTrade Action
 -----------------------------------
 function onTrade(player,npc,trade)
-if (trade:getItemCount() == 1 and trade:hasItemQty(2955,1)) 
-       		then
-	  	   player:addItem(1126,2);
-   player:messageSpecial(ITEM_OBTAINED,1126,2);
-   player:tradeComplete();
-   elseif(trade:getItemCount() == 1 and trade:hasItemQty(2956,1)) 
-       		then
-	 	   player:addItem(1127,2);
-   player:messageSpecial(ITEM_OBTAINED,1127,2);
-   player:tradeComplete();
-  
-end
-  
+    local payOut = 0;
+    local kindredCrest = trade:getItemQty(2955);
+	local HighkindredCrest = trade:getItemQty(2956);
+	
+if (kindredCrest > 0 and kindredCrest == trade:getItemCount()) then
+payOut = (kindredCrest /2);
+player:addItem(1126,payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Beastmen Seals! .5 rounds up to the nearest whole number... lucky you!");
+player:tradeComplete();
+	elseif
+ (HighkindredCrest > 0 and HighkindredCrest == trade:getItemCount()) then
+payOut = (HighkindredCrest /2);
+player:addItem(1127,payOut);
+player:PrintToPlayer( "You earned " ..payOut.." Kindred Seals! .5 rounds up to the nearest whole number... lucky you!");
+player:tradeComplete();
+	end
 end;
+
+
+
+
 
 -----------------------------------
 -- onTrigger Action
