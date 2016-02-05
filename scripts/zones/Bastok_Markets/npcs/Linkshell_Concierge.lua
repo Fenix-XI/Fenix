@@ -80,10 +80,9 @@ stock = {0xB65,	1,	--	Bloodshot Hecteye	Trades to	Legionnaire's Scythe
 0xC16,	1,	--	HQ Rock Salt	Trades to	    Senior Gold Musketeer's Axe
 0xC14,	1,	--	Mocking Beak	Trades to	    Senior Gold Musketeer's Scythe
 0xC13,	1,	--	Hardened Raptor Skin	Trades to	    Senior Gold Musketeer's Rod
---0xC1a,	1,	--	Gnarled Taurus Horn	Trades to	    Republic Aketon
-0xC19,	1,	--	Dented Skull	Trades to	    Republic Signet Staff
-0xC1A,	1,	--	Stiffened Tentacle	Trades to	Chocobo Whistle
-
+0xC19,	1,	--	Black rabbit tail	Trades to	    Republic Signet Staff
+0xC1A,	1,	--	Gnarled Tarus horn	Trades to	Chocobo Whistle
+0xC1E,  1, --Stiffened Tentacle Trades to Choco Whistle
 
 
  }	
