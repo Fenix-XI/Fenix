@@ -1,20 +1,20 @@
 -----------------------------------
--- Area: Bastok Markets
--- NPC: Lavinia
+-- Area: Southern San d'Oria
+-- NPC: Gondebaud
 -- Standard Info NPC
 -----------------------------------
 
 
-package.loaded["scripts/zones/Bastok_Markets/TextIDs"] = nil;
-require("scripts/zones/Bastok_Markets/TextIDs");
+package.loaded["scripts/zones/Southern_San_dOria/TextIDs"] = nil;
+require("scripts/zones/Southern_San_dOria/TextIDs");
 
 -----------------------------------
 -- onTrade Action
 -----------------------------------
 
 function onTrade(player,npc,trade)
---[[ 
- local payOut = 0;
+--[[
+    local payOut = 0;
     local byne = trade:getItemQty(1455);
 	local bigByne = trade:getItemQty(1456);
 	local oPiece = trade:getItemQty(1452);
@@ -22,28 +22,28 @@ function onTrade(player,npc,trade)
 	local tShell = trade:getItemQty(1449);
 	local jShell = trade:getItemQty(1450);
 	
-if (oPiece >= 2 and oPiece == trade:getItemCount()) then
-payOut = (oPiece /2);
-player:addItem(1455,payOut);
-player:PrintToPlayer( "You recieved " ..payOut.." of Bynes for your trade! ");
+if (byne >= 2 and byne == trade:getItemCount()) then
+payOut = (byne /2);
+player:addItem(1452,payOut);
+player:PrintToPlayer( "You recieved " ..payOut.." of Ordelle Bronzepieces for your trade! ");
 player:tradeComplete();
 	elseif
- (mPiece >= 2 and mPiece == trade:getItemCount()) then
-payOut = (mPiece /2);
-player:addItem(1456,payOut);
-player:PrintToPlayer( "You traded for " ..payOut.." of 100 Byne Bills for your trade! ");
+ (bigByne >= 2 and bigByne == trade:getItemCount()) then
+payOut = (bigByne /2);
+player:addItem(1453,payOut);
+player:PrintToPlayer( "You traded for " ..payOut.." of Montiont Silverpiece's  for your trade! ");
 player:tradeComplete();
 	elseif
  (tShell >= 2 and tShell == trade:getItemCount()) then
 payOut = (tShell /2);
-player:addItem(1455,payOut);
-player:PrintToPlayer( "You recieved " ..payOut.." of Bynes for your trade!");
+player:addItem(1452,payOut);
+player:PrintToPlayer( "You recieved " ..payOut.." of Ordelle Bronzepieces for your trade!");
 player:tradeComplete();
 	elseif
  (jShell >= 2 and jShell == trade:getItemCount()) then
 payOut = (jShell /2);
-player:addItem(1456,payOut);
-player:PrintToPlayer( "You recieved " ..payOut.." of 100 Byne Bills for your trade!");
+player:addItem(1453,payOut);
+player:PrintToPlayer( "You recieved " ..payOut.." of Montiont Silverpiece's  for your trade!");
 player:tradeComplete();
 end
 --]]
@@ -54,8 +54,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-player:startEvent(0x7B);
-player:PrintToPlayer("I convert Windurst or San 'D oria Ancient Currency to Bastok Ancient Currency at 2:1 ratio!")
+player:PrintToPlayer("I convert Windurst or Bastok Ancient Currency to San d'Oria Ancient Currency at 2:1 ratio!")
 end; 
 
 -----------------------------------
