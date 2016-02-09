@@ -45,7 +45,8 @@ stock = {0x119D,1,	--Distilled Water
 0x45C,1,	--Manticore Hide
 0x329B,1,	--Cuir Highboots
 0x319B,1,	--Cuir Gloves
-0x297,1	--Mythril Sheet
+0x297,1,	--Mythril Sheet
+0x690,1, --HQ bugard skin
 	
 	}
  
@@ -88,32 +89,32 @@ player:addCurrency("guild_leathercraft", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
 player:tradeComplete();
 elseif
- (HQsilver > 0 and HQsilver == trade:getItemCount()) then
-payOut = (HQsilver * 400);
+ (HQdhalmel > 0 and HQdhalmel == trade:getItemCount()) then
+payOut = (HQdhalmel * 400);
 player:addCurrency("guild_leathercraft", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
 player:tradeComplete();
 elseif
- (mythril > 0 and mythril == trade:getItemCount()) then
-payOut = (mythril * 500);
+ (cuir > 0 and cuir == trade:getItemCount()) then
+payOut = (cuir * 500);
 player:addCurrency("guild_leathercraft", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
 player:tradeComplete();
 elseif
- (HQmythril > 0 and HQmythril == trade:getItemCount()) then
-payOut = (HQmythril * 600);
+ (HQcuir > 0 and HQcuir == trade:getItemCount()) then
+payOut = (HQcuir * 600);
 player:addCurrency("guild_leathercraft", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
 player:tradeComplete();
 elseif
- (torque > 0 and torque == trade:getItemCount()) then
-payOut = (torque * 700);
+ (marid > 0 and marid == trade:getItemCount()) then
+payOut = (marid * 700);
 player:addCurrency("guild_leathercraft", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
 player:tradeComplete();
 elseif
- (HQtorque > 0 and HQtorque == trade:getItemCount()) then
-payOut = (HQtorque * 800);
+ (HQmarid > 0 and HQmarid == trade:getItemCount()) then
+payOut = (HQmarid * 800);
 player:addCurrency("guild_leathercraft", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Leathercraft GP!");
 player:tradeComplete();
