@@ -27,5 +27,7 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+		ally:addCurrency("mweya_plasm",25);
+    ally:PrintToPlayer( "You earned 25 Mweya Plasm!");
     GetNPCByID(16928770+453):setStatus(STATUS_NORMAL);
 end;

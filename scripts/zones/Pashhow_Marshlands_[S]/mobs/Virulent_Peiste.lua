@@ -18,5 +18,6 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
-
+ 	ally:addCurrency("kinetic_unit",10);
+	ally:PrintToPlayer( "You earned 10 Kinetic Units!");
 end;

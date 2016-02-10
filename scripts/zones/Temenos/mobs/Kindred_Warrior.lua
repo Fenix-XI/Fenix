@@ -28,6 +28,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+		ally:addCurrency("mweya_plasm",25);
+    ally:PrintToPlayer( "You earned 25 Mweya Plasm!");
  if (IsMobDead(16928797)==true and IsMobDead(16928798)==true  and IsMobDead(16928799)==true ) then
        GetNPCByID(16928768+27):setPos(-120,-80,429);
     GetNPCByID(16928768+27):setStatus(STATUS_NORMAL);
