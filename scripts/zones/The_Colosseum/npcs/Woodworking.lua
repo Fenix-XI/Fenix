@@ -43,7 +43,7 @@ stock = {0x02B0,1,	--Arrowwood Log
 0x2BF,1,	--Petrified Log
 0x9E4,1,	--Teak Log
 0x5A6,1,	--Lacquer Log
-0x5BD,1,	--Lancewood Log
+0x5B8,1,	--Lancewood Log
 0x9E6,1,	--Jacaranda Log
 0x679,1	--Bundling Twine
 

@@ -92,37 +92,37 @@ player:PrintToPlayer( "You are not eligible to earn GP for this guild!");
 else		
 if (heko > 0 and heko == trade:getItemCount()) then
 payOut = (heko * 300);
-player:addCurrency("guild_clothcraft", payOut);
+player:addCurrency("guild_weaving", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
 player:tradeComplete();
 elseif
  (HQheko > 0 and HQheko == trade:getItemCount()) then
 payOut = (HQheko * 400);
-player:addCurrency("guild_clothcraft", payOut);
+player:addCurrency("guild_weaving", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
 player:tradeComplete();
 elseif
  (wool > 0 and wool == trade:getItemCount()) then
 payOut = (wool * 500);
-player:addCurrency("guild_clothcraft", payOut);
+player:addCurrency("guild_weaving", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
 player:tradeComplete();
 elseif
  (HQwool > 0 and HQwool == trade:getItemCount()) then
 payOut = (HQwool * 600);
-player:addCurrency("guild_clothcraft", payOut);
+player:addCurrency("guild_weaving", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
 player:tradeComplete();
 elseif
  (silk > 0 and silk == trade:getItemCount()) then
 payOut = (silk * 700);
-player:addCurrency("guild_clothcraft", payOut);
+player:addCurrency("guild_weaving", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
 player:tradeComplete();
 elseif
  (HQsilk > 0 and HQsilk == trade:getItemCount()) then
 payOut = (HQsilk * 800);
-player:addCurrency("guild_clothcraft", payOut);
+player:addCurrency("guild_weaving", payOut);
 player:PrintToPlayer( "You earned " ..payOut.." Clothcraft GP!");
 player:tradeComplete();
 

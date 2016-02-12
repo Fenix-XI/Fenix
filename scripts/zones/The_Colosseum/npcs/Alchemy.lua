@@ -36,7 +36,7 @@ stock = {0x119D,1,	--Distilled Water
 0x027D,1,	--Slime Oil
 0x03B8,1,	--Poison Flour
 0x026D,1,	--Crying Mustard
-0x0266,1,	--Mercury
+0x0392,1,	--Mercury
 0x03A9,1,	--Animal Glue
 0x03A5,1,	--Glass Fiber
 0x03B3,1,	--Firesand
