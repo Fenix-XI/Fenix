@@ -34,7 +34,7 @@ function onUseWeaponSkill(player, target, wsID)
     -- TODO: Whoever codes those level 85 weapons with the latent that grants this WS needs to code a check to not give the aftermath effect.
     if (damage > 0) then
         local amDuration = 20 * math.floor(player:getTP()/100);
-        player:addStatusEffect(EFFECT_AFTERMATH, -20, 0, amDuration, 0, 11);
+        player:addStatusEffect(EFFECT_AFTERMATH, -50, 0, amDuration, 0, 11);
     end
 
     damage = damage * WEAPON_SKILL_POWER
