@@ -111,5 +111,7 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
+			ally:addCurrency("bayld",100);
+	ally:PrintToPlayer( "You earned 100 Bayld!");
     mob:setRespawnTime(math.random((10800),(14400))); -- respawn 3-4 hrs
 end;

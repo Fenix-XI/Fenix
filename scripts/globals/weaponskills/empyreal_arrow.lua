@@ -11,12 +11,13 @@
 -- 100%TP    200%TP    300%TP
 -- 2.00      2.75      3.00
 -----------------------------------
+
 require("scripts/globals/status");
 require("scripts/globals/settings");
 require("scripts/globals/weaponskills");
 -----------------------------------
 
-function onUseWeaponSkill(player, target, wsID, tp, primary)
+function onUseWeaponSkill(player, target, params, tp, primary)
 
     local params = {};
     params.numHits = 1;
@@ -33,7 +34,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary)
         params.atkmulti = 2;
     end
 
-    local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, wsID, params, tp, primary);
+    local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, params, tp, primary);
     return tpHits, extraHits, criticalHit, damage;
 
 end

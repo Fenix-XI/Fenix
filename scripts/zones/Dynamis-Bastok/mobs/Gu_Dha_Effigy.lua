@@ -26,6 +26,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+	ally:addCurrency("bayld",10);
+	ally:PrintToPlayer( "You earned 10 Bayld!");
 
     if (mob:isInBattlefieldList() == false) then
         mob:addInBattlefieldList();

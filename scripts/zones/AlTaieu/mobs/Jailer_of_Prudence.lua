@@ -77,6 +77,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
+	ally:addCurrency("mweya_plasm",700);
+	ally:PrintToPlayer( "You earned 700 Mweya Plasm!");
     local firstPrudence     = GetMobByID(PrudenceOne);
     local secondPrudence    = GetMobByID(PrudenceTwo);
     if (mob:getID() == PrudenceOne) then

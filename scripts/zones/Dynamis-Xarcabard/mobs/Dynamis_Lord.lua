@@ -67,6 +67,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+	ally:addCurrency("bayld",7000);
+	ally:PrintToPlayer( "You earned 7000 Bayld!");
     local npc = GetNPCByID(17330778); -- ID of the '???' target.
     ally:addTitle(LIFTER_OF_SHADOWS);
     npc:setPos(mob:getXPos(),mob:getYPos(),mob:getZPos());

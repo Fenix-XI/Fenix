@@ -14,10 +14,10 @@ end;
 function onSpellCast(caster,target,spell)
 
     --Pull base stats.
-    local dINT = (caster:getStat(MOD_INT) - target:getStat(MOD_INT));
+	local dINT = (caster:getStat(MOD_INT) - target:getStat(MOD_INT));
 
     --Duration, including resistance.  May need more research.
-    local duration = 60;
+    local duration = 10;
 
     if (caster:hasStatusEffect(EFFECT_SABOTEUR)) then
         duration = duration * 2;
@@ -25,7 +25,7 @@ function onSpellCast(caster,target,spell)
     caster:delStatusEffect(EFFECT_SABOTEUR);
 
     --Resist
-    local resist = applyResistanceEffect(caster,spell,target,dINT,35,0,EFFECT_BIND);
+	local resist = applyResistanceEffect(caster,spell,target,dINT,35,0,EFFECT_BIND);
 
     if (resist >= 0.5) then --Do it!
         --Try to erase a weaker bind.

@@ -152,6 +152,10 @@ navmeshes/*.nav
 tags
 log/DSP.leaks
 
-#Lua Developement Tools project files
+#Lua Development Tools project files
 .metadata/**
 .project
+/Tools/game_crash.txt
+
+#Account Info
+/sql/accounts.sql

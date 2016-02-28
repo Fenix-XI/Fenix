@@ -17,7 +17,7 @@ require("scripts/globals/settings");
 require("scripts/globals/weaponskills");
 -----------------------------------
 
-function onUseWeaponSkill(player, target, wsID, tp, primary)
+function onUseWeaponSkill(player, target, params, tp, primary)
 
     local params = {};
     params.numHits = 3;
@@ -32,7 +32,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary)
         params.str_wsc = 0.5;
     end
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, primary);
+    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params, tp, primary);
 
 
     if ((player:getEquipID(SLOT_MAIN) == 19002) and (player:getMainJob() == JOB_SAM)) then

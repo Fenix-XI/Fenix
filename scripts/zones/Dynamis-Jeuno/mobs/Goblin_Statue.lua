@@ -31,6 +31,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+	ally:addCurrency("bayld",10);
+	ally:PrintToPlayer( "You earned 10 Bayld!");
     mobID = mob:getID();
     
     -- HP Bonus: 005 011 016 023 026 031 040 057 063 065 068 077 079 080 082 083 084 093 102 119 | 123 126 128 

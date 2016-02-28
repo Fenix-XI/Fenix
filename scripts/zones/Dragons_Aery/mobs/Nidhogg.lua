@@ -27,6 +27,7 @@ function onMobFight(mob, target)
     end
 
     if (battletime >= twohourTime) then
+        mob:useMobAbility(700);
         mob:useMobAbility(956);
         -- technically aerial hurricane wing, but I'm using 700 for his two hour
         --(since I have no inclination to spend millions on a PI to cap one name you never see)
@@ -41,6 +42,8 @@ end;
 function onMobDeath(mob, killer, ally)
 
     ally:addTitle(NIDHOGG_SLAYER);
+	ally:addCurrency("bayld",600);
+	ally:PrintToPlayer( "You earned 600 Bayld!");
 
     -- Set Nidhogg's Window Open Time
     if (LandKingSystem_HQ ~= 1) then

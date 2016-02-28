@@ -204,8 +204,13 @@ function onTrade(player,npc,trade)
          elseif (eventParams[7] == 3) then
             player:setVar("RELIC_DUE_AT",os.time() + RELIC_3RD_UPGRADE_WAIT_TIME);
          end
-         player:tradeComplete();
-         player:startEvent(13, currentRelic, eventParams[5], eventParams[6], 0, 0, 0, 0, eventParams[8]);
+         if (count==1 and (eventParams[5] == 1451 or eventParams[5] == 1454 or eventParams[5] == 1457)) then
+            player:PrintToPlayer(string.format("You will get a Shock Collar and I'll get the Remote for it, do NOT trade the gob your 10K piece, have a nice day."));
+            if (count~=1) then
+                player:tradeComplete();
+                player:startEvent(13, currentRelic, eventParams[5], eventParams[6], 0, 0, 0, 0, eventParams[8]);
+            end
+         end
       end
    end
 

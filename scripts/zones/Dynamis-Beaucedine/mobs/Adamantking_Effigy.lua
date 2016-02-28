@@ -30,6 +30,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+	ally:addCurrency("bayld",10);
+	ally:PrintToPlayer( "You earned 10 Bayld!");
     local mobID = mob:getID();
     -- Time Bonus: 063 066
     if (mobID == 17326892 and mob:isInBattlefieldList() == false) then

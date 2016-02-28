@@ -11,12 +11,13 @@
 -- 100%TP    200%TP    300%TP
 -- 1.00      1.00      1.00
 -----------------------------------
+
 require("scripts/globals/status");
 require("scripts/globals/settings");
 require("scripts/globals/weaponskills");
 -----------------------------------
 
-function onUseWeaponSkill(player, target, wsID, tp, primary)
+function onUseWeaponSkill(player, target, params, tp, primary)
 
     local params = {};
     params.numHits = 1;
@@ -31,7 +32,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary)
         params.str_wsc = 1.0;
     end
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, primary);
+    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params, tp, primary);
 
     local chance = player:getTP()-100 > math.random()*150;
     if (damage > 0 and target:hasStatusEffect(EFFECT_STUN) == false and chance) then

@@ -12,12 +12,13 @@
 -- 100%TP    200%TP    300%TP
 -- 0.50      0.75      1.00
 -----------------------------------
+
 require("scripts/globals/status");
 require("scripts/globals/settings");
 require("scripts/globals/weaponskills");
 -----------------------------------
 
-function onUseWeaponSkill(player, target, wsID, tp, primary)
+function onUseWeaponSkill(player, target, params, tp, primary)
 
     local params = {};
     params.numHits = 4;
@@ -32,7 +33,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary)
         params.ftp200 = 3.25; params.ftp300 = 6;
     end
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, primary);
+    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params, tp, primary);
 
     if ((player:getEquipID(SLOT_MAIN) == 18998) and (player:getMainJob() == JOB_DRK)) then
         if (damage > 0) then

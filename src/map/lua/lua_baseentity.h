@@ -48,6 +48,8 @@ public:
 
     int32 ChangeMusic(lua_State* L);        // Sets the specified music Track for specified music block.
 
+	int32 addLS(lua_State* L);              // Adds LS to player
+
     int32 warp(lua_State*);                 // Returns Character to home point
     int32 leavegame(lua_State*);            // Character leaving game
 

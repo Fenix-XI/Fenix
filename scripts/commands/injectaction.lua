@@ -5,10 +5,10 @@
 
 cmdprops =
 {
-    permission = 1,
+    permission = 4,
     parameters = "iiii"
 };
 
-function onTrigger(player, actionId, animationId, speceffect, reaction)
-    player:injectActionPacket( actionId, animationId, speceffect, reaction );
+function onTrigger(player, actionId, animationId)
+    player:injectActionPacket( actionId, animationId );
 end
