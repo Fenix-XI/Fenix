@@ -20,6 +20,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
+player:PrintToPlayer("I'm still on vacation... Come back later!");
 --    player:showText(npc,NOMAD_MOOGLE_DIALOG);
  --   player:sendMenu(1);
 	end;
