@@ -31,7 +31,7 @@ stock = {0x119D,1,	--Distilled Water
 0x27B,1,	--Windurstian Tea Leaves
 0x1F9,1,	--Sheepskin
 0x358,1,	--Rabbit Hide
-0x36F,1,	--Karakul Skin
+0x36E,1,	--Karakul Skin
 0x354,1,	--Lizard Skin
 0x35A,1,	--Wolf Hide
 0x359,1,	--Dhalmel Hide

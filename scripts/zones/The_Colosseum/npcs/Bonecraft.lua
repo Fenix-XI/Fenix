@@ -51,6 +51,7 @@ stock = {0x0370,1,	--Bone Chip
 0xCC6,1,	--High-Quality Pugil Scale
 0x632,1,	--Titanictus Shell
 0x520,1,	--Angel Skin
+0x6b7,1,    --Harajanite Shell
 }	
  
 showShop(player, STATIC, stock);

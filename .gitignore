@@ -157,5 +157,6 @@ log/DSP.leaks
 .project
 /Tools/game_crash.txt
 
-#Account Info
+#Account/Character Info
 /sql/accounts.sql
+/sql/chars.sql

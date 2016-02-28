@@ -88,6 +88,8 @@ function onMobDeath(mob,killer,ally)
         ally:setVar("mobid",mob:getID());
     else
         ally:addTitle(SHADOW_BANISHER);
+					ally:addCurrency("bayld",150);
+		ally:PrintToPlayer( "You earned 150 Bayld!");
     end
     -- reset everything on death
     mob:AnimationSub(0);
