@@ -221,7 +221,7 @@ function onTrigger(player,npc)
    local currentRelic = player:getVar("RELIC_IN_PROGRESS");
    local relicWait = player:getVar("RELIC_DUE_AT"); -- Stores time that relic can be retrieved after
    local relicConquest = player:getVar("RELIC_CONQUEST_WAIT");
-   player:PrintToPlayer( "Only start 1 relic at a time as FedEX loses stuff!");
+   player:PrintToPlayer( "Only start 1 relic at a time as FedEX loses stuff! And DO NOT GIVE ME YOUR 10K PIECE! EVER!");
    -- Working on a relic, waiting on completion, and time hasn't passed yet, so tell them to wait longer.
    if (currentRelic ~= 0 and relicWait ~= 0 and relicWait > os.time()) then
       eventParams = getRelicParameters(currentRelic);
