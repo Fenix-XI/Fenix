@@ -20,8 +20,6 @@ end;
 
 function onMobDeath(mob, killer, ally)
     ally:addTitle(FAFNIR_SLAYER);
-	ally:addCurrency("bayld",300);
-	ally:PrintToPlayer( "You earned 300 Bayld!");
 end;
 
 -----------------------------------

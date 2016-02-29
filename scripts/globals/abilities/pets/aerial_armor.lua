@@ -16,5 +16,5 @@ function onPetAbility(target, pet, skill)
     target:delStatusEffect(EFFECT_BLINK);
     target:addStatusEffect(EFFECT_BLINK,3,0,900);
     skill:setMsg(MSG_BUFF);
-	return EFFECT_BLINK;
+    return EFFECT_BLINK;
 end

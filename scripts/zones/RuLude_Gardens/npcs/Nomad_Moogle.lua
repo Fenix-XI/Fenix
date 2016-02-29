@@ -42,8 +42,6 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-player:PrintToPlayer("Some merit points groups DO NOT WORK. Check the wiki for complete list. No refunds!");
-player:PrintToPlayer("http://exodus-ffxi.wikia.com/wiki/Merit_Lists for more information.");
     if (player:hasKeyItem(LIMIT_BREAKER) == false and player:getMainLvl() >= 75) then
         player:startEvent(10045,75,2,10,7,30,302895,4095);
     elseif (player:getMainLvl() == 75 and player:levelCap() == 75 and MAX_LEVEL >= 80 and player:getQuestStatus(JEUNO,NEW_WORLDS_AWAIT) == QUEST_AVAILABLE) then

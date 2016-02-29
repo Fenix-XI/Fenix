@@ -29,7 +29,7 @@ stock = {0x1579,99224,    --Bolter's Die
      0x157b,97350,    --Courser's Die
      0x157c,100650,    --Blitzer's Die
      0x157d,109440,    --Tactician's Die
-     0x157e,5000}    --Allies' Die
+     0x157e,116568}    --Allies' Die
  
 showShop(player, STATIC, stock);
 end; 

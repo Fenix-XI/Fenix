@@ -8,7 +8,7 @@
 
 cmdprops =
 {
-    permission = 2,
+    permission = 1,
     parameters = "ss"
 };
 

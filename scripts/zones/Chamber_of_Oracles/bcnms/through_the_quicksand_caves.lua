@@ -55,9 +55,7 @@ function onEventFinish(player,csid,option)
         if (player:getCurrentMission(ZILART) == THROUGH_THE_QUICKSAND_CAVES) then
             player:completeMission(ZILART,THROUGH_THE_QUICKSAND_CAVES);
             player:addMission(ZILART,THE_CHAMBER_OF_ORACLES);
-
         end
-	--player:addCurrency("bayld",250);
     end
     
 end;

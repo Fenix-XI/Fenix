@@ -5,8 +5,8 @@
 
 cmdprops =
 {
-    permission = 2,
-    parameters = "siii"
+    permission = 1,
+    parameters = "siiiii"
 };
 
 function onTrigger(player, target, id, power, duration, subid, subPower)

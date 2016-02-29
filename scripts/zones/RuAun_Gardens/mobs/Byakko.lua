@@ -45,8 +45,6 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
-		ally:addCurrency("bayld",500);
-	ally:PrintToPlayer( "You earned 500 Bayld!");
     ally:showText(mob,SKY_GOD_OFFSET + 12);
 end;
 
@@ -55,6 +53,5 @@ end;
 -----------------------------------
 
 function onMobDespawn(mob)
-
     GetNPCByID(17310052):updateNPCHideTime(FORCE_SPAWN_QM_RESET_TIME);
 end;

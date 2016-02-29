@@ -1,8 +1,8 @@
 -----------------------------------
--- Area: Caedarva Mire
--- NPC: Verdelet
--- ZNM Path: Lamia
--- @pos http://ffxiclopedia.wikia.com/wiki/Mint_Drop traded to ??? at  (J-6)
+-- Area:    Caedarva Mire
+-- NPC:     Verdelet
+-- ID:      17101202
+-- @pos 417 -19.3 -70
 -----------------------------------
 
 require("scripts/globals/status");
@@ -44,8 +44,4 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
-
-	ally:addCurrency("dominion_note",150);
-	ally:PrintToPlayer( "You earned 150 Dominion Notes!");
-
 end;

@@ -20,8 +20,6 @@ end;
 
 function onMobDeath(mob, killer, ally)
     ally:addTitle(TORTOISE_TORTURER);
-		ally:addCurrency("bayld",100);
-	ally:PrintToPlayer( "You earned 100 Bayld!");
 end;
 
 -----------------------------------

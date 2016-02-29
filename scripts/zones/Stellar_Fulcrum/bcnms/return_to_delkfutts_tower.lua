@@ -32,7 +32,6 @@ function onBcnmLeave(player,instance,leavecode)
 -- print("leave code "..leavecode);
     
     if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
-			player:addCurrency("bayld",250);
         if (player:hasCompletedMission(ZILART,RETURN_TO_DELKFUTTS_TOWER)) then
             player:startEvent(0x7d01,1,1,1,instance:getTimeInside(),1,0,1);
         else

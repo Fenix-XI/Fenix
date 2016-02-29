@@ -32,6 +32,4 @@ function onMobDeath(mob,killer,ally)
     local mobZ = mob:getZPos();
     GetNPCByID(16932864+109):setPos(mobX,mobY,mobZ);
     GetNPCByID(16932864+109):setStatus(STATUS_NORMAL);
-		ally:addCurrency("mweya_plasm",100);
-	ally:PrintToPlayer( "You earned 100 Mweya Plasm!");
 end;

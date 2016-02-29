@@ -66,7 +66,5 @@ end;
 
 function onMobDeath(mob, killer, ally)
     ally:addTitle(WORLD_SERPENT_SLAYER);
-	ally:addCurrency("mweya_plasm",1000)
-	ally:PrintToPlayer( "You earned 1000 Plasm!");
     mob:setRespawnTime(math.random(259200,432000)); -- 3 to 5 days
 end;

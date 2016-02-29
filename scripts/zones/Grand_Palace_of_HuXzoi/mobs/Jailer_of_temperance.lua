@@ -106,8 +106,6 @@ end;
 -- onMobDeath
 -----------------------------------
 function onMobDeath(mob,killer,ally)
-	ally:addCurrency("mweya_plasm",500);
-	ally:PrintToPlayer( "You earned 500 Mweya_Plasm!");
     SetServerVariable("[SEA]Jailer_of_Temperance_POP", os.time(t) + 900); -- 15 mins
     DeterMob(mob:getID(), true);
 
