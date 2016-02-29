@@ -16,7 +16,7 @@ require("scripts/globals/settings");
 require("scripts/globals/weaponskills");
 -----------------------------------
 
-function onUseWeaponSkill(player, target, params, tp, primary)
+function onUseWeaponSkill(player, target, wsID, tp, primary)
 
     local params = {};
     params.ftp100 = 2.25; params.ftp200 = 2.25; params.ftp300 = 2.25;
@@ -30,7 +30,7 @@ function onUseWeaponSkill(player, target, params, tp, primary)
         params.dex_wsc = 0.4; params.int_wsc = 0.4;
     end
 
-    local damage, tpHits, extraHits = doMagicWeaponskill(player, target, params, tp, primary);
+    local damage, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, primary);
 
     if (damage > 0) then
         local tp = player:getTP();

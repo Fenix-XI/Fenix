@@ -22,7 +22,7 @@ require("scripts/globals/settings");
 require("scripts/globals/weaponskills");
 -----------------------------------
 
-function onUseWeaponSkill(player, target, params, tp, primary)
+function onUseWeaponSkill(player, target, wsID, tp, primary)
 
     local params = {};
     params.numHits = 4;
@@ -37,6 +37,6 @@ function onUseWeaponSkill(player, target, params, tp, primary)
         params.str_wsc = 0.8;
     end
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params, tp, primary);
+    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, primary);
     return tpHits, extraHits, criticalHit, damage;
 end

@@ -16,7 +16,7 @@ require("scripts/globals/status");
 require("scripts/globals/settings");
 require("scripts/globals/weaponskills");
 -----------------------------------
-function onUseWeaponSkill(player, target, params, tp, primary)
+function onUseWeaponSkill(player, target, wsID, tp, primary)
     local params = {};
     params.numHits = 3;
     -- ftp damage mods (for Damage Varies with TP; lines are calculated in the function
@@ -35,7 +35,7 @@ function onUseWeaponSkill(player, target, params, tp, primary)
         params.ftp100 = 4.0; params.ftp200 = 4.0; params.ftp300 = 4.0;
     end
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params, tp, primary);
+    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, primary);
     if (damage > 0) then
         local tp = player:getTP();
         local duration = (tp/100 * 20) - 5;
