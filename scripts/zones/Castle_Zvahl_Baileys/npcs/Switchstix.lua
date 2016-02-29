@@ -204,13 +204,8 @@ function onTrade(player,npc,trade)
          elseif (eventParams[7] == 3) then
             player:setVar("RELIC_DUE_AT",os.time() + RELIC_3RD_UPGRADE_WAIT_TIME);
          end
-         if (count==1 and (eventParams[5] == 1451 or eventParams[5] == 1454 or eventParams[5] == 1457)) then
-            player:PrintToPlayer(string.format("You will get a Shock Collar and I'll get the Remote for it, do NOT trade the gob your 10K piece, have a nice day."));
-            if (count~=1) then
-                player:tradeComplete();
-                player:startEvent(13, currentRelic, eventParams[5], eventParams[6], 0, 0, 0, 0, eventParams[8]);
-            end
-         end
+         player:tradeComplete();
+         player:startEvent(13, currentRelic, eventParams[5], eventParams[6], 0, 0, 0, 0, eventParams[8]);
       end
    end
 
@@ -226,7 +221,7 @@ function onTrigger(player,npc)
    local currentRelic = player:getVar("RELIC_IN_PROGRESS");
    local relicWait = player:getVar("RELIC_DUE_AT"); -- Stores time that relic can be retrieved after
    local relicConquest = player:getVar("RELIC_CONQUEST_WAIT");
-
+   player:PrintToPlayer( "Only start 1 relic at a time as FedEX loses stuff! And DO NOT GIVE ME YOUR 10K PIECE! EVER!");
    -- Working on a relic, waiting on completion, and time hasn't passed yet, so tell them to wait longer.
    if (currentRelic ~= 0 and relicWait ~= 0 and relicWait > os.time()) then
       eventParams = getRelicParameters(currentRelic);

@@ -5,6 +5,7 @@ ITEM_CANNOT_BE_OBTAINED = 6379; -- You cannot obtain the item <item> come back a
           ITEM_OBTAINED = 6384; -- Obtained: <item>
            GIL_OBTAINED = 6385; -- Obtained <number> gil
        KEYITEM_OBTAINED = 6387; -- Obtained key item: <keyitem>
+NOMAD_MOOGLE_DIALOG = 11494; -- I'm a traveling moogle, kupo. I help adventurers in the Outlands access items they have stored in a Mog House elsewhere, kupo.
 
 -- Pankration
      THANKS_FOR_STOPPING_BY = 11494; -- Thanks for stopping by. I'll be seeing you around, ≺Player Name≻!≺Prompt≻

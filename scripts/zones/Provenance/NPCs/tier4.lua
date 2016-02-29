@@ -98,6 +98,7 @@ stock = {0x6BBC,1,
 0x2C5F,1,
 0x2A52,1,
 0x4991,1,
+0x2DFB,1,
 	}	
 showShop(player, STATIC, stock);
 end; 
