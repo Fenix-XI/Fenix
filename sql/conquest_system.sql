@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.26, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.15, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dspdb
 -- ------------------------------------------------------
--- Server version	5.6.26-log
+-- Server version	5.6.15
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -40,7 +40,25 @@ CREATE TABLE `conquest_system` (
 
 LOCK TABLES `conquest_system` WRITE;
 /*!40000 ALTER TABLE `conquest_system` DISABLE KEYS */;
-INSERT INTO `conquest_system` VALUES (0,1,1,2611,2371,0,18),(1,2,1,1501,1692,734,73),(2,0,1,2116,923,600,1361),(3,0,1,0,4553,0,447),(4,1,0,3993,1000,0,7),(5,2,0,0,21,3722,1257),(6,2,0,0,0,5000,0),(7,1,0,332,3801,133,734),(8,3,0,449,18,0,4533),(9,3,3,1183,1147,575,2095),(10,1,3,1848,2516,25,611),(11,1,3,510,2516,1888,86),(12,2,3,358,1255,1881,1506),(13,3,3,625,830,86,3459),(14,0,3,3584,527,815,74),(15,3,3,1547,956,340,2157),(16,3,3,710,570,191,3529),(17,3,3,589,698,231,3482),(18,3,3,1610,322,70,2998);
+INSERT INTO `conquest_system` VALUES (0,0,1,5000,0,0,0);
+INSERT INTO `conquest_system` VALUES (1,0,1,1500,1500,0,1000);
+INSERT INTO `conquest_system` VALUES (2,0,1,3000,0,0,2000);
+INSERT INTO `conquest_system` VALUES (3,1,1,0,5000,0,0);
+INSERT INTO `conquest_system` VALUES (4,1,0,0,3000,0,2000);
+INSERT INTO `conquest_system` VALUES (5,2,0,0,0,5000,0);
+INSERT INTO `conquest_system` VALUES (6,2,0,0,0,4000,1000);
+INSERT INTO `conquest_system` VALUES (7,2,0,0,0,3000,2000);
+INSERT INTO `conquest_system` VALUES (8,3,0,0,0,0,5000);
+INSERT INTO `conquest_system` VALUES (9,3,3,0,0,0,5000);
+INSERT INTO `conquest_system` VALUES (10,2,3,2000,750,750,1500);
+INSERT INTO `conquest_system` VALUES (11,3,3,0,0,0,5000);
+INSERT INTO `conquest_system` VALUES (12,3,3,0,0,0,5000);
+INSERT INTO `conquest_system` VALUES (13,3,3,0,0,0,5000);
+INSERT INTO `conquest_system` VALUES (14,3,3,0,0,0,5000);
+INSERT INTO `conquest_system` VALUES (15,3,3,0,0,0,5000);
+INSERT INTO `conquest_system` VALUES (16,3,3,0,0,0,5000);
+INSERT INTO `conquest_system` VALUES (17,3,3,0,0,0,5000);
+INSERT INTO `conquest_system` VALUES (18,3,3,0,0,0,5000);
 /*!40000 ALTER TABLE `conquest_system` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +71,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-28 18:06:36
+-- Dump completed on 2014-10-02  1:38:12
