@@ -18,7 +18,7 @@ require("scripts/globals/status");
 require("scripts/globals/settings");
 require("scripts/globals/weaponskills");
 -----------------------------------
-function onUseWeaponSkill(player, target, wsID)
+function onUseWeaponSkill(player, target, params, tp, primary)
     local params = {};
     params.numHits = 4;
     params.ftp100 = 2; params.ftp200 = 3; params.ftp300 = 3.5;
@@ -34,7 +34,7 @@ function onUseWeaponSkill(player, target, wsID)
     end
 
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params);
+    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params, tp, primary);
     -- TODO: Whoever codes those level 85 weapons with the latent that grants this WS needs to code a check to not give the aftermath effect.
     if (damage > 0) then
         local amDuration = 20 * math.floor(player:getTP()/100);
@@ -42,6 +42,5 @@ function onUseWeaponSkill(player, target, wsID)
         target:addStatusEffect(EFFECT_PARALYSIS, 10, 0, 60);
     end
 
-    damage = damage * WEAPON_SKILL_POWER
     return tpHits, extraHits, criticalHit, damage;
 end

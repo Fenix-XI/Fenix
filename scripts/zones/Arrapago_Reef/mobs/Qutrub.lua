@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Arrapago Reef
---  NPC: Lamia Idolator
+--  NPC: Qutrub
 -----------------------------------
 
 require("scripts/globals/status");

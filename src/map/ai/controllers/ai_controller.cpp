@@ -72,10 +72,12 @@ bool CAIController::TryDeaggro()
     if (!PTarget || PTarget->isDead() ||
         PTarget->animation == ANIMATION_CHOCOBO ||
         PTarget->loc.zone->GetID() != PMob->loc.zone->GetID() ||
-        PMob->StatusEffectContainer->GetConfrontationEffect() != PTarget->StatusEffectContainer->GetConfrontationEffect())
+        PMob->StatusEffectContainer->GetConfrontationEffect() != PTarget->StatusEffectContainer->GetConfrontationEffect() ||
+        PMob->allegiance == PTarget->allegiance)
     {
         PMob->PEnmityContainer->Clear(PTarget->id);
         PTarget = PMob->PEnmityContainer->GetHighestEnmity();
+        PMob->SetBattleTargetID(PTarget ? PTarget->targid : 0);
         return TryDeaggro();
     }
 
@@ -96,7 +98,7 @@ bool CAIController::TryDeaggro()
 
     //Hide allows you to lose aggro on certain types of enemies.
     //Generally works on monsters that don't track by scent, regardless of detection method.
-    //Can work on monsters that track by scent if the proper conditions are met (double rain weather, crossing over water, etc.) 
+    //Can work on monsters that track by scent if the proper conditions are met (double rain weather, crossing over water, etc.)
     if (tryTimeDeaggro && PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))
     {
         return true;
@@ -290,7 +292,7 @@ bool CAIController::MobSkill(int wsList)
         {
             if (currentDistance <= PMobSkill->getDistance())
             {
-                MobSkill(PTarget->targid, PMobSkill->getID());
+                MobSkill(PActionTarget->targid, PMobSkill->getID());
                 break;
             }
         }
@@ -496,7 +498,7 @@ void CAIController::DoCombatTick(time_point tick)
     {
         PMob->PAI->PathFind->LookAt(PTarget->loc.p);
     }
-
+    luautils::OnMobFight(PMob, PTarget);
     // Try to spellcast (this is done first so things like Chainspell spam is prioritised over TP moves etc.
     if (PMob->getMobMod(MOBMOD_SPECIAL_SKILL) != 0 && !PMob->StatusEffectContainer->HasStatusEffect(EFFECT_CHAINSPELL) &&
         (m_Tick >= m_LastSpecialTime + std::chrono::milliseconds(PMob->getBigMobMod(MOBMOD_SPECIAL_COOL))) && TrySpecialSkill())
@@ -533,7 +535,6 @@ void CAIController::DoCombatTick(time_point tick)
     }
 
     bool move = PMob->PAI->PathFind->IsFollowingPath();
-    std::unique_ptr<CMessageBasicPacket> err;
 
     //If using mobskills instead of attacks, calculate distance to move and ability to use here
     if (PMob->getMobMod(MOBMOD_ATTACK_SKILL_LIST))
@@ -550,7 +551,7 @@ void CAIController::DoCombatTick(time_point tick)
         CMobEntity* posShare = (CMobEntity*)PMob->GetEntity(PMob->getMobMod(MOBMOD_SHARE_POS) + PMob->targid, TYPE_MOB);
         PMob->loc = posShare->loc;
     }
-    else if ((!PMob->CanAttack(PTarget, err) || move) && PMob->PAI->CanFollowPath())
+    else if (((distance(PMob->loc.p, PTarget->loc.p) > PMob->m_ModelSize) || move) && PMob->PAI->CanFollowPath())
     {
         //#TODO: can this be moved to scripts entirely?
         if (PMob->getMobMod(MOBMOD_DRAW_IN) > 0)

@@ -31,7 +31,7 @@ CREATE TABLE `linkshells` (
   `messagetime` int(10) unsigned NOT NULL DEFAULT '0',
   `postrights` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`linkshellid`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `linkshells` (
 
 LOCK TABLES `linkshells` WRITE;
 /*!40000 ALTER TABLE `linkshells` DISABLE KEYS */;
-INSERT INTO `linkshells` VALUES (4,'GMchat',65376,'Fluxion','Update Tuesday',1452559645,0),(3,'Serverwide',61997,'Fluxion','Retail is trigger happy with updates, so we will be updating the server on Tuesday, 1/12, at 3:30pmPST/6:30pmEST.',1452487523,0),(5,'HookersAndBlow',65535,'',NULL,0,0);
+INSERT INTO `linkshells` VALUES (4,'GMchat',65376,'Fluxion','Push Guildwork and check tickets daily, if not more, please!',1453248028,0),(3,'Serverwide',61997,'Fluxion','Welcome to Exodus. Server maintenance Sunday 2/28, around 6pmPST/9pmEST. 2-3 hours.',1456638225,0),(5,'HookersAndBlow',65535,'',NULL,0,0),(6,'TortoiseStomp',62368,'Annona','@EST ~ Mon-DynaXarc8p ~ Tue-Sky7p ~ Wed-Zeni>ZNM7p ~ Sat-Glacier7p ~ Sun-Rostrum Pumps+Fun7p ~ Mon2-DynaValk8p',1456701665,0),(7,'LetsFightingLove',61440,'',NULL,0,0),(8,'LimitBreak',65413,'Kreutzet','',1456611264,0),(9,'BrothersofBoredom',64268,'',NULL,0,0),(10,'LostSouls',63548,'Takemysoul','have fun in here!',1456165049,0),(11,'DawnOfEchoes',65439,'',NULL,0,0),(12,'Destiny',65535,'',NULL,0,0),(13,'Prismatic',64955,'Lillyann','Hey everyone :3 Let\'s get back to working on leveling :D ',1456580827,0),(14,'Unity',65392,'Drakon','Welcome to Unity! *insert ý\r…ý here*',1456610698,0);
 /*!40000 ALTER TABLE `linkshells` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-13  9:49:48
+-- Dump completed on 2016-02-28 18:06:36

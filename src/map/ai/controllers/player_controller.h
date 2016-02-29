@@ -32,6 +32,7 @@ class CPlayerController : public CController
 {
 public:
     CPlayerController(CCharEntity*);
+    virtual ~CPlayerController() {}
 
     virtual void Tick(time_point) override;
 
@@ -41,7 +42,7 @@ public:
     virtual void Disengage() override;
     virtual void WeaponSkill(uint16 targid, uint16 wsid) override;
 
-    virtual void Ability(uint16 targid, uint16 abilityid);
+    virtual void Ability(uint16 targid, uint16 abilityid) override;
     virtual void RangedAttack(uint16 targid);
     virtual void UseItem(uint16 targid, uint8 loc, uint8 slotid);
 

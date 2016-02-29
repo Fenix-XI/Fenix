@@ -4,18 +4,18 @@ require("scripts/globals/status")
 require("scripts/globals/utils")
 
 -- Foreword: A lot of this is good estimating since the FFXI playerbase has not found all of info for individual moves.
---			What is known is that they roughly follow player Weaponskill calculations (pDIF, dMOD, ratio, etc) so this is what
---			this set of functions emulates.
+--            What is known is that they roughly follow player Weaponskill calculations (pDIF, dMOD, ratio, etc) so this is what
+--            this set of functions emulates.
 
 -- mob types
 -- used in mob:isMobType()
-MOBTYPE_NORMAL			= 0x00;
-MOBTYPE_PCSPAWNED		= 0x01;
-MOBTYPE_NOTORIOUS		= 0x02;
-MOBTYPE_FISHED			= 0x04;
-MOBTYPE_CALLED			= 0x08;
-MOBTYPE_BATTLEFIELD		= 0x10;
-MOBTYPE_EVENT			= 0x20;
+MOBTYPE_NORMAL            = 0x00;
+MOBTYPE_PCSPAWNED        = 0x01;
+MOBTYPE_NOTORIOUS        = 0x02;
+MOBTYPE_FISHED            = 0x04;
+MOBTYPE_CALLED            = 0x08;
+MOBTYPE_BATTLEFIELD        = 0x10;
+MOBTYPE_EVENT            = 0x20;
 
 --skilltype
 MOBSKILL_PHYSICAL = 0;
@@ -90,8 +90,8 @@ MSG_DISAPPEAR_NUM = 231; -- <num> of <target>'s effects disappear!
 BOMB_TOSS_HPP = 1;
 
 function MobRangedMove(mob,target,skill,numberofhits,accmod,dmgmod, tpeffect)
-	-- this will eventually contian ranged attack code
-	return MobPhysicalMove(mob,target,skill,numberofhits,accmod,dmgmod, TP_RANGED);
+    -- this will eventually contian ranged attack code
+    return MobPhysicalMove(mob,target,skill,numberofhits,accmod,dmgmod, TP_RANGED);
 end;
 
 -- PHYSICAL MOVE FUNCTION
@@ -307,7 +307,14 @@ function MobMagicalMove(mob,target,skill,damage,element,dmgmod,tpeffect,tpvalue)
     finaldmg = damage * mab * dmgmod;
 
     -- get resistence
-    resist = applyPlayerResistance(mob,nil,target,mob:getStat(MOD_INT)-target:getStat(MOD_INT),0,element);
+    local avatarAccBonus = 0;
+    if (mob:isPet() and mob:getMaster() ~= nil) then
+        local master = mob:getMaster();
+        if (master:getPetID() >= 0 and master:getPetID() <= 20) then -- check to ensure pet is avatar
+            avatarAccBonus = utils.clamp(master:getSkillLevel(SKILL_SUM) - master:getMaxSkillLevel(mob:getMainLvl(), JOB_SMN, SUMMONING_SKILL), 0, 200);
+        end
+    end
+    resist = applyPlayerResistance(mob,nil,target,mob:getStat(MOD_INT)-target:getStat(MOD_INT),avatarAccBonus,element);
 
     local magicDefense = getElementalDamageReduction(target, element);
 

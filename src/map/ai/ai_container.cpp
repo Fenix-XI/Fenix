@@ -111,10 +111,9 @@ void CAIContainer::MobSkill(uint16 targid, uint16 wsid)
 
 void CAIContainer::Ability(uint16 targid, uint16 abilityid)
 {
-    auto PlayerController = dynamic_cast<CPlayerController*>(Controller.get());
-    if (PlayerController)
+    if (Controller)
     {
-        PlayerController->Ability(targid, abilityid);
+        Controller->Ability(targid, abilityid);
     }
 }
 
@@ -156,7 +155,6 @@ void CAIContainer::Inactive(duration _duration, bool canChangeState)
 bool CAIContainer::Internal_Engage(uint16 targetid)
 {
     //#TODO: pet engage/disengage
-    auto PTarget {dynamic_cast<CBattleEntity*>(PEntity->GetEntity(targetid))};
     auto entity {dynamic_cast<CBattleEntity*>(PEntity)};
 
     if (entity && entity->PAI->IsEngaged() && entity->GetBattleTargetID() != targetid)
@@ -165,13 +163,15 @@ bool CAIContainer::Internal_Engage(uint16 targetid)
         return true;
     }
     //#TODO: use valid target stuff from spell
-    if (entity && PTarget && !PTarget->isDead())
+    if (entity)
     {
         //#TODO: remove m_battleTarget if possible (need to check disengage)
-        entity->SetBattleTargetID(targetid);
         if (CanChangeState() || (GetCurrentState() && GetCurrentState()->IsCompleted()))
         {
-            ForceChangeState<CAttackState>(entity, targetid);
+            if (ForceChangeState<CAttackState>(entity, targetid))
+            {
+                entity->OnEngage(*static_cast<CAttackState*>(m_stateStack.top().get()));
+            }
         }
         return true;
     }
@@ -191,7 +191,7 @@ void CAIContainer::Internal_ChangeTarget(uint16 targetid)
     auto entity {dynamic_cast<CBattleEntity*>(PEntity)};
     if (entity)
     {
-        if (IsEngaged())
+        if (IsEngaged() || targetid == 0)
             entity->SetBattleTargetID(targetid);
         else
             Engage(targetid);
@@ -223,7 +223,7 @@ bool CAIContainer::Internal_MobSkill(uint16 targid, uint16 wsid)
 
 bool CAIContainer::Internal_Ability(uint16 targetid, uint16 abilityid)
 {
-    auto entity {dynamic_cast<CCharEntity*>(PEntity)};
+    auto entity {dynamic_cast<CBattleEntity*>(PEntity)};
     if (entity)
         return ChangeState<CAbilityState>(entity, targetid, abilityid);
     return false;
@@ -327,12 +327,13 @@ void CAIContainer::Tick(time_point _tick)
     {
         if (top == GetCurrentState())
         {
-            m_stateStack.top()->Cleanup(_tick);
+            auto state = std::move(m_stateStack.top());
             m_stateStack.pop();
+            state->Cleanup(_tick);
         }
     }
 
-    PEntity->UpdateEntity();
+    PEntity->PostTick();
 }
 
 bool CAIContainer::IsStateStackEmpty()

@@ -80,7 +80,7 @@ end;
 
 function onMobDeath(mob, killer, ally)
     ally:addTitle(TIAMAT_TROUNCER);
-	ally:addCurrency("mweya_plasm",1000);
-	ally:PrintToPlayer( "You earned 1000 Mweya Plasm!");
+    ally:addCurrency("mweya_plasm",1000);
+    ally:PrintToPlayer( "You earned 1000 Mweya Plasm!");
     mob:setRespawnTime(math.random(259200,432000)); -- 3 to 5 days
 end;

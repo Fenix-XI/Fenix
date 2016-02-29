@@ -33,7 +33,6 @@ function onBcnmLeave(player,instance,leavecode)
     
     if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
 			player:addCurrency("bayld",250);
-		player:PrintToPlayer( "You earned 250 Bayld!");
         if (player:hasCompletedMission(ZILART,RETURN_TO_DELKFUTTS_TOWER)) then
             player:startEvent(0x7d01,1,1,1,instance:getTimeInside(),1,0,1);
         else
@@ -57,6 +56,10 @@ function onEventFinish(player,csid,option)
             player:completeMission(ZILART,RETURN_TO_DELKFUTTS_TOWER);
             player:addMission(ZILART,ROMAEVE);
             player:setVar("ZilartStatus",0);
+        end
+        -- Play last CS if not skipped.
+        if (option == 1) then
+            player:startEvent(17);
         end
     end
     

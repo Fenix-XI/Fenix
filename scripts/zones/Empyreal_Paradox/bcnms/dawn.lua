@@ -64,7 +64,6 @@ function onBcnmLeave(player,instance,leavecode,ally)
     
     if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
 		--ally:addCurrency("mweya_plasm",500);
-		--ally:PrintToPlayer( "You earned 500 Plasm!");
 	   player:startEvent(0x0006); 
     elseif (leavecode == 4) then
         player:startEvent(0x7d02);

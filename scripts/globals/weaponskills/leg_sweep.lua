@@ -17,7 +17,7 @@ require("scripts/globals/settings");
 require("scripts/globals/weaponskills");
 -----------------------------------
 
-function onUseWeaponSkill(player, target, wsID)
+function onUseWeaponSkill(player, target, params, tp, primary)
 
     local params = {};
     params.numHits = 1;
@@ -32,7 +32,7 @@ function onUseWeaponSkill(player, target, wsID)
         params.str_wsc = 1.0;
     end
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params);
+    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, params, tp, primary);
 
     local chance = player:getTP()-100 > math.random()*150;
     if (damage > 0 and chance) then
@@ -40,7 +40,6 @@ function onUseWeaponSkill(player, target, wsID)
             target:addStatusEffect(EFFECT_STUN, 1, 0, 4);
         end
     end
-    damage = damage * WEAPON_SKILL_POWER
     return tpHits, extraHits, criticalHit, damage;
 
 end

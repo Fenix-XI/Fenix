@@ -33,6 +33,7 @@ class CController
 {
 public:
     CController(CBattleEntity* _POwner);
+    virtual ~CController() {}
     virtual void Tick(time_point tick) = 0;
     virtual void Despawn();
     virtual void Cast(uint16 targid, uint16 spellid);
@@ -40,6 +41,7 @@ public:
     virtual void ChangeTarget(uint16 targid);
     virtual void Disengage();
     virtual void WeaponSkill(uint16 targid, uint16 wsid);
+    virtual void Ability(uint16 targid, uint16 abilityid) {}
 
     bool IsAutoAttackEnabled();
     void SetAutoAttackEnabled(bool);

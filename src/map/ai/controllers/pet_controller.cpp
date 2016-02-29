@@ -26,6 +26,7 @@ This file is part of DarkStar-server source code.
 #include "../ai_container.h"
 #include "../../status_effect_container.h"
 #include "../../entities/petentity.h"
+#include "../../utils/petutils.h"
 #include "../../../common/utils.h"
 
 CPetController::CPetController(CPetEntity* _PPet) :
@@ -33,6 +34,16 @@ CPetController::CPetController(CPetEntity* _PPet) :
 {
     //#TODO: this probably will have to depend on pet type (automaton does WS on its own..)
     SetWeaponSkillEnabled(false);
+}
+
+void CPetController::Tick(time_point tick)
+{
+    if (PPet->isCharmed && tick > PPet->charmTime)
+    {
+        petutils::DespawnPet(PPet->PMaster);
+        return;
+    }
+    CAIController::Tick(tick);
 }
 
 void CPetController::DoRoamTick(time_point tick)
@@ -102,4 +113,12 @@ bool CPetController::TryDeaggro()
         return true;
     }
     return false;
+}
+
+void CPetController::Ability(uint16 targid, uint16 abilityid)
+{
+    if (PPet->PAI->CanChangeState())
+    {
+        PPet->PAI->Internal_Ability(targid, abilityid);
+    }
 }

@@ -6,7 +6,7 @@
 cmdprops =
 {
     permission = 4,
-    parameters = "ii"
+    parameters = "iiii"
 };
 
 function onTrigger(player, actionId, animationId)
