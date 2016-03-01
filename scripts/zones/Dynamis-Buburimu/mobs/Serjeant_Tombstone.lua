@@ -36,6 +36,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+	ally:addCurrency("mweya_plasm",10);
+	ally:PrintToPlayer( "You earned 10 Mweya Plasm!");
     local mobID = mob:getID();
 
     if ( mobID == 16941135 or mobID == 16941411) then --hp

@@ -28,6 +28,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+	ally:addCurrency("mweya_plasm",12);
+    ally:PrintToPlayer( "You earned 12 Mweya Plasm!");
 local cofferID=Randomcoffer(6,GetInstanceRegion(1298));
     local mobX = mob:getXPos();
     local mobY = mob:getYPos();

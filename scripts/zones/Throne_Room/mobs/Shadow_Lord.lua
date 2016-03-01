@@ -71,11 +71,8 @@ function onMobFight(mob,target)
         end
     else
         -- second phase AI: Implode every 9 seconds
-        local lastImplodeTime = mob:getLocalVar("lastImplodeTime");
-        -- second phase AI: Implode every 9 seconds
-        if (mob:getBattleTime() - lastImplodeTime > 9) then
+        if (mob:getBattleTime() % 9 == 0) then
             mob:useMobAbility(669);
-            mob:setLocalVar("lastImplodeTime", mob:getBattleTime());
         end
     end
 end;
@@ -91,6 +88,8 @@ function onMobDeath(mob,killer,ally)
         ally:setVar("mobid",mob:getID());
     else
         ally:addTitle(SHADOW_BANISHER);
+					ally:addCurrency("bayld",150);
+		ally:PrintToPlayer( "You earned 150 Bayld!");
     end
     -- reset everything on death
     mob:AnimationSub(0);

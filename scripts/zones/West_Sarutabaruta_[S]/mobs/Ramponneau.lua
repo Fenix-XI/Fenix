@@ -51,6 +51,8 @@ end;
 -----------------------------------
  
 function onMobDeath(mob,killer,ally)
+	killer:addCurrency("kinetic_unit",50);
+	killer:PrintToPlayer( "You earned 50 Kinetic Units!");
  
     -- Set Ramponneau's Window Open Time
     local wait = 5400 -- 90 minutes
