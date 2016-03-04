@@ -870,8 +870,8 @@ if (trade:getItemCount() == 1) then
 			 then    --This is a check to see if the player has enough notes
               player:delCurrency("dominion_note", 15000);
    player:tradeComplete();
-   player:addItem(15711,1);
-   player:messageSpecial(ITEM_OBTAINED,15711,1);
+   player:addItem(14558,1);
+   player:messageSpecial(ITEM_OBTAINED,14558,1);
 
    		elseif (trade:hasItemQty(27672,1)) and (dominion_note >= Marduks_Tiara)
 			 then    --This is a check to see if the player has enough notes
