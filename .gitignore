@@ -159,4 +159,5 @@ log/DSP.leaks
 
 #Account/Character Info
 /sql/accounts.sql
+/sql/accounts_banned.sql
 /sql/chars.sql
