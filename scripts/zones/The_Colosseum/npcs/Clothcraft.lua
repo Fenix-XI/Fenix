@@ -53,7 +53,8 @@ stock = {0x0331,1,	--Grass Thread
 0x346,1,	--Spider Web
 0x864,1,	--Puk Wing
 0x921,1,	--Wamoura Hair
-0x34B,1		--Giant Bird Plume
+0x34B,1,	--Giant Bird Plume
+0x521,1     -- Sirens Hair
 }	
 	
  
