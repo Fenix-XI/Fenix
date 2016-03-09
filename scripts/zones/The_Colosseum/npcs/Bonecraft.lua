@@ -63,8 +63,8 @@ end;
   
   function onTrade(player,npc,trade)
     local payOut = 0;
-    local beetle = trade:getItemQty(13323);
-	local HQbeetle = trade:getItemQty(13326);
+    local beetle = trade:getItemQty(12455); --Beetle Mask
+	local HQbeetle = trade:getItemQty(13827); --Beetle Mask +1
 	local carapace = trade:getItemQty(13091);
 	local HQcarapaceblue = trade:getItemQty(13063);
 	local coral = trade:getItemQty(12508);
