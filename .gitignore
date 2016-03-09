@@ -161,3 +161,8 @@ log/DSP.leaks
 /sql/accounts.sql
 /sql/accounts_banned.sql
 /sql/chars.sql
+
+#Conf Files
+/conf/login_darkstar.conf
+/conf/map_darkstar.conf
+/conf/search_server.conf
