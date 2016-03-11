@@ -1,6 +1,8 @@
 -----------------------------------
 -- Area: Arrapago Reef
---  NPC: Zareehkl the Jubilant
+-- NPC: Zareehkl the Jubilant
+-- ZNM Path: Lamia
+-- @pos http://ffxiclopedia.wikia.com/wiki/Merrow_No._11_Molting traded to ??? at the northeast corner of (I-10) on Map 2 of Arrapago Reef. 
 -----------------------------------
 
 require("scripts/globals/status");
@@ -58,4 +60,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
+
+	ally:addCurrency("dominion_note",150);
+	ally:PrintToPlayer( "You earned 150 Dominion Notes!");
+
 end;

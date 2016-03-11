@@ -27,6 +27,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+	ally:addCurrency("mweya_plasm",20);
+    ally:PrintToPlayer( "You earned 20 Mweya Plasm!");
  local mobID = mob:getID();    
  -- print(mobID);
       local mobX = mob:getXPos();

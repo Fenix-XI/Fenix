@@ -40,6 +40,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+	ally:addCurrency("mweya_plasm",100);
+	ally:PrintToPlayer( "You earned 100 Mweya Plasm!");
         
   if (ally:hasKeyItem(DYNAMIS_BUBURIMU_SLIVER ) == false) then 
        ally:addKeyItem(DYNAMIS_BUBURIMU_SLIVER);

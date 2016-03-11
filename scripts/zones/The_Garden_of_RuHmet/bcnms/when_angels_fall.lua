@@ -42,7 +42,8 @@ end;
 function onBcnmLeave(player,instance,leavecode)
     
     if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
-    
+  		player:addCurrency("mweya_plasm",150);
+		player:PrintToPlayer( "You earned 150 Mweya Plasm!");  
         if (player:getCurrentMission(COP) == WHEN_ANGELS_FALL and player:getVar("PromathiaStatus")==4) then                 
             player:startEvent(0x7d01,0,0,0,instance:getTimeInside(),0,0,0);            
             player:setVar("PromathiaStatus",5);             
