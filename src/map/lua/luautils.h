@@ -121,6 +121,8 @@ namespace luautils
     void pushFunc(int lua_func, int index = 0);
     void callFunc(int nargs);
 
+	int32 isValidLS(lua_State*);                                                 // Checks valid LS before auto-pearl.
+
     int32 SendEntityVisualPacket(lua_State*);                                    // временное решение для работы гейзеров в Dangruf_Wadi
 
     int32 GetNPCByID(lua_State*);												// Returns NPC By Id

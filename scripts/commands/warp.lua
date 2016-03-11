@@ -16,7 +16,11 @@ function onTrigger(player, target)
 
     local targ = GetPlayerByName( target );
     if (targ ~= nil) then
-        targ:warp();
+        if (targ:getZoneID() ~= 131) then
+            targ:warp();
+        else
+            player:PrintToPlayer( "You been Jailed for a reason, good try! Now please enjoy your stay while longer.");
+        end
     else
         player:PrintToPlayer( string.format( "Player named '%s' not found!", target ) );
     end

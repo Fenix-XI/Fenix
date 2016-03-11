@@ -10,5 +10,5 @@ cmdprops =
     parameters = "iiii"
 };
 function onTrigger(player, x, y, z, zone)
-            player:setPos('0', '0', '443', '59', '104');
+            player:setPos('367', '-25', '380', '59', '25');
 end
