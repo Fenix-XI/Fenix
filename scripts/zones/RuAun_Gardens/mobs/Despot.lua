@@ -9,8 +9,8 @@ require("scripts/globals/fieldsofvalor");
 -- onMobDeath
 -----------------------------------
 function onMobDeath(mob,killer,ally)
-		ally:addCurrency("bayld",100);
-	ally:PrintToPlayer( "You earned 100 Bayld!");
+		ally:addCurrency("bayld",50);
+	ally:PrintToPlayer( "You earned 50 Bayld!");
 
     -- Set Despot ToD
     SetServerVariable("[POP]Despot", os.time(t) + 7200); -- 2 hour

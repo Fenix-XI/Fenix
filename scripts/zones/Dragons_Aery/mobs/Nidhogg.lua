@@ -41,8 +41,8 @@ end;
 function onMobDeath(mob, killer, ally)
 
     ally:addTitle(NIDHOGG_SLAYER);
-	ally:addCurrency("bayld",600);
-	ally:PrintToPlayer( "You earned 600 Bayld!");
+	ally:addCurrency("bayld",500);
+	ally:PrintToPlayer( "You earned 500 Bayld!");
 
     -- Set Nidhogg's Window Open Time
     if (LandKingSystem_HQ ~= 1) then
