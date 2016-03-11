@@ -3,8 +3,6 @@
 --  MOB: Detector
 -----------------------------------
 
-require("scripts/globals/groundsofvalor");
-
 -----------------------------------
 -- onMobInitialize Action
 -----------------------------------

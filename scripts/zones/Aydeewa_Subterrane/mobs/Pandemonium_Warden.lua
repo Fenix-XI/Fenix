@@ -314,4 +314,8 @@ end;
 function onMobDeath(mob,killer,ally)
     -- TODO: Death speech.
     ally:addTitle(PANDEMONIUM_QUELLER);
+	
+	ally:addCurrency("dominion_note",10000);
+	ally:PrintToPlayer( "You earned 10000 Dominion Notes!");
+
 end;

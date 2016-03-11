@@ -3,8 +3,6 @@
 --  MOB: Tonberry Harrier
 -----------------------------------
 
-require("scripts/globals/groundsofvalor");
-
 -----------------------------------
 -- onMobSpawn Action
 -----------------------------------

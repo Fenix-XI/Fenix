@@ -39,6 +39,14 @@ function onMobFight(mob,target)
     local formTime = mob:getLocalVar("formWait")
     local lifePercent = mob:getHPP();
     local currentForm = mob:getLocalVar("form")
+	local omega = mob:getID();
+
+	
+	
+	if (mob:getBattleTime() % 60 == 0 and mob:getBattleTime() > 3) then
+	SpawnMob(16933125):updateEnmity( target );
+        
+    end
 
     if (lifePercent < 70 and currentForm < 1) then
         currentForm = 1;
@@ -102,4 +110,6 @@ function onMobDeath(mob,killer,ally)
     local mobZ = mob:getZPos();
     GetNPCByID(16932864+39):setPos(mobX,mobY,mobZ);
     GetNPCByID(16932864+39):setStatus(STATUS_NORMAL);
+		ally:addCurrency("mweya_plasm",1000);
+	ally:PrintToPlayer( "You earned 1000 Mweya Plasm!");
 end;
