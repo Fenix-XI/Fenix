@@ -37,7 +37,6 @@
 #include "lua_zone.h"
 #include "luautils.h"
 
-
 #include "../packets/action.h"
 #include "../packets/auction_house.h"
 #include "../packets/char.h"
@@ -133,7 +132,6 @@
 
 #include "../transport.h"
 #include "../mob_modifier.h"
-#include "../linkshell.h"
 
 CLuaBaseEntity::CLuaBaseEntity(lua_State* L)
 {
@@ -154,6 +152,21 @@ CLuaBaseEntity::CLuaBaseEntity(CBaseEntity* PEntity)
 {
     m_PBaseEntity = PEntity;
 }
+
+//======================================================//
+
+inline int32 CLuaBaseEntity::leavegame(lua_State *L)
+{
+    DSP_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    DSP_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    ((CCharEntity*)m_PBaseEntity)->status = STATUS_SHUTDOWN;
+    charutils::SendToZone((CCharEntity*)m_PBaseEntity, 1, 0);
+
+    return 0;
+}
+
+//==========================================================//
 
 //======================================================//
 
@@ -190,13 +203,13 @@ inline int32 CLuaBaseEntity::addLS(lua_State* L)
 			uint8 invSlotID = charutils::AddItem(PChar, LOC_INVENTORY, PItem, 1);
 
 			// auto-equip it //
-			if (invSlotID != ERROR_SLOTID)
+			/* if (invSlotID != ERROR_SLOTID)
 			{
 			PItem->setSubType(ITEM_LOCKED);
-			PChar->equip[SLOT_LINK1] = invSlotID;
-			PChar->equipLoc[SLOT_LINK1] = LOC_INVENTORY;
-			linkshell::AddOnlineMember(PChar, (CItemLinkshell*)PItem, 3);
-			}
+			PChar->equip[SLOT_LINK] = invSlotID;
+			PChar->equipLoc[SLOT_LINK] = LOC_INVENTORY;
+			linkshell::AddOnlineMember(PChar, (CItemLinkshell*)PItem);
+			} */
 		}
 	}
 
@@ -204,19 +217,6 @@ inline int32 CLuaBaseEntity::addLS(lua_State* L)
 }
 
 //======================================================//
-
-inline int32 CLuaBaseEntity::leavegame(lua_State *L)
-{
-    DSP_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    DSP_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
-
-    ((CCharEntity*)m_PBaseEntity)->status = STATUS_SHUTDOWN;
-    charutils::SendToZone((CCharEntity*)m_PBaseEntity, 1, 0);
-
-    return 0;
-}
-
-//==========================================================//
 
 inline int32 CLuaBaseEntity::ChangeMusic(lua_State *L)
 {
@@ -10480,7 +10480,7 @@ const int8 CLuaBaseEntity::className[] = "CBaseEntity";
 Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
 {
 	LUNAR_DECLARE_METHOD(CLuaBaseEntity,addLS),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity,ChangeMusic),
+	LUNAR_DECLARE_METHOD(CLuaBaseEntity,ChangeMusic),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,warp),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,leavegame),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getID),
