@@ -73,6 +73,8 @@ namespace luautils
 {
     extern struct lua_State* LuaHandle;
 
+	int32 isValidLS(lua_State*);
+
     int32 init();
     int32 free();
     int32 garbageCollect(); // performs a full garbage collecting cycle

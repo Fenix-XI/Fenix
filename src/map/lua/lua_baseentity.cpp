@@ -168,6 +168,56 @@ inline int32 CLuaBaseEntity::leavegame(lua_State *L)
 
 //==========================================================//
 
+//======================================================//
+
+inline int32 CLuaBaseEntity::addLS(lua_State* L)
+{
+	DSP_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
+
+	const int8* linkshellName = lua_tostring(L, 1);
+	const int8* Query = "SELECT name FROM linkshells WHERE name='%s'";
+	int32 ret = Sql_Query(SqlHandle, Query, linkshellName);
+
+	if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
+	{
+		CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+
+		std::string qStr = ("UPDATE char_inventory SET signature='");
+		qStr += linkshellName;
+		qStr += "' WHERE charid = " + std::to_string(PChar->id);
+		qStr += " AND itemId = 515 AND signature = ''";
+		Sql_Query(SqlHandle, qStr.c_str());
+
+		Query = "SELECT linkshellid,color FROM linkshells WHERE name='%s'";
+		ret = Sql_Query(SqlHandle, Query, linkshellName);
+		if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
+		{
+			CItem* PItem = itemutils::GetItem(515);
+
+			// Update item with name & color //
+			int8 EncodedString[16];
+			EncodeStringLinkshell((int8*)linkshellName, EncodedString);
+			PItem->setSignature(EncodedString);
+			((CItemLinkshell*)PItem)->SetLSID(Sql_GetUIntData(SqlHandle, 0));
+			((CItemLinkshell*)PItem)->SetLSColor(Sql_GetIntData(SqlHandle, 1));
+			uint8 invSlotID = charutils::AddItem(PChar, LOC_INVENTORY, PItem, 1);
+
+			// auto-equip it //
+			/* if (invSlotID != ERROR_SLOTID)
+			{
+			PItem->setSubType(ITEM_LOCKED);
+			PChar->equip[SLOT_LINK] = invSlotID;
+			PChar->equipLoc[SLOT_LINK] = LOC_INVENTORY;
+			linkshell::AddOnlineMember(PChar, (CItemLinkshell*)PItem);
+			} */
+		}
+	}
+
+	return 1;
+}
+
+//======================================================//
+
 inline int32 CLuaBaseEntity::ChangeMusic(lua_State *L)
 {
     DSP_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
