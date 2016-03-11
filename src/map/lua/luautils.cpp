@@ -103,6 +103,7 @@ namespace luautils
         LuaHandle = luaL_newstate();
         luaL_openlibs(LuaHandle);
 
+		lua_register(LuaHandle, "isValidLS", luautils::isValidLS);
         lua_register(LuaHandle, "print", luautils::print);
         lua_register(LuaHandle, "GetNPCByID", luautils::GetNPCByID);
         lua_register(LuaHandle, "GetMobByID", luautils::GetMobByID);
