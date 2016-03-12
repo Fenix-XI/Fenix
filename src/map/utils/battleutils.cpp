@@ -232,16 +232,7 @@ namespace battleutils
 
                 uint16 skillId = Sql_GetIntData(SqlHandle, 1);
 
-                // ensure mobskill actually exists
-                if (!battleutils::GetMobSkill(skillId))
-                {
-                    ShowError("battleutils::LoadMobSkillsList Mob skill (%d) does not exist but was added to list (%d)\n", skillId, skillListId);
-                }
-                else
-                {
-                    g_PMobSkillLists[skillListId].push_back(skillId);
-                }
-
+                g_PMobSkillLists[skillListId].push_back(skillId);
             }
         }
     }
@@ -454,6 +445,11 @@ namespace battleutils
                           {
                               // Yagudo has it's own version
                               id = 865;
+                          }
+                          else if(familyId == 3)
+                          {
+                              // Aern
+                              id = 1389;
                           }
                           else if(familyId == 169 || familyId == 358)
                           {
@@ -3504,7 +3500,7 @@ namespace battleutils
         {
             CMobEntity* PCurrentMob = (CMobEntity*)it->second;
 
-            if (PCurrentMob->PEnmityContainer->HasTargetID(PTarget->id))
+            if (PCurrentMob->m_HiPCLvl > 0 && PCurrentMob->PEnmityContainer->HasTargetID(PTarget->id))
             {
                 PCurrentMob->PEnmityContainer->UpdateEnmityFromCure(PSource, PTarget->GetMLevel(), amount, (amount == 65535)); //true for "cure v"
             }
@@ -3537,7 +3533,7 @@ namespace battleutils
             {
                 CMobEntity* PCurrentMob = (CMobEntity*)it->second;
 
-                if (PCurrentMob->PEnmityContainer->HasTargetID(PSource->id))
+                if (PCurrentMob->m_HiPCLvl > 0 && PCurrentMob->PEnmityContainer->HasTargetID(PSource->id))
                 {
                     PCurrentMob->PEnmityContainer->UpdateEnmity(PSource, CE, VE);
                 }
@@ -3985,6 +3981,7 @@ namespace battleutils
             PCharmer->PPet->animation = ANIMATION_NONE;
             PCharmer->updatemask |= UPDATE_HP;
 
+            charutils::BuildingCharAbilityTable((CCharEntity*)PCharmer);
             charutils::BuildingCharPetAbilityTable((CCharEntity*)PCharmer, (CPetEntity*)PVictim, PVictim->id);
             ((CCharEntity*)PCharmer)->pushPacket(new CCharUpdatePacket((CCharEntity*)PCharmer));
             ((CCharEntity*)PCharmer)->pushPacket(new CPetSyncPacket((CCharEntity*)PCharmer));
@@ -4076,43 +4073,6 @@ namespace battleutils
         return false;
     }
 
-
-    /************************************************************************
-    *                                                                       *
-    *	get corsair roll effect									            *
-    *                                                                       *
-    ************************************************************************/
-    EFFECT getCorsairRollEffect(uint16 id)
-    {
-        switch (id)
-        {
-            case ABILITY_FIGHTERS_ROLL: return EFFECT_FIGHTERS_ROLL;
-            case ABILITY_MONKS_ROLL:	return EFFECT_MONKS_ROLL;
-            case ABILITY_HEALERS_ROLL:	return EFFECT_HEALERS_ROLL;
-            case ABILITY_WIZARDS_ROLL:	return EFFECT_WIZARDS_ROLL;
-            case ABILITY_WARLOCKS_ROLL:	return EFFECT_WARLOCKS_ROLL;
-            case ABILITY_ROGUES_ROLL:	return EFFECT_ROGUES_ROLL;
-            case ABILITY_GALLANTS_ROLL:	return EFFECT_GALLANTS_ROLL;
-            case ABILITY_CHAOS_ROLL:	return EFFECT_CHAOS_ROLL;
-            case ABILITY_BEAST_ROLL:	return EFFECT_BEAST_ROLL;
-            case ABILITY_CHORAL_ROLL:	return EFFECT_CHORAL_ROLL;
-            case ABILITY_HUNTERS_ROLL:	return EFFECT_HUNTERS_ROLL;
-            case ABILITY_SAMURAI_ROLL:	return EFFECT_SAMURAI_ROLL;
-            case ABILITY_NINJA_ROLL:	return EFFECT_NINJA_ROLL;
-            case ABILITY_DRACHEN_ROLL:	return EFFECT_DRACHEN_ROLL;
-            case ABILITY_EVOKERS_ROLL:	return EFFECT_EVOKERS_ROLL;
-            case ABILITY_MAGUSS_ROLL:	return EFFECT_MAGUSS_ROLL;
-            case ABILITY_CORSAIRS_ROLL:	return EFFECT_CORSAIRS_ROLL;
-            case ABILITY_PUPPET_ROLL:	return EFFECT_PUPPET_ROLL;
-            case ABILITY_DANCERS_ROLL:	return EFFECT_DANCERS_ROLL;
-            case ABILITY_SCHOLARS_ROLL:	return EFFECT_SCHOLARS_ROLL;
-        }
-        //Unhandled Scenario
-        DSP_DEBUG_BREAK_IF(true);
-        return EFFECT_BUST;
-    }
-
-
     void ClaimMob(CBattleEntity* PDefender, CBattleEntity* PAttacker)
     {
         if (PDefender->objtype == TYPE_MOB)
@@ -4127,19 +4087,22 @@ namespace battleutils
                 }
                 else
                 {
-                    DSP_DEBUG_BREAK_IF(true);
+                    PAttacker = nullptr;
                 }
             }
 
-            if (mob->m_HiPCLvl < PAttacker->GetMLevel())
+            if (PAttacker)
             {
-                mob->m_HiPCLvl = PAttacker->GetMLevel();
-            }
+                if (mob->m_HiPCLvl < PAttacker->GetMLevel())
+                {
+                    mob->m_HiPCLvl = PAttacker->GetMLevel();
+                }
 
-            mob->PEnmityContainer->AddBaseEnmity(PAttacker);
-            mob->m_OwnerID.id = PAttacker->id;
-            mob->m_OwnerID.targid = PAttacker->targid;
-            mob->updatemask |= UPDATE_STATUS;
+                mob->PEnmityContainer->AddBaseEnmity(PAttacker);
+                mob->m_OwnerID.id = PAttacker->id;
+                mob->m_OwnerID.targid = PAttacker->targid;
+                mob->updatemask |= UPDATE_STATUS;
+            }
         }
     }
 
@@ -4643,8 +4606,8 @@ namespace battleutils
 
     bool DrawIn(CBattleEntity* PEntity, CMobEntity* PMob, float offset)
     {
-        position_t* pos = &PMob->loc.p;
-        position_t nearEntity = nearPosition(*pos, offset, M_PI);
+        position_t& pos = PMob->loc.p;
+        position_t nearEntity = nearPosition(pos, offset, M_PI);
 
         // validate the drawin position before continuing
         if (!PMob->PAI->PathFind->ValidPosition(pos))

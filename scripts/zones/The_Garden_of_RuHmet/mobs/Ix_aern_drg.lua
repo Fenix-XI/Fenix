@@ -11,7 +11,7 @@ require("scripts/zones/The_Garden_of_RuHmet/MobIDs");
 -----------------------------------
 
 function onMobSpawn(mob)
-    if (math.random(0,1) > 0) then
+    if (math.random(0,3) == 0) then
         SetDropRate(4396,1870,1000); -- Deed Of Sensib.
         SetDropRate(4396,1903,0);
     else
@@ -58,7 +58,8 @@ function onMobDeath(mob, killer, ally)
     DespawnMob(wynavA);
     DespawnMob(wynavB);
     DespawnMob(wynavC);
-
+	ally:addCurrency("mweya_plasm",300);
+	ally:PrintToPlayer( "You earned 300 Mweya Plasm!");
     -- Pick a new for PH Ix'Aern (DRG)
     SetServerVariable("[SEA]IxAernDRG_PH", AwAernDRGGroups[math.random(1, #AwAernDRGGroups)] + math.random(0, 2));
 end;

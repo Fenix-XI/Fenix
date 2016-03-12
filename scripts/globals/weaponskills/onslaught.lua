@@ -36,7 +36,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary)
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, primary);
     -- TODO: Whoever codes those level 85 weapons with the latent that grants this WS needs to code a check to not give the aftermath effect.
     if (damage > 0) then
-        player:addStatusEffect(EFFECT_AFTERMATH, 10, 0, 30, 0, 4);
+        local amDuration = 20 * math.floor(tp/100);
+        player:addStatusEffect(EFFECT_AFTERMATH, 10, 0, amDuration, 0, 4);
         target:addStatusEffect(EFFECT_ACCURACY_DOWN, 20, 0, 60);
     end
 

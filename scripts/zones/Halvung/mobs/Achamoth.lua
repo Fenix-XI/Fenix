@@ -29,7 +29,7 @@ end;
 function onMobDeath(mob, killer,ally)
 
 	
-	ally:addCurrency("dominion_note",300);
-	ally:PrintToPlayer( "You earned 300 Dominion Notes!");
+	ally:addCurrency("dominion_note",250);
+	ally:PrintToPlayer( "You earned 250 Dominion Notes!");
 
 end;

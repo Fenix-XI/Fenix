@@ -1,8 +1,6 @@
 -----------------------------------
 -- Area: Aydeewa Subterrane
--- NPC: Pandemonium Warden
--- ZNM Path: Penultimate
--- @pos http://ffxiclopedia.wikia.com/wiki/Pandemonium_Key traded to ??? at (K-7) of Map #7
+--  ZNM: Pandemonium_Warden
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -93,7 +91,7 @@ function onMobFight(mob,target)
             GetMobByID(petIDs[i]):setModelId(1841);
         end
         if (TP <= 5) then
-            mob:useMobAbility(1858);
+            mob:useMobAbility(2114);
             mob:setLocalVar("TP", 6)
         end
     elseif (mobHPP <= 38 and change == 10) then -- Hydra and Co.
@@ -115,7 +113,7 @@ function onMobFight(mob,target)
             GetMobByID(petIDs[i]):setModelId(1841);
         end
         if (TP <= 4) then
-            mob:useMobAbility(1860);
+            mob:useMobAbility(2116);
             mob:setLocalVar("TP", 5)
         end
     elseif (mobHPP <= 50 and change == 8) then -- Cerb and Co.
@@ -137,7 +135,7 @@ function onMobFight(mob,target)
             GetMobByID(petIDs[i]):setModelId(1841);
         end
         if (TP <= 3) then
-            mob:useMobAbility(1861);
+            mob:useMobAbility(2117);
             mob:setLocalVar("TP", 4)
         end
     elseif (mobHPP <= 62 and change == 6) then -- Troll and Co.
@@ -159,7 +157,7 @@ function onMobFight(mob,target)
             GetMobByID(petIDs[i]):setModelId(1841);
         end
         if (TP <= 2) then
-            mob:useMobAbility(1862);
+            mob:useMobAbility(2118);
             mob:setLocalVar("TP", 3)
         end
     elseif (mobHPP <= 74 and change == 4) then -- Lamia and Co.
@@ -181,7 +179,7 @@ function onMobFight(mob,target)
             GetMobByID(petIDs[i]):setModelId(1841);
         end
         if (TP <= 1) then
-            mob:useMobAbility(1863);
+            mob:useMobAbility(2119);
             mob:setLocalVar("TP", 2)
         end
     elseif (mobHPP <= 86 and change == 2) then -- Mamool and Co.
@@ -203,7 +201,7 @@ function onMobFight(mob,target)
             GetMobByID(petIDs[i]):setModelId(1841);
         end
         if (TP <= 0) then
-            mob:useMobAbility(1857);
+            mob:useMobAbility(2113);
             mob:setLocalVar("TP", 1)
         end
     elseif (mobHPP <= 98 and change == 0) then -- Chariots
@@ -228,11 +226,11 @@ function onMobFight(mob,target)
     end
 
     -- Repops pets sets model and sets them agro..
-	-- This is TeoTwawki's loop for respawning pets, I left it here in case
-	-- someone ever wants it
+    -- This is TeoTwawki's loop for respawning pets, I left it here in case
+    -- someone ever wants it
     -- if (mob:getLocalVar("repopPets") == 1) then
         -- for i = 1, 8 do
-            -- if petStatus[i] == 0 then					
+            -- if petStatus[i] == 0 then                    
                 -- SpawnMob(petIDs[i]):updateEnmity(target);
             -- end
 
@@ -245,7 +243,7 @@ function onMobFight(mob,target)
 
 
     ------------------------ Despawn timer ------------------------
-    if (os.time(t) > depopTime) then
+    if (os.time(t) > depopTime and mob:actionQueueEmpty() == true) then
         for i=17056170, 17056186 do
             DespawnMob(i);
         end
@@ -269,7 +267,7 @@ function onMobFight(mob,target)
             local avatar = GetMobByID(i);
             avatar:changeSkin(23 + rannum); -- Random avatar skin
             SpawnMob(i):updateEnmity(target);
-            avatar:useMobAbility(656);
+            avatar:useMobAbility(912);
             DespawnMob(i);
         end
         PWardenAstralFlows = PWardenAstralFlows + 4;
@@ -290,7 +288,7 @@ function onMobFight(mob,target)
             local avatar = GetMobByID(i);
             avatar:changeSkin(23 + rannum); -- Random avatar skin
             SpawnMob(i):updateEnmity(target);
-            avatar:useMobAbility(656);
+            avatar:useMobAbility(912);
             DespawnMob(i);
         end
         PWardenAstralFlows = PWardenAstralFlows + 2;
@@ -300,7 +298,7 @@ function onMobFight(mob,target)
             local avatar = GetMobByID(i);
             avatar:changeSkin(23 + rannum); -- Random avatar skin
             SpawnMob(i):updateEnmity(target);
-            avatar:useMobAbility(656);
+            avatar:useMobAbility(912);
             DespawnMob(i);
         end
         PWardenAstralFlows = PWardenAstralFlows + 1;
@@ -317,7 +315,7 @@ function onMobDeath(mob,killer,ally)
     -- TODO: Death speech.
     ally:addTitle(PANDEMONIUM_QUELLER);
 	
-	ally:addCurrency("dominion_note",10000);
-	ally:PrintToPlayer( "You earned 10000 Dominion Notes!");
+	ally:addCurrency("dominion_note",1500);
+	ally:PrintToPlayer( "You earned 1500 Dominion Notes!");
 
 end;

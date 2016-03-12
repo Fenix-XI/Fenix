@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Caedarva Mire
--- NPC:  Tyger
+--  MOB: Tyger
 -- @pos -766 -12 632
 -- Spawn with Singed Buffalo: @additem 2593
 -----------------------------------
@@ -24,7 +24,7 @@ end;
 
 function onMobDeath(mob, killer, ally)
 
-	ally:addCurrency("dominion_note",800);
-	ally:PrintToPlayer( "You earned 800 Dominion Notes!");
+	ally:addCurrency("dominion_note",400);
+	ally:PrintToPlayer( "You earned 400 Dominion Notes!");
 
 end;

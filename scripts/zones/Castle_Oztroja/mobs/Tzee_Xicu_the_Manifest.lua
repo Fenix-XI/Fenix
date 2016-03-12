@@ -34,7 +34,6 @@ function onMobDeath(mob, killer, ally)
 				ally:addCurrency("bayld",200);
 ally:PrintToPlayer( "You earned 200 Bayld!");
 
-
     -- Set Tzee_Xicu_the_Manifest's Window Open Time
     SetServerVariable("[POP]Tzee_Xicu_the_Manifest", os.time(t) + 72 * 3600); -- 3 days
 

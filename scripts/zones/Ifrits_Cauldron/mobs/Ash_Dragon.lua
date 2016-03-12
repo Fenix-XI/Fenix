@@ -17,8 +17,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
-	killer:addCurrency("bayld",50);
-	killer:PrintToPlayer( "You earned 50 Bayld!");
+	killer:addCurrency("bayld",150);
+	killer:PrintToPlayer( "You earned 150 Bayld!");
     ally:addTitle(DRAGON_ASHER);
 
     -- Set ASh Dragon's spawnpoint and respawn time (3-5 Days)

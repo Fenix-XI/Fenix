@@ -36,7 +36,7 @@ This file is part of DarkStar-server source code.
 #include "states/weaponskill_state.h"
 #include "states/range_state.h"
 #include "controllers/player_controller.h"
-#include "controllers/ai_controller.h"
+#include "controllers/mob_controller.h"
 #include "../entities/baseentity.h"
 #include "../entities/battleentity.h"
 #include "../entities/charentity.h"
@@ -102,7 +102,7 @@ void CAIContainer::WeaponSkill(uint16 targid, uint16 wsid)
 
 void CAIContainer::MobSkill(uint16 targid, uint16 wsid)
 {
-    auto AIController = dynamic_cast<CAIController*>(Controller.get());
+    auto AIController = dynamic_cast<CMobController*>(Controller.get());
     if (AIController)
     {
         AIController->MobSkill(targid, wsid);
@@ -293,6 +293,9 @@ void CAIContainer::Reset()
     {
         PathFind->Clear();
     }
+
+    Controller->Reset();
+
     while (!m_stateStack.empty())
     {
         m_stateStack.pop();
@@ -304,12 +307,14 @@ void CAIContainer::Tick(time_point _tick)
     m_PrevTick = m_Tick;
     m_Tick = _tick;
 
+    //#TODO: timestamp in the event?
+    EventHandler.triggerListener("TICK", PEntity);
     PEntity->Tick(_tick);
 
-    //#TODO: check this in the controller instead maybe? (might not want to check every tick) - same for pathfind
+    //#TODO: check this in the controller instead maybe? (might not want to check every tick)
     ActionQueue.checkAction(_tick);
 
-    // check pathfinding
+    // check pathfinding only if there is no controller to do it
     if (!Controller && CanFollowPath())
     {
         PathFind->FollowPath();
@@ -408,7 +413,10 @@ bool CAIContainer::QueueEmpty()
 
 void CAIContainer::Internal_Despawn(duration spawnTime)
 {
-    ForceChangeState<CDespawnState>(PEntity, spawnTime);
+    if (IsSpawned())
+    {
+        ForceChangeState<CDespawnState>(PEntity, spawnTime);
+    }
 }
 
 void CAIContainer::CheckCompletedStates()

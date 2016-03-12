@@ -21,7 +21,7 @@ require("scripts/zones/The_Colosseum/TextIDs");
 
 function onTrigger(player,npc,trade)
 	
-player:PrintToPlayer("I require 2500 Conquest Points, Trump Gun and 1x Imp. Silver Piece.");
+player:PrintToPlayer("I require 2500 Conquest Points, 1 Allies' Die and 1x Imp. Silver Piece.");
 player:PrintToPlayer("Once you trade me the item's I will deduct the CP of your nation!");
 
 local cpb = player:getCurrency("bastok_cp");
@@ -45,7 +45,7 @@ local cpw = player:getCurrency("windurst_cp");
  if (cpb >= 2500) then player:delCurrency("bastok_cp", 2500) ;end
  
    if (balance >= 2500 and trade:getItemCount() == 2 and trade:hasItemQty(2185,1) and
-      trade:hasItemQty(18702,1)) 
+      trade:hasItemQty(5502,1)) 
         		then
 	
 stock = {0x3ba2,1,	--AF1 Head

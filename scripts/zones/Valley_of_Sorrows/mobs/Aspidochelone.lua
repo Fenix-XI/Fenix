@@ -21,8 +21,8 @@ end;
 function onMobDeath(mob, killer, ally)
 
     ally:addTitle(ASPIDOCHELONE_SINKER);
-		ally:addCurrency("bayld",450);
-	ally:PrintToPlayer( "You earned 450 Bayld!");
+		ally:addCurrency("bayld",300);
+	ally:PrintToPlayer( "You earned 300 Bayld!");
 
     -- Set Aspidochelone's Window Open Time
     if (LandKingSystem_HQ ~= 1) then
