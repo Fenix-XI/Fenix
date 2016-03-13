@@ -128,6 +128,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
+	ally:addCurrency("mweya_plasm",1000);
+	ally:PrintToPlayer( "You earned 1000 Mweya Plasm!");
     local AV_CHANCE = 25;
     if (AV_CHANCE > math.random(0,99)) then
         SpawnMob(16912876, 180);

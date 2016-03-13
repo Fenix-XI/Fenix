@@ -47,6 +47,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
+	ally:addCurrency("dominion_note",300);
+	ally:PrintToPlayer( "You earned 300 Dominion Notes!");
 
     ally:addTitle(HYDRA_HEADHUNTER);
 

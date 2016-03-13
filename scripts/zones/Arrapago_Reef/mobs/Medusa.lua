@@ -50,4 +50,6 @@ end;
 function onMobDeath(mob, killer, ally)
     ally:showText(mob, MEDUSA_DEATH);
     ally:addTitle(GORGONSTONE_SUNDERER);
+	ally:addCurrency("dominion_note",250);
+	ally:PrintToPlayer( "You earned 250 Dominion Notes!");
 end;

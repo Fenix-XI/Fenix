@@ -44,6 +44,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
+		ally:addCurrency("mweya_plasm",1000);
+    ally:PrintToPlayer( "You earned 1000 Mweya Plasm!");
     ally:addTitle(TEMENOS_LIBERATOR);
     GetNPCByID(16928768+79):setPos(-559,5,-357);
     GetNPCByID(16928768+79):setStatus(STATUS_NORMAL);

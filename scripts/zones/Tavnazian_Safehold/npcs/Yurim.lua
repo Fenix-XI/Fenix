@@ -114,7 +114,15 @@ function onTrade(player,npc,trade)
     local reward = false;
 -- printf("count: %u",count);
 -----------------------------------------trade the chip and the base item---------------------------------------------------------------------
-    if ((NameOfScience == QUEST_ACCEPTED or NameOfScience == QUEST_COMPLETED) and count == 2 and itemtarget == 0) then  
+if (trade:getItemCount()==8 and trade:hasItemQty(15435,1) and trade:hasItemQty(15438,1)   and trade:hasItemQty(15440,1)  and trade:hasItemQty(15437,1)
+and trade:hasItemQty(15436,1) and trade:hasItemQty(15439,1) and trade:hasItemQty(15441,1) and trade:hasItemQty(15442,1))   
+ then 
+	player:tradeComplete();
+	player:addItem(28419,1);
+	player:messageSpecial(ITEM_OBTAINED,28419,1);--Hachi-no-obi
+	end
+
+   if ((NameOfScience == QUEST_ACCEPTED or NameOfScience == QUEST_COMPLETED) and count == 2 and itemtarget == 0) then  
         if (trade:hasItemQty(SILVER_EARRING,1)) then 
             if (trade:hasItemQty(BLACK_CHIP,1) and player:hasItem(RELAXING_EARRING)==false) then 
                 player:setVar("NAME_OF_SCIENCE_target",RELAXING_EARRING); player:tradeComplete(); player:startEvent(0x020E,SILVER_EARRING,BLACK_CHIP);

@@ -45,6 +45,8 @@ function onBcnmLeave(player,instance,leavecode)
     -- printf("leavecode: %u",leavecode);
 
     if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
+			player:addCurrency("mweya_plasm",200);
+		player:PrintToPlayer( "You earned 200 Mweya Plasm!");
         if (player:getCurrentMission(COP) == THE_MOTHERCRYSTALS) then    
             if (player:hasKeyItem(LIGHT_OF_MEA) and player:hasKeyItem(LIGHT_OF_DEM)) then 
                 player:startEvent(0x7d01,0,0,0,instance:getTimeInside(),0,0,0,3);

@@ -19,6 +19,18 @@ require("scripts/zones/Norg/TextIDs");
 -----------------------------------
 
 function onTrade(player,npc,trade)
+if (trade:getItemCount() == 1 and trade:hasItemQty(15737,1)) 
+       		then
+	   player:addItem(15327,1);
+   player:messageSpecial(ITEM_OBTAINED,15327,1);
+   player:tradeComplete();
+  elseif 
+  (trade:getItemCount() == 1 and trade:hasItemQty(13054,1)) 
+       		then
+	   player:addItem(15327,1);
+   player:messageSpecial(ITEM_OBTAINED,15327,1);
+   player:tradeComplete();
+end
 end;
 
 -----------------------------------
@@ -26,7 +38,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-
+player:PrintToPlayer("Trade me a pair of Sarutobi Kyahan or Fuma Kyahan and I shall give you a pair of Fuma Sune-Ate");
     twentyInPirateYears = player:getQuestStatus(OUTLANDS,TWENTY_IN_PIRATE_YEARS);
     illTakeTheBigBox = player:getQuestStatus(OUTLANDS,I_LL_TAKE_THE_BIG_BOX);
     trueWill = player:getQuestStatus(OUTLANDS,TRUE_WILL);

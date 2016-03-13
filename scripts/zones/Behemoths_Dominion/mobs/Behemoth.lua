@@ -19,6 +19,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
+	ally:addCurrency("bayld",200);
+	ally:PrintToPlayer( "You earned 200 Bayld!");
     ally:addTitle(BEHEMOTHS_BANE);
 end;
 

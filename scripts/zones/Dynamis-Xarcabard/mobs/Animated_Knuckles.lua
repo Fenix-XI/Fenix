@@ -42,7 +42,7 @@ end;
 -----------------------------------
 
 function onMobDisengage(mob)
-    mob:showText(mob,ANIMATED_KNUCKLES_DIALOG+2);
+   -- mob:showText(mob,ANIMATED_KNUCKLES_DIALOG+2);
 end;
 
 -----------------------------------
@@ -51,7 +51,7 @@ end;
 
 function onMobDeath(mob,killer,ally)
     
-    ally:showText(mob,ANIMATED_KNUCKLES_DIALOG+1);
+    --ally:showText(mob,ANIMATED_KNUCKLES_DIALOG+1);
     
     DespawnMob(17330309);
     DespawnMob(17330310);

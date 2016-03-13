@@ -38,7 +38,7 @@ function onTrigger(player,npc)
             player:messageSpecial(KEYITEM_OBTAINED, OLD_TIGERS_FANG);
             player:setVar("TheFangedOneCS", 0);
 
-        elseif (tigerAction == ACTION_NONE and fangedOneCS == 1) then
+        elseif (tigerAction == 16 and fangedOneCS == 1) then
 
             SpawnMob(oldTiger):addStatusEffect(EFFECT_POISON,40,10,210);
             player:messageSpecial(OLD_SABERTOOTH_DIALOG_I);
