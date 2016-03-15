@@ -60,7 +60,7 @@ end;
 -- via bcnmLeave(1) or bcnmLeave(2). LeaveCodes 3 and 4 are called
 -- from the core when a player disconnects or the time limit is up, etc
 
-function onBcnmLeave(player,instance,leavecode)
+function onBcnmLeave(player,instance,leavecode,ally)
     
     if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
 		--ally:addCurrency("mweya_plasm",500);
@@ -81,6 +81,9 @@ function onEventFinish(player,csid,option)
   if (csid== 0x0006) then
     player:setPos(539,0,-593,192);    
     player:addTitle(AVERTER_OF_THE_APOCALYPSE);
+
+      
+
     player:startEvent(0x0003);
     if (player:getCurrentMission(COP) == DAWN and player:getVar("PromathiaStatus")==2) then
         player:addKeyItem(TEAR_OF_ALTANA);

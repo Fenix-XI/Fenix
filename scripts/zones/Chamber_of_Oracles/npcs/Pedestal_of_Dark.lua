@@ -27,21 +27,21 @@ function onTrigger(player,npc)
     if (player:getCurrentMission(ZILART) == THE_CHAMBER_OF_ORACLES) then
         if (player:hasKeyItem(DARK_FRAGMENT)) then
             player:delKeyItem(DARK_FRAGMENT);
-            player:setVar("ZilartStatus",ZilartStatus + 2);
-            player:messageSpecial(YOU_PLACE_THE,DARK_FRAGMENT);
+           player:setVar("ZilartStatus",ZilartStatus + 2);
+           player:messageSpecial(YOU_PLACE_THE,DARK_FRAGMENT);
             
-            if (ZilartStatus == 255) then
+           if (ZilartStatus == 255) then
                 player:startEvent(0x0001);
-            end
+           end
         elseif (ZilartStatus == 255) then -- Execute cutscene if the player is interrupted.
-            player:startEvent(0x0001);
-        else
-            player:messageSpecial(IS_SET_IN_THE_PEDESTAL,DARK_FRAGMENT);
-        end
-    elseif (player:hasCompletedMission(ZILART,THE_CHAMBER_OF_ORACLES)) then
-        player:messageSpecial(HAS_LOST_ITS_POWER,DARK_FRAGMENT);
-    else
-        player:messageSpecial(PLACED_INTO_THE_PEDESTAL);
+           player:startEvent(0x0001);
+       else
+           player:messageSpecial(IS_SET_IN_THE_PEDESTAL,DARK_FRAGMENT);
+       end
+   elseif (player:hasCompletedMission(ZILART,THE_CHAMBER_OF_ORACLES)) then
+       player:messageSpecial(HAS_LOST_ITS_POWER,DARK_FRAGMENT);
+   else
+       player:messageSpecial(PLACED_INTO_THE_PEDESTAL);
     end
     
 end;
@@ -65,7 +65,7 @@ function onEventFinish(player,csid,option)
     
     if (csid == 0x0001) then
         player:addTitle(LIGHTWEAVER);
-        player:setVar("ZilartStatus",0);
+        player:setVar("ZilartStatus",2);
         player:addKeyItem(PRISMATIC_FRAGMENT);
         player:messageSpecial(KEYITEM_OBTAINED,PRISMATIC_FRAGMENT);
         player:completeMission(ZILART,THE_CHAMBER_OF_ORACLES);

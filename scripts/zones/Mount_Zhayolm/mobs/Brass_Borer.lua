@@ -1,6 +1,8 @@
 -----------------------------------
 -- Area: Mount Zhayolm
--- MOB:  Brass Borer
+-- NPC: Brass Borer
+-- ZNM Path: Troll
+-- @pos http://ffxiclopedia.wikia.com/wiki/Shadeleaf traded to ??? at (I/J-7)
 -----------------------------------
 require("scripts/globals/status");
 
@@ -11,7 +13,7 @@ require("scripts/globals/status");
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setLocalVar("formTime", os.time() + math.random(43,47));
+	mob:setLocalVar("formTime", os.time() + math.random(43,47));
 end;
 
 -----------------------------------

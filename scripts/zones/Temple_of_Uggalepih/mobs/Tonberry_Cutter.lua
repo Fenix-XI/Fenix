@@ -3,8 +3,6 @@
 --  MOB: Tonberry Cutter
 -----------------------------------
 
-require("scripts/globals/groundsofvalor");
-
 -----------------------------------
 -- onMobSpawn Action
 -----------------------------------

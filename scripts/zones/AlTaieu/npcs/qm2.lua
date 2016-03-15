@@ -15,11 +15,11 @@ require("scripts/zones/AlTaieu/TextIDs");
 
 function onTrade(player,npc,trade)  
     -- Trade the Second Virtue, Deed of Moderation, and HQ Xzomit Organ
-    --[[if (GetMobAction(16912839) == 0 and trade:hasItemQty(1853,1) and trade:hasItemQty(1854,1) and trade:hasItemQty(1785,1) and
+    if (GetMobAction(16912839) == 0 and trade:hasItemQty(1853,1) and trade:hasItemQty(1854,1) and trade:hasItemQty(1855,1) and
     trade:getItemCount() == 3) then
         player:tradeComplete();
         SpawnMob(16912839,900):updateClaim(player); -- Spawn Jailer of Justice
-    end]]
+    end
 end; 
 
 -----------------------------------
@@ -34,8 +34,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
---printf("onUpdate CSID: %u",csid);
---printf("onUpdate RESULT: %u",option);
+printf("onUpdate CSID: %u",csid);
+printf("onUpdate RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -43,6 +43,6 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
---printf("onFinish CSID: %u",csid);
---printf("onFinish RESULT: %u",option);
+printf("onFinish CSID: %u",csid);
+printf("onFinish RESULT: %u",option);
 end;
