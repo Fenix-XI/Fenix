@@ -27,61 +27,65 @@ balance_dominion_note = 0;
 balance_kinetic_unit = 0;
 
 -------------DECLARING VALUES FOR EACH ITEM-------------------------------------------------------------------------------------
-defending_ring = 18000; Martial_Abjuration_Body	= 6500;Martial_Abjuration_Head = 2500;Martial_Abjuration_Hands	= 2500;
-Martial_Abjuration_Legs	= 3500;Martial_Abjuration_Feet	= 2500;Aquarian_Abjuration_Body	= 6500;Aquarian_Abjuration_Head	= 2500;
-Aquarian_Abjuration_Hands	= 2500;Aquarian_Abjuration_Legs	= 3500;Aquarian_Abjuration_Feet	= 2500;Dryadic_Abjuration_Body	= 6500;
-Dryadic_Abjuration_Head	= 2500;Dryadic_Abjuration_Hands	= 2500;Dryadic_Abjuration_Legs	= 3500;Dryadic_Abjuration_Feet	= 2500;
-Earthen_Abjuration_Body	= 6500;Earthen_Abjuration_Head	= 2500;Earthen_Abjuration_Hands	= 2500;Earthen_Abjuration_Legs	= 3500;
-Earthen_Abjuration_Feet	= 2500;Neptunal_Abjuration_Body	= 6500;Neptunal_Abjuration_Head	= 2500;Neptunal_Abjuration_Hands	= 2500;
-Neptunal_Abjuration_Legs	= 3500;Neptunal_Abjuration_Feet	= 2500;Wyrmal_Abjuration_Body	= 6500;Wyrmal_Abjuration_Head	= 2500;
-Wyrmal_Abjuration_Hands	= 2500;Wyrmal_Abjuration_Legs	= 3500;Wyrmal_Abjuration_Feet	= 2500;Seiryu_Kote	= 2000;
-Byakko_Haidate	= 4000;Genbus_Kabuto	= 2000;Suzaku_Suneate	= 1000;Kirin_Osode	= 7500;Pixie_Earring	= 1500;Sipar	= 500;
-Aegishjalmr	= 1500;Andvaranauts	= 500;Ridill	= 10000;Kirin_Pole	= 500;Hrotti	= 500;Wyrm_Beard	= 2000;Behemoth_Tongue	= 2000;
-Adamantoise_Egg	= 2000;Shadow_Mantle	= 8000;Shadow_Ring	= 8000;Hope_Torque	= 4000;Faith_Torque	= 4000;Fortitude_Torque	= 4000;
-Temperance_Torque	= 4000;Love_Torque	= 4000;Justice_Torque	= 4000;Prudence_Torque	= 4000;Altruistic_Cape	= 1500;
-Merciful_Cape	= 1500;Astute_Cape	= 3000;Ninurta_Sash	= 10000;Aureole	=10000;Futsuno_Mitama	=10000;Bellona_Ring	= 8000;
-Mars_Ring	= 8000;Minerva_Ring	= 5000;Raphaels_Rod	= 5000;Faith_Baghnakhs	= 2000;Fortitude_Axe	= 2000;Prudence_Rod	= 2000;
-Hope_Staff	= 1000;Justice_Sword	= 2000;Love_Halberd	= 3000;Novio_Earring	= 8000;Novia_earring	=3000;Temperance_Axe	= 1500;
-Askar_Korazin	= 6500;Askar_Zucchetto	= 2500;Askar_Manopolas	= 2500;Askar_Dirs	= 3500;Askar_Gambieras	= 2500;
-Denali_Jacket	= 6500;Denali_Bonnet	= 2500;Denali_Wristbands	= 2500;Denali_Kecks	= 3500;Denali_Gamashes	= 2500;
-Goliard_Saio	= 6500;Goliard_Chapeau	= 2500;Goliard_Cuffs	= 2500;Goliard_Trews	= 3500;Goliard_Clogs	= 2500;
-Usukane_Haramaki	= 15000;Usukane_Somen	= 6500;Usukane_Gote	= 6500;Usukane_Hizayoroi	= 8500;
-Usukane_Suneate	= 6500;Ares_Cuirass	= 15000;Ares_Mask	= 6500;Ares_Gauntlets	= 6500;Ares_Flanchard	= 8500;
-Ares_Sollerets	= 6500;Marduks_Jubbah	= 15000;Marduks_Tiara	= 6500;Marduks_Dastanas	= 6500;
-Marduks_Shalwar	= 8500;Marduks_Crackows	= 6500;Morrigans_Robe	= 15000;Morrigans_Coronal	= 6500;
-Morrigans_Cuffs	= 6500;Morrigans_Slops	= 8500;Morrigans_Pigaches	= 6500;Animator	= 3000;
+defending_ring = 50000; Martial_Abjuration_Body	= 9500;Martial_Abjuration_Head = 4500;Martial_Abjuration_Hands	= 4500;
+Martial_Abjuration_Legs	= 7000;Martial_Abjuration_Feet	= 4500;Aquarian_Abjuration_Body	= 9500;Aquarian_Abjuration_Head	= 4500;
+Aquarian_Abjuration_Hands	= 4500;Aquarian_Abjuration_Legs	= 7000;Aquarian_Abjuration_Feet	= 4500;Dryadic_Abjuration_Body	= 9500;
+Dryadic_Abjuration_Head	= 4500;Dryadic_Abjuration_Hands	= 4500;Dryadic_Abjuration_Legs	= 7000;Dryadic_Abjuration_Feet	= 4500;
+Earthen_Abjuration_Body	= 4500;Earthen_Abjuration_Head	= 4500;Earthen_Abjuration_Hands	= 4500;Earthen_Abjuration_Legs	= 7000;
+Earthen_Abjuration_Feet	= 4500;Neptunal_Abjuration_Body	= 9500;Neptunal_Abjuration_Head	= 4500;Neptunal_Abjuration_Hands	= 4500;
+Neptunal_Abjuration_Legs	= 7000;Neptunal_Abjuration_Feet	= 4500;Wyrmal_Abjuration_Body	= 9500;Wyrmal_Abjuration_Head	= 4500;
+Wyrmal_Abjuration_Hands	= 4500;Wyrmal_Abjuration_Legs	= 8250;Wyrmal_Abjuration_Feet	= 4500;Seiryu_Kote	= 10000;
+Byakko_Haidate	= 12500;Genbus_Kabuto	= 3500;Suzaku_Suneate	= 3500;Kirin_Osode	= 15000;Pixie_Earring	= 3500;Sipar	= 1500;
+Aegishjalmr	= 2500;Andvaranauts	= 1500;Ridill	= 50000;Kirin_Pole	= 1500;Hrotti	= 1500; Heralds_Gaiters = 10000;
+Hollow_Earring = 15000;  Static_Earring = 15000;  Ethereal_Earring = 25000;  Magnetic_Earring = 25000;
+Wyrm_Beard	= 10000;Behemoth_Tongue	= 2000;Vivid_Strap = 5000; Genbus_Shield = 1500;Mercurial_Kris = 1500; Mercurial_Sword = 1500;
+Adamantoise_Egg	= 10000;Shadow_Mantle	= 25000;Shadow_Ring	= 35000;Hope_Torque	= 4000;Faith_Torque	= 4000;
+Fortitude_Torque	= 5000; Hagun = 1500; Blau_dolch = 1500;x_knife = 2000; Rees_Headgear=7500; 
+ZhaGos_Barbut = 10000; Mercurial_Pole = 1500;Bahamuts_Mask = 15000; Bahamuts_Staff = 15000; Bahamuts_Zaghnal = 15000;
+Temperance_Torque	= 4000;Love_Torque	= 5000;Justice_Torque	= 5000;Prudence_Torque	= 4000;Altruistic_Cape	= 3000;
+Merciful_Cape	= 1500;Astute_Cape	= 3000;Ninurta_Sash	= 20000;Aureole	=15000;Futsuno_Mitama	=10000;Bellona_Ring	= 12000;
+Mars_Ring	= 12000;Minerva_Ring	= 12000;Raphaels_Rod	= 8000;Faith_Baghnakhs	= 2000;Fortitude_Axe	= 2000;Prudence_Rod	= 2000;
+Hope_Staff	= 2000;Justice_Sword	= 2000;Love_Halberd	= 3000;Novio_Earring	= 6000;Novia_earring	=6000;Temperance_Axe	= 1500;
+Askar_Korazin	= 15000;Askar_Zucchetto	= 8500;Askar_Manopolas	= 8500;Askar_Dirs	= 12500;Askar_Gambieras	= 8500;
+Denali_Jacket	= 15000;Denali_Bonnet	= 6500;Denali_Wristbands	= 6500;Denali_Kecks	= 10000;Denali_Gamashes	= 6500;
+Goliard_Saio	= 7500;Goliard_Chapeau	= 3500;Goliard_Cuffs	= 3500;Goliard_Trews	= 5000;Goliard_Clogs	= 3500;
+Usukane_Haramaki	= 15000;Usukane_Somen	= 8500;Usukane_Gote	= 8500;Usukane_Hizayoroi	= 12500;
+Usukane_Suneate	= 10000;Ares_Cuirass	= 15000;Ares_Mask	= 6500;Ares_Gauntlets	= 6500;Ares_Flanchard	= 8500;
+Ares_Sollerets	= 6500;Marduks_Jubbah	= 15000;Marduks_Tiara	= 10000;Marduks_Dastanas	= 8500;
+Marduks_Shalwar	= 12500;Marduks_Crackows	= 8500;Morrigans_Robe	= 15000;Morrigans_Coronal	= 10000;
+Morrigans_Cuffs	= 8500;Morrigans_Slops	= 12500;Morrigans_Pigaches	= 8500;Animator	= 3000; Hightail Bullet = 500;
 Aslan_Cape	= 3000;Buccaneers_Belt	= 3000;Delta_Earring	= 3000;Gleemans_Cape	= 3000;Iota_Ring	= 3000;
-Kubira_Bead_Necklace	= 3000;Morganas_Choker	= 3000;Omega_Ring	= 3000;Ritter_Gorget	= 3000;
+Kubira_Bead_Necklace	= 3000;Morganas_Choker	= 3000;Omega_Ring	= 6500;Ritter_Gorget	= 3000;
 Nethercant_Chain	= 500;Nethereye_Chain	= 500;Netherfield_Chain	= 500;Netherpact_Chain	= 500;
 Netherspirit_Chain	= 500;Rubber_Cap	= 500;Rubber_Chausses	= 500;Rubber_Harness	=500;Rubber_Gloves	= 500;
-Rubber_Soles	= 500;Balrahns_Eyepatch	= 20000;Phantasmal_Abjuration_Body	= 12000;Phantasmal_Abjuration_Head	= 5500;
-Phantasmal_Abjuration_Hands = 5500;Phantasmal_Abjuration_Legs	= 7000;Phantasmal_Abjuration_Feet	= 5500;
-Hadean_Abjuration_Body	= 12000;Hadean_Abjuration_Head	= 5500;Hadean_Abjuration_Hands	= 5500;Hadean_Abjuration_Legs	= 7000;
-Hadean_Abjuration_Feet	= 5500;Valhalla_Helm	= 12000;Valhalla_Breastplate	= 12000;Valkyries_Fork	= 10000;Hofud	= 10000;
-Hauteclaire	= 5000;Seveneyes	=2000;Algol	= 2500;Alkalurops	 =4000;Shusui	= 1500;Enkidus_Cap	= 2000;
-Enkidus_Harness	= 3000;Hachiryu_Suneate	= 6000;Oracles_Cap	= 2000;Aurum_Armet	= 2000;Foolkiller	= 1500;
-Hachiryu_Haidate	= 10000;Oracles_Robe	= 3000;Pachipachio	= 1500;Antares	= 1500;Enforcer	= 1500;
-Aurum_Cuirass	= 3000;Hachiryu_Kote = 6000;Hachiryu_Haramaki	= 16000;Dorje	= 5000;Nanatsusaya	= 8000;
-Shenlongs_Baghnakhs	= 10000; Perdu_crossbow = 2500; Perdu_wand = 2500; Perdu_blade = 2500; Perdu_staff = 2500; 
-Perdu_voulge = 2500; Perdu_hanger = 2500; Perdu_sword = 2500; Perdu_sickle = 2500; Perdu_bow = 2500; Hagun = 1000; Blau_dolch = 1000; Genbus_Shield = 1000;
-Byakkos_Axe = 1000;Seiryus_Sword = 1000;Suzakus_Scythe = 500;Skadis_Cuirie = 15000;Skadis_Bazubands = 6500;Skadis_Visor = 6500; Witch_Sash = 1500;
-Skadis_Jambeaux = 6500;Skadis_Chausses = 8500;Yigit_Turban = 2500;Yigit_Gomlek = 6500;Yigit_Gages = 2500;Yigit_Seraweels = 3500;Yigit_Crackows = 2500;
+Rubber_Soles	= 500;Balrahns_Eyepatch	= 20000;Phantasmal_Abjuration_Body	= 12000;Phantasmal_Abjuration_Head	= 6250;
+Phantasmal_Abjuration_Hands = 6250;Phantasmal_Abjuration_Legs	= 9000;Phantasmal_Abjuration_Feet	= 6250;
+Hadean_Abjuration_Body	= 12000;Hadean_Abjuration_Head	= 6250;Hadean_Abjuration_Hands	= 6250;Hadean_Abjuration_Legs	= 9000;
+Hadean_Abjuration_Feet	= 6250;Valhalla_Helm	= 12000;Valhalla_Breastplate	= 15000;Valkyries_Fork	= 10000;Hofud	= 10000;
+Hauteclaire	= 15000;Seveneyes	=6500;Algol	= 2500;Alkalurops	 =4000;Shusui	= 1500;Enkidus_Cap	= 2500;Enkidus_Leggings = 6500;
+Enkidus_Harness	= 3500;Hachiryu_Suneate	= 10000;Oracles_Cap	= 2000;Aurum_Armet	= 2000;Foolkiller	= 1500;
+Hachiryu_Haidate	= 12500;Oracles_Robe	= 3500;Pachipachio	= 1500;Antares	= 1500;Enforcer	= 1500;
+Aurum_Cuirass	= 3000;Hachiryu_Kote = 10000;Hachiryu_Haramaki	= 17500;Dorje	= 8000;Nanatsusaya	= 10000;
+Shenlongs_Baghnakhs	= 10000; Perdu_crossbow = 2500; Perdu_wand = 2500; Perdu_blade = 3500; Perdu_staff = 2500; 
+Perdu_voulge = 5000; Perdu_hanger = 2500; Perdu_sword = 3500; Perdu_sickle = 3500; Perdu_bow = 3500;
+Byakkos_Axe = 1000;Seiryus_Sword = 1000;Suzakus_Scythe = 500;Skadis_Cuirie = 15000;Skadis_Bazubands = 6500;Skadis_Visor = 6500; Witch_Sash = 7500;
+Skadis_Jambeaux = 6500;Skadis_Chausses = 10000;Yigit_Turban = 2500;Yigit_Gomlek = 6500;Yigit_Gages = 2500;Yigit_Seraweels = 3500;Yigit_Crackows = 2500;
 Pahluwan_Qalansuwa = 2500;Pahluwan_Khazagand = 6500;Pahluwan_Dastanas = 2500;Pahluwan_Seraweels =3500 ;Pahluwan_Crackows =2500;Amir_Puggaree =2500;
 Amir_Korazin =6500;Amir_Kolluks =2500;Amir_Dirs =3500;Amir_Boots =2500;Invigorating_Cape =500;Bushido_Cape =500;Intensifying_Cape =500;
 Bullseye_Cape =500;Miraculous_Cape =500;Tempered_Chain =500;Enlightened_Chain =500;Chivalrous_Chain =500;Fortified_Chain =500;
-Grandoise_Chain =500;Stoic_Earring =500;Antivenom_Earring =500;Insomnia_Earring =500;Vision_Earring =500;Velocity_Earring =500;Vivid_Strap = 2000;
-Ancient_Torque =2000; Antares_Harness = 3000; Seismic_Axe =1000; Prester = 500; Nimues_Tights =2500; Fourth_Haube =1500; Fourth_Brunne =1500; Fourth_Schuhs =1500; 
-Fourth_Hentzes = 1500; Fourth_Schoss =1500;Ruler =1000; Fragarach = 1500; ZhaGos_Barbut = 3000; Avalon_Breastplate = 3000; Stone_Mufflers =1000; Black_Tathlum = 2000; White_Tathlum =2000;
+Grandoise_Chain =500;Stoic_Earring =500;Antivenom_Earring =500;Insomnia_Earring =500;Vision_Earring =500;Velocity_Earring =500;
+Ancient_Torque =2000; Antares_Harness = 5000; Seismic_Axe =1000; Prester = 500; Nimues_Tights =2500; Fourth_Haube =1500; Fourth_Brunne =1500; Fourth_Schuhs =1500; 
+Fourth_Hentzes = 1500; Fourth_Schoss =1500;Ruler =1000; Fragarach = 1500; Avalon_Breastplate = 3000; Stone_Mufflers =1000; Black_Tathlum = 7500; White_Tathlum =7500;
 Headsmans_Ring =1000; Bull_Necklace =1000; Lex_Talionis =1000; Avalon_Shield = 1000; Gnadbhods_Helm =3000; Mercenary_Major_Charm =1000; Azoth =1500; Setantas_Ledesens = 1000; 
 Arrestor_Mantle =1000; Fourth_Mantle =1000; Sonias_Plectrum =1000; Sturms_Report =1000; Earthy_Belt =1000; Shrewd_Pumps =1000; Bahram_Cuisses =1000; Brictas_Cuffs =1000; 
-Brilliant_Earring =1000; Samudra =500; Rose_Strap =1500; Diverters_Ring =1000; Cougar_Pendant = 1000; Temple_Earring = 1000; Cobra_Unit_Robe =1000; Cobra_Unit_Cloche = 1000; 
-Cobra_Unit_Gloves =1000; Cobra_Unit_Trews = 1000; Cobra_Unit_Crackows =1000; Ixion_Cape =1500; Supremacy_Earring =1000; Bloodbead_Gorget =1000; Griffonclaw =1000; Ixion_Cloak = 2000; Paramount_Earring =1000;
-Crocodile_Collar =1000; Fenian_Ring =1000; Royal_Knight_Sigil_Ring =1000; Fox_Earring =1000; Shield_Collar =1000; Zahaks_Mail =3000; Patronus_Ring =1000; Capricornian_Rope =1000; 
-Cobra_Unit_Cap =1000; Cobra_Unit_Harness =1000; Cobra_Unit_Leggings =1000; Cobra_Unit_Mittens =1000; Cobra_Unit_Subligar =1000; Rees_Headgear=3000; Koschei_Crackows =1000; 
+Brilliant_Earring =1000; Samudra =500; Rose_Strap =1500; Diverters_Ring =2500; Cougar_Pendant = 1000; Temple_Earring = 1000; Cobra_Unit_Robe =1000; Cobra_Unit_Cloche = 1000; 
+Cobra_Unit_Gloves =1000; Cobra_Unit_Trews = 1000; Cobra_Unit_Crackows =1000; Ixion_Cape =4500; Supremacy_Earring =1000; Bloodbead_Gorget =1000; Griffonclaw =1000; Ixion_Cloak = 4500; Paramount_Earring =1000;
+Crocodile_Collar =1000; Fenian_Ring =2500; Royal_Knight_Sigil_Ring =1000; Fox_Earring =1000; Shield_Collar =1000; Zahaks_Mail =5000; Patronus_Ring =1000; Capricornian_Rope =1000; 
+Cobra_Unit_Cap =1000; Cobra_Unit_Harness =1000; Cobra_Unit_Leggings =1000; Cobra_Unit_Mittens =1000; Cobra_Unit_Subligar =1000; Koschei_Crackows =1000; 
 Ariesian_Grip =1000; Iron_Ram_Greaves =1000; Iron_Ram_Sallet =1000; Iron_Ram_Dastanas =1000; Iron_Ram_Hose =1000; Iron_Ram_Hauberk =1000; Crimson_Belt =1000;
-Nocturnus_Mail=5000; Nocturnus_Helm=5000; Nightfall=3000; Roundel_Earring=2500; Brave_Grip=1500; Wise_Strap=1500; Cuchulains_Belt=2000;
-Karasutengu_Kogake=1500; Cuchulains_Mantle=2000; Balestarius=2000; Airy_Buckler=1500; Crapaud_Earring=2000; Hecates_Cape=2500;
-Tiercel_Necklace=2000; Reign_Grip=1500; Pipers_Torque=1500; Deae_Gratia=1200; Sangoma_Lappa=1000; Spurrer_Beret=1500; Ecphoria_Ring=1000;
+Nocturnus_Mail=25000; Nocturnus_Helm=20000; Nightfall=8500; Roundel_Earring=2500; Brave_Grip=1500; Wise_Strap=2500; Cuchulains_Belt=7500;
+Karasutengu_Kogake=1500; Cuchulains_Mantle=2000; Balestarius=2000; Airy_Buckler=1500; Crapaud_Earring=3500; Hecates_Cape=2500;
+Tiercel_Necklace=2000; Reign_Grip=2500; Pipers_Torque=1500; Deae_Gratia=1200; Sangoma_Lappa=1000; Spurrer_Beret=1500; Ecphoria_Ring=2500;
 Papilio_Kirpan=1500; Cradle_Horn=800; Poison_Tasters_Cape=800; Aoides_Pumps=800; Creve_coeur=800;M_Kris=750; M_Sword = 750;
 
 -----------END OF DECLARE----------------------------------------------------------------------------------------------------------
@@ -97,336 +101,336 @@ local kinetic_unit = player:getCurrency("kinetic_unit")
 if (trade:getItemCount() == 1) then
         if (trade:hasItemQty(11651,1)) and (bayld >= defending_ring)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 18000);
+              player:delCurrency("bayld", 50000);
    player:tradeComplete();
    player:addItem(13566,1);
    player:messageSpecial(ITEM_OBTAINED,11651,1);
         
 		elseif (trade:hasItemQty(12034,1)) and (bayld >= Martial_Abjuration_Body)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 6500);
+              player:delCurrency("bayld", 9500);
    player:tradeComplete();
    player:addItem(1330,1);
    player:messageSpecial(ITEM_OBTAINED,1330,1);
         
 		elseif (trade:hasItemQty(12014,1)) and (bayld >= Martial_Abjuration_Head)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1329,1);
    player:messageSpecial(ITEM_OBTAINED,1329,1);
         
 		elseif (trade:hasItemQty(12504,1)) and (bayld >= Martial_Abjuration_Hands)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1331,1);
    player:messageSpecial(ITEM_OBTAINED,1331,1);
 
 		elseif (trade:hasItemQty(12074,1)) and (bayld >= Martial_Abjuration_Legs)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 3500);
+              player:delCurrency("bayld", 7000);
    player:tradeComplete();
    player:addItem(1332,1);
    player:messageSpecial(ITEM_OBTAINED,1332,1);  
 
 		elseif (trade:hasItemQty(12094,1)) and (bayld >= Martial_Abjuration_Feet)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1333,1);
    player:messageSpecial(ITEM_OBTAINED,1333,1);   
    
  		elseif (trade:hasItemQty(12031,1)) and (bayld >= Aquarian_Abjuration_Body)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 6500);
+              player:delCurrency("bayld", 9500);
    player:tradeComplete();
    player:addItem(1325,1);
    player:messageSpecial(ITEM_OBTAINED,1325,1);  
    
    		elseif (trade:hasItemQty(12011,1)) and (bayld >= Aquarian_Abjuration_Head)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1324,1);
    player:messageSpecial(ITEM_OBTAINED,1324,1);
    
    		elseif (trade:hasItemQty(12051,1)) and (bayld >= Aquarian_Abjuration_Hands)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1326,1);
    player:messageSpecial(ITEM_OBTAINED,1326,1);
    
    		elseif (trade:hasItemQty(12071,1)) and (bayld >= Aquarian_Abjuration_Legs)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 3500);
+              player:delCurrency("bayld", 7000);
    player:tradeComplete();
    player:addItem(1327,1);
    player:messageSpecial(ITEM_OBTAINED,1327,1);
    
    		elseif (trade:hasItemQty(12091,1)) and (bayld >= Aquarian_Abjuration_Feet)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1328,1);
    player:messageSpecial(ITEM_OBTAINED,1328,1);
    
    		elseif (trade:hasItemQty(12040,1)) and (bayld >= Dryadic_Abjuration_Body)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 6500);
+              player:delCurrency("bayld", 9500);
    player:tradeComplete();
    player:addItem(1315,1);
    player:messageSpecial(ITEM_OBTAINED,1315,1);
    
    		elseif (trade:hasItemQty(12020,1)) and (bayld >= Dryadic_Abjuration_Head)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1314,1);
    player:messageSpecial(ITEM_OBTAINED,1314,1);
    
    		elseif (trade:hasItemQty(12060,1)) and (bayld >= Dryadic_Abjuration_Hands)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1316,1);
    player:messageSpecial(ITEM_OBTAINED,1316,1);
    
    		elseif (trade:hasItemQty(12080,1)) and (bayld >= Martial_Abjuration_Legs)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 3500);
+              player:delCurrency("bayld", 7000);
    player:tradeComplete();
    player:addItem(1317,1);
    player:messageSpecial(ITEM_OBTAINED,1317,1);
    
    		elseif (trade:hasItemQty(12100,1)) and (bayld >= Dryadic_Abjuration_Feet)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1318,1);
    player:messageSpecial(ITEM_OBTAINED,1318,1);
    
    		elseif (trade:hasItemQty(12036,1)) and (bayld >= Earthen_Abjuration_Body)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 6500);
+              player:delCurrency("bayld", 9500);
    player:tradeComplete();
    player:addItem(1320,1);
    player:messageSpecial(ITEM_OBTAINED,1320,1);
    
    		elseif (trade:hasItemQty(12016,1)) and (bayld >= Earthen_Abjuration_Head)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1319,1);
    player:messageSpecial(ITEM_OBTAINED,1319,1);
    
    		elseif (trade:hasItemQty(12056,1)) and (bayld >= Earthen_Abjuration_Hands)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1321,1);
    player:messageSpecial(ITEM_OBTAINED,1321,1);
    
    		elseif (trade:hasItemQty(12076,1)) and (bayld >= Earthen_Abjuration_Legs)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 3500);
+              player:delCurrency("bayld", 7000);
    player:tradeComplete();
    player:addItem(1322,1);
    player:messageSpecial(ITEM_OBTAINED,1322,1);
    
    		elseif (trade:hasItemQty(12096,1)) and (bayld >= Earthen_Abjuration_Feet)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1323,1);
    player:messageSpecial(ITEM_OBTAINED,1323,1);
    
    		elseif (trade:hasItemQty(12028,1)) and (bayld >= Neptunal_Abjuration_Body)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 6500);
+              player:delCurrency("bayld", 9500);
    player:tradeComplete();
    player:addItem(1340,1);
    player:messageSpecial(ITEM_OBTAINED,1340,1);
    
    		elseif (trade:hasItemQty(12008,1)) and (bayld >= Neptunal_Abjuration_Head)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1339,1);
    player:messageSpecial(ITEM_OBTAINED,1339,1);
    
    		elseif (trade:hasItemQty(12048,1)) and (bayld >= Neptunal_Abjuration_Hands)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1341,1);
    player:messageSpecial(ITEM_OBTAINED,1341,1);
    
    		elseif (trade:hasItemQty(12068,1)) and (bayld >= Neptunal_Abjuration_Legs)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 3500);
+              player:delCurrency("bayld", 7000);
    player:tradeComplete();
    player:addItem(1342,1);
    player:messageSpecial(ITEM_OBTAINED,1342,1);
    
    		elseif (trade:hasItemQty(12088,1)) and (bayld >= Neptunal_Abjuration_Feet)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1343,1);
    player:messageSpecial(ITEM_OBTAINED,1343,1);
    
    		elseif (trade:hasItemQty(12018,1)) and (bayld >= Wyrmal_Abjuration_Body)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 6500);
+              player:delCurrency("bayld", 9500);
    player:tradeComplete();
    player:addItem(1335,1);
    player:messageSpecial(ITEM_OBTAINED,1335,1);
    
    		elseif (trade:hasItemQty(12038,1)) and (bayld >= Wyrmal_Abjuration_Head)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1334,1);
    player:messageSpecial(ITEM_OBTAINED,1334,1);
    
    		elseif (trade:hasItemQty(12058,1)) and (bayld >= Wyrmal_Abjuration_Hands)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1336,1);
    player:messageSpecial(ITEM_OBTAINED,1336,1);
    
    		elseif (trade:hasItemQty(12078,1)) and (bayld >= Wyrmal_Abjuration_Legs)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 3500);
+              player:delCurrency("bayld", 8250);
    player:tradeComplete();
    player:addItem(1337,1);
    player:messageSpecial(ITEM_OBTAINED,1337,1);
    
    		elseif (trade:hasItemQty(12098,1)) and (bayld >= Wyrmal_Abjuration_Feet)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2500);
+              player:delCurrency("bayld", 4500);
    player:tradeComplete();
    player:addItem(1338,1);
    player:messageSpecial(ITEM_OBTAINED,1338,1);
    
    		elseif (trade:hasItemQty(12049,1)) and (bayld >= Seiryu_Kote)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2000);
+              player:delCurrency("bayld", 10000);
    player:tradeComplete();
    player:addItem(12690,1);
    player:messageSpecial(ITEM_OBTAINED,12690,1);
    
    		elseif (trade:hasItemQty(12069,1)) and (bayld >= Byakko_Haidate)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 4000);
+              player:delCurrency("bayld", 12500);
    player:tradeComplete();
    player:addItem(12818,1);
    player:messageSpecial(ITEM_OBTAINED,12818,1);
    
    		elseif (trade:hasItemQty(12009,1)) and (bayld >= Genbus_Kabuto)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2000);
+              player:delCurrency("bayld", 3500);
    player:tradeComplete();
    player:addItem(12434,1);
    player:messageSpecial(ITEM_OBTAINED,12434,1);
    
    		elseif (trade:hasItemQty(12089,1)) and (bayld >= Suzaku_Suneate)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 1000);
+              player:delCurrency("bayld", 3500);
    player:tradeComplete();
    player:addItem(12946,1);
    player:messageSpecial(ITEM_OBTAINED,12946,1);
    
    		elseif (trade:hasItemQty(12029,1)) and (bayld >= Kirin_Osode)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 7500);
+              player:delCurrency("bayld", 15000);
    player:tradeComplete();
    player:addItem(12562,1);
    player:messageSpecial(ITEM_OBTAINED,12562,1);
    
    		elseif (trade:hasItemQty(11711,1)) and (bayld >= Pixie_Earring)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 1500);
+              player:delCurrency("bayld", 3500);
    player:tradeComplete();
    player:addItem(13415,1);
    player:messageSpecial(ITEM_OBTAINED,13415,1);
    
    		elseif (trade:hasItemQty(18896,1)) and (bayld >= Sipar)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 500);
+              player:delCurrency("bayld", 1500);
    player:tradeComplete();
    player:addItem(12361,1);
    player:messageSpecial(ITEM_OBTAINED,12361,1);
    
    		elseif (trade:hasItemQty(11509,1)) and (bayld >= Aegishjalmr)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 1500);
+              player:delCurrency("bayld", 2500);
    player:tradeComplete();
    player:addItem(13914,1);
    player:messageSpecial(ITEM_OBTAINED,13914,1);
    
    		elseif (trade:hasItemQty(14042,1)) and (bayld >= Andvaranauts)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 500);
+              player:delCurrency("bayld", 1500);
    player:tradeComplete();
    player:addItem(13914,1);
    player:messageSpecial(ITEM_OBTAINED,13914,1);
    
    		elseif (trade:hasItemQty(18897,1)) and (bayld >= Ridill)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 10000);
+              player:delCurrency("bayld", 50000);
    player:tradeComplete();
    player:addItem(16555,1);
    player:messageSpecial(ITEM_OBTAINED,16555,1);
    
    		elseif (trade:hasItemQty(18620,1)) and (bayld >= Kirin_Pole)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 500);
+              player:delCurrency("bayld", 1500);
    player:tradeComplete();
    player:addItem(17567,1);
    player:messageSpecial(ITEM_OBTAINED,17567,1);
    
    		elseif (trade:hasItemQty(18892,1)) and (bayld >= Hrotti)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 500);
+              player:delCurrency("bayld", 1500);
    player:tradeComplete();
    player:addItem(17653,1);
    player:messageSpecial(ITEM_OBTAINED,17653,1);
    
    		elseif (trade:hasItemQty(11735,1)) and (bayld >= Wyrm_Beard)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2000);
+              player:delCurrency("bayld", 10000);
    player:tradeComplete();
    player:addItem(1526,1);
    player:messageSpecial(ITEM_OBTAINED,1526,1);
    
    		elseif (trade:hasItemQty(11731,1)) and (bayld >= Behemoth_Tongue)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2000);
+              player:delCurrency("bayld", 10000);
    player:tradeComplete();
    player:addItem(1527,1);
    player:messageSpecial(ITEM_OBTAINED,1527,1);
    
    		elseif (trade:hasItemQty(11730,1)) and (bayld >= Adamantoise_Egg)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 2000);
+              player:delCurrency("bayld", 10000);
    player:tradeComplete();
    player:addItem(1525,1);
    player:messageSpecial(ITEM_OBTAINED,1525,1);
    
    		elseif (trade:hasItemQty(16203,1)) and (bayld >= Shadow_Mantle)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 8000);
+              player:delCurrency("bayld", 25000);
    player:tradeComplete();
    player:addItem(13658,1);
    player:messageSpecial(ITEM_OBTAINED,13658,1);
    
    		elseif (trade:hasItemQty(11653,1)) and (bayld >= Shadow_Ring)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 8000);
+              player:delCurrency("bayld", 35000);
    player:tradeComplete();
    player:addItem(14646,1);
    player:messageSpecial(ITEM_OBTAINED,14646,1);
@@ -440,14 +444,14 @@ if (trade:getItemCount() == 1) then
 	
 	elseif (trade:hasItemQty(18898,1)) and (bayld >= Seiryus_Sword) --base item is Mageblade
 			then --This is a check to see if the player has enough bayld
-			  player:delCurrency("bayld", 2000);
+			  player:delCurrency("bayld", 1500);
 	player:tradeComplete();
 	player:addItem(17659,1);
 	player:messageSpecial(ITEM_OBTAINED,17659,1);
 
 	elseif (trade:hasItemQty(18551,1)) and (bayld >= Suzakus_Scythe) --base item is Crisis Scythe
 			then --This is a check to see if the player has enough bayld
-			  player:delCurrency("bayld", 500);
+			  player:delCurrency("bayld", 1500);
 	player:tradeComplete();
 	player:addItem(18043,1);
 	player:messageSpecial(ITEM_OBTAINED,18043,1);
@@ -462,24 +466,45 @@ if (trade:getItemCount() == 1) then
 
    		elseif (trade:hasItemQty(12345,1)) and (bayld >= Genbus_Shield)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 1000);
+              player:delCurrency("bayld", 1500);
    player:tradeComplete();
    player:addItem(12296,1);
    player:messageSpecial(ITEM_OBTAINED,12296,1);  
 
-   		elseif (trade:hasItemQty(19138,1)) and (bayld >= M_Kris)
+   		elseif (trade:hasItemQty(19138,1)) and (bayld >= Mercurial_Kris)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 750);
+              player:delCurrency("bayld", 1500);
    player:tradeComplete();
    player:addItem(18020,1);
    player:messageSpecial(ITEM_OBTAINED,18020,1);   
    
-   		elseif (trade:hasItemQty(19172,1)) and (bayld >= M_Sword)
+   		elseif (trade:hasItemQty(19172,1)) and (bayld >= Mercurial_Sword)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 750);
+              player:delCurrency("bayld", 1500);
    player:tradeComplete();
    player:addItem(18377,1);
-   player:messageSpecial(ITEM_OBTAINED,18377,1);      
+   player:messageSpecial(ITEM_OBTAINED,18377,1);  
+
+      		elseif (trade:hasItemQty(19312,1)) and (balyd >= Valkyries_Fork)
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("balyd", 10000);
+   player:tradeComplete();
+   player:addItem(18121,1);
+   player:messageSpecial(ITEM_OBTAINED,18121,1);   
+   
+      		elseif (trade:hasItemQty(18877,1)) and (bayld >= Kraken_Club)
+			 then    --This is a check to see if the player has enough bayld
+              player:delCurrency("bayld", 250000);
+   player:tradeComplete();
+   player:addItem(17440,1);
+   player:messageSpecial(ITEM_OBTAINED,17440,1);   
+   
+      		elseif (trade:hasItemQty(18877,1)) and (bayld >= Hightail_Bullet)
+			 then    --This is a check to see if the player has enough bayld
+              player:delCurrency("bayld", 50);
+   player:tradeComplete();
+   player:addItem(17440,1);
+   player:messageSpecial(ITEM_OBTAINED,17440,1);
    
    -------------------------------BEGIN TIER 2 ITEMS--------------------------------------------------------------
    
@@ -499,7 +524,7 @@ if (trade:getItemCount() == 1) then
    
    		elseif (trade:hasItemQty(10933,1)) and (mweya_plasm >= Fortitude_Torque)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 4000);
+              player:delCurrency("mweya_plasm", 5000);
    player:tradeComplete();
    player:addItem(15511,1);
    player:messageSpecial(ITEM_OBTAINED,15511,1);
@@ -513,14 +538,14 @@ if (trade:getItemCount() == 1) then
    
    		elseif (trade:hasItemQty(10927,1)) and (mweya_plasm >= Love_Torque)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 4000);
+              player:delCurrency("mweya_plasm", 5000);
    player:tradeComplete();
    player:addItem(15514,1);
    player:messageSpecial(ITEM_OBTAINED,15514,1);
 
    		elseif (trade:hasItemQty(11627,1)) and (mweya_plasm >= Justice_Torque)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 4000);
+              player:delCurrency("mweya_plasm", 5000);
    player:tradeComplete();
    player:addItem(15508,1);
    player:messageSpecial(ITEM_OBTAINED,15508,1);
@@ -534,14 +559,14 @@ if (trade:getItemCount() == 1) then
 
    		elseif (trade:hasItemQty(16259,1)) and (mweya_plasm >= Altruistic_Cape)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 1500);
+              player:delCurrency("mweya_plasm", 3000);
    player:tradeComplete();
    player:addItem(15472,1);
    player:messageSpecial(ITEM_OBTAINED,15472,1);
 
    		elseif (trade:hasItemQty(16260,1)) and (mweya_plasm >= Merciful_Cape)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 1500);
+              player:delCurrency("mweya_plasm", 3000);
    player:tradeComplete();
    player:addItem(15471,1);
    player:messageSpecial(ITEM_OBTAINED,15471,1);
@@ -555,49 +580,49 @@ if (trade:getItemCount() == 1) then
 
    		elseif (trade:hasItemQty(15959,1)) and (mweya_plasm >= Ninurta_Sash)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 10000);
+              player:delCurrency("mweya_plasm", 20000);
    player:tradeComplete();
    player:addItem(15458,1);
    player:messageSpecial(ITEM_OBTAINED,15458,1);
 
    		elseif (trade:hasItemQty(19260,1)) and (mweya_plasm >= Aureole)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 10000);
+              player:delCurrency("mweya_plasm", 15000);
    player:tradeComplete();
    player:addItem(18245,1);
    player:messageSpecial(ITEM_OBTAINED,18245,1);   
    
    		elseif (trade:hasItemQty(17801,1)) and (mweya_plasm >= Futsuno_Mitama)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 10000);
+              player:delCurrency("mweya_plasm", 12500);
    player:tradeComplete();
    player:addItem(17810,1);
    player:messageSpecial(ITEM_OBTAINED,17810,1);
 
    		elseif (trade:hasItemQty(15858,1)) and (mweya_plasm >= Bellona_Ring)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 8000);
+              player:delCurrency("mweya_plasm", 12000);
    player:tradeComplete();
    player:addItem(15549,1);
    player:messageSpecial(ITEM_OBTAINED,15549,1);
 
    		elseif (trade:hasItemQty(11638,1)) and (mweya_plasm >= Mars_Ring)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 8000);
+              player:delCurrency("mweya_plasm", 12000);
    player:tradeComplete();
    player:addItem(15548,1);
    player:messageSpecial(ITEM_OBTAINED,15548,1);
 
    		elseif (trade:hasItemQty(15857,1)) and (mweya_plasm >= Minerva_Ring)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 10000);
+              player:delCurrency("mweya_plasm", 12000);
    player:tradeComplete();
    player:addItem(15550,1);
    player:messageSpecial(ITEM_OBTAINED,15550,1);
    
    	elseif (trade:hasItemQty(17077,1)) and (mweya_plasm >= Raphaels_Rod)
 			then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 5000);
+              player:delCurrency("mweya_plasm", 8000);
    player:tradeComplete();
    player:addItem(18398,1);
    player:messageSpecial(ITEM_OBTAINED,18398,1);
@@ -625,7 +650,7 @@ if (trade:getItemCount() == 1) then
 
    		elseif (trade:hasItemQty(18625,1)) and (mweya_plasm >= Hope_Staff)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 1000);
+              player:delCurrency("mweya_plasm", 2000);
    player:tradeComplete();
    player:addItem(17595,1);
    player:messageSpecial(ITEM_OBTAINED,17595,1);
@@ -646,21 +671,21 @@ if (trade:getItemCount() == 1) then
 
    		elseif (trade:hasItemQty(11036,1)) and (mweya_plasm >= Novio_Earring)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 8000);
+              player:delCurrency("mweya_plasm", 6000);
    player:tradeComplete();
    player:addItem(14808,1);
    player:messageSpecial(ITEM_OBTAINED,14808,1);
 
    		elseif (trade:hasItemQty(11033,1)) and (mweya_plasm >= Novia_earring)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 3000);
+              player:delCurrency("mweya_plasm", 6000);
    player:tradeComplete();
    player:addItem(14809,1);
    player:messageSpecial(ITEM_OBTAINED,14809,1);
 
    		elseif (trade:hasItemQty(18536,1)) and (mweya_plasm >= Temperance_Axe)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 1500);
+              player:delCurrency("mweya_plasm", 2000);
    player:tradeComplete();
    player:addItem(17948,1);
    player:messageSpecial(ITEM_OBTAINED,17948,1);
@@ -668,270 +693,453 @@ if (trade:getItemCount() == 1) then
    
    		elseif (trade:hasItemQty(17806,1)) and (mweya_plasm >= Hagun)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 1000);
+              player:delCurrency("mweya_plasm", 1500);
    player:tradeComplete();
    player:addItem(17829,1);
    player:messageSpecial(ITEM_OBTAINED,17829,1);
    
       	elseif (trade:hasItemQty(16485,1)) and (mweya_plasm >= Blau_dolch)
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 1000);
+              player:delCurrency("mweya_plasm", 1500);
    player:tradeComplete();
    player:addItem(18015,1);
    player:messageSpecial(ITEM_OBTAINED,18015,1);
    
-      	elseif (trade:hasItemQty(19143,1)) and (mweya_plasm >= Blau_dolch) --Base item = Lux Pugio
+      	elseif (trade:hasItemQty(19143,1)) and (mweya_plasm >= X_Knife) --Base item = Lux Pugio
 			 then    --This is a check to see if the player has enough plasm
-              player:delCurrency("mweya_plasm", 1800);
+              player:delCurrency("mweya_plasm", 2000);
    player:tradeComplete();
    player:addItem(18019,1);
    player:messageSpecial(ITEM_OBTAINED,18019,1);   
    
- 
-   
- -----------------------BEGIN OF TIER 3 ITEMS--------------------------------------------------------------  
+   		elseif (trade:hasItemQty(27816,1)) and (mweya_plasm >= Marduks_Jubbah)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
+   player:tradeComplete();
+   player:addItem(14558,1);
+   player:messageSpecial(ITEM_OBTAINED,14558,1);
 
-   		elseif (trade:hasItemQty(27807,1)) and (dominion_note >= Askar_Korazin)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+   		elseif (trade:hasItemQty(27672,1)) and (mweya_plasm >= Marduks_Tiara)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 10000);
+   player:tradeComplete();
+   player:addItem(16096,1);
+   player:messageSpecial(ITEM_OBTAINED,16096,1);
+
+      		elseif (trade:hasItemQty(27673,1)) and (mweya_plasm >= Phantasmal_Abjuration_Body)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 12000);
+   player:tradeComplete();
+   player:addItem(2430,1);
+   player:messageSpecial(ITEM_OBTAINED,2430,1);
+
+      		elseif (trade:hasItemQty(27817,1)) and (mweya_plasm >= Phantasmal_Abjuration_Head)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 6250);
+   player:tradeComplete();
+   player:addItem(2429,1);
+   player:messageSpecial(ITEM_OBTAINED,2429,1);
+
+      		elseif (trade:hasItemQty(27953,1)) and (mweya_plasm >= Phantasmal_Abjuration_Hands)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 6250);
+   player:tradeComplete();
+   player:addItem(2431,1);
+   player:messageSpecial(ITEM_OBTAINED,2431,1);
+
+      		elseif (trade:hasItemQty(28100,1)) and (mweya_plasm >= Phantasmal_Abjuration_Legs)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 9000);
+   player:tradeComplete();
+   player:addItem(2432,1);
+   player:messageSpecial(ITEM_OBTAINED,2432,1);
+
+      		elseif (trade:hasItemQty(28233,1)) and (mweya_plasm >= Phantasmal_Abjuration_Feet)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 6250);
+   player:tradeComplete();
+   player:addItem(2433,1);
+   player:messageSpecial(ITEM_OBTAINED,2433,1);
+
+      		elseif (trade:hasItemQty(27820,1)) and (mweya_plasm >= Hadean_Abjuration_Body)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 12000);
+   player:tradeComplete();
+   player:addItem(2435,1);
+   player:messageSpecial(ITEM_OBTAINED,2435,1);
+
+      		elseif (trade:hasItemQty(27676,1)) and (mweya_plasm >= Hadean_Abjuration_Head)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 6250);
+   player:tradeComplete();
+   player:addItem(2434,1);
+   player:messageSpecial(ITEM_OBTAINED,2434,1);
+
+      		elseif (trade:hasItemQty(27956,1)) and (mweya_plasm >= Hadean_Abjuration_Hands)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 6250);
+   player:tradeComplete();
+   player:addItem(2436,1);
+   player:messageSpecial(ITEM_OBTAINED,2436,1);
+
+      		elseif (trade:hasItemQty(28103,1)) and (mweya_plasm >= Hadean_Abjuration_Legs)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 9000);
+   player:tradeComplete();
+   player:addItem(2437,1);
+   player:messageSpecial(ITEM_OBTAINED,2437,1);
+
+      		elseif (trade:hasItemQty(28236,1)) and (mweya_plasm >= Hadean_Abjuration_Feet)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 6250);
+   player:tradeComplete();
+   player:addItem(2438,1);
+   player:messageSpecial(ITEM_OBTAINED,2438,1);
+
+      		elseif (trade:hasItemQty(12020,1)) and (mweya_plasm >= Valhalla_Helm)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 12000);
+   player:tradeComplete();
+   player:addItem(16117,1);
+   player:messageSpecial(ITEM_OBTAINED,16117,1);
+
+      		elseif (trade:hasItemQty(12040,1)) and (mweya_plasm >= Valhalla_Breastplate)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
+   player:tradeComplete();
+   player:addItem(14577,1);
+   player:messageSpecial(ITEM_OBTAINED,14577,1);
+
+   		elseif (trade:hasItemQty(27810,1)) and (mweya_plasm >= Morrigans_Robe)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
+   player:tradeComplete();
+   player:addItem(14562,1);
+   player:messageSpecial(ITEM_OBTAINED,14562,1);
+   
+   		elseif (trade:hasItemQty(27666,1)) and (mweya_plasm >= Morrigans_Coronal)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 10000);
+   player:tradeComplete();
+   player:addItem(16100,1);
+   player:messageSpecial(ITEM_OBTAINED,16100,1);
+
+   		elseif (trade:hasItemQty(11639,1)) and (mweya_plasm >= Omega_Ring)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 6500);
+   player:tradeComplete();
+   player:addItem(15800,1);
+   player:messageSpecial(ITEM_OBTAINED,15800,1);
+ 
+        elseif (trade:hasItemQty(12033,1)) and (mweya_plasm >= Skadis_Cuirie) --Base item = Raider's Vest
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
+   player:tradeComplete();
+   player:addItem(14550,1);
+   player:messageSpecial(ITEM_OBTAINED,14550,1);
+   
+        elseif (trade:hasItemQty(12073,1)) and (mweya_plasm >= Skadis_Chausses) --Base item = Raider's Culottes
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 10000);
+   player:tradeComplete();
+   player:addItem(15629,1);
+   player:messageSpecial(ITEM_OBTAINED,15629,1);
+   
+   	    elseif (trade:hasItemQty(10653,1)) and (mweya_plasm >= Rees_Headgear)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 7500);
+   player:tradeComplete();
+   player:addItem(16160,1);
+   player:messageSpecial(ITEM_OBTAINED,16160,1);
+      
+      	elseif (trade:hasItemQty(11506,1)) and (mweya_plasm >= ZhaGos_Barbut) --Base item = Varangian Helm
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 10000);
+   player:tradeComplete();
+   player:addItem(16159,1);
+   player:messageSpecial(ITEM_OBTAINED,16159,1);
+   
+   		elseif (trade:hasItemQty(27818,1)) and (mweya_plasm >= Usukane_Haramaki)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
+   player:tradeComplete();
+   player:addItem(14554,1);
+   player:messageSpecial(ITEM_OBTAINED,14554,1);
+   
+   		elseif (trade:hasItemQty(27807,1)) and (mweya_plasm >= Askar_Korazin)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
    player:tradeComplete();
    player:addItem(14568,1);
    player:messageSpecial(ITEM_OBTAINED,14568,1);
+   
+   		elseif (trade:hasItemQty(27813,1)) and (mweya_plasm >= Ares_Cuirass)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
+   player:tradeComplete();
+   player:addItem(14546,1);
+   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   
+      	elseif (trade:hasItemQty(18628,1)) and (mweya_plasm >= Mercurial_Pole)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 1500);
+   player:tradeComplete();
+   player:addItem(14546,1);
+   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   
+      	elseif (trade:hasItemQty(11437,1)) and (mweya_plasm >= Heralds_Gaiters)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 10000);
+   player:tradeComplete();
+   player:addItem(14546,1);
+   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   
+      	elseif (trade:hasItemQty(12489,1)) and (mweya_plasm >= Bahamuts_Mask)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
+   player:tradeComplete();
+   player:addItem(14546,1);
+   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   
+      	elseif (trade:hasItemQty(18630,1)) and (mweya_plasm >= Bahamuts_Staff)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
+   player:tradeComplete();
+   player:addItem(14546,1);
+   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   
+      	elseif (trade:hasItemQty(18561,1)) and (mweya_plasm >= Bahamuts_Zaghnal)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
+   player:tradeComplete();
+   player:addItem(14546,1);
+   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   
+      	elseif (trade:hasItemQty(11039,1)) and (mweya_plasm >= Static_Earring)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
+   player:tradeComplete();
+   player:addItem(14546,1);
+   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   
+      	elseif (trade:hasItemQty(11304,1)) and (mweya_plasm >= Ethereal_Earring)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 25000);
+   player:tradeComplete();
+   player:addItem(14546,1);
+   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   
+      	elseif (trade:hasItemQty(11037,1)) and (mweya_plasm >= Magnetic_Earring)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 25000);
+   player:tradeComplete();
+   player:addItem(14546,1);
+   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   
+      	elseif (trade:hasItemQty(11702,1)) and (mweya_plasm >= Hollow_Earring)
+			 then    --This is a check to see if the player has enough plasm
+              player:delCurrency("mweya_plasm", 15000);
+   player:tradeComplete();
+   player:addItem(14546,1);
+   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   
+   
+   
+ -----------------------BEGIN OF TIER 3 ITEMS--------------------------------------------------------------  
 
+ 
    		elseif (trade:hasItemQty(27663,1)) and (dominion_note >= Askar_Zucchetto)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(16106,1);
    player:messageSpecial(ITEM_OBTAINED,16106,1);
 
    		elseif (trade:hasItemQty(27943,1)) and (dominion_note >= Askar_Manopolas)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(14983,1);
    player:messageSpecial(ITEM_OBTAINED,14983,1);
 
    		elseif (trade:hasItemQty(28090,1)) and (dominion_note >= Askar_Dirs)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 3500);
+              player:delCurrency("dominion_note", 12500);
    player:tradeComplete();
    player:addItem(15647,1);
    player:messageSpecial(ITEM_OBTAINED,15647,1);
 
    		elseif (trade:hasItemQty(28223,1)) and (dominion_note >= Askar_Gambieras)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(15733,1);
    player:messageSpecial(ITEM_OBTAINED,15733,1);
 
    		elseif (trade:hasItemQty(27812,1)) and (dominion_note >= Denali_Jacket)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 15000);
    player:tradeComplete();
    player:addItem(14569,1);
    player:messageSpecial(ITEM_OBTAINED,14569,1);
 
    		elseif (trade:hasItemQty(27668,1)) and (dominion_note >= Denali_Bonnet)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 6500);
    player:tradeComplete();
    player:addItem(16107,1);
    player:messageSpecial(ITEM_OBTAINED,16107,1);
 
    		elseif (trade:hasItemQty(27948,1)) and (dominion_note >= Denali_Wristbands)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 6500);
    player:tradeComplete();
    player:addItem(14984,1);
    player:messageSpecial(ITEM_OBTAINED,14984,1);
 
    		elseif (trade:hasItemQty(28095,1)) and (dominion_note >= Denali_Kecks)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 3500);
+              player:delCurrency("dominion_note", 10000);
    player:tradeComplete();
    player:addItem(15648,1);
    player:messageSpecial(ITEM_OBTAINED,15648,1);
 
    		elseif (trade:hasItemQty(28228,1)) and (dominion_note >= Denali_Gamashes)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 6500);
    player:tradeComplete();
    player:addItem(15734,1);
    player:messageSpecial(ITEM_OBTAINED,15734,1);
    
    		elseif (trade:hasItemQty(27811,1)) and (dominion_note >= Goliard_Saio)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 7500);
    player:tradeComplete();
    player:addItem(14570,1);
    player:messageSpecial(ITEM_OBTAINED,14570,1);
 
    		elseif (trade:hasItemQty(27667,1)) and (dominion_note >= Goliard_Chapeau)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 3500);
    player:tradeComplete();
    player:addItem(16108,1);
    player:messageSpecial(ITEM_OBTAINED,16108,1);
 
    		elseif (trade:hasItemQty(27947,1)) and (dominion_note >= Goliard_Cuffs)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 3500);
    player:tradeComplete();
    player:addItem(14985,1);
    player:messageSpecial(ITEM_OBTAINED,14985,1);
 
    		elseif (trade:hasItemQty(28094,1)) and (dominion_note >= Goliard_Trews)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 3500);
+              player:delCurrency("dominion_note", 5000);
    player:tradeComplete();
    player:addItem(15649,1);
    player:messageSpecial(ITEM_OBTAINED,15649,1);
 
    		elseif (trade:hasItemQty(28227,1)) and (dominion_note >= Goliard_Clogs)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 3500);
    player:tradeComplete();
    player:addItem(15735,1);
    player:messageSpecial(ITEM_OBTAINED,15735,1);
-   
-   		elseif (trade:hasItemQty(27818,1)) and (dominion_note >= Usukane_Haramaki)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 15000);
-   player:tradeComplete();
-   player:addItem(14554,1);
-   player:messageSpecial(ITEM_OBTAINED,14554,1);
-   
+
    		elseif (trade:hasItemQty(27674,1)) and (dominion_note >= Usukane_Somen)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(16092,1);
    player:messageSpecial(ITEM_OBTAINED,16092,1);
 
    		elseif (trade:hasItemQty(27954,1)) and (dominion_note >= Usukane_Gote)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(14969,1);
    player:messageSpecial(ITEM_OBTAINED,14969,1);
 
    		elseif (trade:hasItemQty(28101,1)) and (dominion_note >= Usukane_Hizayoroi)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 8500);
+              player:delCurrency("dominion_note", 12500);
    player:tradeComplete();
    player:addItem(15633,1);
    player:messageSpecial(ITEM_OBTAINED,15633,1);
 
    		elseif (trade:hasItemQty(28234,1)) and (dominion_note >= Usukane_Suneate)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 10000);
    player:tradeComplete();
    player:addItem(15719,1);
    player:messageSpecial(ITEM_OBTAINED,15719,1);
-
-   		elseif (trade:hasItemQty(27813,1)) and (dominion_note >= Ares_Cuirass)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 15000);
-   player:tradeComplete();
-   player:addItem(14546,1);
-   player:messageSpecial(ITEM_OBTAINED,14546,1);
    
    		elseif (trade:hasItemQty(27669,1)) and (dominion_note >= Ares_Mask)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(16084,1);
    player:messageSpecial(ITEM_OBTAINED,16084,1);     
 
    		elseif (trade:hasItemQty(27949,1)) and (dominion_note >= Ares_Gauntlets)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(14961,1);
    player:messageSpecial(ITEM_OBTAINED,14961,1);
 
    		elseif (trade:hasItemQty(28096,1)) and (dominion_note >= Ares_Flanchard)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 8500);
+              player:delCurrency("dominion_note", 12500);
    player:tradeComplete();
    player:addItem(15625,1);
    player:messageSpecial(ITEM_OBTAINED,15625,1);
 
    		elseif (trade:hasItemQty(28229,1)) and (dominion_note >= Ares_Sollerets)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(15711,1);
    player:messageSpecial(ITEM_OBTAINED,15711,1);
-
-   		elseif (trade:hasItemQty(27816,1)) and (dominion_note >= Marduks_Jubbah)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 15000);
-   player:tradeComplete();
-   player:addItem(15711,1);
-   player:messageSpecial(ITEM_OBTAINED,15711,1);
-
-   		elseif (trade:hasItemQty(27672,1)) and (dominion_note >= Marduks_Tiara)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
-   player:tradeComplete();
-   player:addItem(16096,1);
-   player:messageSpecial(ITEM_OBTAINED,16096,1);
 
    		elseif (trade:hasItemQty(27952,1)) and (dominion_note >= Marduks_Dastanas)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(14973,1);
    player:messageSpecial(ITEM_OBTAINED,14973,1);
 
    		elseif (trade:hasItemQty(28099,1)) and (dominion_note >= Marduks_Shalwar)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 8500);
+              player:delCurrency("dominion_note", 12500);
    player:tradeComplete();
    player:addItem(15637,1);
    player:messageSpecial(ITEM_OBTAINED,15637,1);
 
    		elseif (trade:hasItemQty(28232,1)) and (dominion_note >= Marduks_Crackows)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(15723,1);
    player:messageSpecial(ITEM_OBTAINED,15723,1);
 
-   		elseif (trade:hasItemQty(27810,1)) and (dominion_note >= Morrigans_Robe)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 15000);
-   player:tradeComplete();
-   player:addItem(14562,1);
-   player:messageSpecial(ITEM_OBTAINED,14562,1);
-   
-   		elseif (trade:hasItemQty(27666,1)) and (dominion_note >= Morrigans_Coronal)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
-   player:tradeComplete();
-   player:addItem(16100,1);
-   player:messageSpecial(ITEM_OBTAINED,16100,1);
-
    		elseif (trade:hasItemQty(27946,1)) and (dominion_note >= Morrigans_Cuffs)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(14977,1);
    player:messageSpecial(ITEM_OBTAINED,14977,1);
 
    		elseif (trade:hasItemQty(28093,1)) and (dominion_note >= Morrigans_Slops)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 8500);
+              player:delCurrency("dominion_note", 12500);
    player:tradeComplete();
    player:addItem(15641,1);
    player:messageSpecial(ITEM_OBTAINED,15641,1);
 
    		elseif (trade:hasItemQty(28226,1)) and (dominion_note >= Morrigans_Pigaches)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(15727,1);
    player:messageSpecial(ITEM_OBTAINED,15727,1);
@@ -977,6 +1185,13 @@ if (trade:getItemCount() == 1) then
    player:tradeComplete();
    player:addItem(15799,1);
    player:messageSpecial(ITEM_OBTAINED,15799,1);
+   
+	elseif (trade:hasItemQty(11771,1)) and (dominion_note >= Witch_Sash)
+			then --This is a check to see if the player has enough units
+			  player:delCurrency("dominion_note", 7500);
+	player:tradeComplete();
+	player:addItem(15918,1);
+	player:messageSpecial(ITEM_OBTAINED,15918,1); 
 
    		elseif (trade:hasItemQty(11604,1)) and (dominion_note >= Kubira_Bead_Necklace)
 			 then    --This is a check to see if the player has enough notes
@@ -991,13 +1206,6 @@ if (trade:getItemCount() == 1) then
    player:tradeComplete();
    player:addItem(16269,1);
    player:messageSpecial(ITEM_OBTAINED,16269,1);
-
-   		elseif (trade:hasItemQty(11639,1)) and (dominion_note >= Omega_Ring)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 3000);
-   player:tradeComplete();
-   player:addItem(15800,1);
-   player:messageSpecial(ITEM_OBTAINED,15800,1);
 
    		elseif (trade:hasItemQty(11595,1)) and (dominion_note >= Ritter_Gorget)
 			 then    --This is a check to see if the player has enough notes
@@ -1082,98 +1290,7 @@ if (trade:getItemCount() == 1) then
    player:tradeComplete();
    player:addItem(2571,1);
    player:messageSpecial(ITEM_OBTAINED,2571,1);
-
-      		elseif (trade:hasItemQty(27673,1)) and (dominion_note >= Phantasmal_Abjuration_Body)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 12000);
-   player:tradeComplete();
-   player:addItem(2430,1);
-   player:messageSpecial(ITEM_OBTAINED,2430,1);
-
-      		elseif (trade:hasItemQty(27817,1)) and (dominion_note >= Phantasmal_Abjuration_Head)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 5500);
-   player:tradeComplete();
-   player:addItem(2429,1);
-   player:messageSpecial(ITEM_OBTAINED,2429,1);
-
-      		elseif (trade:hasItemQty(27953,1)) and (dominion_note >= Phantasmal_Abjuration_Hands)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 5500);
-   player:tradeComplete();
-   player:addItem(2431,1);
-   player:messageSpecial(ITEM_OBTAINED,2431,1);
-
-      		elseif (trade:hasItemQty(28100,1)) and (dominion_note >= Phantasmal_Abjuration_Legs)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 7000);
-   player:tradeComplete();
-   player:addItem(2432,1);
-   player:messageSpecial(ITEM_OBTAINED,2432,1);
-
-      		elseif (trade:hasItemQty(28233,1)) and (dominion_note >= Phantasmal_Abjuration_Feet)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 5500);
-   player:tradeComplete();
-   player:addItem(2433,1);
-   player:messageSpecial(ITEM_OBTAINED,2433,1);
-
-      		elseif (trade:hasItemQty(27820,1)) and (dominion_note >= Hadean_Abjuration_Body)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 12000);
-   player:tradeComplete();
-   player:addItem(2435,1);
-   player:messageSpecial(ITEM_OBTAINED,2435,1);
-
-      		elseif (trade:hasItemQty(27676,1)) and (dominion_note >= Hadean_Abjuration_Head)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 5500);
-   player:tradeComplete();
-   player:addItem(2434,1);
-   player:messageSpecial(ITEM_OBTAINED,2434,1);
-
-      		elseif (trade:hasItemQty(27956,1)) and (dominion_note >= Hadean_Abjuration_Hands)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 5500);
-   player:tradeComplete();
-   player:addItem(2436,1);
-   player:messageSpecial(ITEM_OBTAINED,2436,1);
-
-      		elseif (trade:hasItemQty(28103,1)) and (dominion_note >= Hadean_Abjuration_Legs)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 7000);
-   player:tradeComplete();
-   player:addItem(2437,1);
-   player:messageSpecial(ITEM_OBTAINED,2437,1);
-
-      		elseif (trade:hasItemQty(28236,1)) and (dominion_note >= Hadean_Abjuration_Feet)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 5500);
-   player:tradeComplete();
-   player:addItem(2438,1);
-   player:messageSpecial(ITEM_OBTAINED,2438,1);
-
-      		elseif (trade:hasItemQty(12020,1)) and (dominion_note >= Valhalla_Helm)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 12000);
-   player:tradeComplete();
-   player:addItem(16117,1);
-   player:messageSpecial(ITEM_OBTAINED,16117,1);
-
-      		elseif (trade:hasItemQty(12040,1)) and (dominion_note >= Valhalla_Breastplate)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 12000);
-   player:tradeComplete();
-   player:addItem(14577,1);
-   player:messageSpecial(ITEM_OBTAINED,14577,1);
-
-      		elseif (trade:hasItemQty(19312,1)) and (dominion_note >= Valkyries_Fork)
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 10000);
-   player:tradeComplete();
-   player:addItem(18121,1);
-   player:messageSpecial(ITEM_OBTAINED,18121,1);
-
+   
       		elseif (trade:hasItemQty(18891,1)) and (dominion_note >= Hofud)
 			 then    --This is a check to see if the player has enough notes
               player:delCurrency("dominion_note", 10000);
@@ -1183,14 +1300,14 @@ if (trade:getItemCount() == 1) then
 
       		elseif (trade:hasItemQty(18903,1)) and (dominion_note >= Hauteclaire)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 5000);
+              player:delCurrency("dominion_note", 15000);
    player:tradeComplete();
    player:addItem(17738,1);
    player:messageSpecial(ITEM_OBTAINED,17738,1);
 
       		elseif (trade:hasItemQty(18847,1)) and (dominion_note >= Seveneyes)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2000);
+              player:delCurrency("dominion_note", 6500);
    player:tradeComplete();
    player:addItem(18847,1);
    player:messageSpecial(ITEM_OBTAINED,18847,1);
@@ -1218,21 +1335,28 @@ if (trade:getItemCount() == 1) then
 
       		elseif (trade:hasItemQty(10906,1)) and (dominion_note >= Enkidus_Cap)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2000);
+              player:delCurrency("dominion_note", 2500);
    player:tradeComplete();
    player:addItem(16157,1);
    player:messageSpecial(ITEM_OBTAINED,16157,1);
 
       		elseif (trade:hasItemQty(10479,1)) and (dominion_note >= Enkidus_Harness)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 3000);
+              player:delCurrency("dominion_note", 3500);
    player:tradeComplete();
    player:addItem(11284,1);
    player:messageSpecial(ITEM_OBTAINED,11284,1);
 
+      		elseif (trade:hasItemQty(10559,1)) and (dominion_note >= Enkidus_Leggings)
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 6500);
+   player:tradeComplete();
+   player:addItem(11378,1);
+   player:messageSpecial(ITEM_OBTAINED,11378,1);
+
       		elseif (trade:hasItemQty(10625,1)) and (dominion_note >= Hachiryu_Suneate)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6000);
+              player:delCurrency("dominion_note", 10000);
    player:tradeComplete();
    player:addItem(11364,1);
    player:messageSpecial(ITEM_OBTAINED,11364,1);
@@ -1260,14 +1384,14 @@ if (trade:getItemCount() == 1) then
 
       		elseif (trade:hasItemQty(10559,1)) and (dominion_note >= Hachiryu_Haidate)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 10000);
+              player:delCurrency("dominion_note", 12500);
    player:tradeComplete();
    player:addItem(16337,1);
    player:messageSpecial(ITEM_OBTAINED,16337,1);
 
       		elseif (trade:hasItemQty(10484,1)) and (dominion_note >= Oracles_Robe)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 3000);
+              player:delCurrency("dominion_note", 3500);
    player:tradeComplete();
    player:addItem(11283,1);
    player:messageSpecial(ITEM_OBTAINED,11283,1);
@@ -1302,28 +1426,28 @@ if (trade:getItemCount() == 1) then
 
       		elseif (trade:hasItemQty(10503,1)) and (dominion_note >= Hachiryu_Kote)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6000);
+              player:delCurrency("dominion_note", 10000);
    player:tradeComplete();
    player:addItem(15015,1);
    player:messageSpecial(ITEM_OBTAINED,15015,1);
 
       		elseif (trade:hasItemQty(14336,1)) and (dominion_note >= Hachiryu_Haramaki)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 16000);
+              player:delCurrency("dominion_note", 17500);
    player:tradeComplete();
    player:addItem(11281,1);
    player:messageSpecial(ITEM_OBTAINED,11281,1);
 
       		elseif (trade:hasItemQty(18626,1)) and (dominion_note >= Dorje)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 5000);
+              player:delCurrency("dominion_note", 8000);
    player:tradeComplete();
    player:addItem(18594,1);
    player:messageSpecial(ITEM_OBTAINED,18594,1);
 
       		elseif (trade:hasItemQty(18455,1)) and (dominion_note >= Nanatsusaya)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 8000);
+              player:delCurrency("dominion_note", 10000);
    player:tradeComplete();
    player:addItem(18447,1);
    player:messageSpecial(ITEM_OBTAINED,18447,1);
@@ -1351,7 +1475,7 @@ if (trade:getItemCount() == 1) then
    
             		elseif (trade:hasItemQty(19286,1)) and (dominion_note >= Perdu_blade)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 3500);
    player:tradeComplete();
    player:addItem(18425,1);
    player:messageSpecial(ITEM_OBTAINED,18425,1);
@@ -1365,7 +1489,7 @@ if (trade:getItemCount() == 1) then
    
             		elseif (trade:hasItemQty(19432,1)) and (dominion_note >= Perdu_voulge)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 5000);
    player:tradeComplete();
    player:addItem(18491,1);
    player:messageSpecial(ITEM_OBTAINED,18491,1);
@@ -1379,59 +1503,45 @@ if (trade:getItemCount() == 1) then
    
             		elseif (trade:hasItemQty(19175,1)) and (dominion_note >= Perdu_sword)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 3500);
    player:tradeComplete();
    player:addItem(16602,1);
    player:messageSpecial(ITEM_OBTAINED,16602,1);
    
             		elseif (trade:hasItemQty(18966,1)) and (dominion_note >= Perdu_sickle)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 3500);
    player:tradeComplete();
    player:addItem(18943,1);
    player:messageSpecial(ITEM_OBTAINED,18943,1);
    
             		elseif (trade:hasItemQty(19730,1)) and (dominion_note >= Perdu_bow)
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 2500);
+              player:delCurrency("dominion_note", 3500);
    player:tradeComplete();
    player:addItem(18717,1);
    player:messageSpecial(ITEM_OBTAINED,18717,1);
-   
-               		elseif (trade:hasItemQty(12033,1)) and (dominion_note >= Skadis_Cuirie) --Base item = Raider's Vest
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 15000);
-   player:tradeComplete();
-   player:addItem(14550,1);
-   player:messageSpecial(ITEM_OBTAINED,14550,1);
 
             		elseif (trade:hasItemQty(12053,1)) and (dominion_note >= Skadis_Bazubands) --Base item = Raider's Armlets
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(14965,1);
    player:messageSpecial(ITEM_OBTAINED,14965,1);
 
             		elseif (trade:hasItemQty(12013,1)) and (dominion_note >= Skadis_Visor) --Base item = Raider's Bonnet
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(16088,1);
    player:messageSpecial(ITEM_OBTAINED,16088,1);
 
             		elseif (trade:hasItemQty(12093,1)) and (dominion_note >= Skadis_Jambeaux) --Base item = Raider's Poulaines
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 6500);
+              player:delCurrency("dominion_note", 8500);
    player:tradeComplete();
    player:addItem(15715,1);
    player:messageSpecial(ITEM_OBTAINED,15715,1);
-
-            		elseif (trade:hasItemQty(12073,1)) and (dominion_note >= Skadis_Chausses) --Base item = Raider's Culottes
-			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 8500);
-   player:tradeComplete();
-   player:addItem(15629,1);
-   player:messageSpecial(ITEM_OBTAINED,15629,1);
 
             		elseif (trade:hasItemQty(11802,1)) and (dominion_note >= Yigit_turban) 
 			 then    --This is a check to see if the player has enough notes
@@ -1540,56 +1650,56 @@ if (trade:getItemCount() == 1) then
    
                		elseif (trade:hasItemQty(11575,1)) and (dominion_note >= Invigorating_Cape) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15494,1);
    player:messageSpecial(ITEM_OBTAINED,15494,1);
    
                   		elseif (trade:hasItemQty(11572,1)) and (dominion_note >= Bushido_Cape) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15493,1);
    player:messageSpecial(ITEM_OBTAINED,16493,1);
    
                   		elseif (trade:hasItemQty(11573,1)) and (dominion_note >= Intensifying_Cape) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15492,1);
    player:messageSpecial(ITEM_OBTAINED,15492,1);
    
                   		elseif (trade:hasItemQty(10974,1)) and (dominion_note >= Bullseye_Cape) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15491,1);
    player:messageSpecial(ITEM_OBTAINED,15491,1);
    
                   		elseif (trade:hasItemQty(10973,1)) and (dominion_note >= Miraculous_Cape) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15490,1);
    player:messageSpecial(ITEM_OBTAINED,15490,1);
    
                   		elseif (trade:hasItemQty(10924,1)) and (dominion_note >= Tempered_Chain) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15521,1);
    player:messageSpecial(ITEM_OBTAINED,15521,1);
    
                   		elseif (trade:hasItemQty(10926,1)) and (dominion_note >= Enlightened_Chain) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15522,1);
    player:messageSpecial(ITEM_OBTAINED,15522,1);
    
                   		elseif (trade:hasItemQty(10925,1)) and (dominion_note >= Chivalrous_Chain) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15523,1);
    player:messageSpecial(ITEM_OBTAINED,15523,1);
@@ -1603,45 +1713,157 @@ if (trade:getItemCount() == 1) then
    
                   		elseif (trade:hasItemQty(11616,1)) and (dominion_note >= Grandoise_Chain) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15525,1);
    player:messageSpecial(ITEM_OBTAINED,15525,1);
    
                   		elseif (trade:hasItemQty(11701,1)) and (dominion_note >= Stoic_Earring) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15970,1);
    player:messageSpecial(ITEM_OBTAINED,15970,1);
    
                   		elseif (trade:hasItemQty(11720,1)) and (dominion_note >= Antivenom_Earring) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15971,1);
    player:messageSpecial(ITEM_OBTAINED,15971,1);
    
                   		elseif (trade:hasItemQty(11721,1)) and (dominion_note >= Insomnia_Earring) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15972,1);
    player:messageSpecial(ITEM_OBTAINED,15972,1);
    
                   		elseif (trade:hasItemQty(11705,1)) and (dominion_note >= Vision_Earring) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15973,1);
    player:messageSpecial(ITEM_OBTAINED,15973,1);
    
                   		elseif (trade:hasItemQty(11706,1)) and (dominion_note >= Velocity_Earring) --Base item =
 			 then    --This is a check to see if the player has enough notes
-              player:delCurrency("dominion_note", 500);
+              player:delCurrency("dominion_note", 1000);
    player:tradeComplete();
    player:addItem(15974,1);
-   player:messageSpecial(ITEM_OBTAINED,15974,1);
+   player:messageSpecial(ITEM_OBTAINED,15974,1);   
+
+   				elseif (trade:hasItemQty(28632,1)) and (dominion_note >= Ixion_Cape)
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 4500);
+   player:tradeComplete();
+   player:addItem(16242,1);
+   player:messageSpecial(ITEM_OBTAINED,16242,1);
+
+   				elseif (trade:hasItemQty(11560,1)) and (dominion_note >= Ixion_Cloak) --Base item = Pedant Cape
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 4500);
+   player:tradeComplete();
+   player:addItem(11289,1);
+   player:messageSpecial(ITEM_OBTAINED,11289,1);
+   
+      				elseif (trade:hasItemQty(21320,1)) and (dominion_note >= Black_Tathlum)
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 7500);
+   player:tradeComplete();
+   player:addItem(19212,1);
+   player:messageSpecial(ITEM_OBTAINED,19212,1);
+   
+      				elseif (trade:hasItemQty(21336,1)) and (dominion_note >= White_Tathlum)
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 7500);
+   player:tradeComplete();
+   player:addItem(19213,1);
+   player:messageSpecial(ITEM_OBTAINED,19213,1);      
+   
+       				elseif (trade:hasItemQty(16582,1)) and (dominion_note >= Nightfall) -- Base item = Vetala Sword
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 8500);
+   player:tradeComplete();
+   player:addItem(19163,1);
+   player:messageSpecial(ITEM_OBTAINED,19163,1); 
+   
+       				elseif (trade:hasItemQty(18815,1)) and (dominion_note >= Reign_Grip) -- Base item = Arbuda Grip
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 2500);
+   player:tradeComplete();
+   player:addItem(19048,1);
+   player:messageSpecial(ITEM_OBTAINED,19048,1);    
+   
+       			elseif (trade:hasItemQty(18803,1)) and (dominion_note >= Wise_Strap) -- Base item = Pax Grip
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 2500);
+   player:tradeComplete();
+   player:addItem(19030,1);
+   player:messageSpecial(ITEM_OBTAINED,19030,1);
+
+   				elseif (trade:hasItemQty(11700,1)) and (dominion_note >= Diverters_Ring) --Base item = Gifted Earring
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 2500);
+   player:tradeComplete();
+   player:addItem(15833,1);
+   player:messageSpecial(ITEM_OBTAINED,15833,1);
+
+   				elseif (trade:hasItemQty(11641,1)) and (dominion_note >= Fenian_Ring) --Base item = Metanoia Ring
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 2500);
+   player:tradeComplete();
+   player:addItem(15831,1);
+   player:messageSpecial(ITEM_OBTAINED,15831,1);        
+   
+       			elseif (trade:hasItemQty(11698,1)) and (dominion_note >= Crapaud_Earring) -- Base item = Hecate's Earring
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 3500);
+   player:tradeComplete();
+   player:addItem(16001,1);
+   player:messageSpecial(ITEM_OBTAINED,16001,1);     
+   
+       			elseif (trade:hasItemQty(11643,1)) and (dominion_note >= Ecphoria_Ring) -- Base item = Odium Ring
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 2500);
+   player:tradeComplete();
+   player:addItem(15817,1);
+   player:messageSpecial(ITEM_OBTAINED,15817,1);     
+   
+       			elseif (trade:hasItemQty(10815,1)) and (dominion_note >= Cuchulains_Belt) -- Base item = Phasmida Belt
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 7500);
+   player:tradeComplete();
+   player:addItem(15917,1);
+   player:messageSpecial(ITEM_OBTAINED,15917,1);   
+
+   				elseif (trade:hasItemQty(14337,1)) and (dominion_note >= Zahaks_Mail)
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 5000);
+   player:tradeComplete();
+   player:addItem(11288,1);
+   player:messageSpecial(ITEM_OBTAINED,11288,1);   
+   
+      			elseif (trade:hasItemQty(11362,1)) and (dominion_note >= Nocturnus_Mail) --Base item = Twilight Mail
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 25000);
+   player:tradeComplete();
+   player:addItem(11354,1);
+   player:messageSpecial(ITEM_OBTAINED,11354,1);
+   
+      			elseif (trade:hasItemQty(11798,1)) and (dominion_note >= Nocturnus_Helm) -- Base item = Twilight Helm
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 20000);
+   player:tradeComplete();
+   player:addItem(11501,1);
+   player:messageSpecial(ITEM_OBTAINED,11501,1); 
+   
+  				elseif (trade:hasItemQty(11359,1)) and (dominion_note >= Antares_Harness) --Base item = Velox Harness
+			 then    --This is a check to see if the player has enough notes
+              player:delCurrency("dominion_note", 5000);
+   player:tradeComplete();
+   player:addItem(11287,1);
+   player:messageSpecial(ITEM_OBTAINED,11287,1);  
    
    -----------------------BEGIN TIER 4 ITEMS--------------------------------------------------------------  
 				
@@ -1652,13 +1874,6 @@ if (trade:getItemCount() == 1) then
    player:tradeComplete();
    player:addItem(16275,1);
    player:messageSpecial(ITEM_OBTAINED,16275,1);
-   
-  				elseif (trade:hasItemQty(11359,1)) and (kinetic_unit >= Antares_Harness) --Base item = Velox Harness
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 3000);
-   player:tradeComplete();
-   player:addItem(11287,1);
-   player:messageSpecial(ITEM_OBTAINED,11287,1); 
    
    				elseif (trade:hasItemQty(20831,1)) and (kinetic_unit >= Seismic_Axe)
 			 then    --This is a check to see if the player has enough units
@@ -1730,13 +1945,6 @@ if (trade:getItemCount() == 1) then
    player:addItem(17751,1);
    player:messageSpecial(ITEM_OBTAINED,17751,1);
    
-      				elseif (trade:hasItemQty(11506,1)) and (kinetic_unit >= ZhaGos_Barbut) --Base item = Varangian Helm
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 3000);
-   player:tradeComplete();
-   player:addItem(16159,1);
-   player:messageSpecial(ITEM_OBTAINED,16159,1);
-   
       				elseif (trade:hasItemQty(13791,1)) and (kinetic_unit >= Avalon_Breastplate) --Base item = Timarli Jawshan
 			 then    --This is a check to see if the player has enough units
               player:delCurrency("kinetic_unit", 3000);
@@ -1750,20 +1958,6 @@ if (trade:getItemCount() == 1) then
    player:tradeComplete();
    player:addItem(15034,1);
    player:messageSpecial(ITEM_OBTAINED,15034,1);
-   
-      				elseif (trade:hasItemQty(21320,1)) and (kinetic_unit >= Black_Tathlum)
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 2000);
-   player:tradeComplete();
-   player:addItem(19212,1);
-   player:messageSpecial(ITEM_OBTAINED,19212,1);
-   
-      				elseif (trade:hasItemQty(21336,1)) and (kinetic_unit >= White_Tathlum)
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 2000);
-   player:tradeComplete();
-   player:addItem(19213,1);
-   player:messageSpecial(ITEM_OBTAINED,19213,1);
    
       				elseif (trade:hasItemQty(27580,1)) and (kinetic_unit >= Headsmans_Ring)
 			 then    --This is a check to see if the player has enough units
@@ -1898,13 +2092,6 @@ if (trade:getItemCount() == 1) then
    player:addItem(19041,1);
    player:messageSpecial(ITEM_OBTAINED,19041,1);
 
-   				elseif (trade:hasItemQty(11700,1)) and (kinetic_unit >= Diverters_Ring) --Base item = Gifted Earring
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 1000);
-   player:tradeComplete();
-   player:addItem(15833,1);
-   player:messageSpecial(ITEM_OBTAINED,15833,1);
-
    				elseif (trade:hasItemQty(15527,1)) and (kinetic_unit >= Cougar_Pendant) --Base item = Praecis Gorget
 			 then    --This is a check to see if the player has enough units
               player:delCurrency("kinetic_unit", 1000);
@@ -1952,14 +2139,7 @@ if (trade:getItemCount() == 1) then
               player:delCurrency("kinetic_unit", 1000);
    player:tradeComplete();
    player:addItem(15758,1);
-   player:messageSpecial(ITEM_OBTAINED,15758,1);   
-
-   				elseif (trade:hasItemQty(28632,1)) and (kinetic_unit >= Ixion_Cape)
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 1500);
-   player:tradeComplete();
-   player:addItem(16242,1);
-   player:messageSpecial(ITEM_OBTAINED,16242,1);
+   player:messageSpecial(ITEM_OBTAINED,15758,1);
 
    				elseif (trade:hasItemQty(11697,1)) and (kinetic_unit >= Supremacy_Earring) --Base item = Moonshade Earring
 			 then    --This is a check to see if the player has enough units
@@ -1982,13 +2162,6 @@ if (trade:getItemCount() == 1) then
    player:addItem(17684,1);
    player:messageSpecial(ITEM_OBTAINED,17684,1);
 
-   				elseif (trade:hasItemQty(11560,1)) and (kinetic_unit >= Ixion_Cloak) --Base item = Pedant Cape
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 2000);
-   player:tradeComplete();
-   player:addItem(11289,1);
-   player:messageSpecial(ITEM_OBTAINED,11289,1);
-
    				elseif (trade:hasItemQty(28522,1)) and (kinetic_unit >= Paramount_Earring)
 			 then    --This is a check to see if the player has enough units
               player:delCurrency("kinetic_unit", 1000);
@@ -2002,13 +2175,6 @@ if (trade:getItemCount() == 1) then
    player:tradeComplete();
    player:addItem(16294,1);
    player:messageSpecial(ITEM_OBTAINED,16294,1);
-
-   				elseif (trade:hasItemQty(11641,1)) and (kinetic_unit >= Fenian_Ring) --Base item = Metanoia Ring
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 1000);
-   player:tradeComplete();
-   player:addItem(15831,1);
-   player:messageSpecial(ITEM_OBTAINED,15831,1);
 
    				elseif (trade:hasItemQty(11642,1)) and (kinetic_unit >= Royal_Knight_Sigil_Ring) --Base item = Hoard Ring
 			 then    --This is a check to see if the player has enough units
@@ -2030,13 +2196,6 @@ if (trade:getItemCount() == 1) then
    player:tradeComplete();
    player:addItem(16291,1);
    player:messageSpecial(ITEM_OBTAINED,16291,1);
-
-   				elseif (trade:hasItemQty(14337,1)) and (kinetic_unit >= Zahaks_Mail)
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 3000);
-   player:tradeComplete();
-   player:addItem(11288,1);
-   player:messageSpecial(ITEM_OBTAINED,11288,1);
 
    				elseif (trade:hasItemQty(10766,1)) and (kinetic_unit >= Patronus_Ring)
 			 then    --This is a check to see if the player has enough units
@@ -2086,13 +2245,6 @@ if (trade:getItemCount() == 1) then
    player:tradeComplete();
    player:addItem(16317,1);
    player:messageSpecial(ITEM_OBTAINED,16137,1);
-
-   				elseif (trade:hasItemQty(10653,1)) and (kinetic_unit >= Rees_Headgear)
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 3000);
-   player:tradeComplete();
-   player:addItem(16160,1);
-   player:messageSpecial(ITEM_OBTAINED,16160,1);
 
    				elseif (trade:hasItemQty(10744,1)) and (kinetic_unit >= Koschei_Crackows)
 			 then    --This is a check to see if the player has enough units
@@ -2148,28 +2300,7 @@ if (trade:getItemCount() == 1) then
               player:delCurrency("kinetic_unit", 1500);
    player:tradeComplete();
    player:addItem(15934,1);
-   player:messageSpecial(ITEM_OBTAINED,15934,1);   
-   
-      				elseif (trade:hasItemQty(11362,1)) and (kinetic_unit >= Nocturnus_Mail) --Base item = Twilight Mail
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 5000);
-   player:tradeComplete();
-   player:addItem(11354,1);
-   player:messageSpecial(ITEM_OBTAINED,11354,1);
-   
-      				elseif (trade:hasItemQty(11798,1)) and (kinetic_unit >= Nocturnus_Helm) -- Base item = Twilight Helm
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 5000);
-   player:tradeComplete();
-   player:addItem(11501,1);
-   player:messageSpecial(ITEM_OBTAINED,11501,1);      
-   
-       				elseif (trade:hasItemQty(16582,1)) and (kinetic_unit >= Nightfall) -- Base item = Vetala Sword
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 3000);
-   player:tradeComplete();
-   player:addItem(19163,1);
-   player:messageSpecial(ITEM_OBTAINED,19163,1);    
+   player:messageSpecial(ITEM_OBTAINED,15934,1);  
    
        				elseif (trade:hasItemQty(11054,1)) and (kinetic_unit >= Roundel_Earring) -- Base item = Pensee Earring
 			 then    --This is a check to see if the player has enough units
@@ -2183,21 +2314,7 @@ if (trade:getItemCount() == 1) then
               player:delCurrency("kinetic_unit", 1500);
    player:tradeComplete();
    player:addItem(19029,1);
-   player:messageSpecial(ITEM_OBTAINED,19029,1);    
-   
-       				elseif (trade:hasItemQty(18803,1)) and (kinetic_unit >= Wise_Strap) -- Base item = Pax Grip
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 1500);
-   player:tradeComplete();
-   player:addItem(19030,1);
-   player:messageSpecial(ITEM_OBTAINED,19030,1);    
-   
-       				elseif (trade:hasItemQty(10815,1)) and (kinetic_unit >= Cuchulains_Belt) -- Base item = Phasmida Belt
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 2000);
-   player:tradeComplete();
-   player:addItem(15917,1);
-   player:messageSpecial(ITEM_OBTAINED,15917,1);     
+   player:messageSpecial(ITEM_OBTAINED,19029,1);  
    
        				elseif (trade:hasItemQty(10352,1)) and (kinetic_unit >= Karasutengu_Kogake) -- Base item = Ghadhab Nails
 			 then    --This is a check to see if the player has enough units
@@ -2225,14 +2342,7 @@ if (trade:getItemCount() == 1) then
               player:delCurrency("kinetic_unit", 1500);
    player:tradeComplete();
    player:addItem(16179,1);
-   player:messageSpecial(ITEM_OBTAINED,16179,1);        
-   
-       				elseif (trade:hasItemQty(11698,1)) and (kinetic_unit >= Crapaud_Earring) -- Base item = Hecate's Earring
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 2000);
-   player:tradeComplete();
-   player:addItem(16001,1);
-   player:messageSpecial(ITEM_OBTAINED,16001,1); 
+   player:messageSpecial(ITEM_OBTAINED,16179,1);
 
        				elseif (trade:hasItemQty(11013,1)) and (kinetic_unit >= Hecates_Cape) -- Base item = Taubran Cape
 			 then    --This is a check to see if the player has enough units
@@ -2246,14 +2356,7 @@ if (trade:getItemCount() == 1) then
               player:delCurrency("kinetic_unit", 2000);
    player:tradeComplete();
    player:addItem(11578,1);
-   player:messageSpecial(ITEM_OBTAINED,11578,1); 
-   
-       				elseif (trade:hasItemQty(18815,1)) and (kinetic_unit >= Reign_Grip) -- Base item = Arbuda Grip
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 1500);
-   player:tradeComplete();
-   player:addItem(19048,1);
-   player:messageSpecial(ITEM_OBTAINED,19048,1); 
+   player:messageSpecial(ITEM_OBTAINED,11578,1);
    
        				elseif (trade:hasItemQty(11609,1)) and (kinetic_unit >= Pipers_Torque) -- Base item = Shifting Necklace
 			 then    --This is a check to see if the player has enough units
@@ -2281,14 +2384,7 @@ if (trade:getItemCount() == 1) then
               player:delCurrency("kinetic_unit", 1500);
    player:tradeComplete();
    player:addItem(11497,1);
-   player:messageSpecial(ITEM_OBTAINED,11497,1);    
-   
-       				elseif (trade:hasItemQty(11643,1)) and (kinetic_unit >= Ecphoria_Ring) -- Base item = Odium Ring
-			 then    --This is a check to see if the player has enough units
-              player:delCurrency("kinetic_unit", 1000);
-   player:tradeComplete();
-   player:addItem(15817,1);
-   player:messageSpecial(ITEM_OBTAINED,15817,1);       
+   player:messageSpecial(ITEM_OBTAINED,11497,1);      
    
        				elseif (trade:hasItemQty(16756,1)) and (kinetic_unit >= Papilio_Kirpan) -- Base item = Leste Jambiya
 			 then    --This is a check to see if the player has enough units
@@ -2323,14 +2419,14 @@ if (trade:getItemCount() == 1) then
               player:delCurrency("kinetic_unit", 800);
    player:tradeComplete();
    player:addItem(19124,1);
-   player:messageSpecial(ITEM_OBTAINED,19124,1);  
-
-	elseif (trade:hasItemQty(11771,1)) and (kinetic_unit >= Witch_Sash) --base item is Pipilaka Belt
-			then --This is a check to see if the player has enough units
-			  player:delCurrency("kinetic_unit", 1500);
-	player:tradeComplete();
-	player:addItem(15918,1);
-	player:messageSpecial(ITEM_OBTAINED,15918,1);   
+   player:messageSpecial(ITEM_OBTAINED,19124,1);   
+   
+       				elseif (trade:hasItemQty(11763,1)) and (kinetic_unit >= Virtuoso_Belt) -- Base item = Beir Belt
+			 then    --This is a check to see if the player has enough units
+              player:delCurrency("kinetic_unit", 2500);
+   player:tradeComplete();
+   player:addItem(15943,1);
+   player:messageSpecial(ITEM_OBTAINED,15943,1);     
    
 		end
      end 

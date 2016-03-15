@@ -24,9 +24,7 @@ function onTrigger(player,npc)
 	
 player:PrintToPlayer("Welcome to the Tier 4 Rewards Shop #2. Please purchase your base item!");
 
-stock = {0x5348,1,
-0x5358,1,
-0x5389,1,
+stock = {0x5389,1,
 0x515F,1,
 0x48BB,1,
 0x50EB,1,
@@ -40,13 +38,11 @@ stock = {0x5348,1,
 0x42AD,1,
 0x4A8C,1,
 0x40C6,1,
-0x3F3F,1,
-0x497F,1,
 0x497A,1,
 0x497B,1,
 0x3020,1,
-0x4973,1,
-0x4974,1,
+0x2DF3,1,
+0x4974,1
 	}	
 showShop(player, STATIC, stock);
 end; 
