@@ -24,10 +24,11 @@ end;
 function onTrigger(player,npc)
 
     local MEMORIESMAIDENStatus=player:getVar("MEMORIES_OF_A_MAIDEN_Status");
-if (player:getCurrentMission(COP) == THE_ROAD_FORKS and (MEMORIESMAIDENStatus==7 or MEMORIESMAIDENStatus==8) and player:hasKeyItem(MIMEO_JEWEL)==false) then
+if (player:getCurrentMission(COP) == THE_ROAD_FORKS --and (MEMORIESMAIDENStatus==7 or MEMORIESMAIDENStatus==8) 
+and player:hasKeyItem(MIMEO_JEWEL)==false) then
 	player:addKeyItem(MIMEO_JEWEL);
-	ally:setVar("MEMORIES_OF_A_MAIDEN_Status",8);
-        player:messageSpecial(KEYITEM_OBTAINED, MIMEO_JEWEL);
+	player:messageSpecial(KEYITEM_OBTAINED, MIMEO_JEWEL);
+	--player:setVar("MEMORIES_OF_A_MAIDEN_Status",8); 
         player:setPos(322,-25,-12,30); -- tp to the cradle of rebirth (temporary solution, the road to the top of the mountain doesn't work)
 	
 	end
