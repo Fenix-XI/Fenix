@@ -21,7 +21,7 @@ end;
 
 function onTrigger(player,npc)
 --    player:showText(npc,NOMAD_MOOGLE_DIALOG);
-player:PrintToPlayer("Change jobs will be available on next reboot");
+--player:PrintToPlayer("Change jobs will be available on next reboot");
     player:sendMenu(1);
 end;
 

@@ -53,7 +53,7 @@ Usukane_Haramaki	= 15000;Usukane_Somen	= 8500;Usukane_Gote	= 8500;Usukane_Hizayo
 Usukane_Suneate	= 10000;Ares_Cuirass	= 15000;Ares_Mask	= 6500;Ares_Gauntlets	= 6500;Ares_Flanchard	= 8500;
 Ares_Sollerets	= 6500;Marduks_Jubbah	= 15000;Marduks_Tiara	= 10000;Marduks_Dastanas	= 8500;
 Marduks_Shalwar	= 12500;Marduks_Crackows	= 8500;Morrigans_Robe	= 15000;Morrigans_Coronal	= 10000;
-Morrigans_Cuffs	= 8500;Morrigans_Slops	= 12500;Morrigans_Pigaches	= 8500;Animator	= 3000; Hightail Bullet = 500;
+Morrigans_Cuffs	= 8500;Morrigans_Slops	= 12500;Morrigans_Pigaches	= 8500;Animator	= 3000; Hightail_Bullet = 500;
 Aslan_Cape	= 3000;Buccaneers_Belt	= 3000;Delta_Earring	= 3000;Gleemans_Cape	= 3000;Iota_Ring	= 3000;
 Kubira_Bead_Necklace	= 3000;Morganas_Choker	= 3000;Omega_Ring	= 6500;Ritter_Gorget	= 3000;
 Nethercant_Chain	= 500;Nethereye_Chain	= 500;Netherfield_Chain	= 500;Netherpact_Chain	= 500;

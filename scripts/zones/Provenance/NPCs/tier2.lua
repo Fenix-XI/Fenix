@@ -58,7 +58,7 @@ end;
 function onTrigger(player,npc)
 	
 player:PrintToPlayer("Welcome to the Tier 2 Rewards Shop. Please purchase your base item!");
-player:PrintToPlayer("Trading me HQ Sea organs will net you 50 Plasm per. I only accept the same type at a time!");
+player:PrintToPlayer("Trading me HQ Sea organs will net you 50 Plasm each. I only accept the same type at a time!");
 stock = {0x2D76,1,
 0x4868,1,
 0x3F84,1,
@@ -87,7 +87,7 @@ stock = {0x2D76,1,
 0x3DF2,1,
 0x458E,1,
 0x4065,1,
-0x4AC7,1
+0x4AC7,1,
 0x6CA8,1,
 0x6C18,1,
 0x2D77,1,
@@ -115,7 +115,6 @@ stock = {0x2D76,1,
 0x48C4,1,
 0x2CAD,1,
 0x2B1F,1,
-0x2C28,1,
 0x2B1D,1,
 0x2DB6,1,
 0x30C9,1,
