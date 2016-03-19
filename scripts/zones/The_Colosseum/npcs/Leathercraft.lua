@@ -46,7 +46,8 @@ stock = {0x119D,1,	--Distilled Water
 0x329B,1,	--Cuir Highboots
 0x319B,1,	--Cuir Gloves
 0x297,1,	--Mythril Sheet
-0x690,1, --HQ bugard skin
+0x690,1, 	--HQ bugard skin
+0x35C,1, 	-- Behemoth Hide
 	
 	}
  

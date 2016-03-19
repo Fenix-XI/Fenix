@@ -54,6 +54,7 @@ stock = {0x0370,1,	--Bone Chip
 0x6b7,1,    --Harajanite Shell
 0xB60,1,    --Bugard Horn
 0x718,1,    --Wyrm Horn
+0x387,1,    --Dragon Talon
 
 }	
  
