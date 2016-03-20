@@ -1,6 +1,7 @@
 -----------------------------------
--- Area: Caedarva Mire
---  MOB: Heraldic Imp
+-- Area: Lufaise Meadows
+--  MOB: Abraxas
+-- POS: 318 -7 166
 -----------------------------------
 
 require("scripts/globals/status");
@@ -32,9 +33,6 @@ end;
 
 function onCriticalHit(mob)
 
-    if (math.random(100) < 20 and mob:AnimationSub() == 0) then  -- 20% change to break that horn on crit
-        mob:AnimationSub(1);
-    end
 end;
 
 -----------------------------------
@@ -42,6 +40,6 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
---	ally:addCurrency("dominion_note",20);
---	ally:PrintToPlayer( "You earned 20 Dominion Notes!");
+	ally:addCurrency("mweya_plasm",20);
+	ally:PrintToPlayer( "You earned 20 Mweya Plasm!");
 end;
