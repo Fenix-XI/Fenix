@@ -44,7 +44,6 @@ function onBcnmLeave(player,instance,leavecode)
 --print("leave code "..leavecode);
 
     if (leavecode == 2) then -- play end CS. Need time and battle id for record keeping + storage
-		--player:addCurrency("bayld",300);
         if (player:hasCompletedMission(ZILART,ARK_ANGELS)) then
             player:startEvent(0x7d01,instance:getEntrance(),instance:getFastestTime(),1,instance:getTimeInside(),180,5,1);        -- winning CS (allow player to skip)
         else

@@ -45,5 +45,7 @@ end;
 function onEventFinish(player,csid,option)
    if (csid == 0x0005) then
      player:setVar("COP_Tenzen_s_Path",10);
+	 	ally:addCurrency("mweya_plasm",300);
+	ally:PrintToPlayer( "You earned 300 Mweya Plasm!");
    end   
 end;

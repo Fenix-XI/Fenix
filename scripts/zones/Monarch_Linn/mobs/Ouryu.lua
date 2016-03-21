@@ -53,8 +53,9 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer)
-
+function onMobDeath(mob, killer, ally)
+	ally:addCurrency("mweya_plasm",300);
+	ally:PrintToPlayer( "You earned 300 Mweya Plasm!");
 	killer:addTitle(MIST_MELTER);
 
 end;

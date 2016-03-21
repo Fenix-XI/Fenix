@@ -57,7 +57,7 @@ function onEventFinish(player,csid,option)
             player:addMission(ZILART,THE_CHAMBER_OF_ORACLES);
 
         end
-	--player:addCurrency("bayld",250);
+
     end
     
 end;

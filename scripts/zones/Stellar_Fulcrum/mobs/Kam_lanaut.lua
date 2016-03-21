@@ -50,5 +50,7 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+ally:addCurrency("bayld",250);
+ally:PrintToPlayer( "You earned 250 Bayld!");
     ally:addTitle(DESTROYER_OF_ANTIQUITY);
 end;
