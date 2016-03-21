@@ -19,4 +19,6 @@ end;
 
 function onMobDeath(mob,killer,ally)
     ally:addTitle(DREAD_DRAGON_SLAYER);
+	ally:addCurrency("bayld",50);
+	ally:PrintToPlayer( "You earned 50 Bayld!");
 end;

@@ -19,4 +19,5 @@ end;
 
 function onMobDeath(mob,killer,ally)
     ally:addTitle(BLACK_DRAGON_SLAYER);
+	ally:addCurrency("bayld",50);
 end;

@@ -28,6 +28,8 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+					ally:addCurrency("bayld",83);
+		ally:PrintToPlayer( "You earned 83 Bayld!");
     local kills = ally:getVar("EVERYONES_GRUDGE_KILLS");
 
     if (kills < 480) then
