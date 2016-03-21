@@ -80,6 +80,6 @@ end;
 
 function onMobDeath(mob, killer, ally)
     ally:addTitle(ARCHMAGE_ASSASSIN);
-			ally:addCurrency("bayld",125);
+		ally:addCurrency("bayld",125);
 		ally:PrintToPlayer( "You earned 125 Bayld!");
 end;
