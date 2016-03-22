@@ -17,14 +17,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
---player:PrintToPlayer("Done son");
-if (player:getCurrentMission(ZILART) == RETURN_TO_DELKFUTTS_TOWER) then
-            player:completeMission(ZILART,RETURN_TO_DELKFUTTS_TOWER);
-            player:addMission(ZILART,ROMAEVE);
-            player:setVar("ZilartStatus",0);
-			 player:startEvent(0x7d01);
-			 player:PrintToPlayer("You are now on Mission Ro'Maeve");
-        end
+
 end;
 
 -----------------------------------
