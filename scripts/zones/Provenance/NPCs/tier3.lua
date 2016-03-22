@@ -96,12 +96,7 @@ stock = {0x4817,1,
 0x2DFB,1,
 0x293F,1,
 0x5358,1
-
---THESE BELOW ARE NOT IN THE GAME WILL MAKE A NEW NPC 80 is the max items per NPC
-
-
-
-	}	
+}	
  
 showShop(player, STATIC, stock);
 end; 
