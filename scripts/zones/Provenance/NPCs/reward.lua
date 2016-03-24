@@ -891,57 +891,57 @@ if (trade:getItemCount() == 1) then
 			 then    --This is a check to see if the player has enough plasm
               player:delCurrency("mweya_plasm", 10000);
    player:tradeComplete();
-   player:addItem(14546,1);
-   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   player:addItem(15322,1);
+   player:messageSpecial(ITEM_OBTAINED,15322,1);
    
       	elseif (trade:hasItemQty(12489,1)) and (mweya_plasm >= Bahamuts_Mask)
 			 then    --This is a check to see if the player has enough plasm
               player:delCurrency("mweya_plasm", 15000);
    player:tradeComplete();
-   player:addItem(14546,1);
-   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   player:addItem(15264,1);
+   player:messageSpecial(ITEM_OBTAINED,15264,1);
    
       	elseif (trade:hasItemQty(18630,1)) and (mweya_plasm >= Bahamuts_Staff)
 			 then    --This is a check to see if the player has enough plasm
               player:delCurrency("mweya_plasm", 15000);
    player:tradeComplete();
-   player:addItem(14546,1);
-   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   player:addItem(17598,1);
+   player:messageSpecial(ITEM_OBTAINED,17598,1);
    
       	elseif (trade:hasItemQty(18561,1)) and (mweya_plasm >= Bahamuts_Zaghnal)
 			 then    --This is a check to see if the player has enough plasm
               player:delCurrency("mweya_plasm", 15000);
    player:tradeComplete();
-   player:addItem(14546,1);
-   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   player:addItem(18061,1);
+   player:messageSpecial(ITEM_OBTAINED,18061,1);
    
       	elseif (trade:hasItemQty(11039,1)) and (mweya_plasm >= Static_Earring)
 			 then    --This is a check to see if the player has enough plasm
               player:delCurrency("mweya_plasm", 15000);
    player:tradeComplete();
-   player:addItem(14546,1);
-   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   player:addItem(15962,1);
+   player:messageSpecial(ITEM_OBTAINED,15962,1);
    
       	elseif (trade:hasItemQty(11304,1)) and (mweya_plasm >= Ethereal_Earring)
 			 then    --This is a check to see if the player has enough plasm
               player:delCurrency("mweya_plasm", 25000);
    player:tradeComplete();
-   player:addItem(14546,1);
-   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   player:addItem(15965,1);
+   player:messageSpecial(ITEM_OBTAINED,15965,1);
    
       	elseif (trade:hasItemQty(11037,1)) and (mweya_plasm >= Magnetic_Earring)
 			 then    --This is a check to see if the player has enough plasm
               player:delCurrency("mweya_plasm", 25000);
    player:tradeComplete();
-   player:addItem(14546,1);
-   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   player:addItem(15963,1);
+   player:messageSpecial(ITEM_OBTAINED,15963,1);
    
       	elseif (trade:hasItemQty(11702,1)) and (mweya_plasm >= Hollow_Earring)
 			 then    --This is a check to see if the player has enough plasm
               player:delCurrency("mweya_plasm", 15000);
    player:tradeComplete();
-   player:addItem(14546,1);
-   player:messageSpecial(ITEM_OBTAINED,14546,1);
+   player:addItem(15964,1);
+   player:messageSpecial(ITEM_OBTAINED,15964,1);
    
    
    
