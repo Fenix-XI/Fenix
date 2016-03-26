@@ -165,6 +165,4 @@ log/DSP.leaks
 /sql/chars.sql
 
 #Conf Files
-/conf/login_darkstar.conf
-/conf/map_darkstar.conf
-/conf/search_server.conf
+/conf
