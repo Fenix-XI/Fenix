@@ -2,7 +2,9 @@
 -- Area: East Sarutabaruta (116)
 --   NM: Duke_Decapod
 -----------------------------------
-
+package.loaded["scripts/zones/East_Sarutabaruta/TextIDs"] = nil;
+-----------------------------------
+require("scripts/zones/East_Sarutabaruta/TextIDs");
 -----------------------------------
 -- onMobDeath
 -----------------------------------
@@ -19,5 +21,19 @@ function onMobDeath(mob,killer,ally)
     SetServerVariable("[PH]Duke_Decapod", 0);
     DeterMob(PH, false);
     GetMobByID(PH):setRespawnTime(GetMobRespawnTime(PH));
+	aaabbbb = {11312,13218};
+        local aaaabbb = mob:getZone():getPlayers();
+        for i, aaaabbbb in pairs(aaaabbb) do
+            local aaabbb = math.random(1,table.getn(aaabbbb));
+            if (aaaabbbb:getFreeSlotsCount() >= 1 and aaaabbbb:hasItem(aaabbbb[aaabbb]) == false) then
+                local aaaabbbbb = aaaabbbb:checkDistance(mob);
+                    if (aaaabbbbb < 40) then
+                        if (math.random(1,2) == 1) then
+                            aaaabbbb:addItem(aaabbbb[aaabbb],1);
+                            aaaabbbb:messageSpecial( ITEM_OBTAINED, aaabbbb[aaabbb]);
+                        end;
+                    end;
+            end;
+        end;
 
 end;

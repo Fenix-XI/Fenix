@@ -22,14 +22,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-    local ZilartStatus = player:getVar("ZilartStatus");
 
-  if (player:getCurrentMission(ZILART) == THROUGH_THE_QUICKSAND_CAVES) then
-            player:completeMission(ZILART,THROUGH_THE_QUICKSAND_CAVES);
-            player:addMission(ZILART,THE_CHAMBER_OF_ORACLES);
-			--player:addKeyItem(DARK_FRAGMENT);
-player:startEvent(0x7d01);
-        end
 end;
 -----------------------------------
 -- onEventUpdate
