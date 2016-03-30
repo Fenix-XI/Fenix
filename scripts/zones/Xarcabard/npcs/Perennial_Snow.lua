@@ -27,7 +27,7 @@ function onTrigger(player,npc)
    if (circleOfTime == QUEST_ACCEPTED and player:getVar("circleTime") == 3) then
        if (player:getVar("star_ringburied") == 0) then
            player:startEvent(0x03);
-       elseif (player:getVar("star_ringburied") < tonumber(os.date("%j")) and player:getVar("circleTime") == 3) then
+       elseif (player:getVar("star_ringburied") < tonumber(os.date()) and player:getVar("circleTime") == 3) then
            player:startEvent(0x02);
        end
    end
@@ -52,7 +52,7 @@ function onEventFinish(player,csid,option)
 --printf("RESULT: %u",option);
 
    if (csid == 0x03) then
-       player:setVar("star_ringburied",os.date("%j"));
+       player:setVar("star_ringburied",os.time() + 60);
    elseif (csid == 0x02) then
        player:setVar("star_ringburied",0);
        player:setVar("circleTime",4);

@@ -25,7 +25,7 @@ function onMobDeath(mob, killer, ally)
     -- Set Serket's spawnpoint and respawn time (21-24 hours)
     UpdateNMSpawnPoint(mob:getID());
     mob:setRespawnTime(math.random(75600,86400));
-aaabbbb = {10925};
+aaabbbb = {10925,13552};
         local aaaabbb = mob:getZone():getPlayers();
         for i, aaaabbbb in pairs(aaaabbb) do
             local aaabbb = math.random(1,table.getn(aaabbbb));

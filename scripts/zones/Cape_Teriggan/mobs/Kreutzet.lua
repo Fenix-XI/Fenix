@@ -28,7 +28,7 @@ function onMobDisengage(mob, weather)
     if (weather ~= WEATHER_WIND and weather ~= WEATHER_GALE) then
         DespawnMob(mob:getID());
     end
-aaabbbb = {10955,10955;}
+aaabbbb = {10955,10951};
         local aaaabbb = mob:getZone():getPlayers();
         for i, aaaabbbb in pairs(aaaabbb) do
             local aaabbb = math.random(1,table.getn(aaabbbb));

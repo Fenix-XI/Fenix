@@ -45,7 +45,7 @@ function onMobDeath(mob,killer,ally)
         UpdateNMSpawnPoint(Yagudo_Avatar);
         mob:setRespawnTime(math.random(75600,86400));
         SetServerVariable("[PH]Tzee_Xicu_the_Manifest", kills + 1);
-		aaabbbb = {10954,10953;}
+		aaabbbb = {10954,10953};
         local aaaabbb = mob:getZone():getPlayers();
         for i, aaaabbbb in pairs(aaaabbb) do
             local aaabbb = math.random(1,table.getn(aaabbbb));
