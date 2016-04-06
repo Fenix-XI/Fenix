@@ -2,6 +2,7 @@
 
 #Minimum Client version allowed to login to server.
 Min_Client_Ver: 30160203_0
+#Current retail: 30160329_0
 
 #Current Server Version. Not the same thing as source revision.
 #DSP_VER: Unused because we aren't even close to a "release" yet.
