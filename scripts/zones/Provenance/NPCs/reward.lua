@@ -499,12 +499,12 @@ if (trade:getItemCount() == 1) then
    player:addItem(17440,1);
    player:messageSpecial(ITEM_OBTAINED,17440,1);   
    
-      		elseif (trade:hasItemQty(18877,1)) and (bayld >= Hightail_Bullet)
+      		elseif (trade:hasItemQty(17341,1)) and (bayld >= Hightail_Bullet)
 			 then    --This is a check to see if the player has enough bayld
-              player:delCurrency("bayld", 50);
+              player:delCurrency("bayld", 500);
    player:tradeComplete();
-   player:addItem(17440,1);
-   player:messageSpecial(ITEM_OBTAINED,17440,1);
+   player:addItem(19236,1);
+   player:messageSpecial(ITEM_OBTAINED,19236,1);
    
    -------------------------------BEGIN TIER 2 ITEMS--------------------------------------------------------------
    

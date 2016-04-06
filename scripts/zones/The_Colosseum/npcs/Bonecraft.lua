@@ -55,7 +55,7 @@ stock = {0x0370,1,	--Bone Chip
 0x656,1,    --Bugard Horn
 0x718,1,    --Wyrm Horn
 0x387,1,    --Dragon Talon
-
+0x878,1,	--Cerberus Claw
 }	
  
 showShop(player, STATIC, stock);
