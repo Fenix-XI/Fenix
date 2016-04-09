@@ -29,7 +29,8 @@ end;
 function onMobDeath(mob,killer,ally)
     -- Needs to be zone wide message
     -- mob:messagePublic(mob,ORCISH_WARLORD_DEATH);
-    mob:setRespawnTime(math.random(75600,86400)); -- 21 to 24 hours
+	aaabbbb = {10951,10955};
+    mob:setRespawnTime(math.random(1320,3600)); -- 22 mins to 1 hr.
 	local aaaabbb = mob:getZone():getPlayers();
         for i, aaaabbbb in pairs(aaaabbb) do
             local aaabbb = math.random(1,table.getn(aaabbbb));

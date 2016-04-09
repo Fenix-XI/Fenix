@@ -46,7 +46,7 @@ function onMobDeath(mob,killer,ally)
 
     UpdateNMSpawnPoint(mob:getID());
     mob:setRespawnTime(math.random(1200,1800)); -- 20~30 min repop
-	aaabbbb = {16368,18762}
+	aaabbbb = {16368,18762};
         local aaaabbb = mob:getZone():getPlayers();
         for i, aaaabbbb in pairs(aaaabbb) do
             local aaabbb = math.random(1,table.getn(aaabbbb));
