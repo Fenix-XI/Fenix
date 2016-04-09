@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------------------------------
 -- func: @EN
 -- auth: Hookstar
--- desc: Sets players to The Eldimene Necro
+-- desc: Sets players to The Eldieme Necro
 ---------------------------------------------------------------------------------------------------
 
 cmdprops =
@@ -18,7 +18,7 @@ local targ = GetPlayerByName( target );
 			  player:delCurrency("valor_point", 1000);
             player:setPos('152', '11', '-392', '159', '105');
         else
-            player:PrintToPlayer( "You been Jailed for a reason, good try! Now please enjoy your stay a while longer.");
+            player:PrintToPlayer( "You been Jailed for a reason. Or you do not have enough Tabs!");
         end
     else
         player:PrintToPlayer( string.format( "Player named '%s' not found!", target ) );

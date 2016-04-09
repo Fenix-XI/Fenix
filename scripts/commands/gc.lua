@@ -18,7 +18,7 @@ local targ = GetPlayerByName( target );
 			  player:delCurrency("valor_point", 1000);
             player:setPos('-103', '-24', '-408', '65', '120');
         else
-            player:PrintToPlayer( "You been Jailed for a reason, good try! Now please enjoy your stay a while longer.");
+            player:PrintToPlayer( "You been Jailed for a reason. Or you do not have enough Tabs!");
         end
     else
         player:PrintToPlayer( string.format( "Player named '%s' not found!", target ) );
