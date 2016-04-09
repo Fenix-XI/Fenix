@@ -10,7 +10,7 @@ require("scripts/globals/titles");
 -- onMobSpawn Action
 -----------------------------------
 
-function onMobSpawn(mob)
+function onMobSpawn(mob) 
     mob:setRespawnTime(0, true);
 end;
 
