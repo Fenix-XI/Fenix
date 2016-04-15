@@ -31,6 +31,5 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer)
-killer:addCurrency("bayld",10);
-killer:PrintToPlayer( "You earned 10 Bayld!");	
+
 end;
