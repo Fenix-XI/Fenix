@@ -4,9 +4,9 @@
 --
 -----------------------------------
 
---require("scripts/globals/settings");
---package.loaded["scripts/zones/Rabao/TextIDs"] = nil;
---require("scripts/zones/Rabao/TextIDs");
+require("scripts/globals/settings");
+package.loaded["scripts/zones/The_Colosseum/TextIDs"] = nil;
+require("scripts/zones/The_Colosseum/TextIDs");
 
 -----------------------------------
 -- onTrade Action
@@ -20,8 +20,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
---    player:showText(npc,NOMAD_MOOGLE_DIALOG);
---player:PrintToPlayer("Change jobs will be available on next reboot");
+    player:showText(npc,NOMAD_MOOGLE_DIALOG);
     player:sendMenu(1);
 end;
 
