@@ -56,8 +56,9 @@ stock = {0x119D,1,	--Distilled Water
 0x051E,1,	--Platinum Leaf
 0x03AE,1,	--Philosopher’s Stone
 0x0464,1,	--Wyvern Wing
-0x0397,1	--Boyahda Moss
-
+0x0397,1,	--Boyahda Moss
+0x155A,1,	--Trumpet Shell
+0x9A0,1		--Carbon Dioxide
 	}	
  
 showShop(player, STATIC, stock);
