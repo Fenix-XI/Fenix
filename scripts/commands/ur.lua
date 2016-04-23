@@ -1,7 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 -- func: @ur
--- auth: Hookstar
--- desc: Sets players to Ulu Range
+-- desc: Sets player's location to the entrance of Uleguerand Range
 ---------------------------------------------------------------------------------------------------
 
 cmdprops =
@@ -13,7 +12,7 @@ function onTrigger(player, x, y, z, zone)
 local valor_point = player:getCurrency("valor_point");
 if (valor_point >= 1000)
 	then
-              player:PrintToPlayer("Thank you for flying Exodus Tele! You will be deducted 1000 Tabs!");
+              player:PrintToPlayer("1000 tabs deducted for teleportation fee. Happy adventuring!");
 			  player:delCurrency("valor_point", 1000);
               player:setPos('-133', '-11', '138', '3', '112');
 			else 
