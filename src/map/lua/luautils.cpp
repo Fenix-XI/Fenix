@@ -103,6 +103,7 @@ namespace luautils
         LuaHandle = luaL_newstate();
         luaL_openlibs(LuaHandle);
 
+		lua_register(LuaHandle, "isValidLS", luautils::isValidLS);
         lua_register(LuaHandle, "print", luautils::print);
         lua_register(LuaHandle, "GetNPCByID", luautils::GetNPCByID);
         lua_register(LuaHandle, "GetMobByID", luautils::GetMobByID);
@@ -178,6 +179,29 @@ namespace luautils
         return 0;
     }
 
+	/************************************************************************
+	*                                                                       *
+	*  Auto-Pearl														*
+	*                                                                       *
+	************************************************************************/
+
+	int32 isValidLS(lua_State* L)
+	{
+		const int8* linkshellName = lua_tostring(L, 1);
+		const int8* Query = "SELECT name FROM linkshells WHERE name='%s'";
+		int32 ret = Sql_Query(SqlHandle, Query, linkshellName);
+
+		if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
+		{
+			lua_pushboolean(L, true);
+		}
+		else
+		{
+			lua_pushboolean(L, false);
+		}
+
+		return 1;
+	}
     /************************************************************************
     *                                                                       *
     *  Освобождение lua														*

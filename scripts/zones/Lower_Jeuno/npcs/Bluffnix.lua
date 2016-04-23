@@ -5,7 +5,9 @@
 -- @pos -43.099 5.900 -114.788 245
 -----------------------------------
 package.loaded["scripts/zones/Lower_Jeuno/TextIDs"] = nil;
+package.loaded["scripts/globals/settings"] = nil;
 -----------------------------------
+
 require("scripts/globals/settings");
 require("scripts/globals/titles");
 require("scripts/globals/shop");
@@ -91,8 +93,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -100,8 +102,8 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 
     local TheGobbieBag = gobQuest(player,player:getContainerSize(0));
 
@@ -119,7 +121,7 @@ function onEventFinish(player,csid,option)
         player:changeContainerSize(0,5);
         player:changeContainerSize(5,5);
         player:changeContainerSize(6,5);
-        player:addFame(JEUNO, 30);
+        player:addFame(JEUNO, JEUNO_FAME*30);
         player:tradeComplete();
         player:completeQuest(JEUNO,TheGobbieBag[1]);
         player:messageSpecial(INVENTORY_INCREASED);

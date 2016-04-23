@@ -122,7 +122,7 @@ namespace luautils
     void callFunc(int nargs);
 
     int32 random(lua_State*);
-
+	int32 isValidLS(lua_State*);
     int32 SendEntityVisualPacket(lua_State*);                                    // временное решение для работы гейзеров в Dangruf_Wadi
     int32 GetNPCByID(lua_State*);												// Returns NPC By Id
     int32 GetMobByID(lua_State*);												// Returns Mob By Id

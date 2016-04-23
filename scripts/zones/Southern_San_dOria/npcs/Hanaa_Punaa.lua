@@ -7,6 +7,7 @@
 -------------------------------------
 package.loaded["scripts/zones/Southern_San_dOria/TextIDs"] = nil;
 -----------------------------------
+
 require("scripts/globals/settings");
 require("scripts/globals/titles");
 require("scripts/globals/keyitems");
@@ -105,8 +106,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -114,8 +115,8 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 
     -- "The Seamstress" Quest
     if ((csid == 0x0210 or csid == 0x0213) and option == 0) then
@@ -130,10 +131,10 @@ function onEventFinish(player,csid,option)
             player:addItem(12696);
             player:messageSpecial(ITEM_OBTAINED, 12696); -- Leather Gloves
             if (player:getQuestStatus(SANDORIA,THE_SEAMSTRESS) == QUEST_ACCEPTED) then
-                player:addFame(SANDORIA,30);
+                player:addFame(SANDORIA,SAN_FAME*30);
                 player:completeQuest(SANDORIA,THE_SEAMSTRESS);
             else
-                player:addFame(SANDORIA,5);
+                player:addFame(SANDORIA,SAN_FAME*5);
             end
         end
     
@@ -150,10 +151,10 @@ function onEventFinish(player,csid,option)
             player:addItem(12697);
             player:messageSpecial(ITEM_OBTAINED, 12697); -- Lizard Gloves
             if (player:getQuestStatus(SANDORIA,LIZARD_SKINS) == QUEST_ACCEPTED) then
-                player:addFame(SANDORIA,30);
+                player:addFame(SANDORIA,SAN_FAME*30);
                 player:completeQuest(SANDORIA,LIZARD_SKINS);
             else
-                player:addFame(SANDORIA,5);
+                player:addFame(SANDORIA,SAN_FAME*5);
             end
         end
         
@@ -169,7 +170,7 @@ function onEventFinish(player,csid,option)
             player:addTitle(CAT_SKINNER);
             player:addItem(13119);
             player:messageSpecial(ITEM_OBTAINED, 13119); -- Tyger Stole
-            player:addFame(SANDORIA,30);
+            player:addFame(SANDORIA,SAN_FAME*30);
             player:completeQuest(SANDORIA,BLACK_TIGER_SKINS);
         end
     end

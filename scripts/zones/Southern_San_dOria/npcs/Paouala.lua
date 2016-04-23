@@ -7,6 +7,7 @@
 -------------------------------------
 package.loaded["scripts/zones/Southern_San_dOria/TextIDs"] = nil;
 -----------------------------------
+
 require("scripts/globals/settings");
 require("scripts/globals/titles");
 require("scripts/globals/shop");
@@ -51,8 +52,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -60,8 +61,8 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 
     if (csid == 0x0055 and option == 1) then
         player:addQuest(SANDORIA,SLEEPLESS_NIGHTS);
@@ -70,7 +71,7 @@ function onEventFinish(player,csid,option)
         player:addTitle(SHEEPS_MILK_DELIVERER);
         player:addGil(GIL_RATE*5000);
         player:messageSpecial(GIL_OBTAINED,GIL_RATE*5000);
-        player:addFame(SANDORIA,30);
+        player:addFame(SANDORIA,SAN_FAME*30);
         player:completeQuest(SANDORIA,SLEEPLESS_NIGHTS);
     end
 

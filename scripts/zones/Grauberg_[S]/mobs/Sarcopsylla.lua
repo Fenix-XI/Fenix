@@ -1,10 +1,18 @@
 -----------------------------------
--- Area: 
---  MOB: Chigoe
+-- Area: Grauberg [S]
+-- NPC:  Sarcopsylla
 -----------------------------------
 
---require("scripts/globals/titles");
-mixins = { require("scripts/mixins/families/chigoe") }
+-----------------------------------
+-- requires go here
+-----------------------------------
+
+-----------------------------------
+-- onMobInitialize Action
+-----------------------------------
+
+function onMobInitialize(mob)
+end;
 
 -----------------------------------
 -- onMobSpawn Action
@@ -21,15 +29,10 @@ function onMobEngaged(mob, killer)
 end;
 
 -----------------------------------
--- onMobDisengage
------------------------------------
-
-function onMobDisengage(mob)
-end;
-
------------------------------------
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, ally)
+function onMobDeath(mob, killer,ally)
+	ally:addCurrency("kinetic_unit",40);
+	ally:PrintToPlayer( "You earned 40 Kinetic Units!");
 end;

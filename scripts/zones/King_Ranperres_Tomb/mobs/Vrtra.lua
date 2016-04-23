@@ -43,7 +43,7 @@ function onMobFight(mob, target)
     end
     
     if (mob:getBattleTime()/15 > twohourTime) then
-        mob:useMobAbility(710);
+        --mob:useMobAbility(710);
         mob:setLocalVar("twohourTime", (mob:getBattleTime()/15)+math.random(4,6));
     elseif (mob:getBattleTime()/15 > spawnTime) then
         for i, offset in ipairs(offsets) do
@@ -75,6 +75,8 @@ end
 
 function onMobDeath(mob, killer, ally)
     ally:addTitle(VRTRA_VANQUISHER);
+	ally:addCurrency("mweya_plasm",1000);
+	ally:PrintToPlayer( "You earned 1000 Mweya Plasm!");
     
     -- Set Vrtra's spawnpoint and respawn time (3-5 days)
     UpdateNMSpawnPoint(mob:getID());

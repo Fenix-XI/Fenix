@@ -1,5 +1,5 @@
 -----------------------------------
--- Area: Southern San d'Oria
+--  Area: Southern San d'Oria
 --  NPC: Helbort
 --  Starts and Finished Quest: A purchase of Arms
 --  @zone 230
@@ -7,6 +7,7 @@
 -----------------------------------
 package.loaded["scripts/zones/Southern_San_dOria/TextIDs"] = nil;
 -----------------------------------
+
 require("scripts/globals/settings");
 require("scripts/globals/titles");
 require("scripts/globals/quests");
@@ -43,8 +44,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 end;
   
 -----------------------------------
@@ -66,7 +67,7 @@ function onEventFinish(player,csid,option)
             player:delKeyItem(WEAPONS_RECEIPT);
             player:addItem(17090); 
             player:messageSpecial(ITEM_OBTAINED,17090); -- Elm Staff
-            player:addFame(SANDORIA,30);
+            player:addFame(SANDORIA,SAN_FAME*30);
             player:completeQuest(SANDORIA, A_PURCHASE_OF_ARMS);
         end
     end

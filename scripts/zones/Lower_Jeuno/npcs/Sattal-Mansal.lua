@@ -6,7 +6,9 @@
 -- @pos 40 3 -53
 -----------------------------------
 package.loaded["scripts/zones/Lower_Jeuno/TextIDs"] = nil;
+package.loaded["scripts/globals/settings"] = nil;
 -----------------------------------
+
 require("scripts/globals/settings");
 require("scripts/globals/keyitems");
 require("scripts/globals/shop");
@@ -42,8 +44,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -51,21 +53,21 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
     if (csid == 0x0059) then 
         player:addQuest(JEUNO,MYSTERIES_OF_BEADEAUX_I);
         player:addQuest(JEUNO,MYSTERIES_OF_BEADEAUX_II);
     elseif (csid == 0x005B) then
         player:addKeyItem(CORUSCANT_ROSARY);
         player:messageSpecial(KEYITEM_OBTAINED,CORUSCANT_ROSARY);
-        player:addFame(JEUNO,30);
+        player:addFame(JEUNO,JEUNO_FAME*30);
         player:tradeComplete(trade);
         player:completeQuest(JEUNO,MYSTERIES_OF_BEADEAUX_I);
     elseif (csid == 0x005C) then
         player:addKeyItem(BLACK_MATINEE_NECKLACE);
         player:messageSpecial(KEYITEM_OBTAINED,BLACK_MATINEE_NECKLACE);
-        player:addFame(JEUNO,30);
+        player:addFame(JEUNO,JEUNO_FAME*30);
         player:tradeComplete(trade);
         player:completeQuest(JEUNO,MYSTERIES_OF_BEADEAUX_II);
     end

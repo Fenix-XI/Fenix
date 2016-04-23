@@ -7,6 +7,7 @@
 -------------------------------------
 package.loaded["scripts/zones/Southern_San_dOria/TextIDs"] = nil;
 -----------------------------------
+
 require("scripts/globals/settings");
 require("scripts/globals/quests");
 require("scripts/zones/Southern_San_dOria/TextIDs");
@@ -61,8 +62,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -70,8 +71,8 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 
     if (csid == 0x037a) then
         player:addQuest(SANDORIA,ATELLOUNE_S_LAMENT);
@@ -81,7 +82,7 @@ function onEventFinish(player,csid,option)
         else
             player:addItem(15008);
             player:messageSpecial(ITEM_OBTAINED,15008); -- Trainee Gloves
-            player:addFame(SANDORIA,30);
+            player:addFame(SANDORIA,SAN_FAME*30);
             player:completeQuest(SANDORIA,ATELLOUNE_S_LAMENT);
         end
     end

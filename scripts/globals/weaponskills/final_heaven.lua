@@ -25,8 +25,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary)
     -- ftp damage mods (for Damage Varies with TP; lines are calculated in the function params.ftp)
     params.ftp100 = 3.0; params.ftp200 = 3.0; params.ftp300 = 3.0;
     -- critical modifiers (0.0 = 0%, 0.2 = 20%, 0.5 = 50%..etc)
-    params.crit100 = 0.0; params.crit200=0.0; params.crit300=0.0;
-    params.canCrit = false;
+    params.crit100 = 0.20; params.crit200=0.40; params.crit300=0.60;
+    params.canCrit = True;
     -- accuracy modifiers (0.0 = 0%, 0.2 = 20%, 0.5 = 50%..etc) Keep 0 if ws doesn't have accuracy modification.
     params.acc100 = 0.0; params.acc200=0.0; params.acc300=0.0;
     -- attack multiplier (only some WSes use this, this varies the actual ratio value, see Tachi: Kasha) 1 is default.
@@ -40,7 +40,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary)
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, primary);
     -- TODO: Whoever codes those level 85 weapons with the latent that grants this WS needs to code a check to not give the aftermath effect.
     if (damage > 0) then
-        local amDuration = 20 * math.floor(tp/1000);
+        local amDuration = 20 * math.floor(tp/100);
         player:addStatusEffect(EFFECT_AFTERMATH, 10, 0, amDuration, 0, 1);
     end
 

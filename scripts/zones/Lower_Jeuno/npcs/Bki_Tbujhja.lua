@@ -7,7 +7,9 @@
 -- @pos -22 0 -60
 -----------------------------------
 package.loaded["scripts/zones/Lower_Jeuno/TextIDs"] = nil;
+package.loaded["scripts/globals/settings"] = nil;
 -----------------------------------
+
 require("scripts/globals/settings");
 require("scripts/globals/keyitems");
 require("scripts/globals/shop");
@@ -67,8 +69,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -76,8 +78,8 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
     
     if (csid == 0x00b5) then
            player:setVar("TheOldMonument_Event",2);
@@ -97,7 +99,7 @@ function onEventFinish(player,csid,option)
         else 
             player:addItem(14098);
             player:messageSpecial(ITEM_OBTAINED,14098); -- Choral Slippers
-            player:addFame(JEUNO, 30);
+            player:addFame(JEUNO, JEUNO_FAME*30);
             player:completeQuest(JEUNO,THE_REQUIEM);
         end        
     end

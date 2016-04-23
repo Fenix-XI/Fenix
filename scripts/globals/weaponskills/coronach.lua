@@ -26,8 +26,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary)
     params.str_wsc = 0.0; params.dex_wsc = 0.4; params.vit_wsc = 0.0;
     params.agi_wsc = 0.4; params.int_wsc = 0.0; params.mnd_wsc = 0.0;
     params.chr_wsc = 0.0;
-    params.crit100 = 0.0; params.crit200 = 0.0; params.crit300 = 0.0;
-    params.canCrit = false;
+    params.crit100 = 0.20; params.crit200 = 0.40; params.crit300 = 0.60;
+    params.canCrit = True;
     params.acc100 = 0.0; params.acc200= 0.0; params.acc300= 0.0;
     params.atkmulti = 1;
     params.overrideCE = 80;
@@ -36,7 +36,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary)
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, wsID, params, tp, primary);
     -- TODO: Whoever codes those level 85 weapons with the latent that grants this WS needs to code a check to not give the aftermath effect.
     if (damage > 0) then
-        local amDuration = 20 * math.floor(tp/1000);
+        local amDuration = 20 * math.floor(tp/100);
         player:addStatusEffect(EFFECT_AFTERMATH, -20, 0, amDuration, 0, 11);
     end
 
