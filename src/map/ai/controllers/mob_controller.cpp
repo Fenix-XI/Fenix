@@ -77,7 +77,7 @@ bool CMobController::TryDeaggro()
         CheckDetection(PTarget) ||
         CheckHide(PTarget))
     {
-        PMob->PEnmityContainer->Clear(PTarget->id);
+        if (PTarget) PMob->PEnmityContainer->Clear(PTarget->id);
         PTarget = PMob->PEnmityContainer->GetHighestEnmity();
         PMob->SetBattleTargetID(PTarget ? PTarget->targid : 0);
         return TryDeaggro();
@@ -489,7 +489,7 @@ void CMobController::CastSpell(uint16 spellid)
 void CMobController::DoCombatTick(time_point tick)
 {
     HandleEnmity();
-    PTarget = static_cast<CBattleEntity*>(PMob->loc.zone->GetEntity(PMob->GetBattleTargetID()));
+    PTarget = static_cast<CBattleEntity*>(PMob->GetEntity(PMob->GetBattleTargetID()));
 
     if (TryDeaggro())
     {
@@ -500,11 +500,6 @@ void CMobController::DoCombatTick(time_point tick)
     TryLink();
 
     float currentDistance = distance(PMob->loc.p, PTarget->loc.p);
-
-    if (!(PMob->m_Behaviour & BEHAVIOUR_NO_TURN))
-    {
-        PMob->PAI->PathFind->LookAt(PTarget->loc.p);
-    }
 
     luautils::OnMobFight(PMob, PTarget);
 
@@ -522,6 +517,13 @@ void CMobController::DoCombatTick(time_point tick)
         return;
     }
 
+    Move();
+    return;
+}
+
+void CMobController::Move()
+{
+    float currentDistance = distance(PMob->loc.p, PTarget->loc.p);
     if (PMob->PAI->PathFind->IsFollowingScriptedPath() && PMob->PAI->CanFollowPath())
     {
         PMob->PAI->PathFind->FollowPath();
@@ -573,7 +575,7 @@ void CMobController::DoCombatTick(time_point tick)
             if (currentDistance >= PMob->m_ModelSize * 2)
                 battleutils::DrawIn(PTarget, PMob, PMob->m_ModelSize - 0.2f);
         }
-        if (PMob->speed != 0 && m_Tick >= m_LastSpecialTime)
+        if (PMob->speed != 0 && PMob->getMobMod(MOBMOD_NO_MOVE) == 0 && m_Tick >= m_LastSpecialTime)
         {
             // attempt to teleport to target (if in range)
             if (PMob->getMobMod(MOBMOD_TELEPORT_TYPE) == 2)
@@ -619,13 +621,21 @@ void CMobController::DoCombatTick(time_point tick)
             }
         }
     }
+    else
+    {
+        if (!(PMob->m_Behaviour & BEHAVIOUR_NO_TURN))
+        {
+            PMob->PAI->PathFind->LookAt(PTarget->loc.p);
+        }
+    }
 }
 
 void CMobController::HandleEnmity()
 {
-    if (PMob->getMobMod(MOBMOD_SHARE_TARGET) > 0 && PMob->loc.zone->GetEntity(PMob->getMobMod(MOBMOD_SHARE_TARGET), TYPE_MOB))
+    PMob->PEnmityContainer->DecayEnmity();
+    if (PMob->getMobMod(MOBMOD_SHARE_TARGET) > 0 && PMob->GetEntity(PMob->getMobMod(MOBMOD_SHARE_TARGET), TYPE_MOB))
     {
-        ChangeTarget(static_cast<CMobEntity*>(PMob->loc.zone->GetEntity(PMob->getMobMod(MOBMOD_SHARE_TARGET), TYPE_MOB))->GetBattleTargetID());
+        ChangeTarget(static_cast<CMobEntity*>(PMob->GetEntity(PMob->getMobMod(MOBMOD_SHARE_TARGET), TYPE_MOB))->GetBattleTargetID());
 
         if (!PMob->GetBattleTargetID())
         {
@@ -638,8 +648,6 @@ void CMobController::HandleEnmity()
         auto PTarget {PMob->PEnmityContainer->GetHighestEnmity()};
         ChangeTarget(PTarget ? PTarget->targid : 0);
     }
-
-
 }
 
 void CMobController::DoRoamTick(time_point tick)

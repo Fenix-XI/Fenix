@@ -16,5 +16,4 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
-ally:addCurrency("bayld",50);
 end;

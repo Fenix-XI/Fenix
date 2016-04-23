@@ -19,8 +19,6 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
-			ally:addCurrency("mweya_plasm",200);
-	ally:PrintToPlayer( "You earned 200 Plasm!");
 end;
 
 -----------------------------------

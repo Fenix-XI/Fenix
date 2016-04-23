@@ -1,7 +1,7 @@
 /*
 ===========================================================================
 
-  Copyright (c) 2010-2015 Darkstar Dev Teams
+  Copyright (c) 2010-2016 Darkstar Dev Teams
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -352,6 +352,10 @@ int32 login_config_read(const char *cfgName)
         {
             login_config.msg_server_ip = aStrdup(w2);
         }
+        else if (strcmp(w1, "log_user_ip") == 0)
+        {
+            login_config.log_user_ip = aStrdup(w2);
+        }
         else
         {
             ShowWarning("Unknown setting '%s' in file %s\n", w1, cfgName);
@@ -389,9 +393,9 @@ int32 version_info_read(const char *fileName)
         ptr++;
         *ptr = '\0';
 
-        if (strcmp(w1, "Min_Client_Ver") == 0)
+        if (strcmp(w1, "CLIENT_VER") == 0)
         {
-            version_info.Min_Client_Ver = aStrdup(w2);
+            version_info.CLIENT_VER = aStrdup(w2);
         }
     }
     fclose(fp);
@@ -419,12 +423,14 @@ int32 login_config_default()
     login_config.search_server_port = 54002;
     login_config.msg_server_port = 54003;
     login_config.msg_server_ip = "127.0.0.1";
+
+    login_config.log_user_ip = "false";
     return 0;
 }
 
 int32 version_info_default()
 {
-    version_info.Min_Client_Ver = "99999999_9"; // xxYYMMDD_m = xx:MajorRelease YY:year MM:month DD:day _m:MinorRelease
+    version_info.CLIENT_VER = "99999999_9"; // xxYYMMDD_m = xx:MajorRelease YY:year MM:month DD:day _m:MinorRelease
     // version_info.DSP_VER = 0;
     return 0;
 }

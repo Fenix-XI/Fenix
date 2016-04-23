@@ -1,8 +1,6 @@
 -----------------------------------
 -- Area: Arrapago Reef
--- NPC: Zareehkl the Jubilant
--- ZNM Path: Lamia
--- @pos http://ffxiclopedia.wikia.com/wiki/Merrow_No._11_Molting traded to ??? at the northeast corner of (I-10) on Map 2 of Arrapago Reef. 
+--  NPC: Zareehkl the Jubilant
 -----------------------------------
 
 require("scripts/globals/status");

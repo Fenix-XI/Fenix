@@ -58,6 +58,7 @@ function onMobDeath(mob, killer, ally)
     DespawnMob(wynavA);
     DespawnMob(wynavB);
     DespawnMob(wynavC);
+
 	ally:addCurrency("mweya_plasm",300);
 	ally:PrintToPlayer( "You earned 300 Mweya Plasm!");
     -- Pick a new for PH Ix'Aern (DRG)

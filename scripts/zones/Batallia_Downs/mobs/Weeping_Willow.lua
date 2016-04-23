@@ -2,9 +2,7 @@
 -- Area: Batallia Downs
 --  MOB: Weeping Willow
 -----------------------------------
-package.loaded["scripts/zones/Batallia_Downs/TextIDs"] = nil;
------------------------------------
-require("scripts/zones/Batallia_Downs/TextIDs");
+
 -----------------------------------
 -- onMobSpawn Action
 -----------------------------------
@@ -35,18 +33,4 @@ function onMobDeath(mob, killer, ally)
     local JACK = mob:getID()+6;
     SpawnMob(JACK):updateEnmity(killer);
     GetMobByID(JACK):setPos( mob:getXPos(), mob:getYPos(), mob:getZPos(), 0);
-	aaabbbb = {18075,15042};
-        local aaaabbb = mob:getZone():getPlayers();
-        for i, aaaabbbb in pairs(aaaabbb) do
-            local aaabbb = math.random(1,table.getn(aaabbbb));
-            if (aaaabbbb:getFreeSlotsCount() >= 1 and aaaabbbb:hasItem(aaabbbb[aaabbb]) == false) then
-                local aaaabbbbb = aaaabbbb:checkDistance(mob);
-                    if (aaaabbbbb < 40) then
-                        if (math.random(1,2) == 1) then
-                            aaaabbbb:addItem(aaabbbb[aaabbb],1);
-                            aaaabbbb:messageSpecial( ITEM_OBTAINED, aaabbbb[aaabbb]);
-                        end;
-                    end;
-            end;
-        end;
 end;

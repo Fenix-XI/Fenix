@@ -349,6 +349,40 @@ void CEnmityContainer::LowerEnmityByPercent(CBattleEntity* PEntity, uint8 percen
 
 /************************************************************************
 *                                                                       *
+*    Returns the CE or VE for the current entity                        *
+*                                                                       *
+************************************************************************/
+
+uint16 CEnmityContainer::GetCE(CBattleEntity* PEntity)
+{
+    EnmityList_t::iterator PEnmity = m_EnmityList.lower_bound(PEntity->id);
+    int32 CEValue = 0;
+
+    if (PEnmity != m_EnmityList.end() &&
+        !m_EnmityList.key_comp()(PEntity->id, PEnmity->first))
+    {
+        CEValue = (PEnmity->second->CE);
+    }
+    // ShowDebug("Current CE: %u\n", CEValue);
+    return CEValue;
+}
+
+uint16 CEnmityContainer::GetVE(CBattleEntity* PEntity)
+{
+    EnmityList_t::iterator PEnmity = m_EnmityList.lower_bound(PEntity->id);
+    int32 VEValue = 0;
+
+    if (PEnmity != m_EnmityList.end() &&
+        !m_EnmityList.key_comp()(PEntity->id, PEnmity->first))
+    {
+        VEValue = (PEnmity->second->VE);
+    }
+    // ShowDebug("Current VE: %u\n", VEValue);
+    return VEValue;
+}
+
+/************************************************************************
+*                                                                       *
 *                                                                       *
 *                                                                       *
 ************************************************************************/
@@ -418,9 +452,9 @@ void CEnmityContainer::DecayEnmity()
     for (EnmityList_t::iterator it = m_EnmityList.begin(); it != m_EnmityList.end(); ++it)
     {
         EnmityObject_t* PEnmityObject = it->second;
+        constexpr auto decay_amount = 60 / server_tick_rate;
 
-        //Should lose 60/sec, and this is called twice a sec, hence 30.
-        PEnmityObject->VE -= PEnmityObject->VE > 30 ? 30 : PEnmityObject->VE;
+        PEnmityObject->VE -= PEnmityObject->VE > decay_amount ? decay_amount : PEnmityObject->VE;
         // ShowDebug("CE: %d VE: %d\n", PEnmityObject->CE, PEnmityObject->VE);
     }
 }

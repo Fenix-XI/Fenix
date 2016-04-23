@@ -23,14 +23,13 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-    --player:showText(npc,KHEL_PAHLHAMA_SHOP_DIALOG,513);
+    -- player:showText(npc,KHEL_PAHLHAMA_SHOP_DIALOG,513);
 
-    --stock = 
-{
-        --0x0200,  8000,       --Linkshell
-        --0x3f9d,   375        --Pendant Compass
-}
-    --showShop(player, STATIC, stock);
+    -- stock = {
+        -- 0x0200,  8000,       --Linkshell
+        -- 0x3f9d,   375        --Pendant Compass
+    -- }
+    -- showShop(player, STATIC, stock);
 
 end;
 

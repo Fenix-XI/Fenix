@@ -8,7 +8,14 @@
 -- Aligned with the Aqua Gorget, Flame Gorget & Light Gorget.
 -- Aligned with the Aqua Belt, Flame Belt & Light Belt.
 -- Element: None
--- Modifiers: STR:40% VIT:50%
+-- Modifiers (old): damage varies with enmity
+-- 100%TP    200%TP    300%TP
+-- 0.09      0.11      0.20   -CE
+-- 0.11      0.14      0.25   -VE
+-- Modifiers (new): enmity from damage varies with TP
+-- 100%TP    200%TP    300%TP
+-- 1.00      1.5       2.0
+-- Modifiers (non-mob, wrong): STR:40% VIT:50%
 -- 100%TP    200%TP    300%TP
 -- 1.00      1.25      1.50
 -----------------------------------
@@ -22,73 +29,65 @@ function onUseWeaponSkill(player, target, wsID, tp, primary)
     local params = {};
     params.numHits = 2;
     params.ftp100 = 1; params.ftp200 = 1.25; params.ftp300 = 1.5;
-    params.str_wsc = 0.4; params.dex_wsc = 0.0; params.vit_wsc = 0.5; params.agi_wsc = 0.0; params.int_wsc = 0.0; params.mnd_wsc = 0.0; params.chr_wsc = 0.0;
+    params.str_wsc = 0.4; params.dex_wsc = 0.0; params.vit_wsc = 0.5; params.agi_wsc = 0.0; params.int_wsc = 0.0;
+    params.mnd_wsc = 0.0; params.chr_wsc = 0.0;
     params.crit100 = 0.0; params.crit200 = 0.0; params.crit300 = 0.0;
     params.canCrit = false;
     params.acc100 = 0.0; params.acc200= 0.0; params.acc300= 0.0;
     params.atkmulti = 1;
 
-    if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
-        params.ftp100 = 1; params.ftp200 = 1.5; params.ftp300 = 2.0;
+    local tpHits = 0;
+    local extraHits = 0;
+    local criticalHit = false;
+    local enmityMult = 1;
+    local damage = 0;
+
+    if (target:getObjType() ~= TYPE_MOB) then -- this isn't correct but might as well use what was originally here if someone uses this on a non-mob
+        if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
+            params.ftp100 = 1; params.ftp200 = 1.5; params.ftp300 = 2.0;
+        end
+
+        damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, primary);
+    else
+        local dmg;
+        if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
+            dmg = (target:getCE(player) + target:getVE(player))/6;
+            -- tp affects enmity multiplier, 1.0 at 1k, 1.5 at 2k, 2.0 at 3k. Gorget/Belt adds 100 tp each.
+            enmityMult = enmityMult + (tp + (handleWSGorgetBelt(player) * 1000) - 1000)/2000;
+            enmityMult = utils.clamp(enmityMult, 1, 2); -- necessary because of Gorget/Belt bonus
+        else
+            local effectiveTP = tp + handleWSGorgetBelt(player) * 1000;
+            effectiveTP = utils.clamp(effectiveTP, 0, 3000); -- necessary because of Gorget/Belt bonus
+            local ceMod = fTP(effectiveTP, 0.09, 0.11, 0.20); -- CE portion of Atonement
+            local veMod = fTP(effectiveTP, 0.11, 0.14, 0.25); -- VE portion of Atonement
+            dmg = math.floor(target:getCE(player) * ceMod) + math.floor(target:getVE(player) * veMod);
+        end
+
+        dmg = utils.clamp(dmg, 0, player:getMainLvl() * 10); -- Damage is capped to player's level * 10, before WS damage mods
+        damage = target:breathDmgTaken(dmg);
+        if (player:getMod(MOD_WEAPONSKILL_DAMAGE_BASE + wsID) > 0) then
+            damage = damage * (100 + player:getMod(MOD_WEAPONSKILL_DAMAGE_BASE + wsID))/100
+        end
+        damage = damage * WEAPON_SKILL_POWER;
+
+        if (damage > 0) then
+            if (player:getOffhandDmg() > 0) then
+                tpHits = 2;
+            else
+                tpHits = 1;
+            end
+            extraHits = 1; -- for whatever reason, Atonement always yields the a TP return of a 2 hit WS, unless it does 0 damage.
+        end
+
+        damage = target:takeWeaponskillDamage(player, damage, SLOT_MAIN, tpHits, extraHits, 1);
+        target:updateEnmityFromDamage(player, damage * enmityMult);
     end
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, primary);
     if ((player:getEquipID(SLOT_MAIN) == 18997) and (player:getMainJob() == JOB_PLD)) then
         if (damage > 0) then
-
--- AFTERMATH LEVEL 1
-
-        if ((tp >= 100) and (tp <= 110)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV1, 10, 0, 180, 0, 1);
-        elseif ((tp >= 111) and (tp <= 120)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV1, 11, 0, 180, 0, 1);
-        elseif ((tp >= 121) and (tp <= 130)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV1, 12, 0, 180, 0, 1);
-        elseif ((tp >= 131) and (tp <= 140)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV1, 13, 0, 180, 0, 1);
-        elseif ((tp >= 141) and (tp <= 150)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV1, 14, 0, 180, 0, 1);
-        elseif ((tp >= 151) and (tp <= 160)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV1, 15, 0, 180, 0, 1);
-        elseif ((tp >= 161) and (tp <= 170)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV1, 16, 0, 180, 0, 1);
-        elseif ((tp >= 171) and (tp <= 180)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV1, 17, 0, 180, 0, 1);
-        elseif ((tp >= 181) and (tp <= 190)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV1, 18, 0, 180, 0, 1);
-        elseif ((tp >= 191) and (tp <= 199)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV1, 19, 0, 180, 0, 1);
-
--- AFTERMATH LEVEL 2
-
-        elseif ((tp >= 200) and (tp <= 210)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV2, 24, 0, 180, 0, 1);
-        elseif ((tp >= 211) and (tp <= 219)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV2, 28, 0, 180, 0, 1);
-        elseif ((tp >= 221) and (tp <= 229)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV2, 32, 0, 180, 0, 1);
-        elseif ((tp >= 231) and (tp <= 239)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV2, 36, 0, 180, 0, 1);
-        elseif ((tp >= 241) and (tp <= 249)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV2, 40, 0, 180, 0, 1);
-        elseif ((tp >= 251) and (tp <= 259)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV2, 44, 0, 180, 0, 1);
-        elseif ((tp >= 261) and (tp <= 269)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV2, 48, 0, 180, 0, 1);
-        elseif ((tp >= 271) and (tp <= 279)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV2, 52, 0, 180, 0, 1);
-        elseif ((tp >= 281) and (tp <= 289)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV2, 56, 0, 180, 0, 1);
-        elseif ((tp >= 291) and (tp <= 299)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV2, 59, 0, 180, 0, 1);
-
--- AFTERMATH LEVEL 3
-
-        elseif ((tp == 300)) then
-            player:addStatusEffect(EFFECT_AFTERMATH_LV3, 45, 0, 120, 0, 1);
-            end
+            applyAftermathEffect(player, tp)
         end
     end
-    return tpHits, extraHits, criticalHit, damage;
 
-end
+    return tpHits, extraHits, criticalHit, damage;
+end;

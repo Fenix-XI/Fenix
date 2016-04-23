@@ -35,8 +35,6 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
-		ally:addCurrency("mweya_plasm",25);
-    ally:PrintToPlayer( "You earned 25 Mweya Plasm!");
    local mobID = mob:getID();    
     
      switch (mobID): caseof {

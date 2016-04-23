@@ -1,18 +1,10 @@
 -----------------------------------
--- Area: Xarcabard [S]
--- NPC:  Greater Amphiptere
+-- Area: 
+--  MOB: Greater Amphiptere
 -----------------------------------
 
------------------------------------
--- requires go here
------------------------------------
-
------------------------------------
--- onMobInitialize Action
------------------------------------
-
-function onMobInitialize(mob)
-end;
+require("scripts/globals/status");
+mixins = { require("scripts/mixins/families/amphiptere") }
 
 -----------------------------------
 -- onMobSpawn Action
@@ -26,6 +18,13 @@ end;
 -----------------------------------
 
 function onMobEngaged(mob, killer)
+end;
+
+-----------------------------------
+-- onMobDisengage
+-----------------------------------
+
+function onMobDisengage(mob)
 end;
 
 -----------------------------------

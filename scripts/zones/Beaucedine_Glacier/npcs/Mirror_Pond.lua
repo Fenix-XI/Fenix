@@ -23,14 +23,8 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-    local pNation = player:getNation();
-    local currentMission = player:getCurrentMission(pNation);
-    local MissionStatus = player:getVar("MissionStatus");
     local LoveAndIce = player:getQuestStatus(BASTOK,LOVE_AND_ICE);
-	if (currentMission == 14 and MissionStatus == 10) then
-	player:setVar("MissionStatus",11);
-	player:PrintToPlayer( "You may now go fight for 5-1 inside the depths of FeiYin! May the odds be in your favor!");
-	end
+
     if (npc:getID() == 17232193) then -- Mirror Pond at J-8
         if (LoveAndIce == QUEST_ACCEPTED and player:hasKeyItem(CARMELOS_SONG_SHEET) == true) then
             player:startEvent(0x0064);
