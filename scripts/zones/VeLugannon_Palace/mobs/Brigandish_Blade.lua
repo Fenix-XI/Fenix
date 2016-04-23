@@ -24,8 +24,6 @@ end;
 -- onMobDeath
 -----------------------------------
 function onMobDeath(mob, killer, ally)
-			ally:addCurrency("bayld",50);
-	ally:PrintToPlayer( "You earned 50 Bayld!");
 end;
 
 -----------------------------------

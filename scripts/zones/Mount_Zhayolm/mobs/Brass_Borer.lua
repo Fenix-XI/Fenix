@@ -1,8 +1,6 @@
 -----------------------------------
 -- Area: Mount Zhayolm
--- NPC: Brass Borer
--- ZNM Path: Troll
--- @pos http://ffxiclopedia.wikia.com/wiki/Shadeleaf traded to ??? at (I/J-7)
+-- MOB:  Brass Borer
 -----------------------------------
 require("scripts/globals/status");
 
@@ -13,7 +11,7 @@ require("scripts/globals/status");
 -----------------------------------
 
 function onMobSpawn(mob)
-	mob:setLocalVar("formTime", os.time() + math.random(43,47));
+    mob:setLocalVar("formTime", os.time() + math.random(43,47));
 end;
 
 -----------------------------------
@@ -47,9 +45,5 @@ function onMobFight(mob,target)
     end
 end;
 
-function onMobDeath(mob,killer,ally)
-
-	ally:addCurrency("dominion_note",50);
-	ally:PrintToPlayer( "You earned 50 Dominion Notes!");
-
+function onMobDeath(mob)
 end;

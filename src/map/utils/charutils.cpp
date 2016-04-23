@@ -4233,16 +4233,6 @@ namespace charutils
             MOD_LIGHT_AFFINITY_PERP,
             MOD_DARK_AFFINITY_PERP};
 
-        static const MODIFIER weak[8] = {
-            MOD_WATER_AFFINITY_PERP,
-            MOD_WIND_AFFINITY_PERP,
-            MOD_THUNDER_AFFINITY_PERP,
-            MOD_ICE_AFFINITY_PERP,
-            MOD_FIRE_AFFINITY_PERP,
-            MOD_EARTH_AFFINITY_PERP,
-            MOD_DARK_AFFINITY_PERP,
-            MOD_LIGHT_AFFINITY_PERP};
-
         static const WEATHER weatherStrong[8] = {
             WEATHER_HOT_SPELL,
             WEATHER_DUST_STORM,
@@ -4257,15 +4247,19 @@ namespace charutils
 
         DSP_DEBUG_BREAK_IF(element > 7);
 
-        reduction = reduction + PChar->getMod(strong[element]) - PChar->getMod(weak[element]) + PChar->getMod(MOD_ALL_AFFINITY_PERP);
+        reduction = reduction + PChar->getMod(strong[element]);
 
         if (CVanaTime::getInstance()->getWeekday() == element)
+        {
             reduction = reduction + PChar->getMod(MOD_DAY_REDUCTION);
+        }
 
         WEATHER weather = battleutils::GetWeather(PChar, false);
 
         if (weather == weatherStrong[element] || weather == weatherStrong[element] + 1)
+        {
             reduction = reduction + PChar->getMod(MOD_WEATHER_REDUCTION);
+        }
 
         return reduction;
     }
@@ -4525,7 +4519,10 @@ namespace charutils
             }
 
             CBattleEntity* PSyncTarget = PChar->PParty->GetSyncTarget();
-            if (PSyncTarget && !(PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC)) && PChar->getZone() == PSyncTarget->getZone() && PSyncTarget->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC) && PSyncTarget->StatusEffectContainer->GetStatusEffect(EFFECT_LEVEL_SYNC)->GetDuration() == 0)
+            if (PSyncTarget && PChar->getZone() == PSyncTarget->getZone()
+                && !(PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC))
+                && PSyncTarget->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC)
+                && PSyncTarget->StatusEffectContainer->GetStatusEffect(EFFECT_LEVEL_SYNC)->GetDuration() == 0)
             {
                 PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, PSyncTarget->GetMLevel(), 540));
                 PChar->StatusEffectContainer->AddStatusEffect(new CStatusEffect(

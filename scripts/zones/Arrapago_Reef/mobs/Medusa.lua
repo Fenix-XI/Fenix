@@ -37,7 +37,7 @@ function onMobFight(mob, target)
     local HPP = mob:getHPP();
     if (mob:getLocalVar("usedees") == 0) then
         if (HPP <= mob:getLocalVar("eeshpp")) then
-            mob:useMobAbility(1675); -- Eagle Eye Shot
+            mob:useMobAbility(1931); -- Eagle Eye Shot
             mob:setLocalVar("usedees", 1);
         end
     end
@@ -50,6 +50,4 @@ end;
 function onMobDeath(mob, killer, ally)
     ally:showText(mob, MEDUSA_DEATH);
     ally:addTitle(GORGONSTONE_SUNDERER);
-	ally:addCurrency("dominion_note",250);
-	ally:PrintToPlayer( "You earned 250 Dominion Notes!");
 end;

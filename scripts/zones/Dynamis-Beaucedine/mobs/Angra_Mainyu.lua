@@ -81,8 +81,6 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
-	ally:addCurrency("bayld",100);
-	ally:PrintToPlayer( "You earned 100 Bayld!");
     
     ally:addTitle(DYNAMISBEAUCEDINE_INTERLOPER); -- Add title
     ally:setVar("DynaBeaucedine_Win",1);

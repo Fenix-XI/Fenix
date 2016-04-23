@@ -21,7 +21,7 @@ end;
 
 function onMobEngaged(mob,target)
     target:showText(mob,YOU_DECIDED_TO_SHOW_UP);
-    -- printf("Maat Chamber of Oracles works");
+    printf("Maat Chamber of Oracles works");
     -- When he take damage: target:showText(mob,THAT_LL_HURT_IN_THE_MORNING);
     -- He use dragon kick or tackle: target:showText(mob,TAKE_THAT_YOU_WHIPPERSNAPPER);
     -- He use spining attack: target:showText(mob,TEACH_YOU_TO_RESPECT_ELDERS);

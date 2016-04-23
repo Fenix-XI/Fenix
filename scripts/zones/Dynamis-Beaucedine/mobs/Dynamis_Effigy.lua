@@ -20,5 +20,4 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
-
 end;

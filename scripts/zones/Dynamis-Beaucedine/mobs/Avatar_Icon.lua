@@ -31,6 +31,7 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+    
     local mobID = mob:getID();
     -- Time Bonus: 010 020
     if (mobID == 17326839 and mob:isInBattlefieldList() == false) then

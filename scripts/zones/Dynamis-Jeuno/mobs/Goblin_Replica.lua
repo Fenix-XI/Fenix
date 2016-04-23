@@ -32,6 +32,7 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+    
     mobID = mob:getID();
     
     -- Time Bonus (30min): 002

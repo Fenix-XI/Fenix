@@ -36,8 +36,6 @@ end;
 function onMobDeath(mob, killer, ally)
 
     ally:addTitle(BEHEMOTH_DETHRONER);
-		ally:addCurrency("bayld",400);
-	ally:PrintToPlayer( "You earned 400 Bayld!");
 
     -- Todo: move this to SQL after drop slots are a thing
     if (math.random(1,100) <= 5) then -- Hardcoded "this or this item" drop rate until implemented.

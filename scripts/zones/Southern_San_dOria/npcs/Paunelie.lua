@@ -2,7 +2,7 @@
 --  Area: Port Bastok
 --  NPC: Ilita
 --  Linkshell merchant
---  @pos -144 -3 2
+--  @pos -142 -1 -25 236
 -----------------------------------
 package.loaded["scripts/zones/Southern_San_dOria/TextIDs"] = nil;
 -----------------------------------
@@ -23,14 +23,14 @@ end;
 
 function onTrigger(player,npc)
 
---player:showText(npc,PAUNELIE_SHOP_DIALOG,513);
+player:showText(npc,PAUNELIE_SHOP_DIALOG,513);
 
---stock = 
+stock = 
 {
-    --0x0200,8000, -- Linkshell
-    --0x3f9d,375   -- Pendant Compass
+    0x0200,8000, -- Linkshell
+    0x3f9d,375   -- Pendant Compass
 }
---showShop(player, STATIC, stock);
+showShop(player, STATIC, stock);
 end;
 
 -----------------------------------

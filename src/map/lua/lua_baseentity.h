@@ -46,7 +46,6 @@ public:
         return m_PBaseEntity;
     }
 
-	int32 addLS(lua_State* L);              // Adds LS to player
     int32 ChangeMusic(lua_State* L);        // Sets the specified music Track for specified music block.
 
     int32 warp(lua_State*);                 // Returns Character to home point
@@ -301,6 +300,8 @@ public:
     int32 resetEnmity(lua_State*);          //resets enmity to player for specificed mob
     int32 lowerEnmity(lua_State*);          //lower enmity to player for specificed mob
     int32 transferEnmity(lua_State*);
+    int32 getCE(lua_State*);                //gets current CE the mob has towards the player
+    int32 getVE(lua_State*);                //gets current VE the mob has towards the player
 
     int32 hasImmunity(lua_State*);          // Check if the mob has immunity for a type of spell (list at mobentity.h)
     int32 getBattleTime(lua_State*);        // Get the time in second of the battle
@@ -352,6 +353,8 @@ public:
 
     int32 getMobMod(lua_State*);
     int32 setMobMod(lua_State*);
+    int32 addMobMod(lua_State*);
+    int32 delMobMod(lua_State*);
 
     int32 hasTrait(lua_State*);
 
@@ -421,6 +424,7 @@ public:
     int32 resetRecast(lua_State*);          // Reset one recast ID
 
     int32 getCurrency(lua_State*);          // Get Currency
+    int32 setCurrency(lua_State*);          // Set Currency
     int32 addCurrency(lua_State*);          // Add Currency
     int32 delCurrency(lua_State*);          // Delete Currency
 
@@ -527,6 +531,7 @@ public:
     int32 hideName(lua_State* L);
     int32 untargetable(lua_State* L);
     int32 hideHP(lua_State* L);
+    int32 hideModel(lua_State* L);
     int32 breathDmgTaken(lua_State* L);
     int32 magicDmgTaken(lua_State* L);
     int32 physicalDmgTaken(lua_State* L);
@@ -588,6 +593,10 @@ public:
     int32 unequipItem(lua_State* L);
     int32 recalculateStats(lua_State* L);
     int32 checkImbuedItems(lua_State* L);
+
+    int32 getNearbyEntities(lua_State* L);
+    int32 getAutomatonFrame(lua_State* L);
+    int32 getAutomatonHead(lua_State* L);
 };
 
 #endif

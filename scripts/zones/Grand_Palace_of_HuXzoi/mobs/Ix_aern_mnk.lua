@@ -72,8 +72,6 @@ function onMobDeath(mob, killer, ally)
     -- Despawn his minions if they are alive (Qn'aern)
     DespawnMob(mob:getID()+1);
     DespawnMob(mob:getID()+2);
-	ally:addCurrency("mweya_plasm",300);
-	ally:PrintToPlayer( "You earned 300 Mweya Plasm!");
 end;
 
 -----------------------------------

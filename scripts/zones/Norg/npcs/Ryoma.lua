@@ -7,7 +7,6 @@
 -----------------------------------
 package.loaded["scripts/zones/Norg/TextIDs"] = nil;
 -----------------------------------
-
 require("scripts/globals/settings");
 require("scripts/globals/keyitems");
 require("scripts/globals/shop");
@@ -19,18 +18,6 @@ require("scripts/zones/Norg/TextIDs");
 -----------------------------------
 
 function onTrade(player,npc,trade)
-if (trade:getItemCount() == 1 and trade:hasItemQty(15737,1)) 
-       		then
-	   player:addItem(15327,1);
-   player:messageSpecial(ITEM_OBTAINED,15327,1);
-   player:tradeComplete();
-  elseif 
-  (trade:getItemCount() == 1 and trade:hasItemQty(13054,1)) 
-       		then
-	   player:addItem(15327,1);
-   player:messageSpecial(ITEM_OBTAINED,15327,1);
-   player:tradeComplete();
-end
 end;
 
 -----------------------------------
@@ -38,7 +25,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-player:PrintToPlayer("Trade me a pair of Sarutobi Kyahan or Fuma Kyahan and I shall give you a pair of Fuma Sune-Ate");
+
     twentyInPirateYears = player:getQuestStatus(OUTLANDS,TWENTY_IN_PIRATE_YEARS);
     illTakeTheBigBox = player:getQuestStatus(OUTLANDS,I_LL_TAKE_THE_BIG_BOX);
     trueWill = player:getQuestStatus(OUTLANDS,TRUE_WILL);
@@ -77,8 +64,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
---printf("CSID: %u",csid);
---printf("RESULT: %u",option);
+    -- printf("CSID: %u",csid);
+    -- printf("RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -86,8 +73,8 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
---printf("CSID: %u",csid);
---printf("RESULT: %u",option);
+    -- printf("CSID: %u",csid);
+    -- printf("RESULT: %u",option);
 
     if (csid == 0x005f) then
         player:addKeyItem(SEALED_DAGGER);
@@ -108,7 +95,7 @@ function onEventFinish(player,csid,option)
             player:messageSpecial(ITEM_OBTAINED, 17772); -- Zushio
             player:needToZone();
             player:setVar("twentyInPirateYearsCS",0);
-            player:addFame(OUTLANDS,NORG_FAME*30);
+            player:addFame(OUTLANDS,30);
             player:completeQuest(OUTLANDS,TWENTY_IN_PIRATE_YEARS);
         end
     elseif (csid == 0x0087) then

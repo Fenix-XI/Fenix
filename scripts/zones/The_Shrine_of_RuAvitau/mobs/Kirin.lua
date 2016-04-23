@@ -91,8 +91,6 @@ function onMobDeath(mob, killer, ally)
     ally:addTitle( KIRIN_CAPTIVATOR );
     ally:showText( mob, KIRIN_OFFSET + 1 );
 
-	ally:addCurrency("bayld",2000);
-	ally:PrintToPlayer( "You earned 2000 Bayld!");
     -- Despawn pets..
     DespawnMob( 17506671 );
     DespawnMob( 17506672 );

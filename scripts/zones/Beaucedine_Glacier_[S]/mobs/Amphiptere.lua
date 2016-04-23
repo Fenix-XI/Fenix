@@ -1,18 +1,10 @@
 -----------------------------------
--- Area: Beaucedine Glacier [S]
--- NPC:  Amphiptere
+-- Area: 
+--  MOB: Amphiptere
 -----------------------------------
 
------------------------------------
--- requires go here
------------------------------------
-
------------------------------------
--- onMobInitialize Action
------------------------------------
-
-function onMobInitialize(mob)
-end;
+require("scripts/globals/status");
+mixins = { require("scripts/mixins/families/amphiptere") }
 
 -----------------------------------
 -- onMobSpawn Action
@@ -29,10 +21,15 @@ function onMobEngaged(mob, killer)
 end;
 
 -----------------------------------
+-- onMobDisengage
+-----------------------------------
+
+function onMobDisengage(mob)
+end;
+
+-----------------------------------
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer,ally)
-	ally:addCurrency("kinetic_unit",80);
-	ally:PrintToPlayer( "You earned 80 Kinetic Units!");
+function onMobDeath(mob, killer, ally)
 end;

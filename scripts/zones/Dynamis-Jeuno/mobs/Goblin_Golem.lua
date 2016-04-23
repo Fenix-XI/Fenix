@@ -18,6 +18,7 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
+
     ally:addTitle(DYNAMISJEUNO_INTERLOPER); -- Add title
 
     local npc = GetNPCByID(17547510); -- Spawn ???

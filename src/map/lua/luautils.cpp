@@ -103,7 +103,6 @@ namespace luautils
         LuaHandle = luaL_newstate();
         luaL_openlibs(LuaHandle);
 
-		lua_register(LuaHandle, "isValidLS", luautils::isValidLS);
         lua_register(LuaHandle, "print", luautils::print);
         lua_register(LuaHandle, "GetNPCByID", luautils::GetNPCByID);
         lua_register(LuaHandle, "GetMobByID", luautils::GetMobByID);
@@ -167,38 +166,17 @@ namespace luautils
 
         luaL_dostring(LuaHandle, "if not bit then bit = require('bit') end");
 
+        lua_getglobal(LuaHandle, "math");
+        lua_pushstring(LuaHandle, "random");
+        lua_pushcfunction(LuaHandle, luautils::random);
+        lua_rawset(LuaHandle, -3);
+        lua_pop(LuaHandle, 1);
+
         expansionRestrictionEnabled = (GetSettingsVariable("RESTRICT_BY_EXPANSION") != 0);
 
         ShowMessage("\t\t - " CL_GREEN"[OK]" CL_RESET"\n");
         return 0;
     }
-
-
-	/************************************************************************
-	*                                                                       *
-	*  Auto-Pearl														*
-	*                                                                       *
-	************************************************************************/
-
-	int32 isValidLS(lua_State* L)
-	{
-		const int8* linkshellName = lua_tostring(L, 1);
-		const int8* Query = "SELECT name FROM linkshells WHERE name='%s'";
-		int32 ret = Sql_Query(SqlHandle, Query, linkshellName);
-
-		if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
-		{
-			lua_pushboolean(L, true);
-		}
-		else
-		{
-			lua_pushboolean(L, false);
-		}
-
-		return 1;
-	}
-
-
 
     /************************************************************************
     *                                                                       *
@@ -333,6 +311,26 @@ namespace luautils
     *                                                                       *
     *                                                                       *
     ************************************************************************/
+
+    int32 random(lua_State* L)
+    {
+        switch (lua_gettop(L))
+        {
+            case 0:
+                lua_pushnumber(L, dsprand::GetRandomNumber(1.));
+                break;
+            case 1:
+                luaL_checkinteger(L, 1);
+                lua_pushinteger(L, dsprand::GetRandomNumber<lua_Integer>(1, lua_tointeger(L, 1) + 1));
+                break;
+            default:
+                luaL_checkinteger(L, 1);
+                luaL_checkinteger(L, 2);
+                lua_pushinteger(L, dsprand::GetRandomNumber<lua_Integer>(lua_tointeger(L, 1), lua_tointeger(L, 2) + 1));
+                break;
+        }
+        return 1;
+    }
 
     int32 GetNPCByID(lua_State* L)
     {
@@ -914,8 +912,17 @@ namespace luautils
         if (!lua_isnil(L, 1) && lua_isnumber(L, 1))
         {
             uint32 mobid = (uint32)lua_tointeger(L, 1);
+            CMobEntity* PMob = nullptr;
 
-            CMobEntity* PMob = (CMobEntity*)zoneutils::GetEntity(mobid, TYPE_MOB);
+            if (!lua_isnil(L, 2) && lua_isuserdata(L, 2))
+            {
+                CLuaInstance* PLuaInstance = Lunar<CLuaInstance>::check(L, 2);
+                PMob = (CMobEntity*)PLuaInstance->GetInstance()->GetEntity(mobid & 0xFFF, TYPE_MOB);
+            }
+            else
+            {
+                PMob = (CMobEntity*)zoneutils::GetEntity(mobid, TYPE_MOB);
+            }
             if (PMob != nullptr)
             {
                 if (!lua_isnil(L, 2) && lua_isnumber(L, 2))
@@ -1342,14 +1349,22 @@ namespace luautils
 
     int32 OnRegionEnter(CCharEntity* PChar, CRegion* PRegion)
     {
-        lua_prepscript("scripts/zones/%s/Zone.lua", PChar->loc.zone->GetName());
+        std::string filename;
+        if (PChar->PInstance)
+        {
+            filename = std::string("scripts/zones/") + PChar->loc.zone->GetName() + "/instances/" + PChar->PInstance->GetName() + ".lua";
+        }
+        else
+        {
+            filename = std::string("scripts/zones/") + PChar->loc.zone->GetName() + "/Zone.lua";
+        }
 
         //player may be entering because of an earlier event (event that changes position)
         // these should probably not call another event from onRegionEnter (use onEventFinish instead)
         if (PChar->m_event.EventID == -1)
-            PChar->m_event.Script.insert(0, File);
+            PChar->m_event.Script.insert(0, filename.c_str());
 
-        if (prepFile(File, "onRegionEnter"))
+        if (prepFile((int8*)filename.c_str(), "onRegionEnter"))
         {
             return -1;
         }
@@ -1359,17 +1374,11 @@ namespace luautils
         CLuaRegion LuaRegion(PRegion);
         Lunar<CLuaRegion>::push(LuaHandle, &LuaRegion);
 
-        if (lua_pcall(LuaHandle, 2, LUA_MULTRET, 0))
+        if (lua_pcall(LuaHandle, 2, 0, 0))
         {
             ShowError("luautils::onRegionEnter: %s\n", lua_tostring(LuaHandle, -1));
             lua_pop(LuaHandle, 1);
             return -1;
-        }
-        int32 returns = lua_gettop(LuaHandle) - oldtop;
-        if (returns > 0)
-        {
-            ShowError("luautils::onRegionEnter (%s): 0 returns expected, got %d\n", File, returns);
-            lua_pop(LuaHandle, returns);
         }
         return 0;
     }
@@ -1382,13 +1391,21 @@ namespace luautils
 
     int32 OnRegionLeave(CCharEntity* PChar, CRegion* PRegion)
     {
-        lua_prepscript("scripts/zones/%s/Zone.lua", PChar->loc.zone->GetName());
+        std::string filename;
+        if (PChar->PInstance)
+        {
+            filename = std::string("scripts/zones/") + PChar->loc.zone->GetName() + "/instances/" + PChar->PInstance->GetName() + ".lua";
+        }
+        else
+        {
+            filename = std::string("scripts/zones/") + PChar->loc.zone->GetName() + "/Zone.lua";
+        }
 
         //player may be leaving because of an earlier event (event that changes position)
         if (PChar->m_event.EventID == -1)
-            PChar->m_event.Script.insert(0, File);
+            PChar->m_event.Script.insert(0, filename.c_str());
 
-        if (prepFile(File, "onRegionLeave"))
+        if (prepFile((int8*)filename.c_str(), "onRegionLeave"))
         {
             return -1;
         }
@@ -1398,17 +1415,11 @@ namespace luautils
         CLuaRegion LuaRegion(PRegion);
         Lunar<CLuaRegion>::push(LuaHandle, &LuaRegion);
 
-        if (lua_pcall(LuaHandle, 2, LUA_MULTRET, 0))
+        if (lua_pcall(LuaHandle, 2, 0, 0))
         {
             ShowError("luautils::onRegionLeave: %s\n", lua_tostring(LuaHandle, -1));
             lua_pop(LuaHandle, 1);
             return -1;
-        }
-        int32 returns = lua_gettop(LuaHandle) - oldtop;
-        if (returns > 0)
-        {
-            ShowError("luautils::onRegionLeave (%s): 0 returns expected, got %d\n", File, returns);
-            lua_pop(LuaHandle, returns);
         }
         return 0;
     }
@@ -1939,6 +1950,49 @@ namespace luautils
         {
             ShowError("luautils::onEffectLose (%s): 0 returns expected, got %d\n", File, returns);
             lua_pop(LuaHandle, returns);
+        }
+        return 0;
+    }
+
+
+    int32 OnAttachmentEquip(CBattleEntity* PEntity, CItemPuppet* attachment)
+    {
+        lua_prepscript("scripts/globals/abilities/pets/attachments/%s.lua", attachment->getName());
+
+        if (prepFile(File, "onEquip"))
+        {
+            return -1;
+        }
+
+        CLuaBaseEntity LuaBaseEntity(PEntity);
+        Lunar<CLuaBaseEntity>::push(LuaHandle, &LuaBaseEntity);
+
+        if (lua_pcall(LuaHandle, 1, 0, 0))
+        {
+            ShowError("luautils::onEquip: %s\n", lua_tostring(LuaHandle, -1));
+            lua_pop(LuaHandle, 1);
+            return -1;
+        }
+        return 0;
+    }
+
+    int32 OnAttachmentUnequip(CBattleEntity* PEntity, CItemPuppet* attachment)
+    {
+        lua_prepscript("scripts/globals/abilities/pets/attachments/%s.lua", attachment->getName());
+
+        if (prepFile(File, "onUnequip"))
+        {
+            return -1;
+        }
+
+        CLuaBaseEntity LuaBaseEntity(PEntity);
+        Lunar<CLuaBaseEntity>::push(LuaHandle, &LuaBaseEntity);
+
+        if (lua_pcall(LuaHandle, 1, 0, 0))
+        {
+            ShowError("luautils::onUnequip: %s\n", lua_tostring(LuaHandle, -1));
+            lua_pop(LuaHandle, 1);
+            return -1;
         }
         return 0;
     }
@@ -3046,7 +3100,7 @@ namespace luautils
         Lunar<CLuaBaseEntity>::push(LuaHandle, &LuaMobEntity);
 
         lua_pushinteger(LuaHandle, wskill->getID());
-        lua_pushnumber(LuaHandle, tp/10);
+        lua_pushnumber(LuaHandle, tp);
         lua_pushboolean(LuaHandle, primary);
 
         CLuaAction LuaAction(&action);

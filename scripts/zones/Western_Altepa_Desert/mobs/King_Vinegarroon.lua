@@ -2,9 +2,19 @@
 -- Area: Western Altepa Desert
 --   NM: King Vinegarroon
 -----------------------------------
-package.loaded["scripts/zones/Western_Altepa_Desert/TextIDs"] = nil
+
+require("scripts/globals/status");
+require("scripts/globals/titles");
+require("scripts/globals/weather");
+
 -----------------------------------
-require("scripts/zones/Western_Altepa_Desert/TextIDs");
+-- onMobInitialize Action
+-----------------------------------
+
+function onMobInitialize(mob)
+    mob:setMobMod(MOBMOD_ADD_EFFECT,mob:getShortID());
+end;
+
 -----------------------------------
 -- onMobSpawn Action
 -----------------------------------
@@ -19,7 +29,7 @@ end;
 
 function onMobDrawIn(mob, target)
     -- todo make him use AoE tp move
-    mob:addTP(300);
+    mob:addTP(3000);
 end;
 
 -----------------------------------
@@ -45,18 +55,27 @@ function onMobDeath(mob, killer, ally)
     -- Set King_Vinegarroon's spawnpoint and respawn time (21-24 hours)
     UpdateNMSpawnPoint(mob:getID());
     mob:setRespawnTime(math.random(75600,86400));
-aaabbbb = {10949,10954};
-        local aaaabbb = mob:getZone():getPlayers();
-        for i, aaaabbbb in pairs(aaaabbb) do
-            local aaabbb = math.random(1,table.getn(aaabbbb));
-            if (aaaabbbb:getFreeSlotsCount() >= 1 and aaaabbbb:hasItem(aaabbbb[aaabbb]) == false) then
-                local aaaabbbbb = aaaabbbb:checkDistance(mob);
-                    if (aaaabbbbb < 40) then
-                        if (math.random(1,2) == 1) then
-                            aaaabbbb:addItem(aaabbbb[aaabbb],1);
-                            aaaabbbb:messageSpecial( ITEM_OBTAINED, aaabbbb[aaabbb]);
-                        end;
-                    end;
-            end;
-        end;
+
+end;
+
+-----------------------------------
+-- onAdditionalEffect
+-----------------------------------
+
+function onAdditionalEffect(mob, player)
+    local resist = applyResistanceAddEffect(mob,player,ELE_EARTH,EFFECT_PETRIFICATION);
+    if (resist <= 0.5) then -- "Has an innate Additional Effect of Petrification on all of its physical attacks. "
+        return 0,0,0;
+    else
+        local duration = 30;
+        if (mob:getMainLvl() > player:getMainLvl()) then
+            duration = duration + (mob:getMainLvl() - player:getMainLvl())
+        end
+        duration = utils.clamp(duration,1,45);
+        duration = duration * resist;
+        if (not player:hasStatusEffect(EFFECT_PETRIFICATION)) then
+            player:addStatusEffect(EFFECT_PETRIFICATION, 1, 0, duration);
+        end
+        return SUBEFFECT_PETRIFY, MSGBASIC_ADD_EFFECT_STATUS, EFFECT_PETRIFICATION;
+    end
 end;

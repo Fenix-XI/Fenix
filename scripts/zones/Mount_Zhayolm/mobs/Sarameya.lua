@@ -72,7 +72,7 @@ function onMobFight(mob, target)
 
     -- Spams TP moves and -ga spells
     if (mob:hasStatusEffect(EFFECT_CHAINSPELL) == true) then
-        mob:setTP(200);
+        mob:setTP(2000);
     else
         if (mob:getMobMod(MOBMOD_GA_CHANCE) == 100) then
             mob:setMobMod(MOBMOD_GA_CHANCE, 50);
@@ -117,8 +117,4 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
-
-	ally:addCurrency("dominion_note",400);
-	ally:PrintToPlayer( "You earned 400 Dominion Notes!");
-
 end;

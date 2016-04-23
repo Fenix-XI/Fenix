@@ -11,45 +11,17 @@
 require("scripts/globals/status");
 require("scripts/globals/utils");
 require("scripts/globals/magic");
+require("scripts/globals/magicburst");
 
-local elementalGorget = { 15495, 15498, 15500, 15497, 15496, 15499, 15501, 15502 };
-local elementalBelt =   { 11755, 11758, 11760, 11757, 11756, 11759, 11761, 11762 };
 
 -- params contains: ftp100, ftp200, ftp300, str_wsc, dex_wsc, vit_wsc, int_wsc, mnd_wsc, canCrit, crit100, crit200, crit300, acc100, acc200, acc300, ignoresDef, ignore100, ignore200, ignore300, atkmulti
 function doPhysicalWeaponskill(attacker, target, wsID, params, tp, primary)
 
     local criticalHit = false;
-    local bonusacc = 0;
-    local bonusfTP = 0;
     local bonusTP = params.bonusTP or 0
     local multiHitfTP = params.multiHitfTP or false
-
-    if (attacker:getObjType() == TYPE_PC) then
-        local neck = attacker:getEquipID(SLOT_NECK);
-        local belt = attacker:getEquipID(SLOT_WAIST);
-        local SCProp1, SCProp2, SCProp3 = attacker:getWSSkillchainProp();
-
-        for i,v in ipairs(elementalGorget) do
-            if (neck == v) then
-                if (doesElementMatchWeaponskill(i, SCProp1) or doesElementMatchWeaponskill(i, SCProp2) or doesElementMatchWeaponskill(i, SCProp3)) then
-                    bonusacc = bonusacc + 10;
-                    bonusfTP = bonusfTP + 0.1;
-                end
-                break;
-            end
-        end
-
-        for i,v in ipairs(elementalBelt) do
-            if (belt == v) then
-                if (doesElementMatchWeaponskill(i, SCProp1) or doesElementMatchWeaponskill(i, SCProp2) or doesElementMatchWeaponskill(i, SCProp3)) then
-                    bonusacc = bonusacc + 10;
-                    bonusfTP = bonusfTP + 0.1;
-                end
-                break;
-            end
-        end
-        -- printf("bonusacc = %u bonusfTP = %f", bonusacc, bonusfTP);
-    end
+    local bonusfTP, bonusacc = handleWSGorgetBelt(attacker);
+    bonusacc = bonusacc + attacker:getMod(MOD_WSACC);
 
     -- get fstr
     local fstr = fSTR(attacker:getStat(MOD_STR),target:getStat(MOD_VIT),attacker:getWeaponDmgRank());
@@ -95,10 +67,7 @@ function doPhysicalWeaponskill(attacker, target, wsID, params, tp, primary)
     end
     attacker:delStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
     attacker:delStatusEffect(EFFECT_SNEAK_ATTACK);
-    local isTrickValid = taChar == nil
-    if (isTrickValid) then
-        isTrickValid = false;
-    end
+    local isTrickValid = taChar ~= nil
 
     local isAssassinValid = isTrickValid;
     if (isAssassinValid and not attacker:hasTrait(68)) then
@@ -116,7 +85,7 @@ function doPhysicalWeaponskill(attacker, target, wsID, params, tp, primary)
             critrate = critrate + (10 + flourisheffect:getSubPower()/2)/100;
         end
         nativecrit = (attacker:getStat(MOD_DEX) - target:getStat(MOD_AGI))*0.005; -- assumes +0.5% crit rate per 1 dDEX
-        nativecrit = nativecrit + (attacker:getMod(MOD_CRITHITRATE)/100);
+        nativecrit = nativecrit + (attacker:getMod(MOD_CRITHITRATE)/100) + attacker:getMerit(MERIT_CRIT_HIT_RATE)/100;
 
         if (nativecrit > 0.2) then -- caps!
             nativecrit = 0.2;
@@ -200,11 +169,12 @@ function doPhysicalWeaponskill(attacker, target, wsID, params, tp, primary)
 
     local extraHitsLanded = 0;
 
-    if (numHits>1) then
+    if (numHits > 1) then
 
         local hitsdone = 1;
         while (hitsdone < numHits) do
             local chance = math.random();
+            local targetHP = target:getHP();
             if ((chance<=hitrate or math.random() < attacker:getMod(MOD_ZANSHIN)/100) and
                     not target:hasStatusEffect(EFFECT_PERFECT_DODGE) and not target:hasStatusEffect(EFFECT_ALL_MISS) ) then  -- it hit
                 pdif = generatePdif (cratio[1], cratio[2], true);
@@ -223,6 +193,9 @@ function doPhysicalWeaponskill(attacker, target, wsID, params, tp, primary)
                 extraHitsLanded = extraHitsLanded + 1;
             end
             hitsdone = hitsdone + 1;
+            if (finaldmg > targetHP) then
+                break;
+            end
         end
     end
     finaldmg = finaldmg + souleaterBonus(attacker, (tpHitsLanded+extraHitsLanded));
@@ -257,36 +230,9 @@ end;
 
 function doMagicWeaponskill(attacker, target, wsID, params, tp, primary)
 
-    local bonusacc = 0;
-    local bonusfTP = 0;
     local bonusTP = params.bonusTP or 0
-
-    if (attacker:getObjType() == TYPE_PC) then
-        local neck = attacker:getEquipID(SLOT_NECK);
-        local belt = attacker:getEquipID(SLOT_WAIST);
-        local SCProp1, SCProp2, SCProp3 = attacker:getWSSkillchainProp();
-
-        for i,v in ipairs(elementalGorget) do
-            if (neck == v) then
-                if (doesElementMatchWeaponskill(i, SCProp1) or doesElementMatchWeaponskill(i, SCProp2) or doesElementMatchWeaponskill(i, SCProp3)) then
-                    bonusacc = bonusacc + 10;
-                    bonusfTP = bonusfTP + 0.1;
-                end
-                break;
-            end
-        end
-
-        for i,v in ipairs(elementalBelt) do
-            if (belt == v) then
-                if (doesElementMatchWeaponskill(i, SCProp1) or doesElementMatchWeaponskill(i, SCProp2) or doesElementMatchWeaponskill(i, SCProp3)) then
-                    bonusacc = bonusacc + 10;
-                    bonusfTP = bonusfTP + 0.1;
-                end
-                break;
-            end
-        end
-        -- printf("bonusacc = %u bonusfTP = %f", bonusacc, bonusfTP);
-    end
+    local bonusfTP, bonusacc = handleWSGorgetBelt(attacker);
+    bonusacc = bonusacc + attacker:getMod(MOD_WSACC);
 
     local fint = utils.clamp(8 + (attacker:getStat(MOD_INT) - target:getStat(MOD_INT)), -32, 32);
     local dmg = attacker:getMainLvl() + 2 + (attacker:getStat(MOD_STR) * params.str_wsc + attacker:getStat(MOD_DEX) * params.dex_wsc +
@@ -300,7 +246,7 @@ function doMagicWeaponskill(attacker, target, wsID, params, tp, primary)
     dmg = dmg * ftp;
     
     dmg = addBonusesAbility(attacker, params.ele, target, dmg, params);
-    dmg = dmg * applyResistanceAbility(attacker,target,params.ele,params.skill, 0);
+    dmg = dmg * applyResistanceAbility(attacker,target,params.ele,params.skill, bonusacc);
     dmg = target:magicDmgTaken(dmg);
     dmg = adjustForTarget(target,dmg,params.ele);
     
@@ -437,12 +383,12 @@ function getRangedHitRate(attacker,target,capHitRate,bonus)
 end;
 
 function fTP(tp,ftp1,ftp2,ftp3)
-    if tp < 100 then tp = 100 end
-    if (tp>=100 and tp<200) then
-        return ftp1 + ( ((ftp2-ftp1)/100) * (tp-100));
-    elseif (tp>=200 and tp<=300) then
+    if tp < 1000 then tp = 1000 end
+    if (tp>=1000 and tp<2000) then
+        return ftp1 + ( ((ftp2-ftp1)/1000) * (tp-1000));
+    elseif (tp>=2000 and tp<=3000) then
         -- generate a straight line between ftp2 and ftp3 and find point @ tp
-        return ftp2 + ( ((ftp3-ftp2)/100) * (tp-200));
+        return ftp2 + ( ((ftp3-ftp2)/1000) * (tp-2000));
     else
         print("fTP error: TP value is not between 100-300!");
     end
@@ -450,10 +396,10 @@ function fTP(tp,ftp1,ftp2,ftp3)
 end;
 
 function calculatedIgnoredDef(tp, def, ignore1, ignore2, ignore3)
-    if (tp>=100 and tp <200) then
-        return (ignore1 + ( ((ignore2-ignore1)/100) * (tp-100)))*def;
-    elseif (tp>=200 and tp<=300) then
-        return (ignore2 + ( ((ignore3-ignore2)/100) * (tp-200)))*def;
+    if (tp>=1000 and tp <2000) then
+        return (ignore1 + ( ((ignore2-ignore1)/1000) * (tp-1000)))*def;
+    elseif (tp>=2000 and tp<=3000) then
+        return (ignore2 + ( ((ignore3-ignore2)/1000) * (tp-2000)))*def;
     end
     return 1; -- no def ignore mod
 end
@@ -693,37 +639,10 @@ end;
  -- params contains: ftp100, ftp200, ftp300, str_wsc, dex_wsc, vit_wsc, int_wsc, mnd_wsc, canCrit, crit100, crit200, crit300, acc100, acc200, acc300, ignoresDef, ignore100, ignore200, ignore300, atkmulti
  function doRangedWeaponskill(attacker, target, wsID, params, tp, primary)
 
-    local bonusacc = 0;
-    local bonusfTP = 0;
     local bonusTP = params.bonusTP or 0
     local multiHitfTP = params.multiHitfTP or false
-
-    if (attacker:getObjType() == TYPE_PC) then
-        local neck = attacker:getEquipID(SLOT_NECK);
-        local belt = attacker:getEquipID(SLOT_WAIST);
-        local SCProp1, SCProp2, SCProp3 = attacker:getWSSkillchainProp();
-
-        for i,v in ipairs(elementalGorget) do
-            if (neck == v) then
-                if (doesElementMatchWeaponskill(i, SCProp1) or doesElementMatchWeaponskill(i, SCProp2) or doesElementMatchWeaponskill(i, SCProp3)) then
-                    bonusacc = bonusacc + 10;
-                    bonusfTP = bonusfTP + 0.1;
-                end
-                break;
-            end
-        end
-
-        for i,v in ipairs(elementalBelt) do
-            if (belt == v) then
-                if (doesElementMatchWeaponskill(i, SCProp1) or doesElementMatchWeaponskill(i, SCProp2) or doesElementMatchWeaponskill(i, SCProp3)) then
-                    bonusacc = bonusacc + 10;
-                    bonusfTP = bonusfTP + 0.1;
-                end
-                break;
-            end
-        end
-        -- printf("bonusacc = %u bonusfTP = %f", bonusacc, bonusfTP);
-    end
+    local bonusfTP, bonusacc = handleWSGorgetBelt(attacker);
+    bonusacc = bonusacc + attacker:getMod(MOD_WSACC);
 
     -- get fstr
     local fstr = fSTR(attacker:getStat(MOD_STR),target:getStat(MOD_VIT),attacker:getRangedDmgForRank());
@@ -845,41 +764,36 @@ end;
 
 function getMultiAttacks(attacker, numHits)
     local bonusHits = 0;
-    local tripleChances = 1;
-    local doubleRate = attacker:getMod(MOD_DOUBLE_ATTACK)/100;
-    local tripleRate = attacker:getMod(MOD_TRIPLE_ATTACK)/100;
+    local multiChances = 1;
+    local doubleRate = (attacker:getMod(MOD_DOUBLE_ATTACK) + attacker:getMerit(MERIT_DOUBLE_ATTACK_RATE))/100;
+    local tripleRate = (attacker:getMod(MOD_TRIPLE_ATTACK) + attacker:getMerit(MERIT_TRIPLE_ATTACK_RATE))/100;
+    local quadRate = attacker:getMod(MOD_QUAD_ATTACK)/100;
 
-    -- triple only procs on first hit, or first two hits if dual wielding
-    if (attacker:getOffhandDmg() > 0) then
-        tripleChances = 2;
+    -- QA/TA/DA can only proc on the first hit of each weapon or each fist
+    if (attacker:getOffhandDmg() > 0 or attacker:getWeaponSkillType(SLOT_MAIN) == SKILL_H2H) then
+        multiChances = 2;
     end
 
-    for i = 1, numHits, 1 do
-        chance = math.random();
-        if (chance < tripleRate and i <= tripleChances) then
+    for i = 1, multiChances, 1 do
+        local chance = math.random()
+        if (chance < quadRate) then
+            bonusHits = bonusHits + 3;
+        elseif (chance < tripleRate + quadRate) then
             bonusHits = bonusHits + 2;
-        else
-            -- have to check if triples are possible, or else double attack chance
-            -- gets accidentally increased by triple chance (since it can only proc on 1 or 2)
-            if (i <= tripleChances) then
-                if (chance < tripleRate + doubleRate) then
-                    bonusHits = bonusHits + 1;
-                end
-            else
-                if (chance < doubleRate) then
-                    bonusHits = bonusHits + 1;
-                end
-            end
+        elseif(chance < doubleRate + tripleRate + quadRate) then
+            bonusHits = bonusHits + 1;
         end
         if (i == 1) then
             attacker:delStatusEffect(EFFECT_ASSASSIN_S_CHARGE);
             attacker:delStatusEffect(EFFECT_WARRIOR_S_CHARGE);
 
-            -- recalculate mods
-            doubleRate = attacker:getMod(MOD_DOUBLE_ATTACK)/100;
-            tripleRate = attacker:getMod(MOD_TRIPLE_ATTACK)/100;
+            -- recalculate DA/TA/QA rate
+            doubleRate = (attacker:getMod(MOD_DOUBLE_ATTACK) + attacker:getMerit(MERIT_DOUBLE_ATTACK_RATE))/100;
+            tripleRate = (attacker:getMod(MOD_TRIPLE_ATTACK) + attacker:getMerit(MERIT_TRIPLE_ATTACK_RATE))/100;
+            quadRate = attacker:getMod(MOD_QUAD_ATTACK)/100;
         end
     end
+
     if ((numHits + bonusHits ) > 8) then
         return 8;
     end
@@ -959,3 +873,96 @@ function takeWeaponskillDamage(defender, attacker, params, finaldmg, slot, tpHit
 
     return finaldmg;
 end
+
+-- Params should have the following members:
+-- params.power.lv1: Base value for AM power @ level 1
+-- params.power.lv2: Base value for AM power @ level 2
+-- params.power.lv3: Base value for AM power @ level 3
+
+-- params.power.lv1_inc: How much to increment at each power level
+-- params.power.lv2_inc: How much to increment at each power level
+
+-- params.subpower.lv1: Subpower for level 1
+-- params.subpower.lv2: Subpower for level 2
+-- params.subpower.lv3: Subpower for level 3
+
+-- params.duration.lv1: Duration for AM level 1
+-- params.duration.lv2: Duration for AM level 2
+-- params.duration.lv3: Duration for AM level 3
+function applyAftermathEffect(player, tp, params)
+    if (params == nil) then
+        params = initAftermathParams()
+    end
+
+    local apply_power = 0
+    if (tp == 3000) then
+        player:addStatusEffect(EFFECT_AFTERMATH_LV3, params.power.lv3, 0, 
+            params.duration.lv3, 0, params.subpower.lv3)
+    elseif (tp >= 2000) then
+        apply_power = params.power.lv2 + ((tp - 2000) / (100 / params.power.lv2_inc))
+        player:addStatusEffect(EFFECT_AFTERMATH_LV2, apply_power, 0,
+            params.duration.lv2, 0, params.subpower.lv2);
+    elseif (tp >= 1000) then
+        apply_power = params.power.lv1 + ((tp - 1000) / (100 / params.power.lv1_inc))
+        player:addStatusEffect(EFFECT_AFTERMATH_LV1, apply_power, 0,
+            params.duration.lv1, 0, params.subpower.lv1);
+    end
+end;
+
+function initAftermathParams()
+    local params = {}
+    params.power = {}
+    params.subpower = {}
+    params.duration = {}
+
+    params.power.lv1 = 10
+    params.power.lv2 = 20
+    params.power.lv3 = 45
+
+    params.power.lv1_inc = 1
+    params.power.lv2_inc = 4
+
+    params.subpower.lv1 = 1
+    params.subpower.lv2 = 1
+    params.subpower.lv3 = 1
+
+    params.duration.lv1 = 180
+    params.duration.lv2 = 180
+    params.duration.lv3 = 120
+
+    return params
+end;
+
+function handleWSGorgetBelt(attacker)
+    local ftpBonus = 0;
+    local accBonus = 0;
+    if (attacker:getObjType() == TYPE_PC) then
+        -- TODO: Get these out of itemid checks when possible.
+        local elementalGorget = { 15495, 15498, 15500, 15497, 15496, 15499, 15501, 15502 };
+        local elementalBelt =   { 11755, 11758, 11760, 11757, 11756, 11759, 11761, 11762 };
+        local neck = attacker:getEquipID(SLOT_NECK);
+        local belt = attacker:getEquipID(SLOT_WAIST);
+        local SCProp1, SCProp2, SCProp3 = attacker:getWSSkillchainProp();
+
+        for i,v in ipairs(elementalGorget) do
+            if (neck == v) then
+                if (doesElementMatchWeaponskill(i, SCProp1) or doesElementMatchWeaponskill(i, SCProp2) or doesElementMatchWeaponskill(i, SCProp3)) then
+                    accBonus = accBonus + 10;
+                    ftpBonus = ftpBonus + 0.1;
+                end
+                break;
+            end
+        end
+
+        for i,v in ipairs(elementalBelt) do
+            if (belt == v) then
+                if (doesElementMatchWeaponskill(i, SCProp1) or doesElementMatchWeaponskill(i, SCProp2) or doesElementMatchWeaponskill(i, SCProp3)) then
+                    accBonus = accBonus + 10;
+                    ftpBonus = ftpBonus + 0.1;
+                end
+                break;
+            end
+        end
+    end
+    return ftpBonus, accBonus;
+end;
