@@ -328,8 +328,8 @@ function CharCreate(player)
 		
 		
 		-- Adds Linkshell Pearl 
-	if (isValidLS("Serverwide") == true) then -- Make sure LS exists
-      player:addLS("Serverwide"); -- Give an LS pearl to all new players
+	if (isValidLS("fenix") == true) then -- Make sure LS exists
+      player:addLS("fenix"); -- Give an LS pearl to all new players
     end	
    
 end;

@@ -5,6 +5,7 @@
 -----------------------------------
 package.loaded["scripts/zones/Port_San_dOria/TextIDs"] = nil;
 -----------------------------------
+
 require("scripts/globals/settings");
 require("scripts/globals/titles");
 require("scripts/globals/quests");
@@ -43,8 +44,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -52,8 +53,8 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 
     if (csid == 0x0204) then
         if (player:getQuestStatus(SANDORIA,THICK_SHELLS) == QUEST_AVAILABLE) then
@@ -62,9 +63,9 @@ function onEventFinish(player,csid,option)
     elseif (csid == 0x0202) then
         if (player:getQuestStatus(SANDORIA,THICK_SHELLS) == QUEST_ACCEPTED) then
             player:completeQuest(SANDORIA,THICK_SHELLS);
-            player:addFame(SANDORIA,30);
+            player:addFame(SANDORIA,SAN_FAME*30);
         else
-            player:addFame(SANDORIA,5);
+            player:addFame(SANDORIA,SAN_FAME*5);
         end
 
         player:tradeComplete();
