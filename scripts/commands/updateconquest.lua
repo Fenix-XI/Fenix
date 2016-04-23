@@ -7,7 +7,7 @@ require("scripts/globals/conquest");
 
 cmdprops =
 {
-    permission = 4,
+    permission = 1,
     parameters = "i"
 };
 

@@ -348,6 +348,7 @@ enum MODIFIER
     MOD_MAXIMUM_SONGS_BONUS       = 453, //
     MOD_SONG_DURATION_BONUS       = 454, //
     MOD_SONG_SPELLCASTING_TIME    = 455, //
+    MOD_SONG_RECAST_DELAY         = 833, // Reduces song recast time (in milliseconds).
 
     // Ranger
     MOD_RECYCLE                   = 305, // Percent chance to recycle
@@ -411,7 +412,8 @@ enum MODIFIER
     MOD_ROLL_DANCERS              = 330, // Tracks totals
     MOD_ROLL_SCHOLARS             = 331, // Tracks totals
     MOD_BUST                      = 332, // # of busts
-    MOD_QUICK_DRAW_DMG            = 411, //
+    MOD_QUICK_DRAW_DMG            = 411, // Flat damage increase to base QD damage
+    MOD_QUICK_DRAW_DMG_PERCENT    = 831, // Percentage increase to QD damage
 
     // Puppetmaster
     MOD_MANEUVER_BONUS            = 504, // Maneuver Stat Bonus
@@ -466,7 +468,6 @@ enum MODIFIER
     MOD_WIND_AFFINITY_DMG         = 352, // DMG, ACC, and PERP, while the wiki lists it as having 1 in each.
     MOD_LIGHT_AFFINITY_DMG        = 353,
     MOD_DARK_AFFINITY_DMG         = 354,
-    MOD_ALL_AFFINITY_DMG          = 543,
     MOD_FIRE_AFFINITY_ACC         = 544,
     MOD_EARTH_AFFINITY_ACC        = 545,
     MOD_WATER_AFFINITY_ACC        = 546,
@@ -475,7 +476,6 @@ enum MODIFIER
     MOD_WIND_AFFINITY_ACC         = 549,
     MOD_LIGHT_AFFINITY_ACC        = 550,
     MOD_DARK_AFFINITY_ACC         = 551,
-    MOD_ALL_AFFINITY_ACC          = 552,
     MOD_FIRE_AFFINITY_PERP        = 553,
     MOD_EARTH_AFFINITY_PERP       = 554,
     MOD_WATER_AFFINITY_PERP       = 555,
@@ -484,7 +484,6 @@ enum MODIFIER
     MOD_WIND_AFFINITY_PERP        = 558,
     MOD_LIGHT_AFFINITY_PERP       = 559,
     MOD_DARK_AFFINITY_PERP        = 560,
-    MOD_ALL_AFFINITY_PERP         = 561,
 
     // Special Modifier+
     MOD_ADDS_WEAPONSKILL          = 355, //
@@ -614,6 +613,7 @@ enum MODIFIER
     MOD_BARSPELL_MDEF_BONUS       = 827, // Extra magic defense bonus granted to the bar- spell effect
     MOD_RAPTURE_AMOUNT            = 568, // Bonus amount added to Rapture effect
     MOD_EBULLIENCE_AMOUNT         = 569, // Bonus amount added to Ebullience effect
+    MOD_AQUAVEIL_COUNT            = 832, // Modifies the amount of hits that Aquaveil absorbs before being removed
 
     // Weaponskill %damage modifiers
     // The following modifier should not ever be set, but %damage modifiers to weaponskills use the next 255 IDs (this modifier + the WSID)
@@ -632,8 +632,11 @@ enum MODIFIER
     // MOD_SPARE = 98, // stuff
     // MOD_SPARE = 99, // stuff
     // MOD_SPARE = 100, // stuff
-    // MOD_SPARE = 831, // stuff
-    // MOD_SPARE = 832, // stuff
+    // MOD_SPARE = 543, // stuff
+    // MOD_SPARE = 552, // stuff
+    // MOD_SPARE = 561, // stuff
+    // MOD_SPARE = 834, // stuff
+    // MOD_SPARE = 835, // stuff
 
 };
 

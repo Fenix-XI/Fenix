@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: The Garden of Ru'Hmet
--- NPC:  Jailer_of_Fortitude
+--  NM:  Jailer of Fortitude
 -----------------------------------
 
 require("scripts/globals/status");
@@ -23,7 +23,7 @@ end;
 -- onMobFight Action
 -----------------------------------
 
-function onMobFight(mob)
+function onMobFight(mob, target)
     local delay = mob:getLocalVar("delay");
     local LastCast = mob:getLocalVar("LAST_CAST");
     local spell = mob:getLocalVar("COPY_SPELL");
@@ -33,7 +33,7 @@ function onMobFight(mob)
         mob:setLocalVar("delay", 0);
     end;
 
-    if (IsMobDead(16921016)==false or IsMobDead(16921017)==false) then -- check for kf'ghrah
+    if (IsMobDead(16921016) == false or IsMobDead(16921017) == false) then -- check for kf'ghrah
         if (spell > 0 and mob:hasStatusEffect(EFFECT_SILENCE) == false) then
             if (delay >= 3) then
                 mob:castSpell(spell);
@@ -41,9 +41,9 @@ function onMobFight(mob)
                 mob:setLocalVar("delay", 0);
             else
                 mob:setLocalVar("delay", delay+1);
-            end;
-        end;
-    end;
+            end
+        end
+    end
 end;
 
 -----------------------------------
@@ -66,9 +66,9 @@ end;
 -- onMobDeath
 -----------------------------------
 
-function onMobDeath(mob, killer, npc)
-ally:addCurrency("mweya_plasm",500);
-ally:PrintToPlayer( "You earned 500 Mweya Plasm!");
+function onMobDeath(mob, killer, ally)
+	ally:addCurrency("mweya_plasm",500);
+	ally:PrintToPlayer( "You earned 500 Mweya Plasm!");
     -- Despawn the pets if alive
     DespawnMob(Kf_Ghrah_WHM);
     DespawnMob(Kf_Ghrah_BLM);

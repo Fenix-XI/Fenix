@@ -116,7 +116,7 @@ INSERT INTO `zone_settings` VALUES (67,4,'127.0.0.1',54230,'Jade_Sepulcher',0,0,
 INSERT INTO `zone_settings` VALUES (68,3,'127.0.0.1',54230,'Aydeewa_Subterrane',174,174,115,139,0,0.00,145);
 INSERT INTO `zone_settings` VALUES (69,6,'127.0.0.1',54230,'Leujaoam_Sanctum',0,0,144,144,0,0.00,145);
 INSERT INTO `zone_settings` VALUES (70,1,'127.0.0.1',54230,'Chocobo_Circuit',176,176,176,176,0,0.00,1028);
-INSERT INTO `zone_settings` VALUES (71,1,'127.0.0.1',54230,'The_Colosseum',0,0,139,139,0,0.00,152);
+INSERT INTO `zone_settings` VALUES (71,1,'127.0.0.1',54230,'The_Colosseum',0,0,139,139,0,0.00,32);
 INSERT INTO `zone_settings` VALUES (72,3,'127.0.0.1',54230,'Alzadaal_Undersea_Ruins',0,0,115,139,0,0.00,145);
 INSERT INTO `zone_settings` VALUES (73,6,'127.0.0.1',54230,'Zhayolm_Remnants',148,148,115,139,0,0.00,145);
 INSERT INTO `zone_settings` VALUES (74,6,'127.0.0.1',54230,'Arrapago_Remnants',148,148,115,139,0,0.00,145);
@@ -337,7 +337,7 @@ INSERT INTO `zone_settings` VALUES (288,2,'127.0.0.1',54230,'Escha_ZiTah',80,80,
 INSERT INTO `zone_settings` VALUES (289,2,'127.0.0.1',54230,'Escha_RuAun',80,80,80,80,0,0.00,0);
 INSERT INTO `zone_settings` VALUES (290,0,'127.0.0.1',54230,'Desuetia_Empyreal_Paradox',0,0,0,0,0,0.00,128);
 INSERT INTO `zone_settings` VALUES (291,0,'127.0.0.1',54230,'Reisenjima',79,79,79,79,0,0.00,128);
-INSERT INTO `zone_settings` VALUES (292,0,'127.0.0.1',0,'292',0,0,0,0,0,0.00,0);
+INSERT INTO `zone_settings` VALUES (292,0,'127.0.0.1',54230,'Reisenjima_Henge',0,0,0,0,0,0.00,0);
 INSERT INTO `zone_settings` VALUES (293,0,'127.0.0.1',54230,'Reisenjima_Sanctorium',0,0,0,0,0,0.00,128);
 /*!40000 ALTER TABLE `zone_settings` ENABLE KEYS */;
 UNLOCK TABLES;

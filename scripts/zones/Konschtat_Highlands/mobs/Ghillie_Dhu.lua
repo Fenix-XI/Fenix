@@ -1,11 +1,8 @@
 -----------------------------------
 -- Area: Konschtat Highlands
--- @pos 376 -9 -338
 --  NM:  Ghillie Dhu
 -----------------------------------
-package.loaded["scripts/zones/Konschtat_Highlands/TextIDs"] = nil;
------------------------------------
-require("scripts/zones/Konschtat_Highlands/TextIDs");
+
 require("scripts/globals/utils");
 require("scripts/globals/status");
 require("scripts/globals/fieldsofvalor");
@@ -61,7 +58,7 @@ function onAdditionalEffect(mob,target,damage)
     -- wiki just says "29%" so thats what I am using (for now).
     local CHANCE = 29;
     if (CHANCE > math.random(0,99)) then
-        local DRAIN = math.random(1,3); -- Its a pretty weaksauce drain.
+        local DRAIN = math.random(10,30); -- Its a pretty weaksauce drain.
         target:delTP(DRAIN);
         return SUBEFFECT_TP_DRAIN, MSGBASIC_ADD_EFFECT_TP_DRAIN, DRAIN;
     else
@@ -79,18 +76,4 @@ function onMobDeath(mob,killer,ally)
 
     UpdateNMSpawnPoint(mob:getID());
     mob:setRespawnTime(math.random(3600,4200)); -- 60~70 min repop.
-	aaabbbb = {15835,16007};
-        local aaaabbb = mob:getZone():getPlayers();
-        for i, aaaabbbb in pairs(aaaabbb) do
-            local aaabbb = math.random(1,table.getn(aaabbbb));
-            if (aaaabbbb:getFreeSlotsCount() >= 1 and aaaabbbb:hasItem(aaabbbb[aaabbb]) == false) then
-                local aaaabbbbb = aaaabbbb:checkDistance(mob);
-                    if (aaaabbbbb < 40) then
-                        if (math.random(1,2) == 1) then
-                            aaaabbbb:addItem(aaabbbb[aaabbb],1);
-                            aaaabbbb:messageSpecial( ITEM_OBTAINED, aaabbbb[aaabbb]);
-                        end;
-                    end;
-            end;
-        end;
 end;

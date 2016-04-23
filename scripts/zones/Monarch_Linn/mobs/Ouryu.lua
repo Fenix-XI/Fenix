@@ -1,7 +1,6 @@
 -----------------------------------
 -- Area:
--- NPC:  Ouryu
------------------------------------
+--  MOB: Ouryu
 -----------------------------------
 
 require("scripts/globals/titles");
@@ -11,7 +10,13 @@ require("scripts/globals/titles");
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:SetMobSkillAttack(0); -- resetting so it doesn't respawn in flight mode.
+    mob:AnimationSub(0); -- subanim 0 is only used when it spawns until first flight.
 end;
+
+-----------------------------------
+-- onMobFight Action
+-----------------------------------
 
 function onMobFight(mob,target)
 
@@ -25,28 +30,28 @@ function onMobFight(mob,target)
         end
 
         if (mob:AnimationSub() == 2 and mob:getBattleTime()/15 > twohourTime) then
-            mob:useMobAbility(438);
+            mob:useMobAbility(694);
             mob:setLocalVar("twohourTime", math.random((mob:getBattleTime()/15)+12, (mob:getBattleTime()/15)+16));
         elseif (mob:AnimationSub() == 0 and mob:getBattleTime() - changeTime > 60) then
             mob:AnimationSub(1);
             mob:addStatusEffectEx(EFFECT_ALL_MISS, 0, 1, 0, 0);
-            mob:SetMobSkillAttack(true);
+            mob:SetMobSkillAttack(731);
             --and record the time this phase was started
             mob:setLocalVar("changeTime", mob:getBattleTime());
         -- subanimation 1 is flight, so check if he should land
         elseif (mob:AnimationSub() == 1 and
                 mob:getBattleTime() - changeTime > 120) then
-            mob:useMobAbility(1046);
+            mob:useMobAbility(1302);
             mob:setLocalVar("changeTime", mob:getBattleTime());
         -- subanimation 2 is grounded mode, so check if he should take off
         elseif (mob:AnimationSub() == 2 and
                 mob:getBattleTime() - changeTime > 120) then
             mob:AnimationSub(1);
             mob:addStatusEffectEx(EFFECT_ALL_MISS, 0, 1, 0, 0);
-            mob:SetMobSkillAttack(true);
+            mob:SetMobSkillAttack(731);
             mob:setLocalVar("changeTime", mob:getBattleTime());
         end
-	end
+    end
 end;
 
 -----------------------------------
@@ -54,8 +59,7 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer, ally)
-	ally:addCurrency("mweya_plasm",300);
-	ally:PrintToPlayer( "You earned 300 Mweya Plasm!");
-	killer:addTitle(MIST_MELTER);
+
+    ally:addTitle(MIST_MELTER);
 
 end;
