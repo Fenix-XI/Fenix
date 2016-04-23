@@ -33,7 +33,6 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
-
     if (alreadyReceived(ally,8) == false) then
         addDynamisList(ally,128);
 

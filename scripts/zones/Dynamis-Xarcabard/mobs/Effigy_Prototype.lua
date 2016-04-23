@@ -35,7 +35,6 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
-    
     local mobID = mob:getID();
     
     -- HP Bonus: 112 142

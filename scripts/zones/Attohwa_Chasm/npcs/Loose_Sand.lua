@@ -24,9 +24,19 @@ end;
 function onTrigger(player,npc)
 
     local MEMORIESMAIDENStatus=player:getVar("MEMORIES_OF_A_MAIDEN_Status");
-
-    if (player:hasKeyItem(MIMEO_JEWEL)==true) then
-        player:setPos(322,-25,-12,30);--(temporary solution, the road to the top of the mountain doesn't work)  
+if (player:getCurrentMission(COP) == THE_ROAD_FORKS --and (MEMORIESMAIDENStatus==7 or MEMORIESMAIDENStatus==8) 
+and player:hasKeyItem(MIMEO_JEWEL)==false) then
+	player:addKeyItem(MIMEO_JEWEL);
+	player:messageSpecial(KEYITEM_OBTAINED, MIMEO_JEWEL);
+	--player:setVar("MEMORIES_OF_A_MAIDEN_Status",8); 
+        player:setPos(322,-25,-12,30); -- tp to the cradle of rebirth (temporary solution, the road to the top of the mountain doesn't work)
+	
+	end
+	
+	
+  --[[  if (player:hasKeyItem(MIMEO_JEWEL)==true) then
+	player:PrintToPlayer( "Climb the mountian Like everyone else!");
+-- player:setPos(322,-25,-12,30);--(temporary solution, the road to the top of the mountain doesn't work)  
     elseif (player:getCurrentMission(COP) == THE_ROAD_FORKS and MEMORIESMAIDENStatus==8 and player:hasKeyItem(MIMEO_JEWEL)==false and(os.time() - player:getVar("LioumereKilled")) < 200) then
         player:setVar("LioumereKilled",0);
         player:addKeyItem(MIMEO_JEWEL);
@@ -37,7 +47,7 @@ function onTrigger(player,npc)
     else
         player:messageSpecial(NOTHING_OUT_OF_ORDINARY);
         player:setVar("LioumereKilled",0);
-    end
+    end--]]
 end;
 
 -----------------------------------
