@@ -327,8 +327,8 @@ function CharCreate(player)
     player:setVar("MoghouseExplication",1);
 	
 		-- Adds Linkshell Pearl 
-	if (isValidLS("Serverwide") == true) then -- Make sure LS exists
-      player:addLS("Serverwide"); -- Give an LS pearl to all new players
+	if (isValidLS("Fenix") == true) then -- Make sure LS exists
+      player:addLS("Fenix"); -- Give an LS pearl to all new players
     end	
 
     
