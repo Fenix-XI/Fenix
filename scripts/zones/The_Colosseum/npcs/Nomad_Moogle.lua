@@ -20,9 +20,9 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-    player:showText(npc,NOMAD_MOOGLE_DIALOG);
-    player:sendMenu(1);
-end;
+		player:PrintToPlayer("I'm a traveling moogle, kupo. I help adventurers on Fenix access items they have stored in a Mog House elsewhere, kupo.");
+		player:sendMenu(1);
+	end;
 
 -----------------------------------
 -- onEventUpdate Action
@@ -43,6 +43,3 @@ function onEventFinish(player,csid,option)
 --printf("CSID: %u",csid);
 --printf("RESULT: %u",option);
 end;
-
-
-
