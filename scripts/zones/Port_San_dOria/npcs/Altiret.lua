@@ -5,6 +5,7 @@
 -----------------------------------
 package.loaded["scripts/zones/Port_San_dOria/TextIDs"] = nil;
 -----------------------------------
+
 require("scripts/globals/titles");
 require("scripts/globals/settings");
 require("scripts/globals/quests");
@@ -29,7 +30,7 @@ function onTrade(player,npc,trade)
         giltGlasses = trade:hasItemQty(579, 1);
         if (count == 1 and freeSlot > 0 and giltGlasses == true) then
             player:tradeComplete();
-            player:addFame(SANDORIA,30);
+            player:addFame(SANDORIA,SAN_FAME*30);
             player:addTitle(PICKPOCKET_PINCHER);
             player:completeQuest(SANDORIA,THE_PICKPOCKET);
             player:startEvent(0x0226); 
@@ -80,8 +81,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -89,8 +90,8 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 
     -- "The Pickpocket" reward with light axe, done with quest
     if (csid == 0x0226) then

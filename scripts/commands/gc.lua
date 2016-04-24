@@ -1,7 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 -- func: @gc
--- auth: Hookstar
--- desc: Sets players to Garliage Citadel
+-- desc: Set's players location to the entrance of Garlaige Citadel
 ---------------------------------------------------------------------------------------------------
 
 cmdprops =
@@ -14,7 +13,7 @@ function onTrigger(player, x, y, z, zone)
 local valor_point = player:getCurrency("valor_point");
 if (valor_point >= 1000)
 	then
-              player:PrintToPlayer("Thank you for flying Exodus Tele! You will be deducted 1000 Tabs!");
+              player:PrintToPlayer("1000 tabs deducted for teleportation fee. Happy adventuring!");
 			  player:delCurrency("valor_point", 1000);
 			  player:setPos('-103', '-24', '-408', '65', '120');			
 		else 

@@ -1,7 +1,6 @@
 ---------------------------------------------------------------------------------------------------
--- func: reward npc's
--- auth: 
--- desc: Sets players to main hub location
+-- func: http://fenix-xi.wikia.com/wiki/Points_%26_Rewards
+-- desc: Sets player's location to Provenance
 ---------------------------------------------------------------------------------------------------
 
 cmdprops =

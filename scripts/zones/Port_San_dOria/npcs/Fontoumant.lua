@@ -7,7 +7,9 @@
 -- @pos -10 -10 -122
 -----------------------------------
 package.loaded["scripts/zones/Port_San_dOria/TextIDs"] = nil;
+package.loaded["scripts/globals/settings"] = nil;
 -----------------------------------
+
 require("scripts/globals/settings");
 require("scripts/globals/titles");
 require("scripts/globals/keyitems");
@@ -84,8 +86,8 @@ end;
 -----------------------------------
 
 function onEventUpdate(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
 end;
 
 -----------------------------------
@@ -93,8 +95,8 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
-    -- printf("CSID: %u",csid);
-    -- printf("RESULT: %u",option);
+--printf("CSID: %u",csid);
+--printf("RESULT: %u",option);
     local freeSlots = player:getFreeSlotsCount();
     if (csid == 0x01fd and option == 0) then
         if (freeSlots ~= 0) then
@@ -129,7 +131,7 @@ function onEventFinish(player,csid,option)
             player:messageSpecial(ITEM_OBTAINED,0x3001);
             player:addTitle(COURIER_EXTRAORDINAIRE);
             player:completeQuest(SANDORIA,THE_BRUGAIRE_CONSORTIUM);
-            player:addFame(SANDORIA,30);
+            player:addFame(SANDORIA,SAN_FAME*30);
             player:setVar("TheBrugaireConsortium-Parcels",0);
         else
             player:startEvent(0x0219);
