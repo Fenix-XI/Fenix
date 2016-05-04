@@ -26,7 +26,7 @@ local balance = player:getCurrency("guild_smithing");
 	
 player:PrintToPlayer("All the Smithing materials you need for your adventure!");
 player:PrintToPlayer("Trade me a single Terra Crystal to receive Synth Support.");
-player:PrintToPlayer("You have "..balance.." of GP points!");
+player:PrintToPlayer("You have "..balance.." Smithing GP!");
 
 stock = {0x281,1,	--Tin Ore
 0x280,1,	--Copper Ore

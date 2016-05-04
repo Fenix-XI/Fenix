@@ -23,7 +23,7 @@ function onTrigger(player,npc)
 local balance = player:getCurrency("guild_woodworking");	
 player:PrintToPlayer("All the woodworking materials you need for your adventure!");
 player:PrintToPlayer("Trade me a single Terra Crystal to receive Synth Support.");
-player:PrintToPlayer("You have "..balance.." of GP points!");
+player:PrintToPlayer("You have "..balance.." Woodworking GP!");
 
 stock = {0x02B0,1,	--Arrowwood Log
 0x2B1,1,	--Lauan Log

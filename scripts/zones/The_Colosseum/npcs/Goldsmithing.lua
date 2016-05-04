@@ -26,9 +26,8 @@ local balance = player:getCurrency("guild_goldsmithing");
 local Previous_Points = player:getCurrency("guild_goldsmithing");
 player:PrintToPlayer("All the Goldsmithing materials you need for your adventure!");
 player:PrintToPlayer("Trade me a single Terra Crystal to receive Synth Support.");
-player:PrintToPlayer("You have "..balance.." of GP points!");
---player:PrintToPlayer("I now do GP! Trade me Test Item for your current Skill");
---player:PrintToPlayer("You have "..Previous_Points.." points accumulated today!");
+player:PrintToPlayer("You have "..balance.." Goldsmithing GP!");
+
 stock = {0x0280,1,	--Copper Ore
 	0x0282,1,	--Zinc Ore
 	0x02EE,1,	--Silver Beastcoin

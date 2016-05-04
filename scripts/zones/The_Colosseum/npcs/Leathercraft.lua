@@ -25,7 +25,7 @@ local balance = player:getCurrency("guild_leathercraft");
 	
 player:PrintToPlayer("All the Leathercraft materials you need for your adventure!");
 player:PrintToPlayer("Trade me a single Terra Crystal to receive Synth Support.");
-player:PrintToPlayer("You have "..balance.." of GP points!");
+player:PrintToPlayer("You have "..balance.." Leathercraft GP!");
 
 stock = {0x119D,1,	--Distilled Water
 0x27B,1,	--Windurstian Tea Leaves

@@ -25,7 +25,7 @@ local balance = player:getCurrency("guild_cooking");
 	
 player:PrintToPlayer("All the Cooking materials you need for your adventure!");
 player:PrintToPlayer("Trade me a single Terra Crystal to receive Synth Support.");
-player:PrintToPlayer("You have "..balance.." Cooking points!");
+player:PrintToPlayer("You have "..balance.." Cooking GP!");
 
 stock = {0x11DA,1, --Bird Egg
 0x1128,1,	--Saruta Orange
