@@ -1,11 +1,11 @@
 ---------------------------------------------------------------------------------------------------
--- func: addeffect
--- desc: Adds the given effect to the given player.
+-- func: deleffect
+-- desc: Deletes the specified effect on the specified player.
 ---------------------------------------------------------------------------------------------------
 
 cmdprops =
 {
-    permission = 1,
+    permission = 2, --Fenix
     parameters = "si"
 };
 

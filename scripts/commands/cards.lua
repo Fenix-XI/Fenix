@@ -1,7 +1,6 @@
 ---------------------------------------------------------------------------------------------------
--- func: jugs.lua
--- auth: Hookstar
--- desc: Jugs Tool Shop
+-- func: cards
+-- desc: Opens Corsair card shop
 ---------------------------------------------------------------------------------------------------
 
 cmdprops =
@@ -29,13 +28,7 @@ stock = {
       2176, 1, -- Fire Card
       5402, 1, -- Fire Case
       5406, 1, -- Thunder Card
-      2180, 1, -- Thunder Case
-	  
-	  
-
-	
-
-      
+      2180, 1, -- Thunder Case 
    }
  
 showShop(player, STATIC, stock);

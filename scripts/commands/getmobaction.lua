@@ -5,7 +5,7 @@
 
 cmdprops =
 {
-    permission = 2,
+    permission = 1, --Fenix
     parameters = "i"
 };
 

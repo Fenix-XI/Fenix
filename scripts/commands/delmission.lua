@@ -5,7 +5,7 @@
 
 cmdprops =
 {
-    permission = 1,
+    permission = 3, --Fenix
     parameters = "iis"
 };
 
