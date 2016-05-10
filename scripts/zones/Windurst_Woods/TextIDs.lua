@@ -13,7 +13,7 @@
                GP_OBTAINED = 7206; -- Obtained <<<Numeric Parameter 0>>> guild points.
         NOT_HAVE_ENOUGH_GP = 7223; -- You do not have enough guild points.
              IMAGE_SUPPORT = 7188; -- Your ?Multiple Choice (Parameter 1)?[fishing/woodworking/smithing/goldsmithing/clothcraft/leatherworking/bonecraft/alchemy/cooking] skills went up ...
-
+         MOG_SAFE_EXPANDED = 8750; -- The capacity of your Mog Safe has increased!
 -- Conquest System
 CONQUEST = 8908; -- You've earned conquest points!
 

@@ -9,6 +9,7 @@
                             HOMEPOINT_SET = 6634; -- Home point set!
       FISHING_MESSAGE_OFFSET = 7049; -- You can't fish here.
                            MOGHOUSE_EXIT = 8176; -- You have learned your way through the back alleys of Windurst! Now you can exit to any area from your residence.
+                           MOG_SAFE_EXPANDED = 8040; 
 
 -- Other Texts
 ITEM_DELIVERY_DIALOG = 6953; -- We can deliver goods to your residence or to the residences of your friends.
