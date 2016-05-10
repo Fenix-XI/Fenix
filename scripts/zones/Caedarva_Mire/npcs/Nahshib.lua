@@ -9,6 +9,7 @@ package.loaded["scripts/zones/Caedarva_Mire/TextIDs"] = nil;
 require("scripts/zones/Caedarva_Mire/TextIDs");
 require("scripts/globals/missions");
 require("scripts/globals/keyitems");
+require("scripts/globals/quests");
 
 -----------------------------------
 -- onTrade Action
@@ -23,8 +24,10 @@ end;
 
 function onTrigger(player,npc)
     local IPpoint = player:getCurrency("imperial_standing");
-
-    if (player:getCurrentMission(TOAU) == IMMORTAL_SENTRIES) then
+	
+	if (player:hasKeyItem(830) == false and player:getQuestStatus(AHT_URHGAN,BEGINNINGS) == 1) then
+        player:startEvent(10); -- Recieve Brand For BLU AF Sword
+    elseif (player:getCurrentMission(TOAU) == IMMORTAL_SENTRIES) then
         if (player:hasKeyItem(SUPPLIES_PACKAGE)) then
             player:startEvent(5);
         elseif (player:getVar("AhtUrganStatus") == 1) then
@@ -57,6 +60,7 @@ end;
 -----------------------------------
 
 function onEventFinish(player,csid,option)
+	local Brands = player:getVar("Brands")
     -- printf("CSID: %u",csid);
     -- printf("RESULT: %u",option);
     if (csid == 5 and option == 1) then
@@ -66,5 +70,9 @@ function onEventFinish(player,csid,option)
         player:delCurrency("imperial_standing", 50);
         player:addKeyItem(ASSAULT_ARMBAND);
         player:messageSpecial(KEYITEM_OBTAINED,ASSAULT_ARMBAND);
+	elseif (csid == 10) then 	
+		player:addKeyItem(830);
+		player:messageSpecial(KEYITEM_OBTAINED,830);
+		player:setVar("Brands",(Brands + 1))
     end
 end;

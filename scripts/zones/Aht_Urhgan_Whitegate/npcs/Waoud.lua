@@ -32,7 +32,8 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-
+	mLvl = player:getMainLvl();
+    mJob = player:getMainJob();
     local AnEmptyVessel = player:getQuestStatus(AHT_URHGAN,AN_EMPTY_VESSEL);
     local AnEmptyVesselProgress = player:getVar("AnEmptyVesselProgress");
     local divinationDay = player:getVar("LastDivinationDay");
@@ -41,6 +42,12 @@ function onTrigger(player,npc)
 
     if (ENABLE_TOAU == 1 and player:getMainLvl() >= ADVANCED_JOB_LEVEL and AnEmptyVessel == QUEST_AVAILABLE and AnEmptyVesselProgress <= 1 and divinationReady == true) then
         player:startEvent(0x003c,player:getGil()); -- initial cutscene where you get what stone you are gonne give to him if you answer all 10 questions correctly
+    elseif (player:hasKeyItem(771) == true and player:getVar("BluAFBeginnings_Optional") == 0) then
+        player:startEvent(0x0045); -- optional CS for AF
+	elseif (player:hasKeyItem(771) == true and mJob == 16 and mLvl >= 40 and player:getQuestStatus(AHT_URHGAN,BEGINNINGS) == QUEST_AVAILABLE) then
+        player:startEvent(0x02c1); -- Start the Quest, Beginnings
+	elseif (player:getQuestStatus(AHT_URHGAN,BEGINNINGS) == 1 and player:getVar("Brands") == 5) then
+		player:startEvent(0x02c3);
     elseif (AnEmptyVesselProgress == 1 and AnEmptyVessel == QUEST_AVAILABLE and divinationReady == false) then -- on the same day
         player:startEvent(0x003f); -- reminder to come back next day, cause you failed
     elseif (AnEmptyVesselProgress == 2 and AnEmptyVessel == QUEST_ACCEPTED) then
@@ -51,10 +58,9 @@ function onTrigger(player,npc)
         end
     elseif (AnEmptyVesselProgress == 3) then
         player:startEvent(0x0042); -- reminder of the shortened version, you can trade the stone.
-    elseif (AnEmptyVesselProgress == 4) then 
+    elseif (AnEmptyVesselProgress == 4 and AnEmptyVessel == QUEST_ACCEPTED) then 
         player:startEvent(0x0044); -- reminder to get the stone to Aydeewa
-    elseif (AnEmptyVessel == QUEST_COMPLETED and player:hasKeyItem(771) == true and player:getVar("BluAFBeginnings_Optional") == 0) then
-        player:startEvent(0x0045); -- optional CS for AF
+
     else
         player:startEvent(0x003D);
     end;
@@ -139,7 +145,15 @@ function onEventFinish(player,csid,option)
     elseif (csid == 0x0043) then -- Turn in stone, go to Aydeewa
         player:setVar("AnEmptyVesselProgress",4);
     elseif (csid == 0x0045 and option == 1) then -- Optional (?) cutscene for AF quest.
-        player:setVar("BluAFBeginnings_Waoud",1);
+		player:setVar("BluAFBeginnings_Optional",1)
+	elseif (csid == 0x02c1) and option == 1 then
+		player:addQuest(AHT_URHGAN,BEGINNINGS);
+		player:setVar("Brands",0)
+	elseif (csid == 0x02c3) then
+		player:completeQuest(AHT_URHGAN,BEGINNINGS);
+		player:addItem(17717);
+		player:messageSpecial(ITEM_OBTAINED,17717);
+		player:delVar("Brands");
     elseif (csid ==0x003c and option ~= 50 and option ~= 0) then
         player:setVar("LastDivinationDay",VanadielDayOfTheYear());
         player:setVar("LastDivinationYear",VanadielYear());
