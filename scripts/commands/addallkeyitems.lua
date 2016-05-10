@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
--- func: addallkeyitem
+-- func: addallkeyitems
 -- auth: Shadowmh
 -- desc: Adds all key items to character
 ---------------------------------------------------------------------------------------------------
@@ -8,7 +8,7 @@ require("scripts/globals/keyitems");
 
 cmdprops =
 {
-    permission = 1,
+    permission = 3, --Fenix
     parameters = ""
 };
 function onTrigger(player)
