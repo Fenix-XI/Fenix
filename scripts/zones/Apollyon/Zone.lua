@@ -76,7 +76,7 @@ end;
 -----------------------------------
 
 function onZoneIn(player,prevZone)
-cs = -1; Commented out to fix Limbus zone
+cs = -1;
     if (prevZone~=33) then --Al'Taieu
       local playerLimbusID = player:getVar("LimbusID");
         if (playerLimbusID== 1290 or playerLimbusID== 1291 or playerLimbusID== 1294 or playerLimbusID== 1295 or playerLimbusID== 1296 or playerLimbusID== 1297) then
