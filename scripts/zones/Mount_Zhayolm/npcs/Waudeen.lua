@@ -73,7 +73,7 @@ function onEventFinish(player,csid,option)
        player:messageSpecial(KEYITEM_OBTAINED,ASSAULT_ARMBAND);   
     elseif (csid == 0x0004 and option == 1) then
         player:delKeyItem(SUPPLIES_PACKAGE);
-        player:setVar("TOAUM2",1);
+        player:setVar("AhtUrganStatus",1);
 	elseif (csid == 10) then
 		player:addKeyItem(831);
 		player:messageSpecial(KEYITEM_OBTAINED,831);
