@@ -15,7 +15,7 @@
                                          GP_OBTAINED =  7064; --Obtained <<<Numeric Parameter 0>>> guild points.
                     NOT_HAVE_ENOUGH_GP =  7081; --You do not have enough guild points.
              FISHING_MESSAGE_OFFSET = 10791; -- You can't fish here.
-
+             MOG_SAFE_EXPANDED = 10952;
 -- Conquest System
 CONQUEST = 11091; --You've earned conquest points!
 

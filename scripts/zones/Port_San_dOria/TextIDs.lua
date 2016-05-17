@@ -10,7 +10,7 @@ FULL_INVENTORY_AFTER_TRADE =  6427; -- You cannot obtain the <<<Possible Special
           KEYITEM_OBTAINED =  6431; -- Obtained key item: <<<Unknown Parameter (Type: 80) 1>>><<<Possible Special Code: 01>>><<<Possible Special Code: 05>>>3<<<BAD CHAR: 8280>>><<<BAD CHAR: 80>>><<<BAD CHAR: 80>>>.
              HOMEPOINT_SET =  24;   -- Home point set!
     FISHING_MESSAGE_OFFSET =  7218; -- You can't fish here.
-
+         MOG_SAFE_EXPANDED =  8225;
       ITEM_DELIVERY_DIALOG =  7933; -- Now delivering parcels to rooms everywhere!
 
 -- Dialogs
