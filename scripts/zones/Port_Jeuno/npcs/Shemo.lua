@@ -33,17 +33,10 @@ player:tradeComplete();
 	end
 end;
 
-
-
-
-
 -----------------------------------
 -- onTrigger Action
 -----------------------------------
 
 function onTrigger(player,npc)
 player:PrintToPlayer("Trade me 2 Kindred Crests for 1 Beastmen Seal; or 2 High Kindred Crests for 1 Kindred Seal!");
-
-
-
 end;
