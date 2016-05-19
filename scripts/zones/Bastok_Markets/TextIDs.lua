@@ -16,6 +16,7 @@ FULL_INVENTORY_AFTER_TRADE =  6383; --Try trading again after sorting your inven
                GP_OBTAINED =  7086; --Obtained <<<Numeric Parameter 0>>> guild points.
         NOT_HAVE_ENOUGH_GP =  7103; --You do not have enough guild points.
     FISHING_MESSAGE_OFFSET =  7197; --You can't fish here.
+         MOG_SAFE_EXPANDED =  7744; --The capacity of your Mog Safe has increased!
 
 -- Conquest System
 CONQUEST =  7764; --You've earned conquest points!

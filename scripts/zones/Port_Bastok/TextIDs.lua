@@ -11,7 +11,7 @@ FULL_INVENTORY_AFTER_TRADE = 6383; -- You cannot obtain the item (item>. Try tra
                                 HOMEPOINT_SET = 6502; -- Home point set!
          FISHING_MESSAGE_OFFSET = 7075; -- You can't fish here.
                                MOGHOUSE_EXIT = 7933; -- You have learned your way through the back alleys of Bastok! Now you can exit to any area from your residence.
-
+                               MOG_SAFE_EXPANDED = 7705;
 -- Conquest System
 CONQUEST = 7989; -- You've earned conquest points!
 

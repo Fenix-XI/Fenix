@@ -16,6 +16,7 @@ FULL_INVENTORY_AFTER_TRADE = 6427; -- Try trading again after sorting your inven
                GP_OBTAINED = 6786; -- Obtained <<<Numeric Parameter 0>>> guild points.
         NOT_HAVE_ENOUGH_GP = 6803; -- You do not have enough guild points.
    NOTHING_OUT_OF_ORDINARY = 6442; -- There is nothing out of the ordinary here.<Prompt>
+         MOG_SAFE_EXPANDED = 8991; -- The capacity of your Mog Safe has increased!
 
 -- Tutorial NPC
 TUTORIAL_NPC = 13495; -- Greetings and well met! Guardian of the Kingdom, Alaune, at your most humble service.

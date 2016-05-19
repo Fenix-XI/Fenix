@@ -150,10 +150,14 @@ function onEventFinish(player,csid,option)
 		player:addQuest(AHT_URHGAN,BEGINNINGS);
 		player:setVar("Brands",0)
 	elseif (csid == 0x02c3) then
-		player:completeQuest(AHT_URHGAN,BEGINNINGS);
-		player:addItem(17717);
-		player:messageSpecial(ITEM_OBTAINED,17717);
-		player:delVar("Brands");
+        if (player:getFreeSlotsCount() <= 1) then 
+            player:messageSpecial(ITEM_CANNOT_BE_OBTAINED,17717);
+            else
+		      player:completeQuest(AHT_URHGAN,BEGINNINGS);
+		      player:addItem(17717);
+		      player:messageSpecial(ITEM_OBTAINED,17717);
+		      player:delVar("Brands");
+        end
     elseif (csid ==0x003c and option ~= 50 and option ~= 0) then
         player:setVar("LastDivinationDay",VanadielDayOfTheYear());
         player:setVar("LastDivinationYear",VanadielYear());

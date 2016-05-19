@@ -13,7 +13,7 @@ GUILD_TERMINATE_CONTRACT = 7152; -- You have terminated your trading contract wi
      NO_MORE_GP_ELIGIBLE = 7167; -- You are not eligible to receive guild points at this time.
              GP_OBTAINED = 7156; -- Obtained <<<Numeric Parameter 0>>> guild points.
       NOT_HAVE_ENOUGH_GP = 7173; -- You do not have enough guild points.
-
+       MOG_SAFE_EXPANDED = 9140; -- The capacity of your Mog Safe has increased!
 
 -- Other
 NOTHING_OUT_OF_ORDINARY =  6557; -- There is nothing out of the ordinary here.
