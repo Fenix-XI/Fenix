@@ -9,5 +9,9 @@ cmdprops =
     parameters = "iiii"
 };
 function onTrigger(player, x, y, z, zone)
-            player:setPos('-640', '-19', '-492', '98', '222');
+	if (player:hasKeyItem(2271) == true) then
+        player:setPos('-640', '-19', '-492', '98', '222');
+    else
+    	player:PrintToPlayer("Please register with us to gain access. If already registered, contact a GM.");
+    end
 end
