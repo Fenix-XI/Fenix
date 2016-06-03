@@ -31,6 +31,7 @@ function onTrigger(player,npc)
     
     if (player:getXPos() < -440) then
         player:startEvent(0x00be);
+		player:setPos(-437,3,-740,3,79) --Hotfix 6/2/16 Fluxion
     else
         player:startEvent(0x00b6);
     end
