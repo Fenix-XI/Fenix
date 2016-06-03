@@ -510,16 +510,3 @@ UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLe
  UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLevel = "72", maxLevel = "75" WHERE g.zoneid = 153 AND s.mobname = "Mourning_Crawler";
  UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLevel = "40", maxLevel = "43" WHERE g.zoneid = 153 AND s.mobname = "Snaggletooth_Peapuk";
  UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLevel = "72", maxLevel = "74" WHERE g.zoneid = 153 AND s.mobname = "Viseclaw";
-
--- Eco Warrior Mob Spawns
--- GUSGEN
-INSERT INTO 'mob_spawn_points' VALUES (17580338, 'Pudding', 'Pudding', 9791, 24.000, -60.000, -20.000, 179);
-INSERT INTO 'mob_spawn_points' VALUES (17580339, 'Pudding', 'Pudding', 9791, 19.000, -60.000, -17.000, 247);
-
---Ordelles
-INSERT INTO 'mob_spawn_points' VALUES (17568138, 'Necroplasm', 'Necroplasm', 9637, -91.090, 31.725, 161.143, 244);
-
---Maze of S.
-INSERT INTO 'mobs_spawn_points' VALUES (17588701, 'Wyrmfly', 'Wyrmfly', 9878, 143.000, 9.000, -219.000, 198);
-INSERT INTO 'mobs_spawn_points' VALUES (17588702, 'Wyrmfly', 'Wyrmfly', 9878, 143.000, 10.000, -216.000, 198);
-INSERT INTO 'mobs_spawn_points' VALUES (17588703, 'Wyrmfly', 'Wyrmfly', 9878, 138.000, 9.000, -219.000, 198);
