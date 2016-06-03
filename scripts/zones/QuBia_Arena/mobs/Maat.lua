@@ -28,6 +28,11 @@ function onMobEngaged(mob,target)
     -- If you dying: target:showText(mob,LOOKS_LIKE_YOU_WERENT_READY);
 end;
 
+function onMobFight(mob,target)
+	if (mob:getHPP() <= 10) then 
+		mob:setHP(0);
+	end
+end;
 -----------------------------------
 -- onMobDeath Action
 -----------------------------------
