@@ -20,7 +20,7 @@ end;
 -----------------------------------
 
 function onTrigger(player,npc)
-	
+player:PrintToPlayer("Gobbiebag items for sale!");
 player:showText(npc,CREEPSTIX_SHOP_DIALOG);
 
 stock = {0x350,1, --Begin Gobbiebag Quest Items

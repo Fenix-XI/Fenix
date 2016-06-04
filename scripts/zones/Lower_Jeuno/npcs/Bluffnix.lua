@@ -69,7 +69,7 @@ end;
 function onTrigger(player,npc)
 
     local WildcatJeuno = player:getVar("WildcatJeuno");
-
+	player:PrintToPlayer("Creepstix sells all the Gobbiebag items!");
     if (player:getQuestStatus(JEUNO,LURE_OF_THE_WILDCAT_JEUNO) == QUEST_ACCEPTED and player:getMaskBit(WildcatJeuno,12) == false) then
         player:startEvent(10056);
     elseif (player:getContainerSize(0) < 80) then
