@@ -225,9 +225,9 @@ namespace battlefieldutils {
         // }
 
         // savage
-        if (battlefield->getID() == 961 && battlefield->isEnemyBelowHPP(30)) {
-            return true;
-        }
+        // if (battlefield->getID() == 961 && battlefield->isEnemyBelowHPP(30)) {
+        //     return true;
+        // }
 
         //generic cases, kill all mobs
         if (battlefield->allEnemiesDefeated()) {
