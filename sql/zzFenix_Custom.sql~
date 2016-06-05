@@ -158,7 +158,7 @@ UPDATE item_mods set value = 5 where itemid = '14488' and modid = '302'; #Triple
 -- Custom NPCs
 -- ----------------------------
 
--- @fenix
+-- @craft
 INSERT INTO npc_list VALUES (17068570,'Woodworking','Woodworking',192,14.000,0.000,-19.000,32769,50,50,0,0,0,0,27,0x0100060100107520753000400850006000700000,0,'TOAU');
 INSERT INTO npc_list VALUES (17068571,'Clothcraft','Clothcraft',192,0.000,0.000,-19.000,32769,40,40,0, 0,0,0,27,0x010004077710772017300E401455000600070000,0,'TOAU');
 INSERT INTO npc_list VALUES (17068572,'Leathercraft','Leathercraft',192,-14.000,0.000,-19.000,32769,40,40,0,0,0,0,27,0x0000C80600000000000000000000000000000000,0,'TOAU');
@@ -183,7 +183,6 @@ INSERT INTO npc_list VALUES (17686643,'PLDAF1','PLDAF1',48,-645.000,-19.000,-469
 INSERT INTO npc_list VALUES (17686645,'CORAF1','CORAF1',66,-635.000,-19.000,-469.000,0,40,40,0,0,32,0,27,0x0000050600000000000000000000000000000000,0,'WOTG');
 INSERT INTO npc_list VALUES (17686646,'SCHAF1','SCHAF1',61,-629.000,-19.000,-471.000,0,40,40,0,0,32,0,27,0x01000F02D610D620D630D640D650006000700000,0,'WOTG');
 INSERT INTO npc_list VALUES (17686647,'BLUAF1','BLUAF1',70,-624.000,-19.000,-472.000,0,40,40,0,0,32,0,27,0x01000201A510A520AB30A540AB50776100700000,0,'WOTG');
---INSERT INTO npc_list VALUES (17686648,'Dyna','Dyna',70,-621.000,-19.000,-473.000,0,40,40,0,0,32,0,27,0x0000550000000000000000000000000000000000,0,'WOTG');
 
 -- ----------------------------
 -- Custom Synth Recipes http://Fenix-ffxi.wikia.com/wiki/Custom_Recipes
@@ -511,16 +510,3 @@ UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLe
  UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLevel = "72", maxLevel = "75" WHERE g.zoneid = 153 AND s.mobname = "Mourning_Crawler";
  UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLevel = "40", maxLevel = "43" WHERE g.zoneid = 153 AND s.mobname = "Snaggletooth_Peapuk";
  UPDATE mob_groups g JOIN mob_spawn_points s ON (g.groupid = s.groupid) SET minLevel = "72", maxLevel = "74" WHERE g.zoneid = 153 AND s.mobname = "Viseclaw";
-
--- Eco Warrior Mob Spawns
--- GUSGEN
-INSERT INTO `mob_spawn_points` VALUES (17580338, 'Pudding', 'Pudding', 9791, 24.000, -60.000, -20.000, 179);
-INSERT INTO `mob_spawn_points` VALUES (17580339, 'Pudding', 'Pudding', 9791, 19.000, -60.000, -17.000, 247);
-
--- Ordelles
-INSERT INTO `mob_spawn_points` VALUES (17568138, 'Necroplasm', 'Necroplasm', 9637, -91.090, 31.725, 161.143, 244);
-
--- Maze of S.
-INSERT INTO `mobs_spawn_points` VALUES (17588701, 'Wyrmfly', 'Wyrmfly', 9878, 143.000, 9.000, -219.000, 198);
-INSERT INTO `mobs_spawn_points` VALUES (17588702, 'Wyrmfly', 'Wyrmfly', 9878, 143.000, 10.000, -216.000, 198);
-INSERT INTO `mobs_spawn_points` VALUES (17588703, 'Wyrmfly', 'Wyrmfly', 9878, 138.000, 9.000, -219.000, 198);

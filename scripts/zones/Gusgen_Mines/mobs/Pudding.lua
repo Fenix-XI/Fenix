@@ -1,7 +1,7 @@
 -----------------------------------
---  Area: Maze Of Shakhrami
+--  Area: Gusgen Mines
 --  NPC:  ???
---  Involved in Eco Warrior (Windurst)
+--  Involved in Eco Warrior (Bastok)
 -----------------------------------
 
 require("scripts/globals/quests");
@@ -18,7 +18,7 @@ end;
 -----------------------------------
 
 function onMobDeath(mob, killer)
-	if (killer:getQuestStatus(WINDURST,ECO_WARRIOR_WIN) ~= QUEST_AVAILABLE and killer:getVar("ECO_WARRIOR_ACTIVE") == 238 and killer:hasStatusEffect(EFFECT_LEVEL_RESTRICTION)) then
-		killer:setVar("ECOR_WAR_WIN-NMs_killed",1);
+	if (killer:getQuestStatus(BASTOK,ECO_WARRIOR_BAS) ~= QUEST_AVAILABLE and killer:getVar("ECO_WARRIOR_ACTIVE") == 236 and killer:hasStatusEffect(EFFECT_LEVEL_RESTRICTION)) then
+		killer:setVar("ECOR_WAR_BAS-NMs_killed",1);
 	end
 end;

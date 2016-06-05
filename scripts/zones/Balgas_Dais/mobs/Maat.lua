@@ -20,12 +20,27 @@ end;
 -----------------------------------
 
 function onMobEngaged(mob,target)
+	mob:setLocalVar("FightStart", (os.time() + 300));
     -- target:showText(mob,YOU_DECIDED_TO_SHOW_UP);
     printf("Maat Balga Dais works");
     -- When he take damage: target:showText(mob,THAT_LL_HURT_IN_THE_MORNING);
     -- He use dragon kick or tackle: target:showText(mob,TAKE_THAT_YOU_WHIPPERSNAPPER);
     -- He use spining attack: target:showText(mob,TEACH_YOU_TO_RESPECT_ELDERS);
     -- If you dying: target:showText(mob,LOOKS_LIKE_YOU_WERENT_READY);
+end;
+
+function onMobFight(mob, target)
+	local whmWin = mob:getLocalVar("FightStart");
+
+	if (mob:getMainJob() == 3) then
+		if (os.time() >= whmWin) or (mob:getHPP() <= 10) then
+			mob:setHP(0);
+		end
+	else
+		if (mob:getHPP() <= 10) then 
+			mob:setHP(0);
+		end
+	end
 end;
 
 -----------------------------------
