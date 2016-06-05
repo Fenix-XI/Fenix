@@ -52,6 +52,9 @@ function onMobFight(mob,target)
             mob:setLocalVar("changeTime", mob:getBattleTime());
         end
     end
+    if (mob:getHPP() <= 30) then
+        mob:setHP(0);
+    end
 end;
 
 -----------------------------------
