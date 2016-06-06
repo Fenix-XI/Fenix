@@ -31,7 +31,7 @@ FlyerForRegine = player:getQuestStatus(SANDORIA,FLYERS_FOR_REGINE);
         LufetSalt = trade:hasItemQty(1019,3);
         if (LufetSalt == true and count == 3) then
             player:tradeComplete();
-            player:addFame(SANDORIA,SAN_FAME*30);
+            player:addFame(SANDORIA,30);
             player:addGil(GIL_RATE*600);
             player:addTitle(BEAN_CUISINE_SALTER);
             player:completeQuest(SANDORIA,LUFET_S_LAKE_SALT);

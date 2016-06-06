@@ -72,10 +72,10 @@ function onEventFinish(player,csid,option)
         player:addGil(GIL_RATE*2100);
         player:messageSpecial(GIL_OBTAINED,GIL_RATE*2100)
         if (player:getQuestStatus(SANDORIA,TIGER_S_TEETH) == QUEST_ACCEPTED) then
-            player:addFame(SANDORIA,SAN_FAME*30);
+            player:addFame(SANDORIA,30);
             player:completeQuest(SANDORIA,TIGER_S_TEETH);
         else
-            player:addFame(SANDORIA,SAN_FAME*5);
+            player:addFame(SANDORIA,5);
         end
     end
 

@@ -63,9 +63,9 @@ function onEventFinish(player,csid,option)
     elseif (csid == 0x0202) then
         if (player:getQuestStatus(SANDORIA,THICK_SHELLS) == QUEST_ACCEPTED) then
             player:completeQuest(SANDORIA,THICK_SHELLS);
-            player:addFame(SANDORIA,SAN_FAME*30);
+            player:addFame(SANDORIA,30);
         else
-            player:addFame(SANDORIA,SAN_FAME*5);
+            player:addFame(SANDORIA,5);
         end
 
         player:tradeComplete();

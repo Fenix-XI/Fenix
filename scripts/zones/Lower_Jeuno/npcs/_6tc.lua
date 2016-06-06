@@ -98,7 +98,7 @@ function onEventFinish(player,csid,option)
             player:addItem(13186);
             player:messageSpecial(ITEM_OBTAINED,13186);
             player:setVar("BeatAroundTheBushin",0);
-            player:addFame(NORG,NORG_FAME*125);
+            player:addFame(NORG,125);
             player:tradeComplete();
             player:completeQuest(JEUNO,BEAT_AROUND_THE_BUSHIN);
         end

@@ -61,13 +61,13 @@ function onEventFinish(player,csid,option)
     elseif (csid == 0x005B) then
         player:addKeyItem(CORUSCANT_ROSARY);
         player:messageSpecial(KEYITEM_OBTAINED,CORUSCANT_ROSARY);
-        player:addFame(JEUNO,JEUNO_FAME*30);
+        player:addFame(JEUNO,30);
         player:tradeComplete(trade);
         player:completeQuest(JEUNO,MYSTERIES_OF_BEADEAUX_I);
     elseif (csid == 0x005C) then
         player:addKeyItem(BLACK_MATINEE_NECKLACE);
         player:messageSpecial(KEYITEM_OBTAINED,BLACK_MATINEE_NECKLACE);
-        player:addFame(JEUNO,JEUNO_FAME*30);
+        player:addFame(JEUNO,30);
         player:tradeComplete(trade);
         player:completeQuest(JEUNO,MYSTERIES_OF_BEADEAUX_II);
     end

@@ -74,7 +74,7 @@ function onEventFinish(player,csid,option)
         player:setVar("theDismayedCustomer", math.random(1,3));
     elseif (csid == 0x025f) then
         player:delKeyItem(GULEMONTS_DOCUMENT);
-        player:addFame(SANDORIA,SAN_FAME*30);
+        player:addFame(SANDORIA,30);
         player:addTitle(LOST_CHILD_OFFICER);
         player:completeQuest(SANDORIA, THE_DISMAYED_CUSTOMER);
         player:addGil(560*GIL_RATE);

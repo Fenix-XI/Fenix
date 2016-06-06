@@ -69,7 +69,7 @@ function onEventFinish(player,csid,option)
         player:addQuest(SANDORIA,GRIMY_SIGNPOSTS);
     elseif (csid == 0x002c) then
         player:setVar("CleanSignPost",0);
-        player:addFame(SANDORIA,SAN_FAME*30);
+        player:addFame(SANDORIA,30);
         player:addGil(GIL_RATE*1500);
         player:messageSpecial(GIL_OBTAINED,GIL_RATE*1500);
         player:completeQuest(SANDORIA,GRIMY_SIGNPOSTS);

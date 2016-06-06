@@ -67,7 +67,7 @@ function onEventFinish(player,csid,option)
         player:delKeyItem(COUGH_MEDICINE);
         player:addKeyItem(SCROLL_OF_TREASURE);
         player:messageSpecial(KEYITEM_OBTAINED,SCROLL_OF_TREASURE);
-        player:addFame(SANDORIA,SAN_FAME*30);
+        player:addFame(SANDORIA,30);
         player:completeQuest(SANDORIA,TO_CURE_A_COUGH);
     end
     

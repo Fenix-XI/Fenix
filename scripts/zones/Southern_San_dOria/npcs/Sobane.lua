@@ -95,7 +95,7 @@ function onEventFinish(player,csid,option)
             player:delKeyItem(TORN_OUT_PAGES);
             player:addItem(14760,1);
             player:messageSpecial(ITEM_OBTAINED,14760);
-            player:addFame(SANDORIA,SAN_FAME*30);
+            player:addFame(SANDORIA,30);
             player:completeQuest(SANDORIA,SIGNED_IN_BLOOD);
             player:setVar("SIGNED_IN_BLOOD_Prog",0);
             player:addGil(GIL_RATE*3500);

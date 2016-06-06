@@ -119,7 +119,7 @@ function onEventFinish(player,csid,option)
             player:messageSpecial(ITEM_CANNOT_BE_OBTAINED,rseGear);
         else
             if (questStatus == QUEST_ACCEPTED) then
-                player:addFame(JEUNO, JEUNO_FAME*30);
+                player:addFame(JEUNO, 30);
                 player:completeQuest(JEUNO,THE_GOBLIN_TAILOR);
             end
 
