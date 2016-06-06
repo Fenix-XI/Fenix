@@ -70,7 +70,7 @@ function onEventFinish(player,csid,option)
             player:addItem(16764);
             player:messageSpecial(ITEM_OBTAINED, 16764); -- Marauder's Knife
             player:setVar("theTenshodoShowdownCS",0);
-            player:addFame(WINDURST,WIN_FAME*30);
+            player:addFame(WINDURST,30);
             player:completeQuest(WINDURST,THE_TENSHODO_SHOWDOWN);
         end
     end

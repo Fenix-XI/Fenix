@@ -94,7 +94,7 @@ function onEventFinish(player,csid,option)
         player:addTitle(ROYAL_GRAVE_KEEPER);
         player:addGil(GIL_RATE*560);
         player:messageSpecial(GIL_OBTAINED,GIL_RATE*560)
-        player:addFame(SANDORIA,SAN_FAME*30);
+        player:addFame(SANDORIA,30);
         player:completeQuest(SANDORIA,GRAVE_CONCERNS);
     end
 

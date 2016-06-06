@@ -92,7 +92,7 @@ function onEventFinish(player,csid,option)
             player:delKeyItem(ORCISH_DRIED_FOOD);
             player:addItem(16829);
             player:messageSpecial(ITEM_OBTAINED, 16829); -- Fencing Degen
-            player:addFame(SANDORIA,SAN_FAME*30);
+            player:addFame(SANDORIA,30);
             player:completeQuest(SANDORIA,THE_CRIMSON_TRIAL);
         end
     elseif (csid == 0x0040) then

@@ -78,10 +78,10 @@ function onEventFinish(player,csid,option)
         player:addGil(GIL_RATE*120);
         player:messageSpecial(GIL_OBTAINED,GIL_RATE*120);
         if (player:getQuestStatus(SANDORIA,THE_MERCHANT_S_BIDDING) == QUEST_ACCEPTED) then
-            player:addFame(SANDORIA,SAN_FAME*30);
+            player:addFame(SANDORIA,30);
             player:completeQuest(SANDORIA,THE_MERCHANT_S_BIDDING);
         else
-            player:addFame(SANDORIA,SAN_FAME*5);
+            player:addFame(SANDORIA,5);
         end
     end
     

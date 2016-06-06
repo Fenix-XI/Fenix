@@ -82,7 +82,7 @@ function onEventFinish(player,csid,option)
         else
             player:addItem(15008);
             player:messageSpecial(ITEM_OBTAINED,15008); -- Trainee Gloves
-            player:addFame(SANDORIA,SAN_FAME*30);
+            player:addFame(SANDORIA,30);
             player:completeQuest(SANDORIA,ATELLOUNE_S_LAMENT);
         end
     end
