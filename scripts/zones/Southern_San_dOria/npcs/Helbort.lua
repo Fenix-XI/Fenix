@@ -67,7 +67,7 @@ function onEventFinish(player,csid,option)
             player:delKeyItem(WEAPONS_RECEIPT);
             player:addItem(17090); 
             player:messageSpecial(ITEM_OBTAINED,17090); -- Elm Staff
-            player:addFame(SANDORIA,SAN_FAME*30);
+            player:addFame(SANDORIA,30);
             player:completeQuest(SANDORIA, A_PURCHASE_OF_ARMS);
         end
     end

@@ -128,7 +128,7 @@ function onEventFinish(player,csid,option,npc)
             player:addTitle(RONFAURIAN_RESCUER);
             player:addItem(12832);
             player:messageSpecial(ITEM_OBTAINED,12832); -- Bronze Subligar
-            player:addFame(SANDORIA,SAN_FAME*30);
+            player:addFame(SANDORIA,30);
             player:completeQuest(SANDORIA,A_SENTRY_S_PERIL);
         end
     end

@@ -75,7 +75,7 @@ function onEventFinish(player,csid,option)
             player:addTitle(BROWN_BELT);
             player:addItem(13202);
             player:messageSpecial(ITEM_OBTAINED,13202);
-            player:addFame(NORG,NORG_FAME*125);
+            player:addFame(NORG,125);
             player:tradeComplete();
             player:completeQuest(JEUNO,FISTFUL_OF_FURY);
         end        

@@ -71,7 +71,7 @@ function onEventFinish(player,csid,option)
         player:addTitle(SHEEPS_MILK_DELIVERER);
         player:addGil(GIL_RATE*5000);
         player:messageSpecial(GIL_OBTAINED,GIL_RATE*5000);
-        player:addFame(SANDORIA,SAN_FAME*30);
+        player:addFame(SANDORIA,30);
         player:completeQuest(SANDORIA,SLEEPLESS_NIGHTS);
     end
 

@@ -131,7 +131,7 @@ function onEventFinish(player,csid,option)
             player:messageSpecial(ITEM_OBTAINED,0x3001);
             player:addTitle(COURIER_EXTRAORDINAIRE);
             player:completeQuest(SANDORIA,THE_BRUGAIRE_CONSORTIUM);
-            player:addFame(SANDORIA,SAN_FAME*30);
+            player:addFame(SANDORIA,30);
             player:setVar("TheBrugaireConsortium-Parcels",0);
         else
             player:startEvent(0x0219);

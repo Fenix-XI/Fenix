@@ -103,10 +103,10 @@ function onEventFinish(player,csid,option)
         player:addTitle(APIARIST);
         player:addGil(GIL_RATE*400);
         if (player:getQuestStatus(SANDORIA, THE_SWEETEST_THINGS) == QUEST_ACCEPTED) then
-            player:addFame(SANDORIA,SAN_FAME*30);
+            player:addFame(SANDORIA,30);
             player:completeQuest(SANDORIA, THE_SWEETEST_THINGS);
         else
-            player:addFame(SANDORIA, SAN_FAME*5);
+            player:addFame(SANDORIA,5);
         end
     end
     
