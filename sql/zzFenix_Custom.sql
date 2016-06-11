@@ -57,6 +57,10 @@ update item_armor set jobs = 131074 where itemId = '18264'; #Spharai for PUP
 update item_armor set jobs = 32848 where itemId = '18275'; #Caliburn for BLU
 update item_armor set jobs = 32848 where itemId = '18276'; #Excalibur for BLU
 
+-- Dual wield for THF
+
+UPDATE traits set level = 75 where traitid = '18' and job = '6' and level = '83'; #DW at 75
+
 -- Mjollnir
 
 INSERT INTO item_mods (itemid,modId,value) Values(18324,519,10); #cure cast time down 10%
