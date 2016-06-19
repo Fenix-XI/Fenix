@@ -52,7 +52,8 @@ stock = {0x0370,1,	--Bone Chip
 0x632,1,	--Titanictus Shell
 0x520,1,	--Angel Skin
 0x6b7,1,    --Harajanite Shell
-0x656,1,    --Bugard Horn
+0x656,1,    --Bugard Tusk
+0x385,1,	--Venomous Claw
 0x718,1,    --Wyrm Horn
 0x387,1,    --Dragon Talon
 }	
