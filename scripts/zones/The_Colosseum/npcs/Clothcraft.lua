@@ -28,6 +28,7 @@ player:PrintToPlayer("Trade me a single Terra Crystal to receive Synth Support."
 player:PrintToPlayer("You have "..balance.." Clothcraft GP!");
 stock = {0x0331,1,	--Grass Thread
 0x332,1,	--Cotton Thread
+0x342,1,	--Saruta Cotton
 0x724,1,	--Red Grass Thread
 0x343,1,	--Flax Flower
 0x333,1,	--Linen Thread
