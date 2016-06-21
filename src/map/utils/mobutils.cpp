@@ -905,7 +905,7 @@ void SetupNMMob(CMobEntity* PMob)
 void SetupMaat(CMobEntity* PMob)
 {
     // Should swing normally when not a mnk
-    PMob->m_Weapons[SLOT_MAIN]->setDelay((240*1000)/60);
+    //PMob->m_Weapons[SLOT_MAIN]->setDelay((240*1000)/60);
 
     switch(PMob->GetMJob()){
         case JOB_NIN:
@@ -1237,42 +1237,42 @@ void AddCustomMods(CMobEntity* PMob)
 void InitializeMaat(CMobEntity* PMob, JOBTYPE job)
 {
     //set job based on characters job
-    PMob->SetMJob(job);
+    //PMob->SetMJob(job);
 
     // give him a spell list based on job
-    uint16 spellList = 0;
+    // uint16 spellList = 0;
 
-    switch(job){
-        case JOB_WHM:
-            spellList = 1;
-            break;
-        case JOB_BLM:
-            spellList = 2;
-            break;
-        case JOB_RDM:
-            spellList = 3;
-            break;
-        case JOB_PLD:
-            spellList = 4;
-            break;
-        case JOB_DRK:
-            spellList = 5;
-            break;
-        case JOB_BRD:
-            spellList = 6;
-            break;
-        case JOB_NIN:
-            spellList = 7;
-            break;
-        case JOB_BLU:
-            spellList = 8;
-            break;
-        case JOB_SMN:
-            spellList = 141;
-            break;
-    }
+    // switch(job){
+    //     case JOB_WHM:
+    //         spellList = 1;
+    //         break;
+    //     case JOB_BLM:
+    //         spellList = 2;
+    //         break;
+    //     case JOB_RDM:
+    //         spellList = 3;
+    //         break;
+    //     case JOB_PLD:
+    //         spellList = 4;
+    //         break;
+    //     case JOB_DRK:
+    //         spellList = 5;
+    //         break;
+    //     case JOB_BRD:
+    //         spellList = 6;
+    //         break;
+    //     case JOB_NIN:
+    //         spellList = 7;
+    //         break;
+    //     case JOB_BLU:
+    //         spellList = 8;
+    //         break;
+    //     case JOB_SMN:
+    //         spellList = 141;
+    //         break;
+    // }
 
-    PMob->m_SpellListContainer = mobSpellList::GetMobSpellList(spellList);
+    //PMob->m_SpellListContainer = mobSpellList::GetMobSpellList(spellList);
 
     PMob->m_DropID = 4485; //Give Maat his stealable Warp Scroll
 }
