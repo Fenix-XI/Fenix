@@ -278,7 +278,8 @@ update mob_droplist set rate = '335', itemid = '4146' where dropid = '195' and i
 update mob_droplist set rate = '200', itemid = '1337' where dropid = '2425' and itemid = '865' and rate = '350';
 update mob_droplist set rate = '150', itemid = '2436' where dropid = '2425' and itemid = '865' and rate = '170';
 update mob_droplist set rate = '95', itemid = '16096' where dropid = '2425' and itemid = '1133' and rate = '500';
-update mob_droplist set rate = '50', itemid = '16555' where dropid = '2425' and itemid = '4272' and rate = '130';
+--update mob_droplist set rate = '50', itemid = '16555' where dropid = '2425' and itemid = '4272' and rate = '130'; Ridill should be on Fafnir
+update mob_droplist set rate = '25', itemid = '1454' where dropid = '824' and itemid = '1453' and rate = '180';
 update mob_droplist set rate = '25', itemid = '1454' where dropid = '824' and itemid = '1453' and rate = '180';
 update mob_droplist set rate = '25', itemid = '1451' where dropid = '824' and itemid = '1450' and rate = '350';
 update mob_droplist set rate = '25', itemid = '1457' where dropid = '824' and itemid = '1456' and rate = '130';
