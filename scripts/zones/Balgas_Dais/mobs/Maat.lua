@@ -12,7 +12,9 @@ require("scripts/zones/Balgas_Dais/TextIDs");
 -- onMobSpawn Action
 -----------------------------------
 
+
 function onMobSpawn(mob)
+	whmWin = 0
 end;
 
 -----------------------------------
@@ -21,6 +23,7 @@ end;
 
 function onMobEngaged(mob,target)
 	mob:setLocalVar("FightStart", (os.time() + 300));
+	whmWin = mob:getLocalVar("FightStart");
     -- target:showText(mob,YOU_DECIDED_TO_SHOW_UP);
     printf("Maat Balga Dais works");
     -- When he take damage: target:showText(mob,THAT_LL_HURT_IN_THE_MORNING);
@@ -29,8 +32,17 @@ function onMobEngaged(mob,target)
     -- If you dying: target:showText(mob,LOOKS_LIKE_YOU_WERENT_READY);
 end;
 
+function onMobRoam(mob)
+
+	if (mob:getMainJob() == 3) and (whmWin > 0) then
+		if (os.time() >= whmWin) then
+			mob:setHP(0);
+		end
+	end
+
+end;
+
 function onMobFight(mob, target)
-	local whmWin = mob:getLocalVar("FightStart");
 
 	if (mob:getMainJob() == 3) then
 		if (os.time() >= whmWin) or (mob:getHPP() <= 10) then
@@ -48,5 +60,5 @@ end;
 -----------------------------------
 
 function onMobDeath(mob,killer,ally)
-    killer:showText(mob,YOUVE_COME_A_LONG_WAY);
+    mob:showText(mob,YOUVE_COME_A_LONG_WAY);
 end;
