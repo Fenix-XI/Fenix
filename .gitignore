@@ -156,3 +156,8 @@ log/DSP.leaks
 #Lua Developement Tools project files
 .metadata/**
 .project
+
+#Confs
+conf/login_darkstar.conf
+conf/map_darkstar.conf
+conf/search_server.conf
