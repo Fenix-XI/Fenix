@@ -157,5 +157,4 @@ log/DSP.leaks
 .metadata/**
 .project
 
-#Confs
-conf/*.conf
+*.conf
