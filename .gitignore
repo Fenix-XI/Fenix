@@ -158,6 +158,4 @@ log/DSP.leaks
 .project
 
 #Confs
-conf/login_darkstar.conf
-conf/map_darkstar.conf
-conf/search_server.conf
+conf/*.conf
